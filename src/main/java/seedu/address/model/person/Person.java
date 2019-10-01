@@ -26,7 +26,7 @@ public class Person {
     private Phone phone;
     private Email email;
     private Address address;
-    private Remark remark;
+        private Remark remark;
     private Set<Tag> tags = new HashSet<>();
     private Schedule schedule;
 

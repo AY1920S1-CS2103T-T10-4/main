@@ -59,15 +59,12 @@ Format: `help`
 === Adding a person: `add`
 
 Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
-
-[TIP]
-A person can have any number of tags (including 0)
+Format: `add-person -n NAME -e EMAIL [-c NUS_MOD_LINK]`
 
 Examples:
 
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add-person -n Catherine -e catherineCanCook@imail.com`
+* `add-person -n John Doe -e JohnDoe@imail.com -c 23F6B742CE`
 
 === Listing all persons : `list`
 
@@ -118,7 +115,7 @@ Returns any person having names `Betsy`, `Tim`, or `John`
 === Deleting a person : `delete`
 
 Deletes the specified person from the address book. +
-Format: `delete INDEX`
+Format: `delete-person -n NAME`
 
 ****
 * Deletes the person at the specified `INDEX`.
@@ -128,12 +125,8 @@ Format: `delete INDEX`
 
 Examples:
 
-* `list` +
-`delete 2` +
+* `delete-person -n Benedict` +
 Deletes the 2nd person in the address book.
-* `find Betsy` +
-`delete 1` +
-Deletes the 1st person in the results of the `find` command.
 
 // end::delete[]
 === Clearing all entries : `clear`
@@ -156,6 +149,133 @@ There is no need to save manually.
 
 _{explain how the user can enable/disable data encryption}_
 // end::dataencryption[]
+
+== Advanced Features
+
+=== Add Schedule: `add-schedule`
+
+Adds a schedule to a person in TimeBook
+Can be used to mark a person as unavailable either on one-off dates or on a particular day every week +
+Format:	
+
+* `add-schedule -n NAME -d DATE -t TIME` +
+* `add-schedule -n NAME -d DAY -t TIME` +
+* `add-schedule -n NAME -c NUS_MOD_LINK`
+
+Examples:
+
+* `add-schedule -n John -d 18/09/2019 -t 1000`
+* `add-schedule -n John -d Wednesday -t 1000`
+* `add-schedule -n Jake -c 23F6B742CE`
+
+=== Delete schedule: `delete-schedule`
+
+Delete all schedule data of the specified person from TimeBook +
+Format:	
+
+* `delete-schedule -n NAME` +
+
+Examples:
+
+* `delete-schedule -n John`
+
+=== Edit person’s details: `edit-person`
+
+Edits a person’s details by overwriting in TimeBook +
+Format:	
+
+* `edit-person -n NAME [-e EMAIL_ADDRESS] [-c NUS_MOD_LINK]` +
+
+Examples:
+
+* `edit-person -n John -e JDoe@imail.com`
+* `edit-person -n Jake -c 23F6B742CE -e contact@jake.com`
+
+
+=== Group friends: `group`
+
+Adds members into a group and creates the group if it doesn’t already exist +
+Format:	
+
+* `group -g GROUP_NAME [-m NAME]...` +
+
+
+Examples:
+
+* `group -g TimeBook -m Catherine -m John Doe`
+* `group -g CS2030 T2 -m Amanda -m Catherine`
+
+=== Show group: `show-group`
+
+Shows details of a group: who are its members and their available timings +
+Format:	
+
+* `show-group -g TimeBook` +
+* `show-group -g CS2030 T2`
+
+
+Examples:
+
+* `group -g TimeBook -m Catherine -m John Doe`
+* `group -g CS2030 T2 -m Amanda -m Catherine`
+
+=== Delete group: `delete-group`
+
+Adds members into a group and creates the group if it doesn’t already exist +
+Format:	
+
+* `delete-group -g GROUP_NAME` 
+
+Examples:
+
+* `delete-group -g CS2030 T2`
+
+=== Show person: `show-person`
+
+Shows a person’s details along with their schedule +
+Format:	
+
+* `show-person -n NAME` +
+
+
+Examples:
+
+* `show-person -n Catherine`
+* `show-person -n Jake`
+
+=== Export VR(Virtual Representation): `export-vr`
+
+Exports a visualisation representation of the schedule (timetable) of a group or person(s) +
+Format:	
+
+* `export-vr [-n NAME]… [-g GROUP_NAME]… -o OUTPUT_FILE` +
+
+Examples:
+
+* `export-vr -g TimeBook -o timetable.jpg`
+* `export-vr -n John Doe -n Joe Dohn -n Jackie Chan -o timetable.jpg`
+
+=== Export ICS: `export-ics`
+
+Output the free time for a certain group as an ics file. This ics file could be imported into google calendar. +
+Format:	
+
+* `export-ics OUTPUT_FILENAME` +
+
+Examples:
+
+* `Export-ics -n CS3230T`
+
+=== Import ICS: `import-ics`
+
+Import the ics file of an individual. +
+Format:	
+
+* `import-ics NAME FILEPATHE` +
+
+Examples:
+
+* `Import-ics -t individual -n Catherine -p /data/timetable.ics`
 
 == FAQ
 

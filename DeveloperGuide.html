@@ -22,12 +22,13 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#command-suggestions">3.2. Command Suggestions feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
-<li><a href="#Implementation-ClosestLocation">3.6. Closest Common Location(Micro Service)</a></li>
+<li><a href="#proposed-finding-free-timeslot-feature">3.1. [Proposed] Finding Free Timeslot feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#command-suggestions">3.3. Command Suggestions feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#Implementation-ClosestLocation">3.7. Closest Common Location(Micro Service)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -332,9 +333,84 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-finding-free-timeslot-feature"><a class="link" href="#proposed-finding-free-timeslot-feature">3.1. [Proposed] Finding Free Timeslot feature</a></h3>
 <div class="sect3">
 <h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>The finding free timeslot feature is implemented by <code>ScheduleGenerator</code>. It generates the current <code>WeekSchedule</code> of a group and the common free timeslot among its members and updates the <code>ScheduleView</code> to be displayed to the user. Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleGenerator#getFreeTimeslot()</code>&#8201;&#8212;&#8201;Generates a <code>weekSchedule</code> of a group and updates the <code>ScheduleView</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#getFreeTimeslot()</code></p>
+</div>
+<div class="paragraph">
+<p>Firstly, the <code>getFreeTimeslot()</code> method takes in as input an ArrayList of <code>Person</code> and updates the ScheduleView of the TimeBook. When the method is executed, it checks the schedule of each <code>Person</code> in the TimeBook and generates a new combined <code>WeekSchedule</code> of the whole list of <code>Person</code>. Also, only <code>TimeSlots</code> that are within the week are checked and put into the 'WeekSchedule'. The generated <code>WeekSchedule</code> will then contain the individual schedules of each <code>Person</code> in the list for the week.</p>
+</div>
+<div class="paragraph">
+<p>After the <code>WeekSchedule</code> has been generated, the method now generates a new schedule of the free timeslots within the <code>WeekSchedule</code>. It checks the <code>WeekSchedule</code> and generates a new <code>FreeTimeSchedule</code> with contains all the timeslots in which there are no clashes with the <code>weekSchedule</code>. It also only generates <code>FreeTimeslots</code> for the week.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the generated <code>FreeTimeSchedule</code> also contains the information of the last venue the <code>Person</code> has been. This information is then used to calculate the closest location for all <code>Person</code> to meet.</p>
+</div>
+<div class="paragraph">
+<p>Finally, after generating the <code>WeekSchedule</code> and <code>FreeTimeSchedule</code>, it now updates the <code>ScheduleView</code> of <code>TimeBook</code>. This 'ScheduleView' is then displayed to the user through the UI.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the generateFreeTimeslot operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindFreeTimeslotSequenceDiagram.png" alt="FindFreeTimeslotSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-code-weekschedule-code-is-generated-and-stored"><a class="link" href="#aspect-how-the-code-weekschedule-code-is-generated-and-stored">Aspect: How the <code>WeekSchedule</code> is generated and stored</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Generates the <code>WeekSchedule</code> only when the <code>ShowGroup</code> command is executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Saves memory space, and does not need to compute the <code>WeekSchedule</code> of every group upon startup.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in runtime as there is no preprocessing as the <code>WeekSchedule</code> is only generated when required.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Upon startup, generate each Group&#8217;s <code>WeekSchedule</code> and store them within the <code>Group</code> object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better runtime performance as the <code>WeekSchedule</code> is already generated.</p>
+</li>
+<li>
+<p>Cons: Will have perfomance issues in terms of memory usage. Each Group&#8217;s <code>WeekSchedule</code> will also have to be updated whenever a <code>Person</code> is added, edited or deleted.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.2.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -476,7 +552,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -546,9 +622,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-suggestions"><a class="link" href="#command-suggestions">3.2. Command Suggestions feature</a></h3>
+<h3 id="command-suggestions"><a class="link" href="#command-suggestions">3.3. Command Suggestions feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The command suggestions mechanism is facilitated by <code>SuggestionLogic</code>.
 Through user-interface events provided by <code>SuggestingCommandBox</code>, it parses the command that was entered to provide context-sensitive suggestions.</p>
@@ -650,7 +726,7 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-command-suggestions-gets-its-suggestions"><a class="link" href="#aspect-how-command-suggestions-gets-its-suggestions">Aspect: How command suggestions gets its suggestions</a></h5>
 <div class="ulist">
@@ -720,20 +796,20 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -764,18 +840,18 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">3.6. Closest Common Location(Micro Service)</a></h3>
+<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">3.7. Closest Common Location(Micro Service)</a></h3>
 <div class="paragraph">
 <p>Closest common location utilises Google Maps Api to get the closest common location among a group of various location in NUS.</p>
 </div>
 <div class="sect3">
-<h4 id="definition"><a class="link" href="#definition">3.6.1. Definition</a></h4>
+<h4 id="definition"><a class="link" href="#definition">3.7.1. Definition</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -791,7 +867,7 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect3">
-<h4 id="algorithm"><a class="link" href="#algorithm">3.6.2. Algorithm</a></h4>
+<h4 id="algorithm"><a class="link" href="#algorithm">3.7.2. Algorithm</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -820,7 +896,7 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.6.3. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.7.3. Implementation</a></h4>
 <div class="paragraph">
 <p>Overview of the implementation</p>
 </div>
@@ -858,7 +934,7 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-matrix"><a class="link" href="#creating-matrix">3.6.4. Creating matrix</a></h4>
+<h4 id="creating-matrix"><a class="link" href="#creating-matrix">3.7.4. Creating matrix</a></h4>
 <div class="paragraph">
 <p>This is the sequence diagram for the creation of the matrix.</p>
 </div>
@@ -907,7 +983,7 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 </div>
 </div>
 <div class="sect3">
-<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">3.6.5. Getting closest location</a></h4>
+<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">3.7.5. Getting closest location</a></h4>
 <div class="paragraph">
 <p>This is the sequence diagram for when the method <code>Model.getClosestLocationData</code> and <code>Model.getClosestLocationString</code></p>
 </div>
@@ -1434,4 +1510,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:45:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:58:50 UTC</div></div></div></body></html>

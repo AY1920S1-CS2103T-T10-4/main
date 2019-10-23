@@ -28,7 +28,8 @@
 <li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">3.5. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
-<li><a href="#Implementation-ClosestLocation">3.7. Closest Common Location(Micro Service)</a></li>
+<li><a href="#visual-representation-of-individual-s-or-group-s-schedule">3.7. Visual Representation of individual&#8217;s or group&#8217;s schedule</a></li>
+<li><a href="#Implementation-ClosestLocation">3.8. Closest Common Location(Micro Service)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -846,12 +847,184 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">3.7. Closest Common Location(Micro Service)</a></h3>
+<h3 id="visual-representation-of-individual-s-or-group-s-schedule"><a class="link" href="#visual-representation-of-individual-s-or-group-s-schedule">3.7. Visual Representation of individual&#8217;s or group&#8217;s schedule</a></h3>
+<div class="paragraph">
+<p>A separate class <code>ScheduleView</code> will be created to facilitate the creation of the schedule view belonging to individuals and groups.
+Depending on the constructor used in this class, different types of schedules will be shown. There are two types of constructors:
+* <code>ScheduleView(WeekSchedule weekSchedule)</code> This constructor is used to construct a schedule view of an individual.
+* <code>ScheduleView(List&lt;WeekSchedule&gt; weekSchedules, List&lt;String&gt; colors, WeekSchedule freeSchedule)</code> This constructor is used to construct a schedule view of a group</p>
+</div>
+<div class="paragraph">
+<p>These methods are used in the MainWindow class, where MainWindow will display instances of ScheduleView when various commands
+are performed.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example of how the Nodes (containers) in MainWindow changes with respect to the show command.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. After the user launches the application, the MainWindow will consist of 4 main Nodes: <code>CommandBox</code>, <code>TabsPanel</code>, <code>ResultDisplay</code> and <code>DefaultDetailWindow</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VisualRepresentationCD0.png" alt="VisualRepresentationCD0">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2a. Suppose the user has a friend named Ben in the application. The user executes <code>show n/ Ben</code> in order to view Ben&#8217;s details
+and his schedule. The state of MainWindow will now have another set of 4 Nodes: <code>CommandBox</code>, <code>ResultDisplay</code>, <code>ScheduleView</code> and <code>PersonDetailCard</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VisualRepresentationCD1.png" alt="VisualRepresentationCD1">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2b. Alternatively, suppose the user has a group named CS2103T team project. The user executes <code>show g/ CS2103T team project</code> in
+order to view the group&#8217;s schedule and information. The state of MainWindow will now have a different set of 4 Nodes: <code>CommandBox</code>, <code>ScheduleView</code>,
+<code>ResultDisplay</code> and <code>GroupInformation</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VisualRepresentationCD2.png" alt="VisualRepresentationCD2">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the user keys in a name or group that is not present in the application, a CommandException will be thrown to indicate
+that such name or group is not found in the application.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the show command eventually lead to changes in the UI to show the visual representation
+of an individual&#8217;s or group&#8217;s schedule.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VisualRepresentationSD0.png" alt="VisualRepresentationSD0">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/VisualRepresentationSD1.png" alt="VisualRepresentationSD1">
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.7.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-user-experience-of-the-schedule-view"><a class="link" href="#aspect-user-experience-of-the-schedule-view">Aspect: User experience of the schedule view.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a separate container for headers and schedule contents (table cells &amp; blocks).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can read the schedule in our application a lot more easier.</p>
+</li>
+<li>
+<p>Cons: Duplicated codes in the ScheduleView class to generate the separate containers.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> A single container to contain the schedule view.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement, lesser lines of codes.</p>
+</li>
+<li>
+<p>Cons: UX will decrease due to increase difficulty to read schedules in the application.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-amount-of-detail-present-in-schedule-view"><a class="link" href="#aspect-amount-of-detail-present-in-schedule-view">Aspect: Amount of detail present in schedule view.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Enable users to see schedules up to 1 week in advance.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Users may experience difficulty to plan meetings 2 or more weeks in advance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Enable users to see schedules up to 4 weeks in advance.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Most users will be able to plan most of their meetings. (Up to 1 month in advance).</p>
+</li>
+<li>
+<p>Cons: Slightly more challenging to implement in order to make sure that the schedule view is not cluttered.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-color-schemes-for-time-slot-blocks-in-schedule-view"><a class="link" href="#aspect-color-schemes-for-time-slot-blocks-in-schedule-view">Aspect: Color schemes for time slot blocks in schedule view.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Select 10 good contrast colours to dark theme for schedules.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More aesthetically pleasing to the user.</p>
+</li>
+<li>
+<p>Cons: Groups that have more than 10 members will have the same colours for their schedule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Randomly generate colours depending on group size.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: All members in a group will very likely have different colours to indicate their schedule.</p>
+</li>
+<li>
+<p>Cons: Schedules with darker colours cannot be seen from a dark theme UI.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">3.8. Closest Common Location(Micro Service)</a></h3>
 <div class="paragraph">
 <p>Closest common location utilises Google Maps Api to get the closest common location among a group of various location in NUS.</p>
 </div>
 <div class="sect3">
-<h4 id="definition"><a class="link" href="#definition">3.7.1. Definition</a></h4>
+<h4 id="definition"><a class="link" href="#definition">3.8.1. Definition</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -867,7 +1040,7 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect3">
-<h4 id="algorithm"><a class="link" href="#algorithm">3.7.2. Algorithm</a></h4>
+<h4 id="algorithm"><a class="link" href="#algorithm">3.8.2. Algorithm</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -896,7 +1069,7 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.7.3. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.8.3. Implementation</a></h4>
 <div class="paragraph">
 <p>Overview of the implementation</p>
 </div>
@@ -934,7 +1107,7 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-matrix"><a class="link" href="#creating-matrix">3.7.4. Creating matrix</a></h4>
+<h4 id="creating-matrix"><a class="link" href="#creating-matrix">3.8.4. Creating matrix</a></h4>
 <div class="paragraph">
 <p>This is the sequence diagram for the creation of the matrix.</p>
 </div>
@@ -983,7 +1156,7 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 </div>
 </div>
 <div class="sect3">
-<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">3.7.5. Getting closest location</a></h4>
+<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">3.8.5. Getting closest location</a></h4>
 <div class="paragraph">
 <p>This is the sequence diagram for when the method <code>Model.getClosestLocationData</code> and <code>Model.getClosestLocationString</code></p>
 </div>
@@ -991,6 +1164,9 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <div class="content">
 <img src="images/gmaps/ClosestLocationSequenceDiagram.png" alt="ClosestLocationSequenceDiagram">
 </div>
+</div>
+<div class="paragraph">
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4d908ab81c2bd5e35254b1528ab1e76480b2b893</p>
 </div>
 </div>
 </div>
@@ -1510,4 +1686,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:22:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:35:49 UTC</div></div></div></body></html>

@@ -18,11 +18,11 @@
 <li><a href="#adding-a-person-code-addgroup-code">3.3. Adding a person: <code>addgroup</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-editperson-code">3.5. Editing a person : <code>editperson</code></a></li>
-<li><a href="#editing-a-person-code-editgroup-code">3.6. Editing a person : <code>editgroup</code></a></li>
+<li><a href="#editing-a-group-code-editgroup-code">3.6. Editing a group : <code>editgroup</code></a></li>
 <li><a href="#locating-persons-by-name-code-findperson-code">3.7. Locating persons by name: <code>findperson</code></a></li>
 <li><a href="#locating-persons-by-name-code-findgroup-code">3.8. Locating persons by name: <code>findgroup</code></a></li>
 <li><a href="#deleting-a-person-code-deleteperson-code">3.9. Deleting a person : <code>deleteperson</code></a></li>
-<li><a href="#deleting-a-person-code-deletegroup-code">3.10. Deleting a person : <code>deletegroup</code></a></li>
+<li><a href="#deleting-a-group-code-deletegroup-code">3.10. Deleting a group : <code>deletegroup</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.13. Saving the data</a></li>
@@ -31,14 +31,18 @@
 </li>
 <li><a href="#advanced-features">4. Advanced Features</a>
 <ul class="sectlevel2">
-<li><a href="#add-to-group-code-addtogroup-code">4.1. Add to Group: <code>addtogroup</code></a></li>
-<li><a href="#add-schedule-code-addevent-code">4.2. Add Schedule: <code>addevent</code></a></li>
-<li><a href="#delete-schedule-code-deleteschedule-code">4.3. Delete schedule: <code>deleteschedule</code></a></li>
-<li><a href="#export-vr-virtual-representation-code-export-vr-code">4.4. Export VR(Virtual Representation): <code>export-vr</code></a></li>
-<li><a href="#export-ics-code-export-ics-code">4.5. Export ICS: <code>export-ics</code></a></li>
-<li><a href="#import-ics-code-import-ics-code">4.6. Import ICS: <code>import-ics</code></a></li>
-<li><a href="#import-ics-code-import-ics-code-2">4.7. Import ICS: <code>import-ics</code></a></li>
-<li><a href="#get-closest-location-code-closestlocation-code">4.8. Get Closest Location: <code>closestlocation</code></a></li>
+<li><a href="#add-event-code-addevent-code">4.1. Add Event: <code>addevent</code></a></li>
+<li><a href="#delete-schedule-code-delete-schedule-code">4.2. Delete schedule: <code>delete-schedule</code></a></li>
+<li><a href="#add-to-group-code-addtogroup-code">4.3. Add to Group: <code>addtogroup</code></a></li>
+<li><a href="#group-group">4.4. Group: 'group'</a></li>
+<li><a href="#show-group-code-show-code">4.5. Show group: <code>show</code></a></li>
+<li><a href="#show-person-code-show-code">4.6. Show person: <code>show</code></a></li>
+<li><a href="#delete-schedule-code-deleteschedule-code">4.7. Delete schedule: <code>deleteschedule</code></a></li>
+<li><a href="#export-vr-virtual-representation-code-export-code">4.8. Export VR(Virtual Representation): <code>export</code></a></li>
+<li><a href="#export-ics-code-export-ics-code">4.9. Export ICS: <code>export-ics</code></a></li>
+<li><a href="#import-ics-code-import-ics-code">4.10. Import ICS: <code>import-ics</code></a></li>
+<li><a href="#import-ics-code-import-ics-code-2">4.11. Import ICS: <code>import-ics</code></a></li>
+<li><a href="#get-closest-location-code-closestlocation-code">4.12. Get Closest Location: <code>closestlocation</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -50,7 +54,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>TimeBook is an application to store your friends’ information and schedule. The unique feature of TimeBook is that it can find free time for you and your group of friends to meet up for projects, meals or casual drinking sessions based on you and your friends’ schedules. In addition, TimeBook has been optimised for those who prefer using Command Line Interface (CLI) while keeping the benefits of a Graphical User Interface (GUI). Furthermore, TimeBook has a simple yet useful User Interface (UI) and User Experience (UX) to cater for users who have never used a CLI at all. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -63,10 +67,10 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
+<p>Download the latest <code>timebook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your TimeBook.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -88,7 +92,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>-n John Doe -p 98765432 -em <a href="mailto:johnd@example.com">johnd@example.com</a> -a John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the TimeBook.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -117,16 +121,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add -n NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add -n John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>-n NAME [-t TAG]</code> can be used as <code>-n John Doe -t friend</code> or as <code>-n John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[-t TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>-t friend</code>, <code>-t friend -t family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>-n NAME -p PHONE_NUMBER</code>, <code>-p PHONE_NUMBER -n NAME</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -141,8 +145,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="adding-a-person-code-addperson-code"><a class="link" href="#adding-a-person-code-addperson-code">3.2. Adding a person: <code>addperson</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203; [c/ NUS_MOD_LINK]</code></p>
+<p>Adds a person to the timebook<br>
+Format: <code>add-person -n NAME -e EMAIL [-c NUS_MOD_LINK]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -150,10 +154,10 @@ Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/
 <div class="ulist">
 <ul>
 <li>
-<p><code>addperson n/ Catherine em/ <a href="mailto:catherineCanCook@imail.com">catherineCanCook@imail.com</a></code></p>
+<p><code>addperson -n Catherine -em <a href="mailto:catherineCanCook@imail.com">catherineCanCook@imail.com</a></code></p>
 </li>
 <li>
-<p><code>addperson n/ John Doe em/ <a href="mailto:JohnDoe@imail.com">JohnDoe@imail.com</a> c/ 23F6B742CE</code></p>
+<p><code>addperson -n John Doe -em <a href="mailto:JohnDoe@imail.com">JohnDoe@imail.com</a> -c 23F6B742CE</code></p>
 </li>
 </ul>
 </div>
@@ -162,7 +166,7 @@ Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/
 <h3 id="adding-a-person-code-addgroup-code"><a class="link" href="#adding-a-person-code-addgroup-code">3.3. Adding a person: <code>addgroup</code></a></h3>
 <div class="paragraph">
 <p>Adds a group to the address book<br>
-Format: <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code></p>
+Format: <code>addgroup -g GROUP_NAME [-r GROUP_REMARK]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -170,10 +174,10 @@ Format: <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addgroup g/CS2103 r/Project Group</code></p>
+<p><code>addgroup -g CS2103 -r Project Group</code></p>
 </li>
 <li>
-<p><code>addgroup g/Friends</code></p>
+<p><code>addgroup -g Friends</code></p>
 </li>
 </ul>
 </div>
@@ -181,15 +185,15 @@ Format: <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code></p>
 <div class="sect2">
 <h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all persons in the timebook.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-person-code-editperson-code"><a class="link" href="#editing-a-person-code-editperson-code">3.5. Editing a person : <code>editperson</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code></p>
+<p>Edits an existing person in the timebook.<br>
+Format: <code>edit INDEX [-n NAME] [-p PHONE] [-em EMAIL] [-a ADDRESS] [-t TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -208,7 +212,7 @@ Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS
 <p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>tag/</code> without specifying any tags after it.</p>
+<p>You can remove all the person&#8217;s tags by typing <code>-t</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -220,21 +224,21 @@ Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS
 <div class="ulist">
 <ul>
 <li>
-<p><code>editperson ed/John Doe p/91234567 em/johndoe@example.com</code><br>
-Edits the phone number and email address of the person with name 'John Doe' to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>edit 1 -p 91234567 -em <a href="mailto:johndoe@example.com">johndoe@example.com</a></code><br>
+Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
-<p><code>edit ed/Betsy n/Betsy Crower tag/</code><br>
-Edits the person 'Betsy' to a new name 'Betsy Crower' and clears all existing tags.</p>
+<p><code>edit 2 -n Betsy Crower -t</code><br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-editgroup-code"><a class="link" href="#editing-a-person-code-editgroup-code">3.6. Editing a person : <code>editgroup</code></a></h3>
+<h3 id="editing-a-group-code-editgroup-code"><a class="link" href="#editing-a-group-code-editgroup-code">3.6. Editing a group : <code>editgroup</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing group in the address book.<br>
-Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code></p>
+Format: <code>editgroup -ed GROUP_NAME [-g GROUP_NAME] [-r GROUP_REMARK]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -259,7 +263,7 @@ Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>editperson ed/CS2103 g/CS3203 r/Project Discussion Group</code><br>
+<p><code>editgroup -ed CS2103 -g CS3203 -r Project Discussion Group</code><br>
 Edits the group specified by group name 'CS2103' with group name 'CS3203' and group remark <code>Project Discussion Group</code> respectively.</p>
 </li>
 </ul>
@@ -269,7 +273,7 @@ Edits the group specified by group name 'CS2103' with group name 'CS3203' and gr
 <h3 id="locating-persons-by-name-code-findperson-code"><a class="link" href="#locating-persons-by-name-code-findperson-code">3.7. Locating persons by name: <code>findperson</code></a></h3>
 <div class="paragraph">
 <p>Finds the person whose name contains the given keyword.<br>
-Format: <code>findperson n/NAME</code></p>
+Format: <code>findperson -n NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -293,7 +297,7 @@ Format: <code>findperson n/NAME</code></p>
 <h3 id="locating-persons-by-name-code-findgroup-code"><a class="link" href="#locating-persons-by-name-code-findgroup-code">3.8. Locating persons by name: <code>findgroup</code></a></h3>
 <div class="paragraph">
 <p>Finds the group whose name contains the given keyword.<br>
-Format: <code>findgroup g/GROUP_NAME</code></p>
+Format: <code>findgroup -g GROUP_NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -316,8 +320,8 @@ Format: <code>findgroup g/GROUP_NAME</code></p>
 <div class="sect2">
 <h3 id="deleting-a-person-code-deleteperson-code"><a class="link" href="#deleting-a-person-code-deleteperson-code">3.9. Deleting a person : <code>deleteperson</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the timebook.<br>
-Format: <code>deleteperson n/ NAME</code></p>
+<p>Deletes the specified person from TimeBook.<br>
+Format: <code>delete-person -n NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -339,17 +343,21 @@ Format: <code>deleteperson n/ NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteperson n/ Benedict</code><br>
+<p><code>delete-person -n Benedict</code><br>
+Deletes the 2nd person in TimeBook.</p>
+</li>
+<li>
+<p><code>deleteperson -n Benedict</code><br>
 Deletes the 'Benedict' in the timebook.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-deletegroup-code"><a class="link" href="#deleting-a-person-code-deletegroup-code">3.10. Deleting a person : <code>deletegroup</code></a></h3>
+<h3 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">3.10. Deleting a group : <code>deletegroup</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified group from the timebook.<br>
-Format: <code>deletegroup g/ GROUP_NAME</code></p>
+Format: <code>deletegroup -g GROUP_NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -371,7 +379,7 @@ Format: <code>deletegroup g/ GROUP_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletegroup g/CS2103</code><br>
+<p><code>deletegroup -g CS2103</code><br>
 Deletes the 'CS2103' in the timebook.</p>
 </li>
 </ul>
@@ -380,7 +388,7 @@ Deletes the 'CS2103' in the timebook.</p>
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
+<p>Clears all entries from the TimeBook.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
@@ -394,7 +402,7 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>TimeBook data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
@@ -410,15 +418,28 @@ There is no need to save manually.</p>
 <h2 id="advanced-features"><a class="link" href="#advanced-features">4. Advanced Features</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="add-to-group-code-addtogroup-code"><a class="link" href="#add-to-group-code-addtogroup-code">4.1. Add to Group: <code>addtogroup</code></a></h3>
+<h3 id="add-event-code-addevent-code"><a class="link" href="#add-event-code-addevent-code">4.1. Add Event: <code>addevent</code></a></h3>
 <div class="paragraph">
-<p>Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in TimeBook.
+<p>Adds an event to a person in TimeBook. Only events without clashes in the person&#8217;s existing schedule can be added to TimeBook.
+Can be used to mark a person as unavailable either on one-off dates or on a particular day every week.<br>
 Format:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>`addtogroup' n/NAME g/GROUP_NAME</p>
+<p>format of START_DATE/END_DATE: <code>DDMMYYYY:HHMM</code><br></p>
+</li>
+<li>
+<p>format of START_TIME/END_TIME: <code>HHMM</code><br></p>
+</li>
+<li>
+<p><code>addevent -n NAME -e EVENT_NAME -t START_DATE-END_DATE-LOCATION</code><br></p>
+</li>
+<li>
+<p><code>addevent -n NAME -e EVENT_NAME -d DAY -t START_TIME-END_TIME</code><br></p>
+</li>
+<li>
+<p><code>addevent -n NAME -c NUS_MOD_LINK</code></p>
 </li>
 </ul>
 </div>
@@ -428,44 +449,19 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>`addtogroup n/John g/CS2103</p>
+<p><code>addevent -n John -e CS2103T Lecture -t 18102019:1600-18102019:1800-i3</code></p>
+</li>
+<li>
+<p><code>addevent -n John -e Lunch with kakis -d Wednesday -t 1000-1200</code></p>
+</li>
+<li>
+<p><code>addevent -n Jake -c 23F6B742CE</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-schedule-code-addevent-code"><a class="link" href="#add-schedule-code-addevent-code">4.2. Add Schedule: <code>addevent</code></a></h3>
-<div class="paragraph">
-<p>Adds an event into the schedule of a person in TimeBook. Only schedules without clashes between time slots can be added to TimeBook.
-Can be used to mark a person as unavailable either on one-off dates or on a particular day every week<br>
-Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addevent n/ NAME e/EVENT_NAME t/DATETIME</code><br></p>
-</li>
-<li>
-<p><code>addevent n/ NAME c/ NUS_MOD_LINK</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
-</li>
-<li>
-<p><code>addevent n/John c/ 23F6B742CE</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="delete-schedule-code-deleteschedule-code"><a class="link" href="#delete-schedule-code-deleteschedule-code">4.3. Delete schedule: <code>deleteschedule</code></a></h3>
+<h3 id="delete-schedule-code-delete-schedule-code"><a class="link" href="#delete-schedule-code-delete-schedule-code">4.2. Delete schedule: <code>delete-schedule</code></a></h3>
 <div class="paragraph">
 <p>Delete all schedule data of the specified person from TimeBook<br>
 Format:</p>
@@ -473,7 +469,7 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteschedule n/ NAME</code><br></p>
+<p><code>delete-schedule -n NAME</code><br></p>
 </li>
 </ul>
 </div>
@@ -483,13 +479,119 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete-schedule /n John</code></p>
+<p><code>delete-schedule -n John</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-vr-virtual-representation-code-export-vr-code"><a class="link" href="#export-vr-virtual-representation-code-export-vr-code">4.4. Export VR(Virtual Representation): <code>export-vr</code></a></h3>
+<h3 id="add-to-group-code-addtogroup-code"><a class="link" href="#add-to-group-code-addtogroup-code">4.3. Add to Group: <code>addtogroup</code></a></h3>
+<div class="paragraph">
+<p>Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in TimeBook.
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`addtogroup' -n NAME -g GROUP_NAME</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`addtogroup -n John -g CS2103</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="group-group"><a class="link" href="#group-group">4.4. Group: 'group'</a></h3>
+<div class="paragraph">
+<p>Creates a group and adds all members into the group<br>
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>group -g GROUP_NAME [-m MEMBERS]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>group -g TimeBook -m Catherine -m John Doe</code></p>
+</li>
+<li>
+<p><code>group -g CS2030 T2 -m Amanda -m Catherine</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">4.5. Show group: <code>show</code></a></h3>
+<div class="paragraph">
+<p>Shows details of a group: who are its members and their available timings<br>
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show -g TimeBook</code><br></p>
+</li>
+<li>
+<p><code>show -g CS2030 T2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="show-person-code-show-code"><a class="link" href="#show-person-code-show-code">4.6. Show person: <code>show</code></a></h3>
+<div class="paragraph">
+<p>Shows a person’s details along with their schedule<br>
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show -n NAME</code><br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-schedule-code-deleteschedule-code"><a class="link" href="#delete-schedule-code-deleteschedule-code">4.7. Delete schedule: <code>deleteschedule</code></a></h3>
+<div class="paragraph">
+<p>Delete all schedule data of the specified person from TimeBook<br>
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteschedule -n NAME</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete-schedule -n John</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-vr-virtual-representation-code-export-code"><a class="link" href="#export-vr-virtual-representation-code-export-code">4.8. Export VR(Virtual Representation): <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports a visualisation representation of the schedule (timetable) of a group or person(s) to a PNG file+
 Format:</p>
@@ -507,16 +609,16 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>export-vr -g TimeBook -o timetable.jpg</code></p>
+<p><code>export-vr -g TimeBook</code></p>
 </li>
 <li>
-<p><code>export-vr -n John Doe -n Joe Dohn -n Jackie Chan -o timetable.jpg</code></p>
+<p><code>export-vr -n John Doe</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-ics-code-export-ics-code"><a class="link" href="#export-ics-code-export-ics-code">4.5. Export ICS: <code>export-ics</code></a></h3>
+<h3 id="export-ics-code-export-ics-code"><a class="link" href="#export-ics-code-export-ics-code">4.9. Export ICS: <code>export-ics</code></a></h3>
 <div class="paragraph">
 <p>Output the free time for a certain group as an ics file. This ics file could be imported into google calendar.<br>
 Format:</p>
@@ -540,7 +642,7 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-ics-code-import-ics-code"><a class="link" href="#import-ics-code-import-ics-code">4.6. Import ICS: <code>import-ics</code></a></h3>
+<h3 id="import-ics-code-import-ics-code"><a class="link" href="#import-ics-code-import-ics-code">4.10. Import ICS: <code>import-ics</code></a></h3>
 <div class="paragraph">
 <p>Import the ics file of an individual.<br>
 Format:</p>
@@ -564,7 +666,7 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-ics-code-import-ics-code-2"><a class="link" href="#import-ics-code-import-ics-code-2">4.7. Import ICS: <code>import-ics</code></a></h3>
+<h3 id="import-ics-code-import-ics-code-2"><a class="link" href="#import-ics-code-import-ics-code-2">4.11. Import ICS: <code>import-ics</code></a></h3>
 <div class="paragraph">
 <p>Import the ics file of an individual.<br>
 Format:</p>
@@ -588,7 +690,7 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-closest-location-code-closestlocation-code"><a class="link" href="#get-closest-location-code-closestlocation-code">4.8. Get Closest Location: <code>closestlocation</code></a></h3>
+<h3 id="get-closest-location-code-closestlocation-code"><a class="link" href="#get-closest-location-code-closestlocation-code">4.12. Get Closest Location: <code>closestlocation</code></a></h3>
 <div class="paragraph">
 <p>Get the closest common location.<br>
 Format:</p>
@@ -596,7 +698,7 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>closestlocation l/ LOCATIONA LOCATIONB &#8230;&#8203;</code><br></p>
+<p><code>closestlocation -l LOCATIONA LOCATIONB &#8230;&#8203;</code><br></p>
 </li>
 </ul>
 </div>
@@ -606,7 +708,7 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>closestlocation l/LT16 LT15 AS5</code></p>
+<p><code>closestlocation -l LT16 LT15 AS5</code></p>
 </li>
 </ul>
 </div>
@@ -618,7 +720,7 @@ Format:</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TimeBook folder.</p>
 </div>
 </div>
 </div>
@@ -628,8 +730,8 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add</strong> <code>add -n NAME -p PHONE_NUMBER -em EMAIL -a ADDRESS [-t TAG]&#8230;&#8203;</code><br>
+e.g. <code>add -n James Ho -p 22224444 -em <a href="mailto:jamesho@example.com">jamesho@example.com</a> -a 123, Clementi Rd, 1234665 -t friend -t colleague</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -639,8 +741,8 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [-n NAME] [-p PHONE_NUMBER] [-em EMAIL] [-a ADDRESS] [-t TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 -n James Lee -em <a href="mailto:jameslee@example.com">jameslee@example.com</a></code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
@@ -653,9 +755,9 @@ e.g. <code>find James Jake</code></p>
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Closes Location</strong> : <code>closestlocation l/ LOCATIONA LOCATIONB &#8230;&#8203;</code></p>
+<p><strong>Closes Location</strong> : <code>closestlocation -l LOCATIONA LOCATIONB &#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:22:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:35:49 UTC</div></div></div></body></html>

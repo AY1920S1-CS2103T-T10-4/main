@@ -23,10 +23,11 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
-<li><a href="#Implementation-ClosestLocation">3.5. Closest Common Location(Micro Service)</a></li>
+<li><a href="#command-suggestions">3.2. Command Suggestions feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#Implementation-ClosestLocation">3.6. Closest Common Location(Micro Service)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -545,20 +546,194 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="command-suggestions"><a class="link" href="#command-suggestions">3.2. Command Suggestions feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The command suggestions mechanism is facilitated by <code>SuggestionLogic</code>.
+Through user-interface events provided by <code>SuggestingCommandBox</code>, it parses the command that was entered to provide context-sensitive suggestions.</p>
+</div>
+<div class="paragraph">
+<p>It does this by identifying the <code>commandWord</code> (e.g. <code>findperson</code>, <code>addperson</code>, etc.) and <code>arguments</code> provided (e.g. <code>n/Alice</code>, <code>g/CS2103T</code>) and by using the caret position, provides command suggestions if the caret is located within the <code>commandWord</code> section or provides argument-specific suggestions by delegating to the <code>Suggester</code> registered for the specific <code>commandWord</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the command suggestions mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user types in the command <code>findperson n/|</code> and the <code>CommandSuggestionBox</code> UI class passes the command text (i.e. <code>findperson n/</code>) and the caret position index (i.e. 13) to <code>SuggestionLogic</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The vertical line/pipe character (i.e. <code>|</code>) denotes the position of the caret and is not part of the entered command itself.<br>
+So for the above example, the command entered is <code>findperson n/</code> with the caret at the end of the command.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/Step1.svg" alt="Step1">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>SuggestionLogic</code> asks the <code>AddressBookParser</code> to tokenize the command text into its two parts: the <code>commandWord</code> and the <code>arguments</code>. This is needed so the <code>SuggestionLogic</code> knows which <code>Suggester</code> to use later.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/Step2.svg" alt="Step2">
+</div>
+</div>
+<div id="command-suggestions-caret-within-arguments" class="paragraph">
+<p>Step 3. The <code>SuggestionLogic</code> then checks where the caret is currently positioned, either within the <code>commandWord</code> or within the <code>arguments</code> section. In this case, the caret is placed after the <code>n/</code> so it is within the <code>arguments</code> section. <a href="#command-suggestions-caret-within-commandWord">To read how the behaviour changes if the caret was placed within the <code>commandWord</code> section, click here.</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/Step3.svg" alt="Step3" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>SuggestionLogic</code> asks the static <code>Suggester</code> class which <code>Prefix</code>es are supported by the current <code>commandWord</code> (i.e. <code>findperson</code>) for tokenizing the <code>arguments</code>. This list of supported <code>Prefix</code>es, together with the command <code>arguments</code>, are passed to the static <code>ArgumentTokenizer</code> to parse it into an <code>ArgumentList</code> containing <code>CommandArgument</code>s. Each <code>CommandArgument</code> contains the type of <code>Prefix</code> and the user-entered value.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/Step4.svg" alt="Step4">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>SuggestionLogic</code> then asks the static <code>Suggester</code> class to create the relevant <code>Suggester</code> object based on the <code>commandWord</code>. In this case, the static <code>Suggester</code> class returns a new <code>FindPersonSuggester</code> because the <code>commandWord</code> is <code>findperson</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/Step5.svg" alt="Step5">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 6. The <code>SuggestionLogic</code> asks the <code>ArgumentList</code> object which <code>CommandArgument</code> is currently selected based on the user&#8217;s caret position. In this case, it is the <code>CommandArgument</code> with the <code>Prefix</code> of <code>PERSON_NAME</code> and <code>value</code> of an empty string because the caret is positioned within the <code>n/</code> text and no value has been entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/Step6.svg" alt="Step6">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 7. The <code>SuggestionLogic</code> asks for the suggestions from the <code>FindPersonSuggester</code> by providing three things to it. First, the current <code>Model</code> object, second the previously parsed <code>ArgumentList</code> object and finally, the <code>CommandArgument</code> to provide suggestions for. After obtaining the list of suggestions, the <code>SuggestionLogic</code> class returns it to the <code>CommandSuggestionBox</code> UI class for display.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/Step7.svg" alt="Step7">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram condenses all the above diagrams into one, given the input <code>findperson n/|</code>:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/command-suggestions/FindPersonSequenceDiagram.svg" alt="FindPersonSequenceDiagram"></span></p>
+</div>
+<div id="command-suggestions-caret-within-commandWord" class="paragraph">
+<p>The <code>SuggestionLogic</code> behaves differently when the caret position is within the <code>commandWord</code> section. The sequence diagram below shows the behaviour for the case of <code>find|person n/</code>. <a href="#command-suggestions-caret-within-arguments">To read how the behaviour changes if the caret was placed within the <code>arguments</code> section, click here.</a></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/command-suggestions/SuggestingCommands.svg" alt="SuggestingCommands"></span></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user interacts with the command input box:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/ActivityDiagram.svg" alt="ActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-command-suggestions-gets-its-suggestions"><a class="link" href="#aspect-how-command-suggestions-gets-its-suggestions">Aspect: How command suggestions gets its suggestions</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Ask <code>Suggester</code>s for suggestions every time anything changes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of CPU and memory usage as <code>Suggester</code>s are created and run every time the command changes or the caret is moved.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Cache suggestions based on entered command and caret position</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less CPU, may use less memory.</p>
+</li>
+<li>
+<p>Cons: Difficult to properly account for all the conditions that should cause a cache invalidation/recalculation of suggestions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-pass-around-the-command-arguments"><a class="link" href="#aspect-data-structure-to-pass-around-the-command-arguments">Aspect: Data structure to pass around the command arguments</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create an <code>ArgumentList</code> to store the ordered sequence of arguments.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Provides <code>Suggester</code>s with flexibility in providing suggestions since the relative ordering of arguments is preserved. For example, it is possible to suggest different values for each <code>class/</code> argument based on the left-closest <code>mod/</code> argument for the following command: <code>addmod n/Alice mod/CS2103T class/ mod/CS2101 class/</code>.</p>
+</li>
+<li>
+<p>Cons: Increased complexity in extracting command arguments for simpler <code>Suggester</code>s.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Reuse <code>ArgumentMultimap</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not need to maintain a separate data structure due to reuse, and developers familiar with how <code>ArgumentTokenizer.tokenize()</code> works for writing a <code>Command</code> can transfer their knowledge when writing <code>Suggester</code>s for their own commands.</p>
+</li>
+<li>
+<p>Cons: <code>Suggester</code>s are restricted in terms of the flexibility of their suggestions, as they lack info about the relative ordering of all the arguments.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -589,18 +764,18 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">3.5. Closest Common Location(Micro Service)</a></h3>
+<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">3.6. Closest Common Location(Micro Service)</a></h3>
 <div class="paragraph">
 <p>Closest common location utilises Google Maps Api to get the closest common location among a group of various location in NUS.</p>
 </div>
 <div class="sect3">
-<h4 id="definition"><a class="link" href="#definition">3.5.1. Definition</a></h4>
+<h4 id="definition"><a class="link" href="#definition">3.6.1. Definition</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -616,7 +791,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="algorithm"><a class="link" href="#algorithm">3.5.2. Algorithm</a></h4>
+<h4 id="algorithm"><a class="link" href="#algorithm">3.6.2. Algorithm</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -645,7 +820,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.5.3. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.6.3. Implementation</a></h4>
 <div class="paragraph">
 <p>Overview of the implementation</p>
 </div>
@@ -683,7 +858,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-matrix"><a class="link" href="#creating-matrix">3.5.4. Creating matrix</a></h4>
+<h4 id="creating-matrix"><a class="link" href="#creating-matrix">3.6.4. Creating matrix</a></h4>
 <div class="paragraph">
 <p>This is the sequence diagram for the creation of the matrix.</p>
 </div>
@@ -732,7 +907,7 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 </div>
 </div>
 <div class="sect3">
-<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">3.5.5. Getting closest location</a></h4>
+<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">3.6.5. Getting closest location</a></h4>
 <div class="paragraph">
 <p>This is the sequence diagram for when the method <code>Model.getClosestLocationData</code> and <code>Model.getClosestLocationString</code></p>
 </div>
@@ -1259,4 +1434,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:33:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:45:26 UTC</div></div></div></body></html>

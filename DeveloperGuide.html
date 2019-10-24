@@ -32,6 +32,8 @@
 <li><a href="#Implementation-ClosestLocation">3.8. Closest Common Location(Micro Service)</a></li>
 <li><a href="#add-nusmods-to-schedule">3.9. Add NUSMods To Schedule</a></li>
 <li><a href="#external-apis">3.10. External APIs</a></li>
+<li><a href="#add-nusmods-to-schedule-2">3.11. Add NUSMods To Schedule</a></li>
+<li><a href="#external-apis-2">3.12. External APIs</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -1162,9 +1164,6 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <img src="images/gmaps/ClosestLocationSequenceDiagram.png" alt="ClosestLocationSequenceDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4d908ab81c2bd5e35254b1528ab1e76480b2b893</p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1172,31 +1171,117 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">3.9.1. Implementation</a></h4>
 <div class="paragraph">
-<p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code>) or individual NUS modules (using the <code>AddNusModCommand</code>) to their TimeBook schedules.</p>
+<p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code>) to their TimeBook schedules.</p>
 </div>
 <div class="paragraph">
-<p>The <code>AddNusModsCommand</code> can be executed by the user through the CLI with the following syntax <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code>. The provided link will be parsed for the module codes and the lesson numbers.</p>
+<p>The <code>AddNusModsCommand</code> can be executed by the user through the CLI with the following syntax <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code>. The share link contains semester number, module codes and lesson numbers, which are used for creating and adding events to the person&#8217;s schedule.</p>
 </div>
 <div class="paragraph">
-<p>The <code>AddNusModCommand</code> can be executed by the user through the CLI with the following syntax <code>addmod n/NAME m/MODULE_CODE l/LESSON_NOS&#8230;&#8203;</code>.</p>
+<p>The following sequence diagram shows what happens when <code>AddNusModsCommand</code> is executed:</p>
 </div>
-<div class="paragraph">
-<p>Since the <code>AddNusModCommand</code> is implemented in a similar fashion with <code>AddNusModsCommand</code>, we will walk through an example usage scenario of the latter command, which is slightly more complex parsing.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/nusmods/AddNusModsSequenceDiagram.png" alt="AddNusModsSequenceDiagram">
 </div>
-<div class="paragraph">
-<p><strong>Steps</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user types in the command <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code> and the</p>
+<p>User enters <code>addmods n/NAME l/https//nusmods.com/&#8230;&#8203;</code></p>
+</li>
+<li>
+<p>The name string will be parsed into a <code>Name</code> object. The argument string for link will be parsed in <code>AddNusModsCommandParser</code> into a <code>NusModsShareLink</code>, containing the <code>SemesterNo</code>, <code>ModuleCodes</code> and <code>LessonNos</code>. Both the <code>Name</code> and <code>NusModsShareLink</code> objects will then be passed into the <code>AddNusModsCommand</code> constructor.</p>
+</li>
+<li>
+<p>The <code>AddNusModsCommand#execute</code> is then called by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>In the <code>AddNusModsCommand#execute</code> method,</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>model#findPerson</code> is called to find the <code>Person</code> with the provided name.</p>
+</li>
+<li>
+<p>Iterate through the <code>ModuleCodes</code>,</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Call <code>model#findModule</code> to get the <code>Module</code> with the given module code.</p>
+</li>
+<li>
+<p>Pass the module and selected lesson numbers in the link into <code>ModuleEventMappingUtil#mapModuleToEvent</code> to generate an <code>Event</code> based on the module. The lesson numbers are used to generate the <code>Timeslots</code> for the event.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Iterate through all the events to add,</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Call <code>person#addEvent</code> to add the event to the person&#8217;s schedule.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Return command result and display feedback to user.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.9.2. Design Considerations</a></h4>
-
+<div class="sect4">
+<h5 id="aspect-ease-of-executing-command-as-user"><a class="link" href="#aspect-ease-of-executing-command-as-user">Aspect: Ease of executing command as user.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Entering NUSMods share link</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can easily get the NUSMods share link of his/her existing NUSMods timetable and  copy/paste the link into the command.</p>
+</li>
+<li>
+<p>Cons: Less flexibility if user wants to add only some modules (has to adjust timetable on NUSMods or modify the link itself)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Entering modules individually</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More flexibility in specifying modules to add.</p>
+</li>
+<li>
+<p>Cons: Tedious as user has to specify the semester, module codes and lesson numbers in the command.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Importing the downloaded iCalendar file from NUSMods</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Opens up the possibility of importing generic iCalendar files.</p>
+</li>
+<li>
+<p>Cons: User is unlikely to be able to get the iCalendar files of his/her group members (due to tediousness and privacy reasons).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1207,10 +1292,13 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <div class="sect3">
 <h4 id="apis"><a class="link" href="#apis">3.10.1. APIs</a></h4>
 <div class="paragraph">
-<p>The class <code>NusModsApi</code> contains methods for querying different endpoints of the NUSMods API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
+<p>We have implemented a <code>websocket</code> component to contain the logic of interfacing with external APIs.</p>
 </div>
 <div class="paragraph">
-<p>The class <code>GmapsApi</code> contains methods for querying different endpoints of the Google Maps API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
+<p>The <code>websocket.NusModsApi</code> class contains methods for querying different endpoints of the NUSMods API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The <code>websocket.GmapsApi</code> class contains methods for querying different endpoints of the Google Maps API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1236,6 +1324,126 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 </div>
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.10.5. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-limited-connectivity-support"><a class="link" href="#aspect-limited-connectivity-support">Aspect: Limited Connectivity Support</a></h5>
+<div class="paragraph">
+<p>Current choice: we chose a combination of alternatives 1 and 2 to achieve robust limited connectivity support for our external API data.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Preprocessing API</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can achieve complete offline support, also saves the issue of handling API keys.</p>
+</li>
+<li>
+<p>Cons: Have to run preprocessing programs from time to time to update data files, e.g. for modules in new academic year or new locations else features will not work.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Caching Query Results</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Achieves limited connectivity support (call once and save result, then use saved result for future calls). Also, needs less work to support future data/API changes.</p>
+</li>
+<li>
+<p>Cons: Not so useful in cases where a large number of queries is required to be preprocessed first, e.g. getting locations data from Google Maps API to generate <code>LocationGraph</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Direct API queries</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, minimal work to support future data/API changes.</p>
+</li>
+<li>
+<p>Cons: No limited connectivity support.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-nusmods-to-schedule-2"><a class="link" href="#add-nusmods-to-schedule-2">3.11. Add NUSMods To Schedule</a></h3>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.11.1. Implementation</a></h4>
+<div class="paragraph">
+<p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code>) or individual NUS modules (using the <code>AddNusModCommand</code>) to their TimeBook schedules.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddNusModsCommand</code> can be executed by the user through the CLI with the following syntax <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code>. The provided link will be parsed for the module codes and the lesson numbers.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddNusModCommand</code> can be executed by the user through the CLI with the following syntax <code>addmod n/NAME m/MODULE_CODE l/LESSON_NOS&#8230;&#8203;</code>.</p>
+</div>
+<div class="paragraph">
+<p>Since the <code>AddNusModCommand</code> is implemented in a similar fashion with <code>AddNusModsCommand</code>, we will walk through an example usage scenario of the latter command, which is slightly more complex parsing.</p>
+</div>
+<div class="paragraph">
+<p><strong>Steps</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user types in the command <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code> and the</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.11.2. Design Considerations</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="external-apis-2"><a class="link" href="#external-apis-2">3.12. External APIs</a></h3>
+<div class="paragraph">
+<p>The application requires data from the <a href="https://api.nusmods.com/v2/">NUSMods API</a> for the <a href="#add-nusmods-to-schedule">Add NUSMods To Schedule</a> feature and data from the <a href="https://developers.google.com/maps/documentation">Google Maps API</a> for the <a href="#Implementation-ClosestLocation">Closest Common Location</a> feature. The following subsections describe the implementation of various aspects with regards to working with external APIs:</p>
+</div>
+<div class="sect3">
+<h4 id="apis-2"><a class="link" href="#apis-2">3.12.1. APIs</a></h4>
+<div class="paragraph">
+<p>The class <code>NusModsApi</code> contains methods for querying different endpoints of the NUSMods API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The class <code>GmapsApi</code> contains methods for querying different endpoints of the Google Maps API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="caching-api-results-2"><a class="link" href="#caching-api-results-2">3.12.2. Caching API Results</a></h4>
+<div class="paragraph">
+<p>To support limited connectivity in our application, the results of all API queries are preprocessed and saved into the resources directory. The following activity diagram shows how the caching feature works when external data is required for the execution of a certain command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gmaps/ApiDiagram.png" alt="ApiDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="preprocessing-nusmods-api-2"><a class="link" href="#preprocessing-nusmods-api-2">3.12.3. Preprocessing NUSMods API</a></h4>
+<div class="paragraph">
+<p>The key information that we require for each NUS module is the timetable information. Unfortunately, there is no available endpoint which provides the timetable information of all modules at once - there is only an endpoint which provides the timetable information of one module per query. Thus, we developed a small program in <code>logic.internal.nusmods.ImportMods</code>, which can be run prior to the main application itself, to query the timetable info for every module and build a list of modules data containing the timetable information.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="preprocessing-google-maps-api-2"><a class="link" href="#preprocessing-google-maps-api-2">3.12.4. Preprocessing Google Maps API</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.12.5. Design Considerations</a></h4>
 
 </div>
 </div>
@@ -1755,4 +1963,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:54:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 02:16:20 UTC</div></div></div></body></html>

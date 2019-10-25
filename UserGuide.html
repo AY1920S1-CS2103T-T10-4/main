@@ -43,10 +43,10 @@
 <ul class="sectlevel2">
 <li><a href="#add-to-group-code-addtogroup-code">6.1. Add to Group: <code>addtogroup</code></a></li>
 <li><a href="#add-schedule-code-addevent-code">6.2. Add Schedule: <code>addevent</code></a></li>
-<li><a href="#export-vr-virtual-representation-code-export-vr-code">6.3. Export VR(Virtual Representation): <code>export-vr</code></a></li>
-<li><a href="#export-ics-code-export-ics-code">6.4. Export ICS: <code>export-ics</code></a></li>
-<li><a href="#import-ics-code-import-ics-code">6.5. Import ICS: <code>import-ics</code></a></li>
-<li><a href="#import-ics-code-import-ics-code-2">6.6. Import ICS: <code>import-ics</code></a></li>
+<li><a href="#add-module-code-addmod-code">6.3. Add Module: <code>addmod</code></a></li>
+<li><a href="#add-modules-via-link-code-addmods-code">6.4. Add Modules via Link: <code>addmods</code></a></li>
+<li><a href="#show-module-code-showmod-code">6.5. Show Module: <code>showmod</code></a></li>
+<li><a href="#export-vr-virtual-representation-code-export-vr-code">6.6. Export VR(Virtual Representation): <code>export-vr</code></a></li>
 <li><a href="#get-closest-location-code-closestlocation-code">6.7. Get Closest Location: <code>closestlocation</code></a></li>
 <li><a href="#show-free-time-slot-code-show-freetime-code">6.8. Show Free Time slot <code>show-freetime</code></a></li>
 </ul>
@@ -162,9 +162,6 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <ul>
 <li>
 <p><strong><code>list</code></strong> : lists all information in TimeBook.</p>
-</li>
-<li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to TimeBook.</p>
 </li>
 <li>
 <p><strong><code>addperson</code></strong> <code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the TimeBook.</p>
@@ -500,7 +497,7 @@ Format: <code>show n/NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Type <code>show n/ Tim</code> in the command line as shown below:<br></p>
+<p>Type <code>show n/Tim</code> in the command line as shown below:<br></p>
 </li>
 </ul>
 </div>
@@ -541,7 +538,7 @@ Format: <code>show g/GROUP_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Type <code>show g/ Team1</code> in the command line as shown below<br></p>
+<p>Type <code>show g/Team1</code> in the command line as shown below<br></p>
 </li>
 </ul>
 </div>
@@ -656,7 +653,100 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-vr-virtual-representation-code-export-vr-code"><a class="link" href="#export-vr-virtual-representation-code-export-vr-code">6.3. Export VR(Virtual Representation): <code>export-vr</code></a></h3>
+<h3 id="add-module-code-addmod-code"><a class="link" href="#add-module-code-addmod-code">6.3. Add Module: <code>addmod</code></a></h3>
+<div class="paragraph">
+<p>Adds an NUS module as an event to a person&#8217;s schedule in TimeBook. It checks and ensures classes are available for the module in the academic year and semester before adding to the person&#8217;s schedule. Default values for <code>ACADEMIC_YEAR</code> is 2019/2020 and <code>SEMESTER</code> is 1.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmod n/John m/CS2103T class/G01,T5</code></p>
+</li>
+<li>
+<p><code>addmod n/John m/CS2103T class/G01,T5 ay/2018/2019</code></p>
+</li>
+<li>
+<p><code>addmod n/John m/CS2103T class/G01,T5 ay/2019/2020 s/1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-modules-via-link-code-addmods-code"><a class="link" href="#add-modules-via-link-code-addmods-code">6.4. Add Modules via Link: <code>addmods</code></a></h3>
+<div class="paragraph">
+<p>Adds NUS modules given the NUSMods share link, as events to a person&#8217;s schedule in TimeBook.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmods n/NAME l/NUSMODS_SHARE_LINK</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmods n/John l/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code></p>
+</li>
+<li>
+<p><code>addmods n/Bob l/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="show-module-code-showmod-code"><a class="link" href="#show-module-code-showmod-code">6.5. Show Module: <code>showmod</code></a></h3>
+<div class="paragraph">
+<p>Shows the schedule of available classes for the module in the academic year and semester. Default values for <code>ACADEMIC_YEAR</code> is 2019/2020 and <code>SEMESTER</code> is 1.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>showmod m/MODULE_CODE [ay/ACADEMIC_YEAR] [s/SEMESTER]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>showmod m/CS2103T</code></p>
+</li>
+<li>
+<p><code>showmod m/GEQ1000 ay/2019/2020</code></p>
+</li>
+<li>
+<p><code>showmod m/CS3230 ay/2019/2020 s/2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-vr-virtual-representation-code-export-vr-code"><a class="link" href="#export-vr-virtual-representation-code-export-vr-code">6.6. Export VR(Virtual Representation): <code>export-vr</code></a></h3>
 <div class="paragraph">
 <p>This feature is currently work in progress!</p>
 </div>
@@ -680,82 +770,10 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>export-vr g/ CS2103T Team project</code></p>
+<p><code>export-vr g/CS2103T Team project</code></p>
 </li>
 <li>
-<p><code>export-vr n/ John Doe</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="export-ics-code-export-ics-code"><a class="link" href="#export-ics-code-export-ics-code">6.4. Export ICS: <code>export-ics</code></a></h3>
-<div class="paragraph">
-<p>Output the free time for a certain group as an ics file. This ics file could be imported into google calendar.<br>
-Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>export-ics OUTPUT_FILENAME</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Export-ics -n CS3230T</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="import-ics-code-import-ics-code"><a class="link" href="#import-ics-code-import-ics-code">6.5. Import ICS: <code>import-ics</code></a></h3>
-<div class="paragraph">
-<p>Import the ics file of an individual.<br>
-Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>import-ics NAME FILEPATH</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Import-ics -t individual -n Catherine -p /data/timetable.ics</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="import-ics-code-import-ics-code-2"><a class="link" href="#import-ics-code-import-ics-code-2">6.6. Import ICS: <code>import-ics</code></a></h3>
-<div class="paragraph">
-<p>Import the ics file of an individual.<br>
-Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>import-ics NAME FILEPATH</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Import-ics -t individual -n Catherine -p /data/timetable.ics</code></p>
+<p><code>export-vr n/John Doe</code></p>
 </li>
 </ul>
 </div>
@@ -872,7 +890,7 @@ When the command is executed a popup will appear that shows the closest common l
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Time Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TimeBook folder.</p>
 </div>
 </div>
 </div>
@@ -903,6 +921,18 @@ e.g. <code>findperson n/James Jake</code></p>
 <li>
 <p><strong>Add Event to Person&#8217;s Schedule</strong> : <code>addevent n/NAME e/EVENT_NAME t/DATETIME</code><br>
 e.g. <code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
+</li>
+<li>
+<p><strong>Add Module to Person&#8217;s Schedule</strong> : <code>addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br>
+e.g. <code>addmod n/John m/CS2103T class/G01,T5 ay/2019/2020 s/1</code></p>
+</li>
+<li>
+<p><strong>Add Modules to Person&#8217;s Schedule via NUSMods Link</strong> : <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code><br>
+e.g. <code>addmods n/John l/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code></p>
+</li>
+<li>
+<p><strong>Show Module Classes Schedule</strong> : <code>showmod m/MODULE_CODE [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br>
+e.g. <code>showmod m/CS3230 ay/2019/2020 s/2</code></p>
 </li>
 <li>
 <p><strong>Show Person Details and Schedule</strong> : <code>show n/NAME</code><br>
@@ -956,4 +986,4 @@ e.g. <code>show-freetime g/CS2103T id/2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 05:36:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 06:05:55 UTC</div></div></div></body></html>

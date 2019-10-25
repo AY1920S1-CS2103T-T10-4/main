@@ -18,7 +18,7 @@
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
          title="Address App" minWidth="450" minHeight="500" onCloseRequest="#handleExit">
   <icons>
-    <Image url="@/images/address_book_32.png" />
+    <Image url="@/images/timebook_logo.png" />
   </icons>
   <scene>
     <Scene>
@@ -38,14 +38,8 @@
         </MenuBar>
 
         <GridPane>
-          <VBox fx:id="personList" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS"
-          GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="1" GridPane.rowSpan="2">
-            <padding>
-              <Insets top="10" right="10" bottom="10" left="10" />
-            </padding>
-<!--            <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS"/> !-->
-            <StackPane fx:id="sideBarPlaceholder" VBox.vgrow="ALWAYS"/>
-          </VBox>
+          <StackPane fx:id="sideBarPlaceholder" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS"
+                       GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="1" GridPane.rowSpan="2"/>
 
           <StackPane fx:id="detailsViewPlaceholder" VBox.vgrow="ALWAYS"
                       GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="3" GridPane.rowSpan="2"/>

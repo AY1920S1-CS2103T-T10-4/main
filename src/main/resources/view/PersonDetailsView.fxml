@@ -9,7 +9,6 @@
 <StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <StackPane fx:id="personDetailContainer" id="personDetailContainer">
         <VBox fx:id="personDetailsView" id="personDetailsView">
-            <StackPane fx:id="personDetailCard"></StackPane>
             <StackPane fx:id="personSchedule" prefWidth="1800"></StackPane>
         </VBox>
     </StackPane>

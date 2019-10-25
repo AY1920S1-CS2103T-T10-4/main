@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,6 +16,8 @@ import seedu.address.commons.util.StringUtil;
  * Url Constructor Util
  */
 public class UrlUtil {
+
+    private static String gmapsApiKey = "";
 
     /**
      * Generates a URL object from a String.
@@ -65,5 +69,46 @@ public class UrlUtil {
             queryMap.put(key, value);
         }
         return queryMap;
+    }
+
+    /**
+     * This is a utility function to get the full API endpoint for Gmaps Distance Matrix Api from 2 arraylist of string
+     * @param locationsRow
+     * @param locationsColumn
+     * @return
+     */
+    public static String generateGmapsDistanceMatrixUrl(
+            ArrayList<String> locationsRow, ArrayList<String> locationsColumn) throws InvalidParameterException {
+        if (locationsColumn.size() > 10 || locationsRow.size() > 10) {
+            throw new InvalidParameterException("GMAPS API Only can make request to 10 locations.");
+        }
+        String baseUrl = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&";
+        String apiKeyQueryParams = "key=" + gmapsApiKey;
+        String originQueryParams = "origins=";
+        String destinationQueryParams = "destinations=";
+        for (int i = 0; i < locationsRow.size(); i++) {
+            originQueryParams = originQueryParams + locationsRow.get(i) + "|";
+        }
+        for (int i = 0; i < locationsColumn.size(); i++) {
+            destinationQueryParams = destinationQueryParams + locationsColumn.get(i) + "|";
+        }
+        originQueryParams = originQueryParams + "&";
+        destinationQueryParams = destinationQueryParams + "&";
+        String fullUrl = baseUrl + originQueryParams + destinationQueryParams + apiKeyQueryParams;
+        return fullUrl;
+    }
+
+    /**
+     * This is a utility function to get the full API endpoint for Gmaps places Api from a string
+     * @param locationName
+     * @return
+     */
+    public static String generateGmapsPlacesUrl(String locationName) {
+        String baseUrl = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?location=.sg&"
+                + "inputtype=textquery&fields=name,place_id&";
+        String apiKeyQueryParams = "key=" + gmapsApiKey + "&";
+        String queryParams = "input=" + locationName + "&";
+        String fullUrl = baseUrl + queryParams + apiKeyQueryParams;
+        return fullUrl;
     }
 }

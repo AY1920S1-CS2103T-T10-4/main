@@ -8,6 +8,7 @@
 <HBox>
     <VBox fx:id="scheduleContainer" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
           HBox.hgrow="ALWAYS">
+        <Label fx:id="title" HBox.hgrow="ALWAYS" prefWidth="1100" alignment="CENTER"></Label>
         <ScrollPane fx:id="scheduleHeaderWrapper" fitToWidth="true"/>
         <ScrollPane fx:id="scheduleContents" id="scheduleContents" fitToWidth="true"/>
     </VBox>

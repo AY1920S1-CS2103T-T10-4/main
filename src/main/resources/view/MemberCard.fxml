@@ -9,10 +9,10 @@
 <?import javafx.geometry.Insets?>
 <GridPane fx:id="memberCard" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" percentWidth="1"></ColumnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" percentWidth="2.5"></ColumnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" percentWidth="25"></ColumnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" percentWidth="35"></ColumnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" percentWidth="39"></ColumnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" percentWidth="37.5"></ColumnConstraints>
     </columnConstraints>
     <Region fx:id="colorRegion" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS"/>
     <StackPane GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" alignment="CENTER_LEFT">

@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.logging.Logger;
+
 import javax.net.ssl.HttpsURLConnection;
 
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.websocket.Cache;
 
 /**
  * An API query object
@@ -17,7 +17,6 @@ public class ApiQuery {
     private static URL url;
     private String urlString;
     private Logger logger;
-    private String cachePath = null;
 
     /**
      * Generate an instance of an API query with the given url.
@@ -27,24 +26,6 @@ public class ApiQuery {
     public ApiQuery(String url) {
         URL generatedUrl = UrlUtil.generateUrl(url);
         this.logger = LogsCenter.getLogger(this.getClass());
-        this.urlString = url;
-        if (generatedUrl == null) {
-            this.url = null;
-        } else {
-            this.url = generatedUrl;
-        }
-    }
-
-    /**
-     * Generate an instance of an API query with the given url and cache path to save
-     * the response to.
-     *
-     * @param url of the query
-     */
-    public ApiQuery(String url, String cachePath) {
-        URL generatedUrl = UrlUtil.generateUrl(url);
-        this.logger = LogsCenter.getLogger(this.getClass());
-        this.cachePath = cachePath;
         this.urlString = url;
         if (generatedUrl == null) {
             this.url = null;
@@ -99,12 +80,6 @@ public class ApiQuery {
                 return new QueryResult(responseCode, output);
             }
         }
-
-        if (cachePath != null) {
-            String sanitizedUrl = UrlUtil.sanitizeApiKey(urlString);
-            Cache.saveToJson(sanitizedUrl, output, cachePath);
-        }
-
         conn.disconnect();
         return new QueryResult(responseCode, output);
     }

@@ -8,8 +8,8 @@ import java.util.List;
  * A class to handle generation of colors.
  */
 public class ColorGenerator {
-    private static ArrayList<String> listOfColors = new ArrayList<String>(List.of("darkred", "navy", "darkgreen",
-            "darkorange", "lightslategray", "orchid", "teal", "darkmagenta"));
+    private static ArrayList<String> listOfColors = new ArrayList<String>(List.of("#FFA8A8", "#FFCA9E", "#FBFF6A",
+            "#7FFFFE", "#8B7FFF", "#DB7FFF", "#FFA5E5"));
 
     /**
      * Method to generate a random list of colors to tag each group member with a particular colour.

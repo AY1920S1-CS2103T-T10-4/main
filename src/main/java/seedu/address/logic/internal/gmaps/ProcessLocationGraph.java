@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 
 import seedu.address.commons.exceptions.TimeBookInvalidState;
 import seedu.address.model.gmaps.LocationGraph;
+import seedu.address.websocket.Cache;
 import seedu.address.websocket.GmapsApi;
 
 /**
@@ -51,7 +52,7 @@ public class ProcessLocationGraph {
                 System.out.println("Processing cloumn" + j + "/" + ((gmapsRecognisedLocationList.size() / 10) + 1));
                 ArrayList<String> locationColumnString = new ArrayList<String>(gmapsRecognisedLocationList
                         .subList(j * 10 , Math.min((j + 1) * 10, gmapsRecognisedLocationList.size())));
-                JSONObject apiResponse = gmapsApi.getDistanceMatrix(locationRowString, locationColumnString);
+                JSONObject apiResponse = Cache.loadDistanceMatrix(locationRowString, locationColumnString);
                 ArrayList<ArrayList<Long>> currMatrix = GmapsJsonUtils.getArrayListMatrix(apiResponse);
                 setMatrixRows(currMatrix, i * 10, Math.min(i * 10 + 9, gmapsRecognisedLocationList.size() - 1));
             }

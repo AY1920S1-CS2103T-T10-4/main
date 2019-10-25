@@ -4,9 +4,12 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import seedu.address.model.display.sidepanel.PersonDisplay;
 
 /**
@@ -14,7 +17,8 @@ import seedu.address.model.display.sidepanel.PersonDisplay;
  */
 public class PersonDetailCard extends UiPart<Region> {
     private static final String FXML = "PersonDetailCard.fxml";
-
+    private final Image defaultUserProfile = new Image(getClass().getResourceAsStream(
+            "/images/default_profile.png"));
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
      * As a consequence, UI elements' variable names cannot be set to such keywords
@@ -26,23 +30,19 @@ public class PersonDetailCard extends UiPart<Region> {
     private final PersonDisplay person;
 
     @FXML
-    private HBox detailCard;
+    private HBox personDetailContainer;
+    @FXML
+    private ImageView userProfile;
+    @FXML
+    private StackPane profileContainer;
     @FXML
     private Label name;
     @FXML
-    private Label nameLabel;
-    @FXML
     private Label phone;
-    @FXML
-    private Label phoneLabel;
     @FXML
     private Label address;
     @FXML
-    private Label addressLabel;
-    @FXML
     private Label email;
-    @FXML
-    private Label emailLabel;
     @FXML
     private Label remark;
     @FXML
@@ -53,26 +53,17 @@ public class PersonDetailCard extends UiPart<Region> {
     public PersonDetailCard(PersonDisplay person) {
         super(FXML);
         this.person = person;
-        initialiseLabels();
         name.setText(formatText(person.getName().fullName));
         phone.setText(formatText(person.getPhone().value));
         address.setText(formatText(person.getAddress().value));
         email.setText(formatText(person.getEmail().value));
         remark.setText(formatText(person.getRemark().value));
+        profileContainer.setId("profileContainer");
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-    }
+        userProfile.setImage(defaultUserProfile);
 
-    /**
-     * Method to initialise the labels for the content of PersonDetailCard.
-     */
-    private void initialiseLabels() {
-        nameLabel.setText("Name: ");
-        phoneLabel.setText("Phone: ");
-        addressLabel.setText("Address: ");
-        emailLabel.setText("Email: ");
-        remarkLabel.setText("Remark: ");
     }
 
     /**
@@ -82,7 +73,7 @@ public class PersonDetailCard extends UiPart<Region> {
      */
     public static String formatText(String text) {
         if (text == null || text.equals("")) {
-            return "-";
+            return "NOT AVAILABLE";
         } else {
             return text;
         }

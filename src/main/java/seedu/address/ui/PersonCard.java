@@ -35,25 +35,15 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private StackPane personId;
     @FXML
-    private Label phone;
-    @FXML
-    private Label address;
-    @FXML
-    private Label email;
-    @FXML
-    private Label remark;
-    @FXML
     private FlowPane tags;
 
-    public PersonCard(PersonDisplay person, int displayedIndex) {
+    public PersonCard(PersonDisplay person) {
         super(FXML);
         this.person = person;
-        personId.getChildren().add(new BubbleGenerator(displayedIndex, 50, 2).getBubble());
-        name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
-        remark.setText(person.getRemark().value);
+        String personName = person.getName().fullName;
+        String personInitials = getPersonInitials(personName);
+        personId.getChildren().add(new BubbleGenerator(personInitials, 50).getBubble());
+        name.setText(personName);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
@@ -74,5 +64,14 @@ public class PersonCard extends UiPart<Region> {
         // state check
         PersonCard card = (PersonCard) other;
         return person.isSamePerson(card.person);
+    }
+
+    public String getPersonInitials(String personName) {
+        String[] fragmentedNames = personName.toUpperCase().split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < fragmentedNames.length; i++) {
+            stringBuilder.append(fragmentedNames[i].charAt(0));
+        }
+        return stringBuilder.toString();
     }
 }

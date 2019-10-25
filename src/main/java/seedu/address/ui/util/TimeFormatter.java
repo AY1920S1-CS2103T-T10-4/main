@@ -16,7 +16,9 @@ public class TimeFormatter {
      * @return String that represents the time.
      */
     public static String formatIntToTime(int time) {
-        if (time < 10) {
+        if (time == 0) {
+            return "0000";
+        } else if (time < 10) {
             return "0" + (time * 100);
         } else {
             return time * 100 + "";

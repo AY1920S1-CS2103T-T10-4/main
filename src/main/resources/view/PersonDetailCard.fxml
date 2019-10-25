@@ -7,40 +7,48 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<HBox id="detailCard" fx:id="detailCard" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.Circle?>
+<HBox id="personDetailContainer" fx:id="personDetailContainer" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <GridPane HBox.hgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
         </columnConstraints>
-        <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
+        <VBox alignment="CENTER" minHeight="105" GridPane.columnIndex="0" spacing="10">
             <padding>
-                <Insets top="5" right="5" bottom="5" left="15" />
+                <Insets top="10" right="10" bottom="10" left="10" />
             </padding>
-            <HBox spacing="5" alignment="CENTER_LEFT">
-                <Label fx:id="nameLabel" styleClass="cell_big_label">
-                    <minWidth>
-                        <!-- Ensures that the label text is never truncated -->
-                        <Region fx:constant="USE_PREF_SIZE" />
-                    </minWidth>
-                </Label>
-                <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+            <StackPane fx:id="profileContainer" alignment="CENTER" maxWidth="150" prefHeight="120">
+                <ImageView fx:id="userProfile" fitWidth="120" fitHeight="120"/>
+            </StackPane>
+            <HBox spacing="5" alignment="CENTER">
+                <Label fx:id="name" text="\$first" styleClass="cell_extra_big_label" />
             </HBox>
             <FlowPane fx:id="tags" />
-            <HBox>
-                <Label fx:id="phoneLabel" styleClass="cell_small_label"/>
-                <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
+            <HBox spacing="10">
+                <ImageView fitHeight="50" fitWidth="50">
+                    <Image url="@/images/phone_icon.png"/>
+                </ImageView>
+                <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" alignment="CENTER" prefHeight="100"/>
             </HBox>
-            <HBox>
-                <Label fx:id="addressLabel" styleClass="cell_small_label" />
-                <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
+            <HBox spacing="10">
+                <ImageView fitHeight="50" fitWidth="50">
+                    <Image url="@/images/address_icon.png"/>
+                </ImageView>
+                <Label fx:id="address" styleClass="cell_small_label" text="\$address" alignment="CENTER" prefHeight="100"/>
             </HBox>
-            <HBox>
-                <Label fx:id="emailLabel" styleClass="cell_small_label" />
-                <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+            <HBox spacing="10">
+                <ImageView fitHeight="50" fitWidth="50">
+                    <Image url="@/images/email_icon.png"/>
+                </ImageView>
+                <Label fx:id="email" styleClass="cell_small_label" text="\$email" alignment="CENTER" prefHeight="100"/>
             </HBox>
-            <HBox>
-                <Label fx:id="remarkLabel" styleClass="cell_small_label" />
-                <Label fx:id="remark" styleClass="cell_small_label" text="\$remark" />
+            <HBox spacing="10">
+                <ImageView fitHeight="50" fitWidth="50">
+                    <Image url="@/images/remark_icon.png"/>
+                </ImageView>
+                <Label fx:id="remark" styleClass="cell_small_label" text="\$remark" alignment="CENTER" prefHeight="100"/>
             </HBox>
         </VBox>
     </GridPane>

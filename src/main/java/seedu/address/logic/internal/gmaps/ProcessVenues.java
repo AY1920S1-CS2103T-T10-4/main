@@ -18,7 +18,7 @@ public class ProcessVenues {
     private JSONArray venuesNusMods;
     private ArrayList<Location> venues = new ArrayList<>();
     private transient GmapsApi gmapsApi = new GmapsApi();
-    private SanitizeLocation sanitizeLocation = new SanitizeLocation(gmapsApi);
+    private SanitizeLocation sanitizeLocation = new SanitizeLocation();
 
     public ProcessVenues(){
     }

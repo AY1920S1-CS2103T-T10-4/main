@@ -1,4 +1,4 @@
-= AddressBook Level 3 - User Guide
+= TimeBook - User Guide
 :site-section: UserGuide
 :toc:
 :toc-title:
@@ -12,13 +12,41 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
 endif::[]
-:repoURL: https://github.com/se-edu/addressbook-level3
+:repoURL: https://github.com/AY1920S1-CS2103T-T10-4/main
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team TimeBook`      Since: `Aug 2019`      Licence: `MIT`
+
+Our team is still working on the User Guide. Keep a look out for more cool and exciting features coming soon!
 
 == Introduction
 
-TimeBook is an application to store your friends’ information and schedule. The unique feature of TimeBook is that it can find free time for you and your group of friends to meet up for projects, meals or casual drinking sessions based on you and your friends’ schedules. In addition, TimeBook has been optimised for those who prefer using Command Line Interface (CLI) while keeping the benefits of a Graphical User Interface (GUI). Furthermore, TimeBook has a simple yet useful User Interface (UI) and User Experience (UX) to cater for users who have never used a CLI at all. Interested? Jump to the <<Quick Start>> to get started. Enjoy!
+Thank you for checking out TimeBook! TimeBook is a desktop application that is morphed from AddressBook Level 3 (AB3). TimeBook is a scheduler application that aims to help busy NUS undergraduates keep track of the schedules of the user and his or her friends. It also can find the common free time and venues among the user and his or her friends. TimeBook will have the following features:
+
+.  A graphical user interface (GUI) but most of the interactions with the application would happen using command line interface (CLI).
+.  Allows users to add the schedules of his or her friends and organise them into groups.
+.  Deconflict different schedules of different people and different groups to find the common free time among them.
+.  Integration with NUSmods API to allow users to enter their NUSmods timetable link to add it to their schedule.
+.  Integration with Google Maps API to allow the application to evaluate the best venue for the group to meet up during the free time in their schedules.
+
+== Understanding this guide
+=== Basic Information
+This guide is a explains how you can use *TimeBook* to the fullest extent to assist you to plan for your group's meeting.
+
+You can find the steps needed to start scheduling group activities with your friends or loved ones in the quick start and general
+*lifecycle* usage of our application. If you happen to stumble upon some difficulties, our *Frequently Asked Questions* (FAQ) is
+here to address that. If you are an experienced *Command Line Interface (CLI)* user, you can hope right into using the application by
+looking at our *Command Summary*. Otherwise, take a look at the *Unexperienced CLI user* section to obtain more information on how
+to use our application.
+
+We have used the following symbols to help you better understand our application usage. (For now we have not picked our symbols yet.)
+
+[width="80%",cols="^3, ^10",options="header"]
+|====
+| Symbol | What it means
+| impt | Important information that you may want to note.
+| tips | Shortcuts or hacks that would improve your experience using this application.
+| warn | Warning! Be careful if you encounter this symbol.
+|====
 
 == Quick Start
 
@@ -27,18 +55,29 @@ TimeBook is an application to store your friends’ information and schedule. Th
 .  Copy the file to the folder you want to use as the home folder for your TimeBook.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
-image::Ui.png[width="790"]
+image::startupwindow.png[width="790"]
 +
 .  Type the command in the command box and press kbd:[Enter] to execute it. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
 
-* *`list`* : lists all contacts
-* **`add`**`-n John Doe -p 98765432 -em johnd@example.com -a John street, block 123, #01-01` : adds a contact named `John Doe` to the TimeBook.
-* **`delete`**`3` : deletes the 3rd contact shown in the current list
+* *`list`* : lists all information in TimeBook.
+* *`addperson`* `n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : adds a contact named `John Doe` to the TimeBook.
+* *`deleteperson`* `n/John Doe` : deletes the person named `John Doe` from the TimeBook.
+* *`addgroup`* `g/CS2103` : adds a new group called `CS2103` to the TimeBook.
+* *`addtogroup`* `n/John Doe` `g/CS2103` : Adds a person `John Doe` into the group `CS2103`.
 * *`exit`* : exits the app
 
 .  Refer to <<Features>> for details of each command.
+
+== Unexperienced CLI user
+
+Unlike most applications, where you use your mouse to interact with the application such as scrolling and clicking, our application
+mostly use the *Command Line Interface*. Most of the time, you would be interacting with the application through typing commands in the
+command box of the application.
+
+You can play around with the commands in the *Command Summary* to get yourself warmed up.
+
 
 [[Features]]
 == Features
@@ -46,10 +85,10 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 ====
 *Command Format*
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add -n NAME`, `NAME` is a parameter which can be used as `add -n John Doe`.
-* Items in square brackets are optional e.g `-n NAME [-t TAG]` can be used as `-n John Doe -t friend` or as `-n John Doe`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[-t TAG]...` can be used as `{nbsp}` (i.e. 0 times), `-t friend`, `-t friend -t family` etc.
-* Parameters can be in any order e.g. if the command specifies `-n NAME -p PHONE_NUMBER`, `-p PHONE_NUMBER -n NAME` is also acceptable.
+* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `addperson n/NAME`, `NAME` is a parameter which can be used as `addperson n/John Doe`.
+* Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+* Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 ====
 
 === Viewing help : `help`
@@ -58,53 +97,53 @@ Format: `help`
 
 === Adding a person: `addperson`
 
-Adds a person to the timebook +
-Format: `add-person -n NAME -e EMAIL [-c NUS_MOD_LINK]`
+Adds a person to the TimeBook +
+Format: `addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]... [c/NUS_MOD_LINK]`
 
 Examples:
 
-* `addperson -n Catherine -em catherineCanCook@imail.com`
-* `addperson -n John Doe -em JohnDoe@imail.com -c 23F6B742CE`
+* `addperson n/Catherine em/catherineCanCook@imail.com`
+* `addperson n/John Doe em/JohnDoe@imail.com c/23F6B742CE`
 
 === Adding a person: `addgroup`
 
-Adds a group to the address book +
-Format: `addgroup -g GROUP_NAME [-r GROUP_REMARK]`
+Adds a group to the TimeBook +
+Format: `addgroup g/GROUP_NAME [r/GROUP_REMARK]`
 
 Examples:
 
-* `addgroup -g CS2103 -r Project Group`
-* `addgroup -g Friends`
+* `addgroup g/CS2103 r/Project Group`
+* `addgroup g/Friends`
 
 === Listing all persons : `list`
 
-Shows a list of all persons in the timebook. +
+Shows a list of all persons in the TimeBook. +
 Format: `list`
 
 === Editing a person : `editperson`
 
-Edits an existing person in the timebook. +
-Format: `edit INDEX [-n NAME] [-p PHONE] [-em EMAIL] [-a ADDRESS] [-t TAG]...`
+Edits an existing person in the TimeBook. +
+Format: `editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]...`
 
 ****
 * Edits the person specified by `PERSON_NAME`.
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person's tags by typing `-t` without specifying any tags after it.
+* You can remove all the person's tags by typing `tag/` without specifying any tags after it.
 ****
 
 Examples:
 
-* `edit 1 -p 91234567 -em johndoe@example.com` +
-Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 -n Betsy Crower -t` +
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `editperson ed/John Doe p/91234567 em/johndoe@example.com` +
+Edits the phone number and email address of the person with name 'John Doe' to be `91234567` and `johndoe@example.com` respectively.
+* `edit ed/Betsy n/Betsy Crower tag/` +
+Edits the person 'Betsy' to a new name 'Betsy Crower' and clears all existing tags.
 
 === Editing a group : `editgroup`
 
-Edits an existing group in the address book. +
-Format: `editgroup -ed GROUP_NAME [-g GROUP_NAME] [-r GROUP_REMARK]`
+Edits an existing group in the TimeBook. +
+Format: `editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]`
 
 ****
 * Edits the group specified by `GROUP_NAME`.
@@ -114,69 +153,110 @@ Format: `editgroup -ed GROUP_NAME [-g GROUP_NAME] [-r GROUP_REMARK]`
 
 Examples:
 
-* `editgroup -ed CS2103 -g CS3203 -r Project Discussion Group` +
-Edits the group specified by group name 'CS2103' with group name 'CS3203' and group remark `Project Discussion Group` respectively.
-
+* `editgroup ed/CS2103 g/CS3203 r/Project Discussion Group` +
+Edits the group specified by group name 'CS2103' with a new group name 'CS3203' and group remark `Project Discussion Group` respectively.
 
 === Locating persons by name: `findperson`
 
 Finds the person whose name contains the given keyword. +
-Format: `findperson -n NAME`
+Format: `findperson n/NAME`
 
 ****
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
-* Shows the groups that this person is in.
+* Shows the person in the tabs panel.
 ****
 
-=== Locating persons by name: `findgroup`
+=== Locating group by name: `findgroup`
 
 Finds the group whose name contains the given keyword. +
-Format: `findgroup -g GROUP_NAME`
+Format: `findgroup g/GROUP_NAME`
 
 ****
 * Only the group name is searched.
 * Only full words will be matched
-* Shows the members inside the group.
+* Shows the group in the tabs panel.
 ****
 
 // tag::delete[]
 === Deleting a person : `deleteperson`
 
-Deletes the specified person from TimeBook. +
-Format: `delete-person -n NAME`
+Deletes the specified person from the TimeBook. +
+Format: `deleteperson n/NAME`
 
 ****
+* Removes the person from all the groups they are in
 * Deletes the person specified by 'NAME'
-* Deletes all mappings of this person in groups.
 ****
 
 Examples:
 
-* `delete-person -n Benedict` +
-Deletes the 2nd person in TimeBook.
-* `deleteperson -n Benedict` +
-Deletes the 'Benedict' in the timebook.
+* `deleteperson n/Benedict` +
+Deletes the person named `Benedict` from the TimeBook.
 
 === Deleting a group : `deletegroup`
 
-Deletes the specified group from the timebook. +
-Format: `deletegroup -g GROUP_NAME`
+Deletes the specified group from the TimeBook. +
+Format: `deletegroup g/GROUP_NAME`
 
 ****
 * Deletes the group specified by 'GROUP_NAME'
-* Deletes all mappings of persons to this group.
+* The people who were in this group will not be deleted.
 ****
 
 Examples:
 
-* `deletegroup -g CS2103` +
-Deletes the 'CS2103' in the timebook.
+* `deletegroup g/CS2103` +
+Deletes the 'CS2103' group from the TimeBook.
+
+=== Show: `show`
+==== Show person:
+Shows details of a person. +
+Format: `show n/NAME`
+
+****
+* Shows the full name, address, email, phone number and schedule of this person.
+****
+
+Examples:
+
+* Type `show n/Tim` in the command line as shown below: +
+
+image::showpersoncommand.png[]
+Hit the kbd:[Enter] key and you should see details of the person! You should see a window similar to the one below.
+
+image::showpersonresult.png[]
+
+==== Show group:
+Shows the details of a group. +
+Format: `show g/GROUP_NAME`
+
+****
+* Shows the description, members and aggregated schedules for this group.
+****
+
+Examples:
+
+* Type `show g/Team1` in the command line as shown below +
+
+image::showgroupcommand.png[]
+
+Hit the kbd:[Enter] key and you should see the details of this group in a similar window below.
+
+image::showgroupresult.png[]
+
+*****
+tip: You can use the command `n` to help you navigate through the schedule view without touching your mouse!
+*****
+
+=== Switch tabs: `switch-tab`
+You can switch the tab of *Person* and *Group* using this command.
+Format: `switch-tab`
 
 // end::delete[]
 === Clearing all entries : `clear`
 
-Clears all entries from the TimeBook. +
+Clears all entries from the time book. +
 Format: `clear`
 
 === Exiting the program : `exit`
@@ -189,146 +269,155 @@ Format: `exit`
 TimeBook data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
-// tag::dataencryption[]
-=== Encrypting data files `[coming in v2.0]`
-
-_{explain how the user can enable/disable data encryption}_
-// end::dataencryption[]
-
 == Advanced Features
-
-=== Add Event: `addevent`
-
-Adds an event to a person in TimeBook. Only events without clashes in the person's existing schedule can be added to TimeBook.
-Can be used to mark a person as unavailable either on one-off dates or on a particular day every week. +
-Format:
-
-*  format of START_DATE/END_DATE: `DDMMYYYY:HHMM` +
-*  format of START_TIME/END_TIME: `HHMM` +
-* `addevent -n NAME -e EVENT_NAME -t START_DATE-END_DATE-LOCATION` +
-* `addevent -n NAME -e EVENT_NAME -d DAY -t START_TIME-END_TIME` +
-* `addevent -n NAME -c NUS_MOD_LINK`
-
-Examples:
-
-* `addevent -n John -e CS2103T Lecture -t 18102019:1600-18102019:1800-i3`
-* `addevent -n John -e Lunch with kakis -d Wednesday -t 1000-1200`
-* `addevent -n Jake -c 23F6B742CE`
-
-=== Delete schedule: `delete-schedule`
-
-Delete all schedule data of the specified person from TimeBook +
-Format:
-
-* `delete-schedule -n NAME` +
-
-Examples:
-
-* `delete-schedule -n John`
 
 === Add to Group: `addtogroup`
 
-Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in TimeBook.
+Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in the TimeBook.
 Format:
 
-* `addtogroup' -n NAME -g GROUP_NAME
+* `addtogroup n/NAME g/GROUP_NAME`
 
 Examples:
 
-* `addtogroup -n John -g CS2103
+* `addtogroup n/John g/CS2103`
 
-=== Group: 'group'
-Creates a group and adds all members into the group +
+=== Add Schedule: `addevent`
+
+Adds an event into the schedule of a person in the TimeBook. Only schedules without clashes between time slots can be added to the TimeBook.
+Can be used to mark a person as unavailable either on one-off dates or on a particular day every week +
 Format:
 
-* `group -g GROUP_NAME [-m MEMBERS]`
+* `addevent n/NAME e/EVENT_NAME t/DATETIME` +
+* `addevent n/NAME c/NUS_MOD_LINK`
 
 Examples:
 
-* `group -g TimeBook -m Catherine -m John Doe`
-* `group -g CS2030 T2 -m Amanda -m Catherine`
+* `addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25`
+* `addevent n/John c/23F6B742CE`
 
-=== Show group: `show`
+=== Add Module: `addmod`
 
-Shows details of a group: who are its members and their available timings +
+Adds an NUS module as an event to a person's schedule in TimeBook. It checks and ensures classes are available for the module in the academic year and semester before adding to the person's schedule. Default values for `ACADEMIC_YEAR` is 2019/2020 and `SEMESTER` is 1.
+
 Format:
 
-* `show -g TimeBook` +
-* `show -g CS2030 T2`
-
-=== Show person: `show`
-
-Shows a person’s details along with their schedule +
-Format:
-
-* `show -n NAME` +
-
-=== Delete schedule: `deleteschedule`
-Delete all schedule data of the specified person from TimeBook +
-Format:
-
-* `deleteschedule -n NAME` +
+* `addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]` +
 
 Examples:
 
-* `delete-schedule -n John`
+* `addmod n/John m/CS2103T class/G01,T5`
+* `addmod n/John m/CS2103T class/G01,T5 ay/2018/2019`
+* `addmod n/John m/CS2103T class/G01,T5 ay/2019/2020 s/1`
 
-=== Export VR(Virtual Representation): `export`
+=== Add Modules via Link: `addmods`
+
+Adds NUS modules given the NUSMods share link, as events to a person's schedule in TimeBook.
+
+Format:
+
+* `addmods n/NAME l/NUSMODS_SHARE_LINK` +
+
+Examples:
+
+* `addmods n/John l/https://nusmods.com/timetable/sem-1/share?CS2101=&CS2103T=LEC:G05&CS3230=LEC:1,TUT:08&CS3243=TUT:07,LEC:1&GEQ1000=TUT:D17`
+* `addmods n/Bob l/https://nusmods.com/timetable/sem-1/share?CS2101=&CS2103T=LEC:G05&CS3230=LEC:1,TUT:08&CS3243=TUT:07,LEC:1&GEQ1000=TUT:D17`
+
+=== Show Module: `showmod`
+
+Shows the schedule of available classes for the module in the academic year and semester. Default values for `ACADEMIC_YEAR` is 2019/2020 and `SEMESTER` is 1.
+
+Format:
+
+* `showmod m/MODULE_CODE [ay/ACADEMIC_YEAR] [s/SEMESTER]`
+
+Examples:
+
+* `showmod m/CS2103T`
+* `showmod m/GEQ1000 ay/2019/2020`
+* `showmod m/CS3230 ay/2019/2020 s/2`
+
+=== Export VR(Virtual Representation): `export-vr`
+
+This feature is currently work in progress!
 
 Exports a visualisation representation of the schedule (timetable) of a group or person(s) to a PNG file+
 Format:
 
-* `export-vr [-n NAME]… [-g GROUP_NAME]…` +
+* `export-vr [n/NAME]` +
+* `export-vr [g/GROUP_NAME]` +
 
 Examples:
 
-* `export-vr -g TimeBook`
-* `export-vr -n John Doe`
+* `export-vr g/CS2103T Team project`
+* `export-vr n/John Doe`
 
-=== Export ICS: `export-ics`
+//=== Export ICS: `export-ics`
+//
+//Output the free time for a certain group as an ics file. This ics file could be imported into google calendar. +
+//Format:
+//
+//* `export-ics OUTPUT_FILENAME` +
+//
+//Examples:
+//
+//* `Export-ics -n CS3230T`
 
-Output the free time for a certain group as an ics file. This ics file could be imported into google calendar. +
-Format:
-
-* `export-ics OUTPUT_FILENAME` +
-
-Examples:
-
-* `Export-ics -n CS3230T`
-
-=== Import ICS: `import-ics`
-
-Import the ics file of an individual. +
-Format:
-
-* `import-ics NAME FILEPATH` +
-
-Examples:
-
-* `Import-ics -t individual -n Catherine -p /data/timetable.ics`
-
-=== Import ICS: `import-ics`
-
-Import the ics file of an individual. +
-Format:
-
-* `import-ics NAME FILEPATH` +
-
-Examples:
-
-* `Import-ics -t individual -n Catherine -p /data/timetable.ics`
+//=== Import ICS: `import-ics`
+//
+//Import the ics file of an individual. +
+//Format:
+//
+//* `import-ics NAME FILEPATH` +
+//
+//Examples:
+//
+//* `Import-ics -t individual -n Catherine -p /data/timetable.ics`
 
 === Get Closest Location: `closestlocation`
 
-Get the closest common location. +
+This command is used to get the closest common location among a list of locations you entered.
+
+Boundaries of this command:
+
+. We define closest common location as the location that requires the least average time to travel to from the
+locations stated in the list.
+. We only support locations that are from NUSMods. Any other location would be voided and not be taken into
+consideration for the computation of the closest location.
+
 Format:
 
-* `closestlocation -l LOCATIONA LOCATIONB ...` +
+* `closestlocation l/LOCATIONA LOCATIONB ...` +
 
 Examples:
 
-* `closestlocation -l LT16 LT15 AS5`
+* `closestlocation l/LT16 LT15 AS5`
 
+=== Show Free Time slot `show-freetime`
+
+*Overview*
+When the command is executed a popup will appear that shows the closest common location for a particular free time slot in a group.
+
+image::FreeTimePopup.png[]
+
+_Description_
+
+There are three main information that you will see when you execute the command.
+
+. The Closest common location will be shown on the top right corner.
+. The picture on google maps of the closest common location will be shown below the header.
+. The full details of will be shown on the left side of the popup.
+.. Second and third closest location will be shown
+.. The average time to reach the location for the various choices
+.. A list of voided location that TimeBook does not support
+
+Format:
+
+* `show-freetime g/GROUP_NAME id/SLOT_NUMBER` +
+
+Examples:
+
+* `show-freetime g/CS2103T id/2`
 
 == FAQ
 
@@ -337,15 +426,43 @@ Examples:
 
 == Command Summary
 
-* *Add* `add -n NAME -p PHONE_NUMBER -em EMAIL -a ADDRESS [-t TAG]...` +
-e.g. `add -n James Ho -p 22224444 -em jamesho@example.com -a 123, Clementi Rd, 1234665 -t friend -t colleague`
-* *Clear* : `clear`
-* *Delete* : `delete INDEX` +
-e.g. `delete 3`
-* *Edit* : `edit INDEX [-n NAME] [-p PHONE_NUMBER] [-em EMAIL] [-a ADDRESS] [-t TAG]...` +
-e.g. `edit 2 -n James Lee -em jameslee@example.com`
-* *Find* : `find KEYWORD [MORE_KEYWORDS]` +
-e.g. `find James Jake`
-* *List* : `list`
+* *List/Show All Persons* : `list`
+* *Add Person* `addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]... [c/NUS_MOD_LINK]` +
+e.g. `addperson n/James Ho p/22224444 em/jamesho@example.com a/123, Clementi Rd, 1234665 r/Always helpful tag/friend tag/colleague`
+* *Edit Person* : `editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]...` +
+e.g. `editperson ed/James Lee em/jameslee@example.com`
+* *Delete Person* : `delete n/NAME` +
+e.g. `deleteperson n/Benedict`
+* *Find Person* : `findperson n/NAME` +
+e.g. `findperson n/James Jake`
+* *Add Event to Person's Schedule* : `addevent n/NAME e/EVENT_NAME t/DATETIME` +
+e.g. `addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25`
+* *Add Module to Person's Schedule* : `addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]` +
+e.g. `addmod n/John m/CS2103T class/G01,T5 ay/2019/2020 s/1`
+* *Add Modules to Person's Schedule via NUSMods Link* : `addmods n/NAME l/NUSMODS_SHARE_LINK` +
+e.g. `addmods n/John l/https://nusmods.com/timetable/sem-1/share?CS2101=&CS2103T=LEC:G05&CS3230=LEC:1,TUT:08&CS3243=TUT:07,LEC:1&GEQ1000=TUT:D17`
+* *Show Module Classes Schedule* : `showmod m/MODULE_CODE [ay/ACADEMIC_YEAR] [s/SEMESTER]` +
+e.g. `showmod m/CS3230 ay/2019/2020 s/2`
+* *Show Person Details and Schedule* : `show n/NAME` +
+e.g. `show n/James Lee`
+* *Add Group* `addgroup g/GROUP_NAME [r/GROUP_REMARK]` +
+e.g. `addgroup g/CS2103 r/Project Group`
+* *Add Person to Group* : `addtogroup n/NAME g/GROUP_NAME` +
+e.g. `addtogroup n/John g/CS2103`
+* *Edit Group* `editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]` +
+e.g. `editgroup ed/CS2103 g/CS3203 r/Project Discussion Group`
+* *Delete Group* : `deletegroup g/GROUP_NAME` +
+e.g. `deletegroup g/CS2103`
+* *Find Group* : `findgroup g/GROUP_NAME` +
+e.g. `findgroup g/CS2103`
+* *Show Group Details and Schedule* : `show g/GROUP_NAME` +
+e.g. `show g/CS2030 T2`
+* *Export Visual Representation* : `export-vr [n/NAME]… [g/GROUP_NAME]… o/SAVE_LOCATION` +
+e.g. `export-vr g/TimeBook o/timetable.jpg`
+* *Closest Location* : `closestlocation l/LOCATIONA LOCATIONB ...` +
+e.g. `closestlocation l/LT16 LT15 AS5`
+* *Show Free Time Slot* : `show-freetime g/GROUP_NAME id/SLOT_NUMBER` +
+e.g. `show-freetime g/CS2103T id/2`
 * *Help* : `help`
-* *Closes Location* : `closestlocation -l LOCATIONA LOCATIONB ...`
+* *Clear* : `clear`
+* *Exit* : `exit`

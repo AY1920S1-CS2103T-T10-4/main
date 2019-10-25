@@ -496,26 +496,45 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 This is the sequence diagram for when the method `Model.getClosestLocationData` and `Model.getClosestLocationString`
 
 image::gmaps/ClosestLocationSequenceDiagram.png[]
->>>>>>> 4d908ab81c2bd5e35254b1528ab1e76480b2b893
 
 // tag::nusmods[]
 === Add NUSMods To Schedule
 ==== Implementation
-This feature allows users to add their NUSMods timetable (using the `AddNusModsCommand`) or individual NUS modules (using the `AddNusModCommand`) to their TimeBook schedules.
+This feature allows users to add their NUSMods timetable (using the `AddNusModsCommand`) to their TimeBook schedules.
 
-The `AddNusModsCommand` can be executed by the user through the CLI with the following syntax `addmods n/NAME l/NUSMODS_SHARE_LINK`. The provided link will be parsed for the module codes and the lesson numbers.
+The `AddNusModsCommand` can be executed by the user through the CLI with the following syntax `addmods n/NAME l/NUSMODS_SHARE_LINK`. The share link contains semester number, module codes and lesson numbers, which are used for creating and adding events to the person's schedule.
 
-The `AddNusModCommand` can be executed by the user through the CLI with the following syntax `addmod n/NAME m/MODULE_CODE l/LESSON_NOS...`.
+//The following class diagrams shows the structure of `Module` and `Event`:
+//TODO: class diagram for Module and Event
 
-Since the `AddNusModCommand` is implemented in a similar fashion with `AddNusModsCommand`, we will walk through an example usage scenario of the latter command, which is slightly more complex parsing.
+The following sequence diagram shows what happens when `AddNusModsCommand` is executed:
 
-*Steps*
+image::nusmods/AddNusModsSequenceDiagram.png[]
 
-. The user types in the command `addmods n/NAME l/NUSMODS_SHARE_LINK` and the
-//TODO: Steps
+. User enters `addmods n/NAME l/https//nusmods.com/...`
+. The name string will be parsed into a `Name` object. The argument string for link will be parsed in `AddNusModsCommandParser` into a `NusModsShareLink`, containing the `SemesterNo`, `ModuleCodes` and `LessonNos`. Both the `Name` and `NusModsShareLink` objects will then be passed into the `AddNusModsCommand` constructor.
+. The `AddNusModsCommand#execute` is then called by the `LogicManager`.
+. In the `AddNusModsCommand#execute` method,
+.. `model#findPerson` is called to find the `Person` with the provided name.
+.. Iterate through the `ModuleCodes`,
+... Call `model#findModule` to get the `Module` with the given module code.
+... Pass the module and selected lesson numbers in the link into `ModuleEventMappingUtil#mapModuleToEvent` to generate an `Event` based on the module. The lesson numbers are used to generate the `Timeslots` for the event.
+.. Iterate through all the events to add,
+... Call `person#addEvent` to add the event to the person's schedule.
+. Return command result and display feedback to user.
 
 ==== Design Considerations
-//TODO: compare 1) using share link, 2) individual modules
+
+===== Aspect: Ease of executing command as user.
+* **Alternative 1 (current choice):** Entering NUSMods share link
+** Pros: User can easily get the NUSMods share link of his/her existing NUSMods timetable and copy/paste the link into the command.
+** Cons: Less flexibility if user wants to add only some modules (has to adjust timetable on NUSMods or modify the link itself)
+* **Alternative 2:** Entering modules individually
+** Pros: More flexibility in specifying modules to add.
+** Cons: Tedious as user has to specify the semester, module codes and lesson numbers in the command.
+* **Alternative 3:** Importing the downloaded iCalendar file from NUSMods
+** Pros: Opens up the possibility of importing generic iCalendar files.
+** Cons: User is unlikely to be able to get the iCalendar files of his/her group members (due to tediousness and privacy reasons).
 
 // end::nusmods[]
 
@@ -526,10 +545,13 @@ Since the `AddNusModCommand` is implemented in a similar fashion with `AddNusMod
 The application requires data from the https://api.nusmods.com/v2/[NUSMods API] for the <<Add NUSMods To Schedule, Add NUSMods To Schedule>> feature and data from the https://developers.google.com/maps/documentation[Google Maps API] for the <<Closest Common Location(Micro Service), Closest Common Location>> feature. The following subsections describe the implementation of various aspects with regards to working with external APIs:
 
 ==== APIs
-The class `NusModsApi` contains methods for querying different endpoints of the NUSMods API and parsing the query results into `JSONObject` or `JSONArray` objects.
 
-The class `GmapsApi` contains methods for querying different endpoints of the Google Maps API and parsing the query results into `JSONObject` or `JSONArray` objects.
-//TODO: describe more
+We have implemented a `websocket` component to contain the logic of interfacing with external APIs.
+
+The `websocket.NusModsApi` class contains methods for querying different endpoints of the NUSMods API and parsing the query results into `JSONObject` or `JSONArray` objects.
+
+The `websocket.GmapsApi` class contains methods for querying different endpoints of the Google Maps API and parsing the query results into `JSONObject` or `JSONArray` objects.
+//TODO: describe more and provide a class diagram of the internal classes in websocket
 
 ==== Caching API Results
 
@@ -539,14 +561,27 @@ image::gmaps/ApiDiagram.png[]
 
 ==== Preprocessing NUSMods API
 The key information that we require for each NUS module is the timetable information. Unfortunately, there is no available endpoint which provides the timetable information of all modules at once - there is only an endpoint which provides the timetable information of one module per query. Thus, we developed a small program in `logic.internal.nusmods.ImportMods`, which can be run prior to the main application itself, to query the timetable info for every module and build a list of modules data containing the timetable information.
-//TODO: insert diagram websocket - logic.internal.nusmods diagram
+
+//TODO: insert diagram websocket - logic.internal.nusmods class diagram
 
 ==== Preprocessing Google Maps API
 //TODO: talk about your internal program to build the DistanceMatrix.json / Places.json
 
 
 ==== Design Considerations
-//TODO: talk about how 3 approaches: 1) direct api calls, 2) api calls + caching, 3) api calls + caching + preprocessing
+
+===== Aspect: Limited Connectivity Support
+Current choice: we chose a combination of alternatives 1 and 2 to achieve robust limited connectivity support for our external API data.
+
+* **Alternative 1:** Preprocessing API
+** Pros: Can achieve complete offline support, also saves the issue of handling API keys.
+** Cons: Have to run preprocessing programs from time to time to update data files, e.g. for modules in new academic year or new locations else features will not work.
+* **Alternative 2:** Caching Query Results
+** Pros: Achieves limited connectivity support (call once and save result, then use saved result for future calls). Also, needs less work to support future data/API changes.
+** Cons: Not so useful in cases where a large number of queries is required to be preprocessed first, e.g. getting locations data from Google Maps API to generate `LocationGraph`.
+* **Alternative 3:** Direct API queries
+** Pros: Easy to implement, minimal work to support future data/API changes.
+** Cons: No limited connectivity support.
 
 // end::websocket[]
 

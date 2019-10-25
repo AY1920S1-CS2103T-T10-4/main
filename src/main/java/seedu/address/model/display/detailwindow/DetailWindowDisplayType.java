@@ -6,5 +6,6 @@ package seedu.address.model.display.detailwindow;
 public enum DetailWindowDisplayType {
     GROUP,
     PERSON,
-    EMPTY
+    DEFAULT,
+    NONE
 }

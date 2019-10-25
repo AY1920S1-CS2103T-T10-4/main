@@ -1,6 +1,7 @@
 package seedu.address.ui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
@@ -12,7 +13,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
@@ -24,7 +24,10 @@ import seedu.address.logic.export.VisualExporter;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.display.detailwindow.DetailWindowDisplay;
 import seedu.address.model.display.detailwindow.DetailWindowDisplayType;
+import seedu.address.model.display.sidepanel.SidePanelDisplayType;
 import seedu.address.ui.SuggestingCommandBox.SuggestionLogic;
+import seedu.address.ui.util.ColorGenerator;
+import seedu.address.ui.util.DefaultStartView;
 import seedu.address.ui.util.GroupDetailsExport;
 
 /**
@@ -45,15 +48,13 @@ public class MainWindow extends UiPart<Stage> {
     private GroupListPanel groupListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private ScheduleView scheduleView;
 
     @FXML
     private StackPane commandBoxPlaceholder;
 
     @FXML
     private MenuItem helpMenuItem;
-
-    //@FXML
-    //private StackPane personListPanelPlaceholder;
 
     @FXML
     private StackPane sideBarPlaceholder;
@@ -150,9 +151,7 @@ public class MainWindow extends UiPart<Stage> {
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
 
         //setting up default detailsview
-        Region defaultRegion = new Region();
-        defaultRegion.setPrefHeight(750.0);
-        detailsViewPlaceholder.getChildren().add(defaultRegion);
+        detailsViewPlaceholder.getChildren().add(new DefaultStartView(400, 400).getRoot());
     }
 
     /**
@@ -167,11 +166,10 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Handles change of sidepanel view.
      */
-    public void handleChangeOnSidePanelView() {
+    public void handleChangeToTabsPanel() {
         sideBarPlaceholder.getChildren().clear();
         personListPanel = new PersonListPanel(logic.getFilteredPersonDisplayList());
         TabPanel tabPanel = new TabPanel();
-        //To do for logic -> getGroupList.
         groupListPanel = new GroupListPanel(logic.getFilteredGroupDisplayList());
         tabPanel.setContent(personListPanel.getRoot(), groupListPanel.getRoot());
         sideBarPlaceholder.getChildren().add(tabPanel.getTabs());
@@ -181,16 +179,24 @@ public class MainWindow extends UiPart<Stage> {
      * Handles tab switch view.
      * @param type Tab number to be switched to. 1 for person, 2 for group.
      */
-    public void handleTabSwitch(DetailWindowDisplayType type) {
-        if (type.equals(DetailWindowDisplayType.PERSON)) {
+    public void handleTabSwitch(SidePanelDisplayType type) {
+        if (type.equals(SidePanelDisplayType.PERSONS)) {
             TabPane tabPane = (TabPane) sideBarPlaceholder.getChildren().get(0);
             tabPane.getSelectionModel().select(0);
-        } else if (type.equals(DetailWindowDisplayType.GROUP)) {
+        } else if (type.equals(SidePanelDisplayType.GROUPS)) {
             TabPane tabPane = (TabPane) sideBarPlaceholder.getChildren().get(0);
             tabPane.getSelectionModel().select(1);
         } else {
             //Tabpane remain the same.
         }
+    }
+
+    /**
+     * Handles switching tabs to view person's or group's detail.
+     */
+    public void handleSidePanelChange(Node details) {
+        sideBarPlaceholder.getChildren().clear();
+        sideBarPlaceholder.getChildren().add(details);
     }
 
     /**
@@ -231,6 +237,17 @@ public class MainWindow extends UiPart<Stage> {
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();
+    }
+
+    /**
+     * Method to handle scrolling events.
+     */
+    private void handleScroll() {
+        if (scheduleView == null) {
+            //No schedule has been loaded yet. Do nothing.
+        } else {
+            scheduleView.scrollNext();
+        }
     }
 
     /**
@@ -276,21 +293,34 @@ public class MainWindow extends UiPart<Stage> {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-            handleChangeOnSidePanelView();
             DetailWindowDisplay detailWindowDisplay = logic.getMainWindowDisplay();
             DetailWindowDisplayType displayType = detailWindowDisplay.getDetailWindowDisplayType();
-            handleTabSwitch(displayType);
+            ArrayList<String> colors = ColorGenerator
+                    .generateColorList(detailWindowDisplay.getWeekSchedules().size());
             switch(displayType) {
             case PERSON:
-                PersonDetailsView personDetailsView = new PersonDetailsView(detailWindowDisplay);
-                handleChangeOnDetailsView(personDetailsView.getRoot());
+                //There is only 1 schedule in the detailWindowDisplay
+                ScheduleView personScheduleView = new ScheduleView(detailWindowDisplay.getWeekSchedules().get(0));
+                handleChangeOnDetailsView(personScheduleView.getRoot());
+                handleSidePanelChange(
+                        new PersonDetailCard(detailWindowDisplay
+                                .getWeekSchedules()
+                                .get(0)
+                                .getPersonDisplay())
+                                .getRoot());
+                scheduleView = personScheduleView;
                 break;
             case GROUP:
-                GroupDetailsView groupDetailsView = new GroupDetailsView(detailWindowDisplay);
-                handleChangeOnDetailsView(groupDetailsView.getRoot());
+                ScheduleView groupScheduleView = new ScheduleView(detailWindowDisplay.getWeekSchedules(),
+                        colors,
+                        detailWindowDisplay.getGroupDisplay().getGroupName(), detailWindowDisplay.getFreeSchedule());
+                handleChangeOnDetailsView(groupScheduleView.getRoot());
+                handleSidePanelChange(new GroupInformation(detailWindowDisplay, colors).getRoot());
+                scheduleView = groupScheduleView;
                 break;
-            case EMPTY:
-                //Nothing to update
+            case DEFAULT:
+                handleChangeToTabsPanel();
+                handleTabSwitch(logic.getSidePanelDisplay().getSidePanelDisplayType());
                 break;
             default:
                 //Nothing to show
@@ -307,6 +337,14 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isExport()) {
                 handleExport(detailWindowDisplay);
+            }
+
+            if (commandResult.isScroll()) {
+                handleScroll();
+            }
+
+            if (commandResult.isPopUp()) {
+                //WIP
             }
 
             return commandResult;

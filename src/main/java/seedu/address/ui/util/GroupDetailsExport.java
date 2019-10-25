@@ -9,7 +9,6 @@ import javafx.scene.layout.StackPane;
 import seedu.address.model.display.detailwindow.DetailWindowDisplay;
 import seedu.address.model.display.detailwindow.WeekSchedule;
 import seedu.address.model.person.ScheduleStub;
-import seedu.address.ui.ScheduleViewExport;
 import seedu.address.ui.UiPart;
 
 /**
@@ -45,7 +44,7 @@ public class GroupDetailsExport extends UiPart<Region> {
                 .collect(Collectors.toCollection(ArrayList::new));
 
         ArrayList<String> colors = ColorGenerator.generateColorList(names.size());
-        ScheduleViewExport scheduleView = new ScheduleViewExport(schedules, colors);
+        ScheduleExport scheduleView = new ScheduleExport(schedules, colors);
         GroupDetailCard groupCard = new GroupDetailCard(detailWindowDisplay.getGroupDisplay());
         groupDetailCard.getChildren().add(groupCard.getRoot());
         groupMembersList.getChildren().add(new MemberList(names, emails, roles, colors).getRoot());

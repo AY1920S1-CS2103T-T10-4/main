@@ -83,4 +83,8 @@ public class FreeSchedule {
         }
 
     }
+
+    public HashMap<DayOfWeek, ArrayList<FreeTimeslot>> getFreeSchedule() {
+        return freeSchedule;
+    }
 }

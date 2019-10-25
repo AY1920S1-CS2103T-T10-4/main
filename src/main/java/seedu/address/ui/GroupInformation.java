@@ -7,30 +7,25 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.address.model.display.detailwindow.DetailWindowDisplay;
-import seedu.address.ui.util.ColorGenerator;
 import seedu.address.ui.util.GroupDetailCard;
 import seedu.address.ui.util.MemberList;
 
 /**
- * A class to handle the details view of a person or a group.
+ * A class to handle the view of a group.
  */
-public class GroupDetailsView extends UiPart<Region> {
+public class GroupInformation extends UiPart<Region> {
 
-    private static final String FXML = "GroupDetailsView.fxml";
-
-    @FXML
-    private StackPane groupDetailCard;
+    private static final String FXML = "GroupInformation.fxml";
 
     @FXML
-    private StackPane groupMembersList;
+    private StackPane groupDetails;
 
     @FXML
-    private StackPane groupSchedule;
+    private StackPane groupMembers;
 
-    @FXML
-    private StackPane groupDetailContainer;
+    private ArrayList<String> colors;
 
-    public GroupDetailsView(DetailWindowDisplay detailWindowDisplay) {
+    public GroupInformation(DetailWindowDisplay detailWindowDisplay, ArrayList<String> colors) {
         super(FXML);
         ArrayList<String> names = detailWindowDisplay.getWeekSchedules().stream()
                 .map(wkSch -> wkSch.getPersonDisplay().getName().toString())
@@ -42,12 +37,10 @@ public class GroupDetailsView extends UiPart<Region> {
                 .map(wkSch -> wkSch.getRole().toString())
                 .collect(Collectors.toCollection(ArrayList::new));
 
-        ArrayList<String> colors = ColorGenerator.generateColorList(detailWindowDisplay.getWeekSchedules().size());
-        ScheduleView scheduleView = new ScheduleView(detailWindowDisplay.getWeekSchedules(), colors);
+        this.colors = colors;
         GroupDetailCard groupCard = new GroupDetailCard(detailWindowDisplay.getGroupDisplay());
-        groupDetailCard.getChildren().add(groupCard.getRoot());
-        groupMembersList.getChildren().add(new MemberList(names, emails, roles, colors).getRoot());
-        groupSchedule.getChildren().add(scheduleView.getRoot());
+        groupDetails.getChildren().add(groupCard.getRoot());
+        groupMembers.getChildren().add(new MemberList(names, emails, roles, colors).getRoot());
     }
 
 }

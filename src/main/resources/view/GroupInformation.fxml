@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <StackPane>
+        <GridPane>
+            <rowConstraints>
+                <RowConstraints percentHeight="30"/>
+                <RowConstraints percentHeight="70"/>
+            </rowConstraints>
+            <StackPane fx:id="groupDetails" GridPane.columnIndex="0" GridPane.rowIndex="0"></StackPane>
+            <StackPane fx:id="groupMembers" GridPane.columnIndex="0" GridPane.rowIndex="1"></StackPane>
+        </GridPane>
+    </StackPane>
+</StackPane>

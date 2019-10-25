@@ -17,8 +17,13 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import seedu.address.model.display.detailwindow.DayTimeslot;
+import seedu.address.model.display.detailwindow.FreeSchedule;
+import seedu.address.model.display.detailwindow.FreeTimeslot;
 import seedu.address.model.display.detailwindow.WeekSchedule;
+import seedu.address.model.group.GroupName;
+import seedu.address.ui.util.ColorGenerator;
 import seedu.address.ui.util.DateFormatter;
 import seedu.address.ui.util.TimeFormatter;
 
@@ -28,9 +33,17 @@ import seedu.address.ui.util.TimeFormatter;
 public class ScheduleView extends UiPart<Region> {
     //Schedule to be received from logic MUST have timeslots in chronological order.
     //ScheduleView must be wrapped in a scroll pane otherwise the view will become distorted.
+
     private static final String FXML = "ScheduleView.fxml";
-    private static ArrayList<String> listOfColors = new ArrayList<String>(List.of("darkred", "navy", "darkgreen",
-            "darkorange", "lightslategray", "orchid", "teal", "darkmagenta"));
+
+    protected final int oneHourLength = 60;
+    protected final int preferredWidth = 140;
+    protected double blockWidth = 140;
+    protected final int startTime = 8;
+    protected final int endTime = 20;
+
+    @FXML
+    private Label title;
 
     @FXML
     private VBox scheduleContainer;
@@ -45,70 +58,39 @@ public class ScheduleView extends UiPart<Region> {
     private GridPane scheduleView;
     private List<String> colors;
     private HashMap<DayOfWeek, StackPane> dayTimeslotStackPanes = new HashMap<DayOfWeek, StackPane>();
-    private int oneHourLength = 60;
-    private int preferredWidth = 140;
-    private double blockWidth = 140;
-    private int startTime = 8;
-    private int endTime = 20;
     private int currentDay;
     private LocalDate currentDate;
-
-    public ScheduleView() {
-        super(FXML);
-        this.currentDay = LocalDateTime.now().getDayOfWeek().getValue();
-        this.currentDate = LocalDate.now();
-        initialise();
-        initialiseHeaders();
-        initialiseTimeslotHeaders();
-        initialiseTableCells();
-        scheduleContents.setContent(scheduleView);
-        scheduleHeaderWrapper.setContent(scheduleHeader);
-        scheduleHeaderWrapper.setMinHeight(50);
-        scheduleHeaderWrapper.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleHeaderWrapper.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.hvalueProperty().bindBidirectional(scheduleHeaderWrapper.hvalueProperty());
-    }
 
     public ScheduleView(WeekSchedule weekSchedule) {
         super(FXML);
         this.currentDay = LocalDateTime.now().getDayOfWeek().getValue();
         this.currentDate = LocalDate.now();
+        this.title.setText(weekSchedule.getPersonDisplay().getName().fullName + "'s Schedule");
         initialise();
         initialiseHeaders();
         initialiseTimeslotHeaders();
         initialiseTableCells();
         HashMap<DayOfWeek, ArrayList<DayTimeslot>> scheduleMap = weekSchedule.getWeekSchedule();
-        showIndividualSchedule(scheduleMap, listOfColors.get((int) (Math.random() * (listOfColors.size() - 1))));
+        showIndividualSchedule(scheduleMap, ColorGenerator.generateColorList(1).get(0));
         scheduleContents.setContent(scheduleView);
         scheduleHeaderWrapper.setContent(scheduleHeader);
-        scheduleHeaderWrapper.setMinHeight(50);
-        scheduleHeaderWrapper.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleHeaderWrapper.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.hvalueProperty().bindBidirectional(scheduleHeaderWrapper.hvalueProperty());
     }
 
-    public ScheduleView(ArrayList<WeekSchedule> weekSchedules, List<String> colors) {
+    public ScheduleView(ArrayList<WeekSchedule> weekSchedules, List<String> colors, GroupName groupName,
+                        FreeSchedule freeSchedule) {
         super(FXML);
         this.currentDay = LocalDateTime.now().getDayOfWeek().getValue();
         this.currentDate = LocalDate.now();
         this.colors = colors;
+        this.title.setText(groupName.toString() + "'s Schedule");
         initialise();
         initialiseHeaders();
         initialiseTimeslotHeaders();
         initialiseTableCells();
         showGroupSchedule(weekSchedules);
+        showFreeTime(freeSchedule);
         scheduleContents.setContent(scheduleView);
         scheduleHeaderWrapper.setContent(scheduleHeader);
-        scheduleHeaderWrapper.setMinHeight(50);
-        scheduleHeaderWrapper.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleHeaderWrapper.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scheduleContents.hvalueProperty().bindBidirectional(scheduleHeaderWrapper.hvalueProperty());
     }
 
     /**
@@ -120,6 +102,12 @@ public class ScheduleView extends UiPart<Region> {
         scheduleView.setStyle("-fx-border-width: 2; -fx-pref-width: 950;");
         scheduleHeader = new GridPane();
         scheduleHeader.setStyle("-fx-pref-width: 950;");
+        scheduleHeaderWrapper.setMinHeight(50);
+        scheduleHeaderWrapper.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scheduleHeaderWrapper.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scheduleContents.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scheduleContents.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scheduleContents.hvalueProperty().bindBidirectional(scheduleHeaderWrapper.hvalueProperty());
         return this;
     }
 
@@ -128,7 +116,7 @@ public class ScheduleView extends UiPart<Region> {
      */
     private void initialiseHeaders() {
         Region placeHolder = new Region();
-        placeHolder.setStyle("-fx-background-color: transparent");
+        placeHolder.setId("dayLabelContainer");
         scheduleHeader.add(placeHolder, 0, 0);
         ColumnConstraints colCOffset = new ColumnConstraints();
         colCOffset.setPercentWidth(9);
@@ -140,11 +128,13 @@ public class ScheduleView extends UiPart<Region> {
             Label dayText = new Label(DayOfWeek.of(offset).toString());
             Label dayDate = new Label(DateFormatter.formatToString(currentDate.plusDays(i - 1)));
             VBox dayLabelContainer = new VBox();
+            dayText.setId("dayText");
+            dayDate.setId("dayDate");
+            dayLabelContainer.setId("dayLabelContainer");
             dayLabelContainer.setPrefSize(preferredWidth, 50);
             ColumnConstraints colC = new ColumnConstraints();
             colC.setPercentWidth(13);
             scheduleHeader.getColumnConstraints().add(colC);
-            dayLabelContainer.setStyle("-fx-background-color: white; -fx-border-width: 2; -fx-alignment: center;");
             dayLabelContainer.getChildren().addAll(dayText, dayDate);
             sp.getChildren().addAll(dayLabelContainer);
             scheduleHeader.add(sp, i, 0);
@@ -169,7 +159,7 @@ public class ScheduleView extends UiPart<Region> {
             String time = TimeFormatter.formatIntToTime(j);
             Region timeslotLeftLabelContainer = new Region();
             timeslotLeftLabelContainer.setPrefSize(preferredWidth, oneHourLength);
-            timeslotLeftLabelContainer.setStyle("-fx-background-color: white; -fx-border-color: white;");
+            timeslotLeftLabelContainer.setId("timeslotLabelContainer");
             Label timeslotLeftText = new Label(time);
             StackPane leftTimeslotHeaderContainer = new StackPane();
             leftTimeslotHeaderContainer.getChildren().addAll(timeslotLeftLabelContainer, timeslotLeftText);
@@ -188,16 +178,16 @@ public class ScheduleView extends UiPart<Region> {
             VBox timeslotContainer = new VBox();
             Region firstRegionOffset = new Region();
             firstRegionOffset.setPrefSize(preferredWidth, oneHourLength / 2);
-            firstRegionOffset.setStyle("-fx-border-color: lightgrey; -fx-border-style: solid none none solid");
+            firstRegionOffset.setId("timeslotMajorLine");
             timeslotContainer.getChildren().add(firstRegionOffset);
             for (int k = startTime; k < endTime; k++) {
                 StackPane timeslotRegion = new StackPane();
                 Region timeslotMajorRegion = new Region();
-                timeslotMajorRegion.setStyle("-fx-border-color: lightgrey; -fx-border-style: solid none none solid;");
+                timeslotMajorRegion.setId("timeslotMajorLine");
                 VBox timeslotMinorRegion = new VBox();
-                Region offset = makeEmptyTimeslot(30);
+                Region offset = new Block(30).makeEmptyTimeslot();
                 Region timeslotMinorRegion1 = new Region();
-                timeslotMinorRegion1.setStyle("-fx-border-color: lightgrey; -fx-border-style: dotted none none dotted");
+                timeslotMinorRegion1.setId("timeslotMinorLine");
                 timeslotMinorRegion1.setPrefSize(preferredWidth, oneHourLength / 2.0);
                 timeslotMinorRegion.getChildren().addAll(offset, timeslotMinorRegion1);
                 if (k == endTime - 1) {
@@ -216,59 +206,60 @@ public class ScheduleView extends UiPart<Region> {
         }
     }
 
-    /**
-     * Method to create a transparent block in the table view to indicate free time.
-     * @param durationMinutes Length of the block in minutes.
-     * @return Region that represents the free time in the schedule.
-     */
-    private Region makeEmptyTimeslot(int durationMinutes) {
-        Region result = new Region();
-        int hours = durationMinutes / 60;
-        int minutes = durationMinutes % 60;
-        double heightOfTimeslot = hours * oneHourLength + (minutes / 60.0) * oneHourLength;
-        result.setPrefSize(blockWidth, heightOfTimeslot);
-        return result;
-    }
-
-    /**
-     * Helper method to create a block of coloured timeslot in the table view.
-     * @param durationMinutes Length of the block in minutes.
-     * @param color Color of the block.
-     * @return Region to be placed in the table view.
-     */
-    private Region makeColouredTimeslot(int durationMinutes, String color) {
-        Region result = new Region();
-        int hours = durationMinutes / 60;
-        int minutes = durationMinutes % 60;
-        double heightOfTimeslot = hours * oneHourLength + (minutes / 60.0) * oneHourLength;
-        result.setPrefSize(blockWidth, heightOfTimeslot);
-        result.setStyle("-fx-background-color: " + color + "; -fx-border-width: 2; -fx-background-radius: 5;");
-        result.setId("colouredTimeslot");
-        return result;
-    }
-
     private int getTimeDifference(int startTime, int endTime) {
         int hours = (endTime - startTime) / 100;
         int minutes = (endTime - startTime) % 100;
         return hours * 60 + minutes;
     }
 
+    /**
+     * Method to create a block that represents the occupied/busy time slots of an individual for a particular day.
+     * @param daySchedule List that contains all occupied time slots of the individual on a particular day.
+     * @param color Color that the block should be.
+     * @return VBox that represents the individual's busy time slots for this particular day.
+     */
     private VBox getDayVBoxOfIndividualSchedule(ArrayList<DayTimeslot> daySchedule, String color) {
         VBox timeslotContainer = new VBox();
         timeslotContainer.setStyle("-fx-padding: 0 2 0 2; -fx-border-width: 2;");
-        timeslotContainer.getChildren().add(makeEmptyTimeslot(30));
+        timeslotContainer.getChildren().add(new Block(30).makeEmptyTimeslot());
         int originalTimeStamp = startTime * 100;
         for (int j = 0; j < daySchedule.size(); j++) {
             DayTimeslot timeslot = daySchedule.get(j);
             int startTime = TimeFormatter.formatTimeToInt(timeslot.getStartTime());
             int endTime = TimeFormatter.formatTimeToInt(timeslot.getEndTime());
-            Region busyTimeslot = makeColouredTimeslot(getTimeDifference(startTime, endTime), color);
+            Region busyTimeslot = new Block(getTimeDifference(startTime, endTime)).makeColouredTimeslot(color);
             if (originalTimeStamp != startTime) {
                 int timeUntilBusy = getTimeDifference(originalTimeStamp, startTime);
-                Region freeTimeslot = makeEmptyTimeslot(timeUntilBusy);
+                Region freeTimeslot = new Block(timeUntilBusy).makeEmptyTimeslot();
                 timeslotContainer.getChildren().add(freeTimeslot);
             }
             timeslotContainer.getChildren().add(busyTimeslot);
+            originalTimeStamp = endTime;
+        }
+        return timeslotContainer;
+    }
+
+    /**
+     * Method to create a block that represents free time in groups on a particular day.
+     * Only called for group schedules. Free time is shown by a translucent green rectangle on the UI.
+     * @param freeSchedule The common free time among groups for a particular day.
+     * @return VBox that represents the free time block.
+     */
+    private VBox getDayVBoxOfFreeSchedule(ArrayList<FreeTimeslot> freeSchedule) {
+        VBox timeslotContainer = new VBox();
+        timeslotContainer.getChildren().add(new Block(30).makeEmptyTimeslot());
+        int originalTimeStamp = startTime * 100;
+        for (int j = 0; j < freeSchedule.size(); j++) {
+            FreeTimeslot timeslot = freeSchedule.get(j);
+            int startTime = TimeFormatter.formatTimeToInt(timeslot.getStartTime());
+            int endTime = TimeFormatter.formatTimeToInt(timeslot.getEndTime());
+            Region freeTime = new Block(getTimeDifference(startTime, endTime)).makeFreeTimeslot();
+            if (originalTimeStamp != startTime) {
+                int timeUntilNext = getTimeDifference(originalTimeStamp, startTime);
+                Region untilNext = new Block(timeUntilNext).makeEmptyTimeslot();
+                timeslotContainer.getChildren().add(untilNext);
+            }
+            timeslotContainer.getChildren().add(freeTime);
             originalTimeStamp = endTime;
         }
         return timeslotContainer;
@@ -318,8 +309,81 @@ public class ScheduleView extends UiPart<Region> {
         return scheduleView;
     }
 
-    public GridPane getScheduleView() {
+    /**
+     * Method to append the free times of a group into the group schedule.
+     * @param schedule A schedule that contains the available time for all group members.
+     * @return The scheduleView which contains the available time slots indicated.
+     */
+    public GridPane showFreeTime(FreeSchedule schedule) {
+        HashMap<DayOfWeek, ArrayList<FreeTimeslot>> vacantSchedule = schedule.getFreeSchedule();
+        for (int i = 1; i <= 7; i++) {
+            StackPane dayStackPane = dayTimeslotStackPanes.get(DayOfWeek.of(i));
+            ArrayList<FreeTimeslot> freeTimes = vacantSchedule.get(DayOfWeek.of(i));
+            VBox freeTimeVBox = getDayVBoxOfFreeSchedule(freeTimes);
+            dayStackPane.getChildren().add(freeTimeVBox);
+        }
         return scheduleView;
     }
 
+    /**
+     * Method to invoke scrolling events to the schedule view.
+     */
+    public void scrollNext() {
+        if (scheduleContents.getVvalue() == 0) {
+            scheduleContents.setVvalue(1);
+        } else {
+            scheduleContents.setVvalue(0);
+        }
+    }
+
+    /**
+     * A class to create a time slot block in the UI.
+     */
+    class Block {
+        private int duration;
+        public Block(int duration) {
+            this.duration = duration;
+        }
+
+        /**
+         * Method to obtain a coloured timeslot;
+         */
+        private Region makeColouredTimeslot(String color) {
+            Region result = new Region();
+            int hours = duration / 60;
+            int minutes = duration % 60;
+            double heightOfTimeslot = hours * oneHourLength + (minutes / 60.0) * oneHourLength;
+            result.setPrefSize(blockWidth, heightOfTimeslot);
+            result.setStyle("-fx-background-color: " + getLinearGradient(color));
+            result.setId("colouredTimeslot");
+            return result;
+        }
+
+        private String getLinearGradient(String color) {
+            Color lighterTone = Color.web(color).desaturate();
+            String lighterToneHex = "#" + Integer.toHexString(lighterTone.hashCode());
+            String linearGradient = "linear-gradient(" + lighterToneHex + " 0%, " + color + " 20%, "
+                    + color + " 80%, " + lighterToneHex + " 100%);";
+            return linearGradient;
+        }
+
+        /**
+         * Method to create a transparent block in the table view to indicate free time.
+         * @return Region that represents the free time in the schedule.
+         */
+        private Region makeEmptyTimeslot() {
+            Region result = new Region();
+            int hours = duration / 60;
+            int minutes = duration % 60;
+            double heightOfTimeslot = hours * oneHourLength + (minutes / 60.0) * oneHourLength;
+            result.setPrefSize(blockWidth, heightOfTimeslot);
+            return result;
+        }
+
+        private Region makeFreeTimeslot() {
+            Region region = makeColouredTimeslot("lightgreen");
+            region.setId("freeTimeslot");
+            return region;
+        }
+    }
 }

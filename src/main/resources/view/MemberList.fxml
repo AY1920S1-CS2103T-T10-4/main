@@ -10,33 +10,24 @@
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      prefHeight="200.0">
-    <padding>
-        <Insets top="5" right="5" bottom="5" left="15" />
-    </padding>
+      prefHeight="300.0">
     <ScrollPane fx:id="listHeaderContainer" prefWidth="600" vbarPolicy="NEVER" hbarPolicy="NEVER">
-        <GridPane fx:id="listHeaders" prefWidth="600" prefHeight="50">
+        <GridPane id="listHeaders" fx:id="listHeaders" prefWidth="600" prefHeight="50">
             <columnConstraints>
                 <ColumnConstraints percentWidth="25" />
-                <ColumnConstraints percentWidth="35" />
                 <ColumnConstraints percentWidth="40" />
+                <ColumnConstraints percentWidth="35" />
             </columnConstraints>
             <padding>
-                <Insets top="5" right="5" bottom="5" left="25" />
+                <Insets top="5" right="5" bottom="5" left="15" />
             </padding>
             <Label text="Name" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS"/>
             <Label text="Email" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"/>
             <Label text="Role" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS"/>
         </GridPane>
     </ScrollPane>
-    <padding>
-        <Insets top="5" right="5" bottom="5" left="15" />
-    </padding>
-    <ScrollPane fx:id="listMemberContainer" minHeight="150" prefWidth="600" vbarPolicy="NEVER" hbarPolicy="NEVER">
+    <ScrollPane fx:id="listMemberContainer" minHeight="150" prefWidth="600" vbarPolicy="NEVER" hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
         <VBox fx:id="listMembers" prefWidth="600" spacing="10">
-            <padding>
-                <Insets top="5" right="15" bottom="5" left="15" />
-            </padding>
         </VBox>
     </ScrollPane>
 </VBox>

@@ -1,4 +1,4 @@
-package seedu.address.ui;
+package seedu.address.ui.util;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -18,16 +18,14 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import seedu.address.model.display.detailwindow.DayTimeslot;
 import seedu.address.model.display.detailwindow.WeekSchedule;
-import seedu.address.ui.util.DateFormatter;
-import seedu.address.ui.util.TimeFormatter;
 
 /**
  * A class to generate a schedule table (ui) from a Schedule object.
  */
-public class ScheduleViewExport {
+public class ScheduleExport {
     //Schedule to be received from logic MUST have timeslots in chronological order.
-    //ScheduleViewExport must be wrapped in a scroll pane otherwise the view will become distorted.
-    private static final String FXML = "ScheduleViewExport.fxml";
+    //ScheduleExport must be wrapped in a scroll pane otherwise the view will become distorted.
+    private static final String FXML = "ScheduleExport.fxml";
     private static ArrayList<String> dayNames = new ArrayList<String>(List.of("Monday", "Tuesday",
             "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"));
     private static ArrayList<String> listOfColors = new ArrayList<String>(List.of("darkred", "navy", "darkgreen",
@@ -44,7 +42,7 @@ public class ScheduleViewExport {
     private int currentDay;
     private LocalDate currentDate;
 
-    public ScheduleViewExport() {
+    public ScheduleExport() {
         this.currentDay = LocalDateTime.now().getDayOfWeek().getValue();
         this.currentDate = LocalDate.now();
         initialise();
@@ -52,7 +50,7 @@ public class ScheduleViewExport {
         initialiseTableCells();
     }
 
-    public ScheduleViewExport(WeekSchedule weekSchedule) {
+    public ScheduleExport(WeekSchedule weekSchedule) {
         this.currentDay = LocalDateTime.now().getDayOfWeek().getValue();
         this.currentDate = LocalDate.now();
         initialise();
@@ -62,7 +60,7 @@ public class ScheduleViewExport {
         showIndividualSchedule(scheduleMap, listOfColors.get((int) (Math.random() * (listOfColors.size() - 1))));
     }
 
-    public ScheduleViewExport(ArrayList<WeekSchedule> weekSchedules, List<String> colors) {
+    public ScheduleExport(ArrayList<WeekSchedule> weekSchedules, List<String> colors) {
         this.currentDay = LocalDateTime.now().getDayOfWeek().getValue();
         this.currentDate = LocalDate.now();
         this.colors = colors;
@@ -72,9 +70,9 @@ public class ScheduleViewExport {
         showGroupSchedule(weekSchedules);
     }
 
-    private ScheduleViewExport initialise() {
+    private ScheduleExport initialise() {
         scheduleView = new GridPane();
-        scheduleView.setStyle("-fx-border-width: 2; -fx-border-color: black; -fx-pref-width: 1100;");
+        scheduleView.setStyle("-fx-border-width: 2; -fx-border-color: transparent; -fx-pref-width: 1100;");
         return this;
     }
 

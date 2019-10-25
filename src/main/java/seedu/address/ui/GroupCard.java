@@ -16,9 +16,6 @@ public class GroupCard extends UiPart<Region> {
     private static final String FXML = "GroupListCard.fxml";
 
     @FXML
-    private static final Label memberLabel = new Label("Members:");
-
-    @FXML
     private StackPane groupId;
 
     @FXML
@@ -27,22 +24,13 @@ public class GroupCard extends UiPart<Region> {
     @FXML
     private Label groupName;
 
-    @FXML
-    private Label groupDescription;
-
-    @FXML
-    private Label groupRemark;
-
     private GroupDisplay groupDisplay;
 
     public GroupCard(GroupDisplay groupDisplay, int displayedIndex) {
         super(FXML);
         this.groupDisplay = groupDisplay;
-        groupId.getChildren().add(new BubbleGenerator(displayedIndex, 50, 2).getBubble());
+        groupId.getChildren().add(new BubbleGenerator(displayedIndex, 50).getBubble());
         groupName.setText(groupDisplay.getGroupName().toString());
-        //Remark field in groups cannot be initialised to null.
-        groupDescription.setText(groupDisplay.getGroupDescription().toString());
-        groupRemark.setText(groupDisplay.getGroupRemark().toString());
     }
 
     @Override
@@ -51,8 +39,7 @@ public class GroupCard extends UiPart<Region> {
             return true;
         } else if (o instanceof GroupCard) {
             GroupCard g = (GroupCard) o;
-            return groupDescription.getText().equals(g.groupDescription.getText())
-                    && groupName.getText().equals(g.groupName.getText())
+            return groupName.getText().equals(g.groupName.getText())
                     && groupDisplay.equals(g.groupDisplay);
         } else {
             return false;

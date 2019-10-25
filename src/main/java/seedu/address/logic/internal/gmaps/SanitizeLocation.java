@@ -1,27 +1,22 @@
 package seedu.address.logic.internal.gmaps;
 
-import java.io.Serializable;
 import java.net.ConnectException;
 import java.util.ArrayList;
 
 import org.json.simple.JSONObject;
 
 import seedu.address.commons.exceptions.TimeBookInvalidLocation;
-import seedu.address.websocket.GmapsApi;
+import seedu.address.websocket.Cache;
 
 /**
  * This call is used to find the valid location name
  */
-public class SanitizeLocation implements Serializable {
+public class SanitizeLocation {
     private ArrayList<String> validLocationList = new ArrayList<>();
-    private transient GmapsApi gmapsApi;
-
     /**
      * Takes in gmapsApi so that it could be replaced by a gmapsApi stub
-     * @param gmapsApi
      */
-    public SanitizeLocation(GmapsApi gmapsApi) {
-        this.gmapsApi = gmapsApi;
+    public SanitizeLocation() {
     }
 
     /**
@@ -38,18 +33,18 @@ public class SanitizeLocation implements Serializable {
      * @return
      * @throws ConnectException
      */
-    public String sanitize(String locationName) throws ConnectException, TimeBookInvalidLocation {
+    public String sanitize(String locationName) throws TimeBookInvalidLocation {
         String validLocation = "NUS_" + locationName;
         validLocation = validLocation.split("-")[0];
         if (!validLocationList.contains(validLocation)) {
-            JSONObject apiResponse = gmapsApi.getLocation(validLocation);
+            JSONObject apiResponse = Cache.loadPlaces(validLocation);
             String status = GmapsJsonUtils.getStatus(apiResponse);
             if (status.equals("OK")) {
                 validLocationList.add(validLocation);
             } else {
                 validLocation = "NUS_" + validLocation.split("_")[1];
                 if (!validLocationList.contains(validLocation)) {
-                    apiResponse = gmapsApi.getLocation(validLocation);
+                    apiResponse = Cache.loadPlaces(validLocation);
                     status = GmapsJsonUtils.getStatus(apiResponse);
                     if (status.equals("OK")) {
                         validLocationList.add(validLocation);

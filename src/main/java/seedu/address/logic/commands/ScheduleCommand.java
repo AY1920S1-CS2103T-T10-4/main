@@ -38,7 +38,7 @@ public class ScheduleCommand extends Command {
         }
 
         // update main window
-        model.updateDetailWindowDisplay(group.getGroupName(), LocalDateTime.now(), DetailWindowDisplayType.EMPTY);
+        model.updateDetailWindowDisplay(group.getGroupName(), LocalDateTime.now(), DetailWindowDisplayType.NONE);
 
         // update side panel
         model.updateSidePanelDisplay(SidePanelDisplayType.GROUPS);

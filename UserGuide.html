@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>TimeBook - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team TimeBook</code>      Since: <code>Aug 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -18,28 +18,27 @@
 <li><a href="#adding-a-person-code-addgroup-code">3.3. Adding a person: <code>addgroup</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-editperson-code">3.5. Editing a person : <code>editperson</code></a></li>
-<li><a href="#editing-a-person-code-editgroup-code">3.6. Editing a person : <code>editgroup</code></a></li>
+<li><a href="#editing-a-group-code-editgroup-code">3.6. Editing a group : <code>editgroup</code></a></li>
 <li><a href="#locating-persons-by-name-code-findperson-code">3.7. Locating persons by name: <code>findperson</code></a></li>
-<li><a href="#locating-persons-by-name-code-findgroup-code">3.8. Locating persons by name: <code>findgroup</code></a></li>
+<li><a href="#locating-group-by-name-code-findgroup-code">3.8. Locating group by name: <code>findgroup</code></a></li>
 <li><a href="#deleting-a-person-code-deleteperson-code">3.9. Deleting a person : <code>deleteperson</code></a></li>
-<li><a href="#deleting-a-person-code-deletegroup-code">3.10. Deleting a person : <code>deletegroup</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#deleting-a-group-code-deletegroup-code">3.10. Deleting a group : <code>deletegroup</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.12. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#advanced-features">4. Advanced Features</a>
 <ul class="sectlevel2">
 <li><a href="#add-to-group-code-addtogroup-code">4.1. Add to Group: <code>addtogroup</code></a></li>
 <li><a href="#add-schedule-code-addevent-code">4.2. Add Schedule: <code>addevent</code></a></li>
-<li><a href="#delete-schedule-code-deleteschedule-code">4.3. Delete schedule: <code>deleteschedule</code></a></li>
-<li><a href="#export-vr-virtual-representation-code-export-vr-code">4.4. Export VR(Virtual Representation): <code>export-vr</code></a></li>
-<li><a href="#export-ics-code-export-ics-code">4.5. Export ICS: <code>export-ics</code></a></li>
-<li><a href="#import-ics-code-import-ics-code">4.6. Import ICS: <code>import-ics</code></a></li>
-<li><a href="#import-ics-code-import-ics-code-2">4.7. Import ICS: <code>import-ics</code></a></li>
-<li><a href="#get-closest-location-code-closestlocation-code">4.8. Get Closest Location: <code>closestlocation</code></a></li>
-<li><a href="#show-free-time-slot-code-show-freetime-code">4.9. Show Free Time slot <code>show-freetime</code></a></li>
+<li><a href="#show-group-code-show-code">4.3. Show group: <code>show</code></a></li>
+<li><a href="#show-person-code-show-code">4.4. Show person: <code>show</code></a></li>
+<li><a href="#export-vr-virtual-representation-code-export-vr-code">4.5. Export VR(Virtual Representation): <code>export-vr</code></a></li>
+<li><a href="#export-ics-code-export-ics-code">4.6. Export ICS: <code>export-ics</code></a></li>
+<li><a href="#import-ics-code-import-ics-code">4.7. Import ICS: <code>import-ics</code></a></li>
+<li><a href="#import-ics-code-import-ics-code-2">4.8. Import ICS: <code>import-ics</code></a></li>
+<li><a href="#get-closest-location-code-closestlocation-code">4.9. Get Closest Location: <code>closestlocation</code></a></li>
+<li><a href="#show-free-time-slot-code-show-freetime-code">4.10. Show Free Time slot <code>show-freetime</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -73,7 +72,7 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>TimeBook is for users who <strong>prefer to use a desktop app for managing thier schedules</strong>. More importantly, TimeBook is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TimeBook can get your schedule management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>TimeBook is for users who <strong>prefer to use a desktop app for managing their schedules</strong>. More importantly, TimeBook is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TimeBook can get your schedule management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -111,7 +110,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>addperson</code></strong> <code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the TimeBook.</p>
 </li>
 <li>
-<p><strong><code>deleteperson</code></strong> <code>n/John Doe</code> : deletes the person named <code>John Doe</code> from TimeBook.</p>
+<p><strong><code>deleteperson</code></strong> <code>n/John Doe</code> : deletes the person named <code>John Doe</code> from the TimeBook.</p>
 </li>
 <li>
 <p><strong><code>addgroup</code></strong> <code>g/CS2103</code> : adds a new group called <code>CS2103</code> to the TimeBook.</p>
@@ -167,8 +166,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="adding-a-person-code-addperson-code"><a class="link" href="#adding-a-person-code-addperson-code">3.2. Adding a person: <code>addperson</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203; [c/ NUS_MOD_LINK]</code></p>
+<p>Adds a person to the TimeBook<br>
+Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203; [c/NUS_MOD_LINK]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -176,10 +175,10 @@ Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/
 <div class="ulist">
 <ul>
 <li>
-<p><code>addperson n/ Catherine em/ <a href="mailto:catherineCanCook@imail.com">catherineCanCook@imail.com</a></code></p>
+<p><code>addperson n/Catherine em/catherineCanCook@imail.com</code></p>
 </li>
 <li>
-<p><code>addperson n/ John Doe em/ <a href="mailto:JohnDoe@imail.com">JohnDoe@imail.com</a> c/ 23F6B742CE</code></p>
+<p><code>addperson n/John Doe em/JohnDoe@imail.com c/23F6B742CE</code></p>
 </li>
 </ul>
 </div>
@@ -187,7 +186,7 @@ Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/
 <div class="sect2">
 <h3 id="adding-a-person-code-addgroup-code"><a class="link" href="#adding-a-person-code-addgroup-code">3.3. Adding a person: <code>addgroup</code></a></h3>
 <div class="paragraph">
-<p>Adds a group to the address book<br>
+<p>Adds a group to the TimeBook<br>
 Format: <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code></p>
 </div>
 <div class="paragraph">
@@ -207,14 +206,14 @@ Format: <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code></p>
 <div class="sect2">
 <h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all persons in the TimeBook.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-person-code-editperson-code"><a class="link" href="#editing-a-person-code-editperson-code">3.5. Editing a person : <code>editperson</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
+<p>Edits an existing person in the TimeBook.<br>
 Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -257,9 +256,9 @@ Edits the person 'Betsy' to a new name 'Betsy Crower' and clears all existing ta
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-editgroup-code"><a class="link" href="#editing-a-person-code-editgroup-code">3.6. Editing a person : <code>editgroup</code></a></h3>
+<h3 id="editing-a-group-code-editgroup-code"><a class="link" href="#editing-a-group-code-editgroup-code">3.6. Editing a group : <code>editgroup</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing group in the address book.<br>
+<p>Edits an existing group in the TimeBook.<br>
 Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code></p>
 </div>
 <div class="sidebarblock">
@@ -285,8 +284,8 @@ Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>editperson ed/CS2103 g/CS3203 r/Project Discussion Group</code><br>
-Edits the group specified by group name 'CS2103' with group name 'CS3203' and group remark <code>Project Discussion Group</code> respectively.</p>
+<p><code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code><br>
+Edits the group specified by group name 'CS2103' with a new group name 'CS3203' and group remark <code>Project Discussion Group</code> respectively.</p>
 </li>
 </ul>
 </div>
@@ -316,7 +315,7 @@ Format: <code>findperson n/NAME</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-findgroup-code"><a class="link" href="#locating-persons-by-name-code-findgroup-code">3.8. Locating persons by name: <code>findgroup</code></a></h3>
+<h3 id="locating-group-by-name-code-findgroup-code"><a class="link" href="#locating-group-by-name-code-findgroup-code">3.8. Locating group by name: <code>findgroup</code></a></h3>
 <div class="paragraph">
 <p>Finds the group whose name contains the given keyword.<br>
 Format: <code>findgroup g/GROUP_NAME</code></p>
@@ -342,18 +341,18 @@ Format: <code>findgroup g/GROUP_NAME</code></p>
 <div class="sect2">
 <h3 id="deleting-a-person-code-deleteperson-code"><a class="link" href="#deleting-a-person-code-deleteperson-code">3.9. Deleting a person : <code>deleteperson</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the timebook.<br>
-Format: <code>deleteperson n/ NAME</code></p>
+<p>Deletes the specified person from the TimeBook.<br>
+Format: <code>deleteperson n/NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person specified by 'NAME'</p>
+<p>Removes the person from all the groups they are in</p>
 </li>
 <li>
-<p>Deletes all mappings of this person in groups.</p>
+<p>Deletes the person specified by 'NAME'</p>
 </li>
 </ul>
 </div>
@@ -365,17 +364,17 @@ Format: <code>deleteperson n/ NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteperson n/ Benedict</code><br>
-Deletes the 'Benedict' in the timebook.</p>
+<p><code>deleteperson n/Benedict</code><br>
+Deletes the person named <code>Benedict</code> from the TimeBook.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-deletegroup-code"><a class="link" href="#deleting-a-person-code-deletegroup-code">3.10. Deleting a person : <code>deletegroup</code></a></h3>
+<h3 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">3.10. Deleting a group : <code>deletegroup</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified group from the timebook.<br>
-Format: <code>deletegroup g/ GROUP_NAME</code></p>
+<p>Deletes the specified group from the TimeBook.<br>
+Format: <code>deletegroup g/GROUP_NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -385,7 +384,7 @@ Format: <code>deletegroup g/ GROUP_NAME</code></p>
 <p>Deletes the group specified by 'GROUP_NAME'</p>
 </li>
 <li>
-<p>Deletes all mappings of persons to this group.</p>
+<p>The people who were in this group will not be deleted.</p>
 </li>
 </ul>
 </div>
@@ -398,36 +397,23 @@ Format: <code>deletegroup g/ GROUP_NAME</code></p>
 <ul>
 <li>
 <p><code>deletegroup g/CS2103</code><br>
-Deletes the 'CS2103' in the timebook.</p>
+Deletes the 'CS2103' group from the TimeBook.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.11. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.12. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>TimeBook data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 </div>
@@ -438,13 +424,13 @@ There is no need to save manually.</p>
 <div class="sect2">
 <h3 id="add-to-group-code-addtogroup-code"><a class="link" href="#add-to-group-code-addtogroup-code">4.1. Add to Group: <code>addtogroup</code></a></h3>
 <div class="paragraph">
-<p>Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in TimeBook.
+<p>Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in the TimeBook.
 Format:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>`addtogroup' n/NAME g/GROUP_NAME</p>
+<p><code>addtogroup n/NAME g/GROUP_NAME</code></p>
 </li>
 </ul>
 </div>
@@ -454,7 +440,7 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>`addtogroup n/John g/CS2103</p>
+<p><code>addtogroup n/John g/CS2103</code></p>
 </li>
 </ul>
 </div>
@@ -462,17 +448,17 @@ Format:</p>
 <div class="sect2">
 <h3 id="add-schedule-code-addevent-code"><a class="link" href="#add-schedule-code-addevent-code">4.2. Add Schedule: <code>addevent</code></a></h3>
 <div class="paragraph">
-<p>Adds an event into the schedule of a person in TimeBook. Only schedules without clashes between time slots can be added to TimeBook.
+<p>Adds an event into the schedule of a person in the TimeBook. Only schedules without clashes between time slots can be added to the TimeBook.
 Can be used to mark a person as unavailable either on one-off dates or on a particular day every week<br>
 Format:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addevent n/ NAME e/EVENT_NAME t/DATETIME</code><br></p>
+<p><code>addevent n/NAME e/EVENT_NAME t/DATETIME</code><br></p>
 </li>
 <li>
-<p><code>addevent n/ NAME c/ NUS_MOD_LINK</code></p>
+<p><code>addevent n/NAME c/NUS_MOD_LINK</code></p>
 </li>
 </ul>
 </div>
@@ -485,21 +471,21 @@ Format:</p>
 <p><code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
 </li>
 <li>
-<p><code>addevent n/John c/ 23F6B742CE</code></p>
+<p><code>addevent n/John c/23F6B742CE</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-schedule-code-deleteschedule-code"><a class="link" href="#delete-schedule-code-deleteschedule-code">4.3. Delete schedule: <code>deleteschedule</code></a></h3>
+<h3 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">4.3. Show group: <code>show</code></a></h3>
 <div class="paragraph">
-<p>Delete all schedule data of the specified person from TimeBook<br>
+<p>Shows details of a group: who are its members and their available timings<br>
 Format:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteschedule n/ NAME</code><br></p>
+<p><code>show g/GROUP_NAME</code></p>
 </li>
 </ul>
 </div>
@@ -509,13 +495,40 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete-schedule /n John</code></p>
+<p><code>show g/TimeBook</code><br></p>
+</li>
+<li>
+<p><code>show g/CS2030 T2</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-vr-virtual-representation-code-export-vr-code"><a class="link" href="#export-vr-virtual-representation-code-export-vr-code">4.4. Export VR(Virtual Representation): <code>export-vr</code></a></h3>
+<h3 id="show-person-code-show-code"><a class="link" href="#show-person-code-show-code">4.4. Show person: <code>show</code></a></h3>
+<div class="paragraph">
+<p>Shows a person’s details along with their schedule<br>
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show n/NAME</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show n/James Lee</code><br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-vr-virtual-representation-code-export-vr-code"><a class="link" href="#export-vr-virtual-representation-code-export-vr-code">4.5. Export VR(Virtual Representation): <code>export-vr</code></a></h3>
 <div class="paragraph">
 <p>Exports a visualisation representation of the schedule (timetable) of a group or person(s) to a PNG file+
 Format:</p>
@@ -523,7 +536,7 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>export-vr [-n NAME]… [-g GROUP_NAME]…</code><br></p>
+<p><code>export-vr [n/NAME]… [g/GROUP_NAME]… o/SAVE_LOCATION</code><br></p>
 </li>
 </ul>
 </div>
@@ -533,16 +546,16 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>export-vr -g TimeBook -o timetable.jpg</code></p>
+<p><code>export-vr g/TimeBook o/timetable.jpg</code></p>
 </li>
 <li>
-<p><code>export-vr -n John Doe -n Joe Dohn -n Jackie Chan -o timetable.jpg</code></p>
+<p><code>export-vr n/John Doe n/Joe Dohn n/Jackie Chan o/timetable.jpg</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-ics-code-export-ics-code"><a class="link" href="#export-ics-code-export-ics-code">4.5. Export ICS: <code>export-ics</code></a></h3>
+<h3 id="export-ics-code-export-ics-code"><a class="link" href="#export-ics-code-export-ics-code">4.6. Export ICS: <code>export-ics</code></a></h3>
 <div class="paragraph">
 <p>Output the free time for a certain group as an ics file. This ics file could be imported into google calendar.<br>
 Format:</p>
@@ -566,7 +579,7 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-ics-code-import-ics-code"><a class="link" href="#import-ics-code-import-ics-code">4.6. Import ICS: <code>import-ics</code></a></h3>
+<h3 id="import-ics-code-import-ics-code"><a class="link" href="#import-ics-code-import-ics-code">4.7. Import ICS: <code>import-ics</code></a></h3>
 <div class="paragraph">
 <p>Import the ics file of an individual.<br>
 Format:</p>
@@ -590,7 +603,7 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-ics-code-import-ics-code-2"><a class="link" href="#import-ics-code-import-ics-code-2">4.7. Import ICS: <code>import-ics</code></a></h3>
+<h3 id="import-ics-code-import-ics-code-2"><a class="link" href="#import-ics-code-import-ics-code-2">4.8. Import ICS: <code>import-ics</code></a></h3>
 <div class="paragraph">
 <p>Import the ics file of an individual.<br>
 Format:</p>
@@ -614,7 +627,7 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-closest-location-code-closestlocation-code"><a class="link" href="#get-closest-location-code-closestlocation-code">4.8. Get Closest Location: <code>closestlocation</code></a></h3>
+<h3 id="get-closest-location-code-closestlocation-code"><a class="link" href="#get-closest-location-code-closestlocation-code">4.9. Get Closest Location: <code>closestlocation</code></a></h3>
 <div class="paragraph">
 <p>This command is used to get the closest common location among a list of locations you entered.</p>
 </div>
@@ -639,7 +652,7 @@ consideration for the computation of the closest location.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>closestlocation l/ LOCATIONA LOCATIONB &#8230;&#8203;</code><br></p>
+<p><code>closestlocation l/LOCATIONA LOCATIONB &#8230;&#8203;</code><br></p>
 </li>
 </ul>
 </div>
@@ -655,7 +668,7 @@ consideration for the computation of the closest location.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-free-time-slot-code-show-freetime-code"><a class="link" href="#show-free-time-slot-code-show-freetime-code">4.9. Show Free Time slot <code>show-freetime</code></a></h3>
+<h3 id="show-free-time-slot-code-show-freetime-code"><a class="link" href="#show-free-time-slot-code-show-freetime-code">4.10. Show Free Time slot <code>show-freetime</code></a></h3>
 <div class="paragraph">
 <p><strong>Overview</strong>
 When the command is executed a popup will appear that shows the closest common location for a particular free time slot in a group.</p>
@@ -703,7 +716,7 @@ When the command is executed a popup will appear that shows the closest common l
 <div class="ulist">
 <ul>
 <li>
-<p><code>show-freetime g/ XXXX id/ XXX</code><br></p>
+<p><code>show-freetime g/GROUP_NAME id/SLOT_NUMBER</code><br></p>
 </li>
 </ul>
 </div>
@@ -713,7 +726,7 @@ When the command is executed a popup will appear that shows the closest common l
 <div class="ulist">
 <ul>
 <li>
-<p><code>show-freetime g/ CS2103T id/2</code></p>
+<p><code>show-freetime g/CS2103T id/2</code></p>
 </li>
 </ul>
 </div>
@@ -725,7 +738,7 @@ When the command is executed a popup will appear that shows the closest common l
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TimeBook folder.</p>
 </div>
 </div>
 </div>
@@ -735,34 +748,78 @@ When the command is executed a popup will appear that shows the closest common l
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>List/Show All Persons</strong> : <code>list</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>Add Person</strong> <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203; [c/NUS_MOD_LINK]</code><br>
+e.g. <code>add n/James Ho p/22224444 em/jamesho@example.com a/123, Clementi Rd, 1234665 r/Always helpful tag/friend tag/colleague</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Edit Person</strong> : <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code><br>
+e.g. <code>editperson ed/James Lee em/jameslee@example.com</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Delete Person</strong> : <code>delete n/NAME</code><br>
+e.g. <code>deleteperson n/Benedict</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Find Person</strong> : <code>findperson n/NAME</code><br>
+e.g. <code>findperson n/James Jake</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Add Event to Person&#8217;s Schedule</strong> : <code>addevent n/NAME e/EVENT_NAME t/DATETIME</code><br>
+e.g. <code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
+</li>
+<li>
+<p><strong>Show Person Details and Schedule</strong> : <code>show n/NAME</code><br>
+e.g. <code>show n/James Lee</code></p>
+</li>
+<li>
+<p><strong>Add Group</strong> <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code><br>
+e.g. <code>addgroup g/CS2103 r/Project Group</code></p>
+</li>
+<li>
+<p><strong>Add Person to Group</strong> : <code>addtogroup n/NAME g/GROUP_NAME</code><br>
+e.g. <code>addtogroup n/John g/CS2103</code></p>
+</li>
+<li>
+<p><strong>Edit Group</strong> <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code><br>
+e.g. <code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code></p>
+</li>
+<li>
+<p><strong>Delete Group</strong> : <code>deletegroup g/GROUP_NAME</code><br>
+e.g. <code>deletegroup g/CS2103</code></p>
+</li>
+<li>
+<p><strong>Find Group</strong> : <code>findgroup g/GROUP_NAME</code><br>
+e.g. <code>findgroup g/CS2103</code></p>
+</li>
+<li>
+<p><strong>Show Group Details and Schedule</strong> : <code>show g/GROUP_NAME</code><br>
+e.g. <code>show g/CS2030 T2</code></p>
+</li>
+<li>
+<p><strong>Export Visual Representation</strong> : <code>export-vr [n/NAME]… [g/GROUP_NAME]… o/SAVE_LOCATION</code><br>
+e.g. <code>export-vr g/TimeBook o/timetable.jpg</code></p>
+</li>
+<li>
+<p><strong>Closest Location</strong> : <code>closestlocation l/LOCATIONA LOCATIONB &#8230;&#8203;</code><br>
+e.g. <code>closestlocation l/LT16 LT15 AS5</code></p>
+</li>
+<li>
+<p><strong>Show Free Time Slot</strong> : <code>show-freetime g/GROUP_NAME id/SLOT_NUMBER</code><br>
+e.g. <code>show-freetime g/CS2103T id/2</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Closes Location</strong> : <code>closestlocation l/ LOCATIONA LOCATIONB &#8230;&#8203;</code></p>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 01:25:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 02:20:14 UTC</div></div></div></body></html>

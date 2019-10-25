@@ -39,6 +39,7 @@
 <li><a href="#import-ics-code-import-ics-code">4.6. Import ICS: <code>import-ics</code></a></li>
 <li><a href="#import-ics-code-import-ics-code-2">4.7. Import ICS: <code>import-ics</code></a></li>
 <li><a href="#get-closest-location-code-closestlocation-code">4.8. Get Closest Location: <code>closestlocation</code></a></li>
+<li><a href="#show-free-time-slot-code-show-freetime-code">4.9. Show Free Time slot <code>show-freetime</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -590,8 +591,25 @@ Format:</p>
 <div class="sect2">
 <h3 id="get-closest-location-code-closestlocation-code"><a class="link" href="#get-closest-location-code-closestlocation-code">4.8. Get Closest Location: <code>closestlocation</code></a></h3>
 <div class="paragraph">
-<p>Get the closest common location.<br>
-Format:</p>
+<p>This command is used to get the closest common location among a list of locations you entered.</p>
+</div>
+<div class="paragraph">
+<p>Boundaries of this command:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We define closest common location as the location that requires the least average time to travel to from the
+locations stated in the list.</p>
+</li>
+<li>
+<p>We only support locations that are from NUSMods. Any other location would be voided and not be taken into
+consideration for the computation of the closest location.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Format:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -607,6 +625,70 @@ Format:</p>
 <ul>
 <li>
 <p><code>closestlocation l/LT16 LT15 AS5</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="show-free-time-slot-code-show-freetime-code"><a class="link" href="#show-free-time-slot-code-show-freetime-code">4.9. Show Free Time slot <code>show-freetime</code></a></h3>
+<div class="paragraph">
+<p><strong>Overview</strong>
+When the command is executed a popup will appear that shows the closest common location for a particular free time slot in a group.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FreeTimePopup.png" alt="FreeTimePopup">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Description</em></p>
+</div>
+<div class="paragraph">
+<p>There are three main information that you will see when you execute the command.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Closest common location will be shown on the top right corner.</p>
+</li>
+<li>
+<p>The picture on google maps of the closest common location will be shown below the header.</p>
+</li>
+<li>
+<p>The full details of will be shown on the left side of the popup.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Second and third closest location will be shown</p>
+</li>
+<li>
+<p>The average time to reach the location for the various choices</p>
+</li>
+<li>
+<p>A list of voided location that TimeBook does not support</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show-freetime g/ XXXX id/ XXX</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show-freetime g/ CS2103T id/2</code></p>
 </li>
 </ul>
 </div>
@@ -658,4 +740,4 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 15:10:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 01:22:11 UTC</div></div></div></body></html>

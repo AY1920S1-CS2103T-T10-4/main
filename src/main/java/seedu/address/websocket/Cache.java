@@ -281,12 +281,10 @@ public class Cache {
         String sanitizedUrl = UrlUtil.sanitizeApiKey(fullUrl);
         JSONObject placesJson = (JSONObject) gmapsPlaces.get();
         JSONObject result = new JSONObject();
-        System.out.println(placesJson.get(sanitizedUrl));
         if (placesJson.get(sanitizedUrl) != null) {
             result = (JSONObject) placesJson.get(sanitizedUrl);
         } else {
             try {
-                System.out.print("in api");
                 result = GmapsApi.getLocation(locationName);
                 saveToJson(sanitizedUrl, result, CacheFileNames.GMAPS_PLACES_PATH);
             } catch (ConnectException e) {

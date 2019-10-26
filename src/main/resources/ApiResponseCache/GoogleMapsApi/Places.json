@@ -1,1 +1,1301 @@
-{"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_EE_CSU&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_KEVII&":{"candidates":[{"name":"King Edward VII Hall","place_id":"ChIJRdd4d1Qa2jER8Jm2S_sC99o"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS2&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_blah&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW&":{"candidates":[{"name":"National University of Singapore Faculty of Law","place_id":"ChIJfyddcgMa2jER6C0WKzLdP6w"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD9&":{"candidates":[{"name":"Department of Physiology | YLLSOM | NUS","place_id":"ChIJJVKa1FAa2jERN6Ja2kg-1IA"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S12&":{"candidates":[{"name":"S12","place_id":"ChIJQwi2BFca2jERjH7cWNPP2P8"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_SR4&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_USP&":{"candidates":[{"name":"University Scholars Programme, National University of Singapore","place_id":"ChIJhfsMrVca2jER_qYWR23L00A"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT3&":{"candidates":[{"name":"LT3","place_id":"ChIJ0c1lR_ga2jERfVFxggCR_Ic"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS\/2&":{"candidates":[{"name":"NUS-ISS","place_id":"ChIJwZ7RmFUa2jER1yVtJXlcF6k"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT32&":{"candidates":[{"name":"LT32 NUS","place_id":"ChIJd6fn-FYa2jER1eMe-wts2_E"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RVR_MPR1&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT20&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_CR3&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS\/3&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"},{"name":"NUS Institute of Systems Science","place_id":"ChIJ2QJCeFYa2jEREtrDRjksFsM"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_TC&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E5&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_BIZ2&":{"candidates":[{"name":"Biz 2","place_id":"ChIJyZQi-FUa2jERnuxGL51dmnQ"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT28&":{"candidates":[{"name":"NUS LT28","place_id":"ChIJN16IDygb2jEROR8LWE4pRss"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT16&":{"candidates":[{"name":"NUS LT16","place_id":"ChIJ_6V-wnYb2jERnyniSN0LAV0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_SR2&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD1&":{"candidates":[{"name":"MD1 - Tahir Foundation Building","place_id":"ChIJcZSxxVYa2jERLKUYt9o2AgE"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS1&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SDE2&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_SR3&":{"candidates":[{"name":"National University of Singapore Faculty of Law","place_id":"ChIJfyddcgMa2jER6C0WKzLdP6w"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_LT&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"},{"name":"National University of Singapore Faculty of Law","place_id":"ChIJfyddcgMa2jER6C0WKzLdP6w"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S11&":{"candidates":[{"name":"NUS S11","place_id":"ChIJMW2gnpUb2jERlUYTYSaawlc"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CFG_CARSPA&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT2&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RH&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"},{"name":"Raffles Hall","place_id":"ChIJSZTxeFEb2jERJ3Ptr8SSJdw"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E4A&":{"candidates":[{"name":"LT29","place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_CR2&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT33&":{"candidates":[{"name":"LT 33","place_id":"ChIJRaLWSlca2jERRLrHUa9NSqo"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT21&":{"candidates":[{"name":"LT21","place_id":"ChIJqxqtNfka2jERLnTm-1Ajycc"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_UTSRC&":{"candidates":[{"name":"University Town, NUS","place_id":"ChIJF__3dfUa2jERyEFGvbTUVhA"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_BIZ1&":{"candidates":[{"name":"Biz 2","place_id":"ChIJyZQi-FUa2jERnuxGL51dmnQ"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_EA_M&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT29&":{"candidates":[{"name":"LT29","place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S1A&":{"candidates":[{"name":"NUS Center For Bio-Imaging Sciences","place_id":"ChIJQcAz-lYa2jEREZwd2JMokdg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT17&":{"candidates":[{"name":"NUS LT17","place_id":"ChIJBeHqfnAb2jERL1OoMUzA7yE"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD7&":{"candidates":[{"name":"NUS Biochemistry","place_id":"ChIJz7tu01Ya2jER7C8C_9Jab0s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_COM2&":{"candidates":[{"name":"COM 2","place_id":"ChIJRafctPga2jER8aiJ3XzHihM"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS\/AUD&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS8&":{"candidates":[{"name":"NUS AS8","place_id":"ChIJB9oi5zAX2jERPO8sd5tVob0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT1&":{"candidates":[{"name":"LT1, NUS","place_id":"ChIJ0fcnb_ca2jER_YoyP7CAb7E"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AKIMAUD&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AKIMLA4&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_ESR&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_I3&":{"candidates":[{"name":"i3 Auditorium","place_id":"ChIJtX3gi1Ua2jERefFjXXzP-xk"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_CR5&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E3&":{"candidates":[{"name":"LT29","place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SR_LT19&":{"candidates":[{"name":"COM 2","place_id":"ChIJRafctPga2jER8aiJ3XzHihM"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_NHM&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"},{"name":"Lee Kong Chian Natural History Museum","place_id":"ChIJlcijSfYa2jERGZ3CD7lpz_E"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S7&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ERC&":{"candidates":[{"name":"UTown Residence","place_id":"ChIJzcIrlvUa2jERyTCHvW8zI0I"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT26&":{"candidates":[{"name":"LT29","place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT14&":{"candidates":[{"name":"NUS LT14","place_id":"ChIJBRIdw1Yb2jER_w4k6qhkwAk"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY&":{"candidates":[{"name":"LKY School of Public Policy","place_id":"ChIJrRD_oAMa2jERxhENP6ktOxo"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_HSSMLCR&":{"candidates":[{"name":"Biz 2","place_id":"ChIJyZQi-FUa2jERnuxGL51dmnQ"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S17&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_UT&":{"candidates":[{"name":"UTown Residence","place_id":"ChIJzcIrlvUa2jERyTCHvW8zI0I"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SDE4&":{"candidates":[{"name":"NUS School of Design & Environment","place_id":"ChIJrY4IlPka2jERhqeUbnzFVKY"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD10&":{"candidates":[{"name":"Department of Anatomy, NUS","place_id":"ChIJk4kk2FAa2jER_zcE_-Zi1U8"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT7A&":{"candidates":[{"name":"LT29","place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_KRH&":{"candidates":[{"name":"Kent Ridge Hall","place_id":"ChIJVYXNhv8a2jEROiZWY3fkc4g"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SDE&":{"candidates":[{"name":"NUS School of Design & Environment","place_id":"ChIJrY4IlPka2jERhqeUbnzFVKY"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_PGPH&":{"candidates":[{"name":"bluPort - NUS Prince George's Park","place_id":"ChIJUeQOY1Ma2jER4WwNPbrS4mk"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CQT\/SR0315&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_SR5&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SH&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"},{"name":"Sheares Hall","place_id":"ChIJE0CLe1Ua2jER0F6FW3D3BnA"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS7&":{"candidates":[{"name":"NUS AS7 Shaw Foundation Building","place_id":"ChIJ8Yh3Nvka2jERWw7qp5RkdZE"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RVR_MPR2&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_BAR&":{"candidates":[{"name":"Obar NUS","place_id":"ChIJc34CBVga2jERVGHl64L6ATs"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_CR4&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT31&":{"candidates":[{"name":"LT31","place_id":"ChIJ0xoOL1ca2jERs3Li2JZozaY"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS\/4&":{"candidates":[{"name":"NUS Institute of Systems Science","place_id":"ChIJ2QJCeFYa2jEREtrDRjksFsM"},{"name":"NUS-ISS","place_id":"ChIJwZ7RmFUa2jER1yVtJXlcF6k"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E4&":{"candidates":[{"name":"NUS Engineering E4","place_id":"ChIJHb9MLPga2jERkr_999Yy7m4"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT9&":{"candidates":[{"name":"NUS LT9","place_id":"ChIJE7S-aUwb2jERqkmZB4YI-8g"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_TB&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_SR3&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT15&":{"candidates":[{"name":"NUS School of Computing","place_id":"ChIJW-fkx_ga2jERSjkkKeJjaUM"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E1A&":{"candidates":[{"name":"Nus Blk E1a #07-16 Singapore","place_id":"ChIJdX9qxCYb2jERMo9YISDNBpY"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S8&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CAPT&":{"candidates":[{"name":"College of Alice & Peter Tan (CAPT)","place_id":"ChIJ9VpWMPUa2jER7SZx4Arz7BM"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS6&":{"candidates":[{"name":"NUS AS6","place_id":"ChIJAYP_DPkb2jERk5ZwcTDkwG0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_EA&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CFG&":{"candidates":[{"name":"NUS Centre for Future-ready Graduates","place_id":"ChIJ6ybBA_ga2jERde6wz4R8beg"},{"name":"Multipurpose Sports Hall 1","place_id":"ChIJqw8l7lYa2jERGbuoQJFJByY"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S16&":{"candidates":[{"name":"S16","place_id":"ChIJj0nvJVca2jERG8I4Ivxwp14"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_EW2&":{"candidates":[{"name":"NUS Engineering Workshop EW2\/WS2","place_id":"ChIJaVUqgvca2jERlWU6Yn95-Po"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CHPC&":{"candidates":[{"name":"Clinical and Health Psychology Clinic (CHPC)","place_id":"ChIJU1YXHFga2jERe-ShZMD78oU"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_TB10SR&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_FED&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RMI&":{"candidates":[{"name":"NUS Risk Management Institute","place_id":"ChIJj1ELpRob2jER1JEcgA1ezhg"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT8&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E1&":{"candidates":[{"name":"LT29","place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_YI&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_Y&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_GBT&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RC4&":{"candidates":[{"name":"Residential College 4","place_id":"ChIJyfRWy4oa2jERKHO_rI7eurw"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S5&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT12&":{"candidates":[{"name":"NUS LT12","place_id":"ChIJ_xC4S2Mb2jERtq3C7HpIrCY"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS5&":{"candidates":[{"name":"LT29","place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_TP&":{"candidates":[{"name":"UTown Auditorium 1, NUS","place_id":"ChIJVVWV3fUa2jERwig9ZkkUNzU"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD4&":{"candidates":[{"name":"Department of Microbiology and Immunology","place_id":"ChIJT8PQL1Ea2jERN-TUfW6F1Bw"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_EW1&":{"candidates":[{"name":"Engineering EW1, NUS","place_id":"ChIJ74gxX_ca2jERSiGy2d3Fpik"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_TH&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RVR&":{"candidates":[{"name":"Ridge View Residential College","place_id":"ChIJlUr57Fca2jERplWDpkgW0ls"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT7&":{"candidates":[{"name":"LT7, NUS","place_id":"ChIJxfwSHv4b2jERuvPdNU7SbUw"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E2A&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_YSTCM&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD4_LAB9&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E2&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_COM1&":{"candidates":[{"name":"NUS School of Computing","place_id":"ChIJW-fkx_ga2jERSjkkKeJjaUM"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S6&":{"candidates":[{"name":"NUS S6","place_id":"ChIJkW5bqQAb2jER-KDdeQ3SNEk"},{"name":"Science Library","place_id":"ChIJFwAfuVYa2jER0h6yBOtStS8"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT13&":{"candidates":[{"name":"NUS LT13","place_id":"ChIJoViMIbYb2jERQbzhdcWZAc4"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS4&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ENG&":{"candidates":[{"name":"NUS Engineering","place_id":"ChIJQ91DPvca2jERARhJO1i77Cg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S2&":{"candidates":[{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S14&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SDE1&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"},{"name":"NUS School of Design & Environment","place_id":"ChIJrY4IlPka2jERhqeUbnzFVKY"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT10&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT6&":{"candidates":[{"name":"LT6","place_id":"ChIJJSZ61vka2jERgnM3i4HsKaI"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CELS&":{"candidates":[{"name":"Centre for Life Sciences","place_id":"ChIJJYWxr1Ya2jER24LeedSn0PQ"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_EH&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"},{"name":"Eusoff Hall","place_id":"ChIJ1Unfuv4a2jER8YrTbzR_LwU"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT18&":{"candidates":[{"name":"NUS LT18","place_id":"ChIJUUCd6iQb2jERwMPiZN49r24"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_NAK&":{"candidates":[{"name":"The Ngee Ann Kongsi Auditorium","place_id":"ChIJ_Wq1p_Ua2jERRbnxALRpu-0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT34&":{"candidates":[{"name":"LT34","place_id":"ChIJP8M0tVAa2jER9ox-CN1aIi0"},{"name":"NUS S17","place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS3&":{"candidates":[{"name":"LT29","place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CELC&":{"candidates":[{"name":"CELC","place_id":"ChIJDb-5pPka2jERKqyo5otS_Dc"},{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD7_LAB8&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_UT22&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_WT&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S13&":{"candidates":[{"name":"S13","place_id":"ChIJ_wwcHFca2jERxmBfSKZcDBE"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT4&":{"candidates":[{"name":"LT4","place_id":"ChIJB9BKXvUb2jERh7f1jvKALDE"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_jcdhsajkfebadbs&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT11&":{"candidates":[{"name":"National University of Singapore","place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"},{"name":"NUS AS7 Shaw Foundation Building","place_id":"ChIJ8Yh3Nvka2jERWw7qp5RkdZE"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AKI5B&":{"candidates":[],"status":"ZERO_RESULTS"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E3A&":{"candidates":[{"name":"Solar Energy Research Institute of Singapore (SERIS)","place_id":"ChIJRSenE_ca2jERqvkfsltzIpM"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT19&":{"candidates":[{"name":"NUS LT19","place_id":"ChIJH7nBTf8a2jERkRfKRBAFVRc"}],"status":"OK"},"https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S4&":{"candidates":[{"name":"NUS Department of Pharmacy","place_id":"ChIJVSYW7lYa2jERabid659SkTc"}],"status":"OK"}}
+{
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_EE_CSU&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_KEVII&":{
+    "candidates":[
+      {
+        "name":"King Edward VII Hall",
+        "place_id":"ChIJRdd4d1Qa2jER8Jm2S_sC99o"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS2&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_blah&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore Faculty of Law",
+        "place_id":"ChIJfyddcgMa2jER6C0WKzLdP6w"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD9&":{
+    "candidates":[
+      {
+        "name":"Department of Physiology | YLLSOM | NUS",
+        "place_id":"ChIJJVKa1FAa2jERN6Ja2kg-1IA"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S12&":{
+    "candidates":[
+      {
+        "name":"S12",
+        "place_id":"ChIJQwi2BFca2jERjH7cWNPP2P8"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_SR4&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_USP&":{
+    "candidates":[
+      {
+        "name":"University Scholars Programme, National University of Singapore",
+        "place_id":"ChIJhfsMrVca2jER_qYWR23L00A"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT3&":{
+    "candidates":[
+      {
+        "name":"LT3",
+        "place_id":"ChIJ0c1lR_ga2jERfVFxggCR_Ic"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS\/2&":{
+    "candidates":[
+      {
+        "name":"NUS-ISS",
+        "place_id":"ChIJwZ7RmFUa2jER1yVtJXlcF6k"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS&":{
+    "candidates":[
+      {
+        "name":"NUS Institute of Systems Science",
+        "place_id":"ChIJ2QJCeFYa2jEREtrDRjksFsM"
+      },
+      {
+        "name":"NUS-ISS",
+        "place_id":"ChIJwZ7RmFUa2jER1yVtJXlcF6k"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT32&":{
+    "candidates":[
+      {
+        "name":"LT32 NUS",
+        "place_id":"ChIJd6fn-FYa2jER1eMe-wts2_E"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RVR_MPR1&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT20&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_CR3&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS\/3&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      },
+      {
+        "name":"NUS Institute of Systems Science",
+        "place_id":"ChIJ2QJCeFYa2jEREtrDRjksFsM"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_TC&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E5&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_BIZ2&":{
+    "candidates":[
+      {
+        "name":"Biz 2",
+        "place_id":"ChIJyZQi-FUa2jERnuxGL51dmnQ"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT28&":{
+    "candidates":[
+      {
+        "name":"NUS LT28",
+        "place_id":"ChIJN16IDygb2jEROR8LWE4pRss"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT16&":{
+    "candidates":[
+      {
+        "name":"NUS LT16",
+        "place_id":"ChIJ_6V-wnYb2jERnyniSN0LAV0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_SR2&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD1&":{
+    "candidates":[
+      {
+        "name":"MD1 - Tahir Foundation Building",
+        "place_id":"ChIJcZSxxVYa2jERLKUYt9o2AgE"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS1&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SDE2&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_SR3&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore Faculty of Law",
+        "place_id":"ChIJfyddcgMa2jER6C0WKzLdP6w"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_LT&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      },
+      {
+        "name":"National University of Singapore Faculty of Law",
+        "place_id":"ChIJfyddcgMa2jER6C0WKzLdP6w"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S11&":{
+    "candidates":[
+      {
+        "name":"NUS S11",
+        "place_id":"ChIJMW2gnpUb2jERlUYTYSaawlc"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CFG_CARSPA&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT2&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RH&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      },
+      {
+        "name":"Raffles Hall",
+        "place_id":"ChIJSZTxeFEb2jERJ3Ptr8SSJdw"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E4A&":{
+    "candidates":[
+      {
+        "name":"LT29",
+        "place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_CR2&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT33&":{
+    "candidates":[
+      {
+        "name":"LT 33",
+        "place_id":"ChIJRaLWSlca2jERRLrHUa9NSqo"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT21&":{
+    "candidates":[
+      {
+        "name":"LT21",
+        "place_id":"ChIJqxqtNfka2jERLnTm-1Ajycc"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_UTSRC&":{
+    "candidates":[
+      {
+        "name":"University Town, NUS",
+        "place_id":"ChIJF__3dfUa2jERyEFGvbTUVhA"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_BIZ1&":{
+    "candidates":[
+      {
+        "name":"Biz 2",
+        "place_id":"ChIJyZQi-FUa2jERnuxGL51dmnQ"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_EA_M&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT29&":{
+    "candidates":[
+      {
+        "name":"LT29",
+        "place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S1A&":{
+    "candidates":[
+      {
+        "name":"NUS Center For Bio-Imaging Sciences",
+        "place_id":"ChIJQcAz-lYa2jEREZwd2JMokdg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT17&":{
+    "candidates":[
+      {
+        "name":"NUS LT17",
+        "place_id":"ChIJBeHqfnAb2jERL1OoMUzA7yE"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD7&":{
+    "candidates":[
+      {
+        "name":"NUS Biochemistry",
+        "place_id":"ChIJz7tu01Ya2jER7C8C_9Jab0s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_COM2&":{
+    "candidates":[
+      {
+        "name":"COM 2",
+        "place_id":"ChIJRafctPga2jER8aiJ3XzHihM"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS\/AUD&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS8&":{
+    "candidates":[
+      {
+        "name":"NUS AS8",
+        "place_id":"ChIJB9oi5zAX2jERPO8sd5tVob0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT1&":{
+    "candidates":[
+      {
+        "name":"LT1, NUS",
+        "place_id":"ChIJ0fcnb_ca2jER_YoyP7CAb7E"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AKIMAUD&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AKIMLA4&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_ESR&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_I3&":{
+    "candidates":[
+      {
+        "name":"i3 Auditorium",
+        "place_id":"ChIJtX3gi1Ua2jERefFjXXzP-xk"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_CR5&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E3&":{
+    "candidates":[
+      {
+        "name":"LT29",
+        "place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SR_LT19&":{
+    "candidates":[
+      {
+        "name":"COM 2",
+        "place_id":"ChIJRafctPga2jER8aiJ3XzHihM"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_NHM&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      },
+      {
+        "name":"Lee Kong Chian Natural History Museum",
+        "place_id":"ChIJlcijSfYa2jERGZ3CD7lpz_E"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S7&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ERC&":{
+    "candidates":[
+      {
+        "name":"UTown Residence",
+        "place_id":"ChIJzcIrlvUa2jERyTCHvW8zI0I"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT26&":{
+    "candidates":[
+      {
+        "name":"LT29",
+        "place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT14&":{
+    "candidates":[
+      {
+        "name":"NUS LT14",
+        "place_id":"ChIJBRIdw1Yb2jER_w4k6qhkwAk"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY&":{
+    "candidates":[
+      {
+        "name":"LKY School of Public Policy",
+        "place_id":"ChIJrRD_oAMa2jERxhENP6ktOxo"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_HSSMLCR&":{
+    "candidates":[
+      {
+        "name":"Biz 2",
+        "place_id":"ChIJyZQi-FUa2jERnuxGL51dmnQ"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S17&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_UT&":{
+    "candidates":[
+      {
+        "name":"UTown Residence",
+        "place_id":"ChIJzcIrlvUa2jERyTCHvW8zI0I"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SDE4&":{
+    "candidates":[
+      {
+        "name":"NUS School of Design & Environment",
+        "place_id":"ChIJrY4IlPka2jERhqeUbnzFVKY"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD10&":{
+    "candidates":[
+      {
+        "name":"Department of Anatomy, NUS",
+        "place_id":"ChIJk4kk2FAa2jER_zcE_-Zi1U8"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT7A&":{
+    "candidates":[
+      {
+        "name":"LT29",
+        "place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_KRH&":{
+    "candidates":[
+      {
+        "name":"Kent Ridge Hall",
+        "place_id":"ChIJVYXNhv8a2jEROiZWY3fkc4g"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SDE&":{
+    "candidates":[
+      {
+        "name":"NUS School of Design & Environment",
+        "place_id":"ChIJrY4IlPka2jERhqeUbnzFVKY"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_PGPH&":{
+    "candidates":[
+      {
+        "name":"bluPort - NUS Prince George's Park",
+        "place_id":"ChIJUeQOY1Ma2jER4WwNPbrS4mk"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CQT\/SR0315&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_SR5&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SH&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      },
+      {
+        "name":"Sheares Hall",
+        "place_id":"ChIJE0CLe1Ua2jER0F6FW3D3BnA"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS7&":{
+    "candidates":[
+      {
+        "name":"NUS AS7 Shaw Foundation Building",
+        "place_id":"ChIJ8Yh3Nvka2jERWw7qp5RkdZE"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RVR_MPR2&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_BAR&":{
+    "candidates":[
+      {
+        "name":"Obar NUS",
+        "place_id":"ChIJc34CBVga2jERVGHl64L6ATs"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LAW_CR4&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT31&":{
+    "candidates":[
+      {
+        "name":"LT31",
+        "place_id":"ChIJ0xoOL1ca2jERs3Li2JZozaY"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ISS\/4&":{
+    "candidates":[
+      {
+        "name":"NUS Institute of Systems Science",
+        "place_id":"ChIJ2QJCeFYa2jEREtrDRjksFsM"
+      },
+      {
+        "name":"NUS-ISS",
+        "place_id":"ChIJwZ7RmFUa2jER1yVtJXlcF6k"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E4&":{
+    "candidates":[
+      {
+        "name":"NUS Engineering E4",
+        "place_id":"ChIJHb9MLPga2jERkr_999Yy7m4"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT9&":{
+    "candidates":[
+      {
+        "name":"NUS LT9",
+        "place_id":"ChIJE7S-aUwb2jERqkmZB4YI-8g"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_TB&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_SR3&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT15&":{
+    "candidates":[
+      {
+        "name":"NUS School of Computing",
+        "place_id":"ChIJW-fkx_ga2jERSjkkKeJjaUM"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E1A&":{
+    "candidates":[
+      {
+        "name":"Nus Blk E1a #07-16 Singapore",
+        "place_id":"ChIJdX9qxCYb2jERMo9YISDNBpY"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S8&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CAPT&":{
+    "candidates":[
+      {
+        "name":"College of Alice & Peter Tan (CAPT)",
+        "place_id":"ChIJ9VpWMPUa2jER7SZx4Arz7BM"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS6&":{
+    "candidates":[
+      {
+        "name":"NUS AS6",
+        "place_id":"ChIJAYP_DPkb2jERk5ZwcTDkwG0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_EA&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CFG&":{
+    "candidates":[
+      {
+        "name":"NUS Centre for Future-ready Graduates",
+        "place_id":"ChIJ6ybBA_ga2jERde6wz4R8beg"
+      },
+      {
+        "name":"Multipurpose Sports Hall 1",
+        "place_id":"ChIJqw8l7lYa2jERGbuoQJFJByY"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S16&":{
+    "candidates":[
+      {
+        "name":"S16",
+        "place_id":"ChIJj0nvJVca2jERG8I4Ivxwp14"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_EW2&":{
+    "candidates":[
+      {
+        "name":"NUS Engineering Workshop EW2\/WS2",
+        "place_id":"ChIJaVUqgvca2jERlWU6Yn95-Po"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CHPC&":{
+    "candidates":[
+      {
+        "name":"Clinical and Health Psychology Clinic (CHPC)",
+        "place_id":"ChIJU1YXHFga2jERe-ShZMD78oU"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LKY_TB10SR&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_FED&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RMI&":{
+    "candidates":[
+      {
+        "name":"NUS Risk Management Institute",
+        "place_id":"ChIJj1ELpRob2jER1JEcgA1ezhg"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT8&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E1&":{
+    "candidates":[
+      {
+        "name":"LT29",
+        "place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_YI&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_Y&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_GBT&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RC4&":{
+    "candidates":[
+      {
+        "name":"Residential College 4",
+        "place_id":"ChIJyfRWy4oa2jERKHO_rI7eurw"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S5&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT12&":{
+    "candidates":[
+      {
+        "name":"NUS LT12",
+        "place_id":"ChIJ_xC4S2Mb2jERtq3C7HpIrCY"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS5&":{
+    "candidates":[
+      {
+        "name":"LT29",
+        "place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_TP&":{
+    "candidates":[
+      {
+        "name":"UTown Auditorium 1, NUS",
+        "place_id":"ChIJVVWV3fUa2jERwig9ZkkUNzU"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD4&":{
+    "candidates":[
+      {
+        "name":"Department of Microbiology and Immunology",
+        "place_id":"ChIJT8PQL1Ea2jERN-TUfW6F1Bw"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_EW1&":{
+    "candidates":[
+      {
+        "name":"Engineering EW1, NUS",
+        "place_id":"ChIJ74gxX_ca2jERSiGy2d3Fpik"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_TH&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_RVR&":{
+    "candidates":[
+      {
+        "name":"Ridge View Residential College",
+        "place_id":"ChIJlUr57Fca2jERplWDpkgW0ls"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CQT&":{
+    "candidates":[
+      {
+        "name":"Centre for Quantum Technologies",
+        "place_id":"ChIJMWRAJlca2jERWL96yXLSPpg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT7&":{
+    "candidates":[
+      {
+        "name":"LT7, NUS",
+        "place_id":"ChIJxfwSHv4b2jERuvPdNU7SbUw"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E2A&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_YSTCM&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD4_LAB9&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E2&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_COM1&":{
+    "candidates":[
+      {
+        "name":"NUS School of Computing",
+        "place_id":"ChIJW-fkx_ga2jERSjkkKeJjaUM"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S6&":{
+    "candidates":[
+      {
+        "name":"NUS S6",
+        "place_id":"ChIJkW5bqQAb2jER-KDdeQ3SNEk"
+      },
+      {
+        "name":"Science Library",
+        "place_id":"ChIJFwAfuVYa2jER0h6yBOtStS8"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT13&":{
+    "candidates":[
+      {
+        "name":"NUS LT13",
+        "place_id":"ChIJoViMIbYb2jERQbzhdcWZAc4"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS4&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_ENG&":{
+    "candidates":[
+      {
+        "name":"NUS Engineering",
+        "place_id":"ChIJQ91DPvca2jERARhJO1i77Cg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S2&":{
+    "candidates":[
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S14&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_SDE1&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      },
+      {
+        "name":"NUS School of Design & Environment",
+        "place_id":"ChIJrY4IlPka2jERhqeUbnzFVKY"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT10&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT6&":{
+    "candidates":[
+      {
+        "name":"LT6",
+        "place_id":"ChIJJSZ61vka2jERgnM3i4HsKaI"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CELS&":{
+    "candidates":[
+      {
+        "name":"Centre for Life Sciences",
+        "place_id":"ChIJJYWxr1Ya2jER24LeedSn0PQ"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_EH&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      },
+      {
+        "name":"Eusoff Hall",
+        "place_id":"ChIJ1Unfuv4a2jER8YrTbzR_LwU"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT18&":{
+    "candidates":[
+      {
+        "name":"NUS LT18",
+        "place_id":"ChIJUUCd6iQb2jERwMPiZN49r24"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_NAK&":{
+    "candidates":[
+      {
+        "name":"The Ngee Ann Kongsi Auditorium",
+        "place_id":"ChIJ_Wq1p_Ua2jERRbnxALRpu-0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT34&":{
+    "candidates":[
+      {
+        "name":"LT34",
+        "place_id":"ChIJP8M0tVAa2jER9ox-CN1aIi0"
+      },
+      {
+        "name":"NUS S17",
+        "place_id":"ChIJc9Y2SFca2jERUd33B_8nY6s"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AS3&":{
+    "candidates":[
+      {
+        "name":"LT29",
+        "place_id":"ChIJD8PBzVAa2jER4aeSkEGQwK0"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_CELC&":{
+    "candidates":[
+      {
+        "name":"CELC",
+        "place_id":"ChIJDb-5pPka2jERKqyo5otS_Dc"
+      },
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_MD7_LAB8&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_UT22&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_WT&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S13&":{
+    "candidates":[
+      {
+        "name":"S13",
+        "place_id":"ChIJ_wwcHFca2jERxmBfSKZcDBE"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT4&":{
+    "candidates":[
+      {
+        "name":"LT4",
+        "place_id":"ChIJB9BKXvUb2jERh7f1jvKALDE"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_jcdhsajkfebadbs&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT11&":{
+    "candidates":[
+      {
+        "name":"National University of Singapore",
+        "place_id":"ChIJ2QJCeFYa2jERa434wdYIjUg"
+      },
+      {
+        "name":"NUS AS7 Shaw Foundation Building",
+        "place_id":"ChIJ8Yh3Nvka2jERWw7qp5RkdZE"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_AKI5B&":{
+    "candidates":[
+
+    ],
+    "status":"ZERO_RESULTS"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_E3A&":{
+    "candidates":[
+      {
+        "name":"Solar Energy Research Institute of Singapore (SERIS)",
+        "place_id":"ChIJRSenE_ca2jERqvkfsltzIpM"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_LT19&":{
+    "candidates":[
+      {
+        "name":"NUS LT19",
+        "place_id":"ChIJH7nBTf8a2jERkRfKRBAFVRc"
+      }
+    ],
+    "status":"OK"
+  },
+  "https:\/\/maps.googleapis.com\/maps\/api\/place\/findplacefromtext\/json?location=.sg&inputtype=textquery&fields=name,place_id&input=NUS_S4&":{
+    "candidates":[
+      {
+        "name":"NUS Department of Pharmacy",
+        "place_id":"ChIJVSYW7lYa2jERabid659SkTc"
+      }
+    ],
+    "status":"OK"
+  }
+}

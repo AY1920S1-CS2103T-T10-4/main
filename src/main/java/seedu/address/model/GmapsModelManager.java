@@ -2,12 +2,12 @@ package seedu.address.model;
 
 import java.net.ConnectException;
 import java.util.ArrayList;
-import java.util.Hashtable;
 
 import seedu.address.commons.exceptions.TimeBookInvalidState;
 import seedu.address.logic.internal.gmaps.ClosestLocation;
 import seedu.address.logic.internal.gmaps.ProcessLocationGraph;
 import seedu.address.logic.internal.gmaps.ProcessVenues;
+import seedu.address.model.display.detailwindow.ClosestCommonLocationData;
 import seedu.address.model.gmaps.Location;
 import seedu.address.model.gmaps.LocationGraph;
 
@@ -31,7 +31,7 @@ public class GmapsModelManager {
         }
     }
 
-    public Hashtable<String, Object> closestLocationData(ArrayList<String> locationNameList) {
+    public ClosestCommonLocationData closestLocationData(ArrayList<String> locationNameList) {
         return new ClosestLocation(locationGraph).closestLocationData(locationNameList);
     }
 
@@ -42,7 +42,7 @@ public class GmapsModelManager {
     /**
      * Method used to initProcess venues and get location list and validLocationList
      */
-    private void initProcessVenues() throws TimeBookInvalidState, ConnectException {
+    private void initProcessVenues() throws TimeBookInvalidState {
         ProcessVenues processVenues;
         processVenues = new ProcessVenues().process();
         locations = processVenues.getLocations();

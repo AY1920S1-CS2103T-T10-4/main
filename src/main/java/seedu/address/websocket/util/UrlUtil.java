@@ -111,4 +111,18 @@ public class UrlUtil {
         String fullUrl = baseUrl + queryParams + apiKeyQueryParams;
         return fullUrl;
     }
+
+    /**
+     * This method is used to get image from GMAPS and save to local directory
+     * @param validLocationName
+     * @return
+     */
+    public static String generateGmapsStaticImage(String validLocationName) {
+        String baseUrl = "https://maps.googleapis.com/maps/api/staticmap?size=500x500&zoom=17";
+        String markerQueryParam = "&markers=color:blue|size:large|label:L|" + validLocationName;
+        String centerQueryParam = "&center=" + validLocationName;
+        String apiKeyQueryParams = "&key=" + gmapsApiKey + "&";
+        String fullUrl = baseUrl + markerQueryParam + centerQueryParam + apiKeyQueryParams;
+        return fullUrl;
+    }
 }

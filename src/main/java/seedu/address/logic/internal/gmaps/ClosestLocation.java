@@ -1,11 +1,11 @@
 package seedu.address.logic.internal.gmaps;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.exceptions.TimeBookInvalidLocation;
 import seedu.address.commons.util.ArrayListUtil;
+import seedu.address.model.display.detailwindow.ClosestCommonLocationData;
 import seedu.address.model.gmaps.Location;
 import seedu.address.model.gmaps.LocationGraph;
 
@@ -26,19 +26,19 @@ public class ClosestLocation {
      * @return
      */
     public String closestLocationDataString(ArrayList<String> locationNameList) {
-        Hashtable<String, Object> data = closestLocationData(locationNameList);
+        ClosestCommonLocationData data = closestLocationData(locationNameList);
         String result = "";
 
-        result = result + "First closest location: " + data.get(ClosestLocationSyntax.FIRST_CLOSEST)
-                + " | Average travelling time " + data.get(ClosestLocationSyntax.FIRST_CLOSEST_AVG_TIME) + "\n";
-        result = result + "Second closest location: " + data.get(ClosestLocationSyntax.SECOND_CLOSEST)
-                + " | Average travelling time " + data.get(ClosestLocationSyntax.SECOND_CLOSEST_AVG_TIME) + "\n";
-        result = result + "Third closest location: " + data.get(ClosestLocationSyntax.THIRD_CLOSEST)
-                + " | Average travelling time " + data.get(ClosestLocationSyntax.THIRD_CLOSEST_AVG_TIME) + "\n";
-        if (!((ArrayList<String>) data.get(ClosestLocationSyntax.INVALID_LOCATION)).isEmpty()) {
+        result = result + "\nFirst closest location: " + data.getFirstClosest()
+                + " | Average travelling distance/meters " + data.getFirstAvg() + "\n";
+        result = result + "Second closest location: " + data.getSecondClosest()
+                + " | Average travelling distance/meters " + data.getSecondAvg() + "\n";
+        result = result + "Third closest location: " + data.getThirdClosest()
+                + " | Average travelling distance/meters " + data.getThirdAvg() + "\n";
+        if (!data.getInvalidLocation().isEmpty()) {
             result = result + "Could not recognise these locations:\n"
                     + ArrayListUtil
-                    .toStringCommaSpaced((ArrayList<String>) data.get(ClosestLocationSyntax.INVALID_LOCATION)) + "\n";
+                    .toStringCommaSpaced(data.getInvalidLocation()) + "\n";
         }
 
         return result;
@@ -48,13 +48,13 @@ public class ClosestLocation {
      * This method is used to find the closes location from the location graph
      * @return
      */
-    public Hashtable<String, Object> closestLocationData(ArrayList<String> locationNameList) {
+    public ClosestCommonLocationData closestLocationData(ArrayList<String> locationNameList) {
+        ClosestCommonLocationData closestCommonLocationData = new ClosestCommonLocationData();
         String firstClosest = null;
         String secondClosest = null;
         String thirdClosest = null;
         ArrayList<String> invalidLocation = new ArrayList<>();
         int groupSize = locationNameList.size();
-        Hashtable<String, Object> data = new Hashtable<>();
         try {
             if (locationNameList.isEmpty()) {
                 throw new TimeBookInvalidLocation("No location entered");
@@ -130,17 +130,19 @@ public class ClosestLocation {
             long secondClosestAvgTime = secondClosestTime / groupSize;
             long thirdClosestAvgTime = thirdClosestTime / groupSize;
 
-            data.put(ClosestLocationSyntax.FIRST_CLOSEST, firstClosest);
-            data.put(ClosestLocationSyntax.SECOND_CLOSEST, secondClosest);
-            data.put(ClosestLocationSyntax.THIRD_CLOSEST, thirdClosest);
-            data.put(ClosestLocationSyntax.FIRST_CLOSEST_AVG_TIME, firstClosestAvgTime);
-            data.put(ClosestLocationSyntax.SECOND_CLOSEST_AVG_TIME, secondClosestAvgTime);
-            data.put(ClosestLocationSyntax.THIRD_CLOSEST_AVG_TIME, thirdClosestAvgTime);
-            data.put(ClosestLocationSyntax.INVALID_LOCATION, invalidLocation);
+            closestCommonLocationData.setImagePath(firstClosest);
+            closestCommonLocationData.setFirstClosest(firstClosest);
+            closestCommonLocationData.setSecondClosest(secondClosest);
+            closestCommonLocationData.setThirdClosest(thirdClosest);
+            closestCommonLocationData.setFirstAvg(firstClosestAvgTime);
+            closestCommonLocationData.setSecondAvg(secondClosestAvgTime);
+            closestCommonLocationData.setThirdAvg(thirdClosestAvgTime);
+            closestCommonLocationData.setInvalidLocation(invalidLocation);
+            closestCommonLocationData.setOk(true);
         } catch (IllegalValueException | TimeBookInvalidLocation e) {
             e.printStackTrace();
         }
-        return data;
+        return closestCommonLocationData;
     }
 
     /**

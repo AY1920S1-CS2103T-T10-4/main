@@ -14,6 +14,7 @@ public class CacheFileNames {
     public static final String HOLIDAYS = CACHE_FOLDER_PATH + NUSMODS_FOLDER_PATH + "holidays.json";
     public static final String ACADEMIC_CALENDAR = CACHE_FOLDER_PATH + NUSMODS_FOLDER_PATH + "academic_calendar.json";
 
+    public static final String GMAPS_IMAGE_DIR = CACHE_FOLDER_PATH + GMAPS_FOLDER_PATH + "GmapsImages/";
     public static final String VENUES_FULL_PATH = CACHE_FOLDER_PATH + NUSMODS_FOLDER_PATH + "Venues.json";
     public static final String GMAPS_DISTANCE_MATRIX_PATH = CACHE_FOLDER_PATH + GMAPS_FOLDER_PATH
             + "DistanceMatrix.json";

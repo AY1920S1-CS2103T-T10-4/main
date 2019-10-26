@@ -7,6 +7,9 @@ import org.json.simple.JSONObject;
 
 import seedu.address.commons.exceptions.TimeBookInvalidLocation;
 import seedu.address.websocket.Cache;
+import seedu.address.websocket.CacheFileNames;
+import seedu.address.websocket.util.ImageQuery;
+import seedu.address.websocket.util.UrlUtil;
 
 /**
  * This call is used to find the valid location name
@@ -17,6 +20,22 @@ public class SanitizeLocation {
      * Takes in gmapsApi so that it could be replaced by a gmapsApi stub
      */
     public SanitizeLocation() {
+    }
+
+    /**
+     * This method is used to generate static images of all the sanitized locations
+     */
+    public void generateImage() {
+        for (int i = 0; i < validLocationList.size(); i++) {
+            String currValidLocation = validLocationList.get(i);
+            System.out.println("generating image for " + currValidLocation);
+            String noPrefixValidLocation = currValidLocation.split("NUS_")[1];
+            String url = UrlUtil.generateGmapsStaticImage(currValidLocation);
+            String fullPath = CacheFileNames.GMAPS_IMAGE_DIR + noPrefixValidLocation + ".png";
+            System.out.println(fullPath);
+            ImageQuery.execute(url, fullPath);
+        }
+        System.out.println("generated " + validLocationList.size() + " images");
     }
 
     /**
@@ -36,6 +55,7 @@ public class SanitizeLocation {
     public String sanitize(String locationName) throws TimeBookInvalidLocation {
         String validLocation = "NUS_" + locationName;
         validLocation = validLocation.split("-")[0];
+        validLocation = validLocation.split("/")[0];
         if (!validLocationList.contains(validLocation)) {
             JSONObject apiResponse = Cache.loadPlaces(validLocation);
             String status = GmapsJsonUtils.getStatus(apiResponse);

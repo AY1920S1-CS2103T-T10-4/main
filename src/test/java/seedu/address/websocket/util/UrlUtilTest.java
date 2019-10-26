@@ -45,5 +45,12 @@ class UrlUtilTest {
                 + "&origins=LT17|LT13|LT14|&destinations=LT17|LT13|LT14|&key=";
         assertEquals(UrlUtil.generateGmapsDistanceMatrixUrl(arg, arg), expectedUrl);
     }
+
+    @Test
+    void generateGmapsStaticImage() {
+        String expectedUrl = "https://maps.googleapis.com/maps/api/staticmap?size=500x500&zoom=17"
+                + "&markers=color:blue|size:large|label:L|NUS_LT17&center=NUS_LT17&key=&";
+        assertEquals(UrlUtil.generateGmapsStaticImage("NUS_LT17"), expectedUrl);
+    }
 }
 

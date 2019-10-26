@@ -26,7 +26,7 @@ public class GmapsJsonUtils {
                 Long value;
                 JSONObject currElement = (JSONObject) elements.get(j);
                 if (((String) currElement.get("status")).equals("OK")) {
-                    JSONObject duration = (JSONObject) currElement.get("duration");
+                    JSONObject duration = (JSONObject) currElement.get("distance");
                     value = (Long) duration.get("value");
                 } else {
                     value = null;

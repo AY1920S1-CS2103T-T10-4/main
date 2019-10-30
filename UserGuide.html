@@ -48,35 +48,38 @@
 <li><a href="#locating-persons-by-name-code-findperson-code">6.2.4. Locating persons by name: <code>findperson</code></a></li>
 <li><a href="#show-person-code-show-code">6.2.5. Show person: <code>show</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">6.2.6. Listing all persons: <code>list</code></a></li>
-<li><a href="#add-event-to-schedule-code-addevent-code">6.2.7. Add Event to Schedule: <code>addevent</code></a></li>
-<li><a href="#add-module-to-schedule-code-addmod-code">6.2.8. Add Module to Schedule: <code>addmod</code></a></li>
-<li><a href="#add-modules-via-nusmods-link-code-addmods-code">6.2.9. Add Modules via NUSMods Link: <code>addmods</code></a></li>
 </ul>
 </li>
-<li><a href="#group-management">6.3. Group Management</a>
+<li><a href="#schedule-management">6.3. Schedule Management</a>
 <ul class="sectlevel3">
-<li><a href="#adding-a-group-code-addgroup-code">6.3.1. Adding a group: <code>addgroup</code></a></li>
-<li><a href="#editing-a-group-code-editgroup-code">6.3.2. Editing a group: <code>editgroup</code></a></li>
-<li><a href="#deleting-a-group-code-deletegroup-code">6.3.3. Deleting a group: <code>deletegroup</code></a></li>
-<li><a href="#locating-group-by-name-code-findgroup-code">6.3.4. Locating group by name: <code>findgroup</code></a></li>
-<li><a href="#show-group-code-show-code">6.3.5. Show group: <code>show</code></a></li>
-<li><a href="#add-person-to-group-code-addtogroup-code">6.3.6. Add Person to Group: <code>addtogroup</code></a></li>
+<li><a href="#add-event-to-schedule-code-addevent-code">6.3.1. Add Event to Schedule: <code>addevent</code></a></li>
+<li><a href="#add-module-to-schedule-code-addmod-code">6.3.2. Add Module to Schedule: <code>addmod</code></a></li>
+<li><a href="#add-modules-via-nusmods-link-code-addmods-code">6.3.3. Add Modules via NUSMods Link: <code>addmods</code></a></li>
 </ul>
 </li>
-<li><a href="#advanced-features">6.4. Advanced Features</a>
+<li><a href="#group-management">6.4. Group Management</a>
 <ul class="sectlevel3">
-<li><a href="#show-module-code-showmod-code">6.4.1. Show Module: <code>showmod</code></a></li>
-<li><a href="#export-vr-visual-representation-code-export-vr-code">6.4.2. Export VR (Visual Representation): <code>export-vr</code></a></li>
+<li><a href="#adding-a-group-code-addgroup-code">6.4.1. Adding a group: <code>addgroup</code></a></li>
+<li><a href="#editing-a-group-code-editgroup-code">6.4.2. Editing a group: <code>editgroup</code></a></li>
+<li><a href="#deleting-a-group-code-deletegroup-code">6.4.3. Deleting a group: <code>deletegroup</code></a></li>
+<li><a href="#locating-group-by-name-code-findgroup-code">6.4.4. Locating group by name: <code>findgroup</code></a></li>
+<li><a href="#show-group-code-show-code">6.4.5. Show group: <code>show</code></a></li>
+<li><a href="#add-person-to-group-code-addtogroup-code">6.4.6. Add Person to Group: <code>addtogroup</code></a></li>
 </ul>
 </li>
-<li><a href="#closest-common-location">6.5. Closest Common Location</a>
+<li><a href="#advanced-features">6.5. Advanced Features</a>
 <ul class="sectlevel3">
-<li><a href="#closest-common-location-popup-code-popup-code">6.5.1. Closest Common Location Popup <code>popup</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">6.5.2. Clearing all entries: <code>clear</code></a></li>
-<li><a href="#upcoming-schedule-list">6.5.3. Upcoming schedule list.</a></li>
+<li><a href="#export-vr-visual-representation-code-export-vr-code">6.5.1. Export VR (Visual Representation): <code>export-vr</code></a></li>
 </ul>
 </li>
-<li><a href="#saving-the-data">6.6. Saving the data</a></li>
+<li><a href="#closest-common-location">6.6. Closest Common Location</a>
+<ul class="sectlevel3">
+<li><a href="#closest-common-location-popup-code-popup-code">6.6.1. Closest Common Location Popup <code>popup</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">6.6.2. Clearing all entries: <code>clear</code></a></li>
+<li><a href="#upcoming-schedule-list">6.6.3. Upcoming schedule list.</a></li>
+</ul>
+</li>
+<li><a href="#saving-the-data">6.7. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">7. FAQ</a></li>
@@ -89,7 +92,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Thank you for checking out TimeBook! TimeBook is a desktop application that is morphed from AddressBook Level 3 (AB3). TimeBook is a scheduler application that aims to help busy NUS undergraduates keep track of the schedules of the user and his or her friends. It also can find the common free time and venues among the user and his or her friends. TimeBook will have the following features:</p>
+<p>Thank you for checking out TimeBook! TimeBook is a desktop application that is morphed from AddressBook Level 3 (AB3). TimeBook is a scheduling application that aims to help busy NUS undergraduates keep track of the schedules of the user and his or her friends. It also can find the common free time and venues among the user and his or her friends. TimeBook will have the following features:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -118,13 +121,13 @@
 <div class="sect2">
 <h3 id="basic-information"><a class="link" href="#basic-information">2.1. Basic Information</a></h3>
 <div class="paragraph">
-<p>This guide is a explains how you can use <strong>TimeBook</strong> to the fullest extent to assist you to plan for your group&#8217;s meeting.</p>
+<p>This guide explains how you can use <strong>TimeBook</strong> to the fullest extent to assist you to plan for your group&#8217;s meeting.</p>
 </div>
 <div class="paragraph">
-<p>You can find the steps needed to start scheduling group activities with your friends or loved ones in the quick start and general
-<strong>lifecycle</strong> usage of our application. If you happen to stumble upon some difficulties, our <strong>Frequently Asked Questions</strong> (FAQ) is
-here to address that. If you are an experienced <strong>Command Line Interface (CLI)</strong> user, you can hope right into using the application by
-looking at our <strong>Command Summary</strong>. Otherwise, take a look at the <strong>Inexperienced CLI user</strong> section to obtain more information on how
+<p>You can find the steps needed to start scheduling group activities with your friends or loved ones in the <a href="#quick-start"><strong>quick start section</strong></a> and general
+<strong>lifecycle</strong> usage of our application. If you happen to stumble upon some difficulties, our <a href="#faq"><strong>Frequently Asked Questions</strong></a> (FAQ) is
+here to address that. If you are an experienced <strong>Command Line Interface (CLI)</strong> user, you can hop right into using the application by
+looking at our <a href="#command-summary"><strong>Command Summary</strong></a>. Otherwise, take a look at the <a href="#inexperienced-cli-user"><strong>Inexperienced CLI User</strong></a> section to obtain more information on how
 to use our application.</p>
 </div>
 <div class="paragraph">
@@ -226,7 +229,7 @@ mostly use the <strong>Command Line Interface</strong>. Most of the time, you wo
 command box of the application.</p>
 </div>
 <div class="paragraph">
-<p>You can play around with the commands in <a href="#command-summary">Section 8, &#8220;Command Summary&#8221;</a> to get yourself warmed up.</p>
+<p>You can play around with the commands in <a href="#command-summary"><strong>Command Summary</strong></a> to get yourself warmed up.</p>
 </div>
 </div>
 </div>
@@ -636,8 +639,11 @@ Format: <code>show n/NAME</code></p>
 Format: <code>list</code></p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="schedule-management"><a class="link" href="#schedule-management">6.3. Schedule Management</a></h3>
 <div class="sect3">
-<h4 id="add-event-to-schedule-code-addevent-code"><a class="link" href="#add-event-to-schedule-code-addevent-code">6.2.7. Add Event to Schedule: <code>addevent</code></a></h4>
+<h4 id="add-event-to-schedule-code-addevent-code"><a class="link" href="#add-event-to-schedule-code-addevent-code">6.3.1. Add Event to Schedule: <code>addevent</code></a></h4>
 <div class="paragraph">
 <p>Adds an event into the schedule of a person in the TimeBook. Only schedules without clashes between time slots can be added to the TimeBook.
 Can be used to mark a person as unavailable either on one-off dates or on a particular day every week<br>
@@ -647,9 +653,6 @@ Format:</p>
 <ul>
 <li>
 <p><code>addevent n/NAME e/EVENT_NAME t/DATETIME</code><br></p>
-</li>
-<li>
-<p><code>addevent n/NAME c/NUS_MOD_LINK</code></p>
 </li>
 </ul>
 </div>
@@ -668,19 +671,26 @@ Format:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">6.2.8. Add Module to Schedule: <code>addmod</code></a></h4>
+<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">6.3.2. Add Module to Schedule: <code>addmod</code></a></h4>
 <div class="paragraph">
-<p>Adds an NUS module as an event to a person&#8217;s schedule in TimeBook. It checks and ensures classes are available for the module in the academic year and semester before adding to the person&#8217;s schedule. Default values for <code>ACADEMIC_YEAR</code> is 2019/2020 and <code>SEMESTER</code> is 1.</p>
+<p>Adds an NUS module as an event to a person&#8217;s schedule in TimeBook.</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
+<p>Format: <code>addmod n/NAME m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE:CLASS_2_NUMBER,&#8230;&#8203;</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br></p>
+<p>Currently supports academic year 2019/2020 and semester 1 only.</p>
+</li>
+<li>
+<p>Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -698,21 +708,58 @@ Format:</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Step-By-Step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add a module&#8217;s classes easily by typing <code>addmod</code> into the command box and follow the format as shown above, then press <b class="button">Enter</b> to execute it.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nusmods/addmod1.png" alt="addmod1">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you manage to successfully add the module and its classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nusmods/addmod2.png" alt="addmod2">
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="add-modules-via-nusmods-link-code-addmods-code"><a class="link" href="#add-modules-via-nusmods-link-code-addmods-code">6.2.9. Add Modules via NUSMods Link: <code>addmods</code></a></h4>
+<h4 id="add-modules-via-nusmods-link-code-addmods-code"><a class="link" href="#add-modules-via-nusmods-link-code-addmods-code">6.3.3. Add Modules via NUSMods Link: <code>addmods</code></a></h4>
 <div class="paragraph">
-<p>Adds NUS modules given the NUSMods share link, as events to a person&#8217;s schedule in TimeBook.</p>
+<p>Already have your modules timetable on NUSMods? Great, you can easily add your modules timetable into TimeBook with the <code>addmods</code> command!</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
+<p>Format: <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>addmods n/NAME l/NUSMODS_SHARE_LINK</code><br></p>
+<p>Reads the specified <code>NUSMODS_SHARE_LINK</code> to get the modules and classes, then adds the classes into the person&#8217;s schedule.</p>
+</li>
+<li>
+<p>Currently supports academic year 2019/2020 and semester 1 only.</p>
+</li>
+<li>
+<p>WARNING: Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -727,12 +774,39 @@ Format:</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Step-By-Step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add an NUSMods timetable easily by typing <code>addmods</code> into the command box and follow the format as shown above, then press <b class="button">Enter</b> to execute it.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nusmods/addmods1.png" alt="addmods1">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you manage to successfully add all the modules and their respective classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nusmods/addmods2.png" alt="addmods2">
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="group-management"><a class="link" href="#group-management">6.3. Group Management</a></h3>
+<h3 id="group-management"><a class="link" href="#group-management">6.4. Group Management</a></h3>
 <div class="sect3">
-<h4 id="adding-a-group-code-addgroup-code"><a class="link" href="#adding-a-group-code-addgroup-code">6.3.1. Adding a group: <code>addgroup</code></a></h4>
+<h4 id="adding-a-group-code-addgroup-code"><a class="link" href="#adding-a-group-code-addgroup-code">6.4.1. Adding a group: <code>addgroup</code></a></h4>
 <div class="paragraph">
 <p>Adds a group to the TimeBook<br>
 Format: <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code></p>
@@ -752,7 +826,7 @@ Format: <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-group-code-editgroup-code"><a class="link" href="#editing-a-group-code-editgroup-code">6.3.2. Editing a group: <code>editgroup</code></a></h4>
+<h4 id="editing-a-group-code-editgroup-code"><a class="link" href="#editing-a-group-code-editgroup-code">6.4.2. Editing a group: <code>editgroup</code></a></h4>
 <div class="paragraph">
 <p>Edits an existing group in the TimeBook.<br>
 Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code></p>
@@ -787,7 +861,7 @@ Edits the group specified by group name 'CS2103' with a new group name 'CS3203' 
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">6.3.3. Deleting a group: <code>deletegroup</code></a></h4>
+<h4 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">6.4.3. Deleting a group: <code>deletegroup</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified group from the TimeBook.<br>
 Format: <code>deletegroup g/GROUP_NAME</code></p>
@@ -819,7 +893,7 @@ Deletes the 'CS2103' group from the TimeBook.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="locating-group-by-name-code-findgroup-code"><a class="link" href="#locating-group-by-name-code-findgroup-code">6.3.4. Locating group by name: <code>findgroup</code></a></h4>
+<h4 id="locating-group-by-name-code-findgroup-code"><a class="link" href="#locating-group-by-name-code-findgroup-code">6.4.4. Locating group by name: <code>findgroup</code></a></h4>
 <div class="paragraph">
 <p>Finds the group whose name contains the given keyword.<br>
 Format: <code>findgroup g/GROUP_NAME</code></p>
@@ -843,7 +917,7 @@ Format: <code>findgroup g/GROUP_NAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">6.3.5. Show group: <code>show</code></a></h4>
+<h4 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">6.4.5. Show group: <code>show</code></a></h4>
 <div class="paragraph">
 <p>Want to schedule your next group meeting? You can view a group&#8217;s schedule up to 4 weeks in advance.<br>
 Format: <code>show g/GROUP_NAME</code></p>
@@ -894,7 +968,7 @@ Format: <code>show g/GROUP_NAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-person-to-group-code-addtogroup-code"><a class="link" href="#add-person-to-group-code-addtogroup-code">6.3.6. Add Person to Group: <code>addtogroup</code></a></h4>
+<h4 id="add-person-to-group-code-addtogroup-code"><a class="link" href="#add-person-to-group-code-addtogroup-code">6.4.6. Add Person to Group: <code>addtogroup</code></a></h4>
 <div class="paragraph">
 <p>Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in the TimeBook.
 Format:</p>
@@ -919,41 +993,9 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="advanced-features"><a class="link" href="#advanced-features">6.4. Advanced Features</a></h3>
+<h3 id="advanced-features"><a class="link" href="#advanced-features">6.5. Advanced Features</a></h3>
 <div class="sect3">
-<h4 id="show-module-code-showmod-code"><a class="link" href="#show-module-code-showmod-code">6.4.1. Show Module: <code>showmod</code></a></h4>
-<div class="paragraph">
-<p>Shows the schedule of available classes for the module in the academic year and semester. Default values for <code>ACADEMIC_YEAR</code> is 2019/2020 and <code>SEMESTER</code> is 1.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>showmod m/MODULE_CODE [ay/ACADEMIC_YEAR] [s/SEMESTER]</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>showmod m/CS2103T</code></p>
-</li>
-<li>
-<p><code>showmod m/GEQ1000 ay/2019/2020</code></p>
-</li>
-<li>
-<p><code>showmod m/CS3230 ay/2019/2020 s/2</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="export-vr-visual-representation-code-export-vr-code"><a class="link" href="#export-vr-visual-representation-code-export-vr-code">6.4.2. Export VR (Visual Representation): <code>export-vr</code></a></h4>
+<h4 id="export-vr-visual-representation-code-export-vr-code"><a class="link" href="#export-vr-visual-representation-code-export-vr-code">6.5.1. Export VR (Visual Representation): <code>export-vr</code></a></h4>
 <div class="paragraph">
 <p>This feature is currently work in progress!</p>
 </div>
@@ -988,7 +1030,7 @@ Format:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="closest-common-location"><a class="link" href="#closest-common-location">6.5. Closest Common Location</a></h3>
+<h3 id="closest-common-location"><a class="link" href="#closest-common-location">6.6. Closest Common Location</a></h3>
 <div class="paragraph">
 <p>TimeBook will also help you to decide where to meet for your project meetings by suggesting to you where is the closest
 location for everyone to meet in NUS based on their schedule.</p>
@@ -1048,7 +1090,7 @@ average travelling distance.</p>
 </ol>
 </div>
 <div class="sect3">
-<h4 id="closest-common-location-popup-code-popup-code"><a class="link" href="#closest-common-location-popup-code-popup-code">6.5.1. Closest Common Location Popup <code>popup</code></a></h4>
+<h4 id="closest-common-location-popup-code-popup-code"><a class="link" href="#closest-common-location-popup-code-popup-code">6.6.1. Closest Common Location Popup <code>popup</code></a></h4>
 <div class="paragraph">
 <p>command: <code>popup g/ [groupname] i/[id]</code></p>
 </div>
@@ -1173,14 +1215,14 @@ Format:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">6.5.2. Clearing all entries: <code>clear</code></a></h4>
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">6.6.2. Clearing all entries: <code>clear</code></a></h4>
 <div class="paragraph">
 <p>Clears all entries from the TimeBook.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="upcoming-schedule-list"><a class="link" href="#upcoming-schedule-list">6.5.3. Upcoming schedule list.</a></h4>
+<h4 id="upcoming-schedule-list"><a class="link" href="#upcoming-schedule-list">6.6.3. Upcoming schedule list.</a></h4>
 <div class="paragraph">
 <p>Unsure of what is your next event for the day? TimeBook&#8217;s home page has a list that keeps track of your upcoming
 events for the day and would automatically tick off events that have past!
@@ -1189,7 +1231,7 @@ Format: <code>home</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">6.6. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">6.7. Saving the data</a></h3>
 <div class="paragraph">
 <p>TimeBook data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -2028,4 +2070,4 @@ e.g. <code>show-freetime g/CS2103T id/2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 15:16:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 16:00:31 UTC</div></div></div></body></html>

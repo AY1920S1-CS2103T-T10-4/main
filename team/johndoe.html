@@ -136,8 +136,8 @@
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="deleting-a-person-code-deleteperson-code"><a class="link" href="#deleting-a-person-code-deleteperson-code">Deleting a person : <code>deleteperson</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-a-person-code-deleteperson-code"><a class="link" href="#deleting-a-person-code-deleteperson-code">Deleting a person: <code>deleteperson</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified person from the TimeBook.<br>
 Format: <code>deleteperson n/NAME</code></p>
@@ -168,42 +168,32 @@ Deletes the person named <code>Benedict</code> from the TimeBook.</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">Deleting a group : <code>deletegroup</code></a></h3>
+<div class="sect3">
+<h4 id="locating-persons-by-name-code-findperson-code"><a class="link" href="#locating-persons-by-name-code-findperson-code">Locating persons by name: <code>findperson</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified group from the TimeBook.<br>
-Format: <code>deletegroup g/GROUP_NAME</code></p>
+<p>Finds the person whose name contains the given keyword.<br>
+Format: <code>findperson n/NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the group specified by 'GROUP_NAME'</p>
+<p>Only the name is searched.</p>
 </li>
 <li>
-<p>The people who were in this group will not be deleted.</p>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Shows the person in the tabs panel.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletegroup g/CS2103</code><br>
-Deletes the 'CS2103' group from the TimeBook.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="show-code-show-code"><a class="link" href="#show-code-show-code">Show: <code>show</code></a></h3>
 <div class="sect3">
-<h4 id="show-person"><a class="link" href="#show-person">Show person:</a></h4>
+<h4 id="show-person-code-show-code"><a class="link" href="#show-person-code-show-code">Show person: <code>show</code></a></h4>
 <div class="paragraph">
 <p>Shows details of a person.<br>
 Format: <code>show n/NAME</code></p>
@@ -244,7 +234,219 @@ Format: <code>show n/NAME</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="show-group"><a class="link" href="#show-group">Show group:</a></h4>
+<h4 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">Listing all persons: <code>list</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all persons in the TimeBook.<br>
+Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-event-to-schedule-code-addevent-code"><a class="link" href="#add-event-to-schedule-code-addevent-code">Add Event to Schedule: <code>addevent</code></a></h4>
+<div class="paragraph">
+<p>Adds an event into the schedule of a person in the TimeBook. Only schedules without clashes between time slots can be added to the TimeBook.
+Can be used to mark a person as unavailable either on one-off dates or on a particular day every week<br>
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addevent n/NAME e/EVENT_NAME t/DATETIME</code><br></p>
+</li>
+<li>
+<p><code>addevent n/NAME c/NUS_MOD_LINK</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
+</li>
+<li>
+<p><code>addevent n/John c/23F6B742CE</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">Add Module to Schedule: <code>addmod</code></a></h4>
+<div class="paragraph">
+<p>Adds an NUS module as an event to a person&#8217;s schedule in TimeBook. It checks and ensures classes are available for the module in the academic year and semester before adding to the person&#8217;s schedule. Default values for <code>ACADEMIC_YEAR</code> is 2019/2020 and <code>SEMESTER</code> is 1.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmod n/John m/CS2103T class/G01,T5</code></p>
+</li>
+<li>
+<p><code>addmod n/John m/CS2103T class/G01,T5 ay/2018/2019</code></p>
+</li>
+<li>
+<p><code>addmod n/John m/CS2103T class/G01,T5 ay/2019/2020 s/1</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-modules-via-nusmods-link-code-addmods-code"><a class="link" href="#add-modules-via-nusmods-link-code-addmods-code">Add Modules via NUSMods Link: <code>addmods</code></a></h4>
+<div class="paragraph">
+<p>Adds NUS modules given the NUSMods share link, as events to a person&#8217;s schedule in TimeBook.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmods n/NAME l/NUSMODS_SHARE_LINK</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmods n/John l/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code></p>
+</li>
+<li>
+<p><code>addmods n/Bob l/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="group-management"><a class="link" href="#group-management">Group Management</a></h3>
+<div class="sect3">
+<h4 id="adding-a-group-code-addgroup-code"><a class="link" href="#adding-a-group-code-addgroup-code">Adding a group: <code>addgroup</code></a></h4>
+<div class="paragraph">
+<p>Adds a group to the TimeBook<br>
+Format: <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addgroup g/CS2103 r/Project Group</code></p>
+</li>
+<li>
+<p><code>addgroup g/Friends</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-group-code-editgroup-code"><a class="link" href="#editing-a-group-code-editgroup-code">Editing a group: <code>editgroup</code></a></h4>
+<div class="paragraph">
+<p>Edits an existing group in the TimeBook.<br>
+Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the group specified by <code>GROUP_NAME</code>.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code><br>
+Edits the group specified by group name 'CS2103' with a new group name 'CS3203' and group remark <code>Project Discussion Group</code> respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">Deleting a group: <code>deletegroup</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified group from the TimeBook.<br>
+Format: <code>deletegroup g/GROUP_NAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the group specified by 'GROUP_NAME'</p>
+</li>
+<li>
+<p>The people who were in this group will not be deleted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletegroup g/CS2103</code><br>
+Deletes the 'CS2103' group from the TimeBook.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-group-by-name-code-findgroup-code"><a class="link" href="#locating-group-by-name-code-findgroup-code">Locating group by name: <code>findgroup</code></a></h4>
+<div class="paragraph">
+<p>Finds the group whose name contains the given keyword.<br>
+Format: <code>findgroup g/GROUP_NAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Only the group name is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched</p>
+</li>
+<li>
+<p>Shows the group in the tabs panel.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">Show group: <code>show</code></a></h4>
 <div class="paragraph">
 <p>Shows the details of a group.<br>
 Format: <code>show g/GROUP_NAME</code></p>
@@ -291,13 +493,319 @@ Format: <code>show g/GROUP_NAME</code></p>
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="add-person-to-group-code-addtogroup-code"><a class="link" href="#add-person-to-group-code-addtogroup-code">Add Person to Group: <code>addtogroup</code></a></h4>
+<div class="paragraph">
+<p>Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in the TimeBook.
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addtogroup n/NAME g/GROUP_NAME</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addtogroup n/John g/CS2103</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="switch-tabs-code-switch-tab-code"><a class="link" href="#switch-tabs-code-switch-tab-code">Switch tabs: <code>switch-tab</code></a></h3>
+<h3 id="advanced-features"><a class="link" href="#advanced-features">Advanced Features</a></h3>
+<div class="sect3">
+<h4 id="show-module-code-showmod-code"><a class="link" href="#show-module-code-showmod-code">Show Module: <code>showmod</code></a></h4>
 <div class="paragraph">
-<p>You can switch the tab of <strong>Person</strong> and <strong>Group</strong> using this command.
-Format: <code>switch-tab</code></p>
+<p>Shows the schedule of available classes for the module in the academic year and semester. Default values for <code>ACADEMIC_YEAR</code> is 2019/2020 and <code>SEMESTER</code> is 1.</p>
 </div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>showmod m/MODULE_CODE [ay/ACADEMIC_YEAR] [s/SEMESTER]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>showmod m/CS2103T</code></p>
+</li>
+<li>
+<p><code>showmod m/GEQ1000 ay/2019/2020</code></p>
+</li>
+<li>
+<p><code>showmod m/CS3230 ay/2019/2020 s/2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-vr-visual-representation-code-export-vr-code"><a class="link" href="#export-vr-visual-representation-code-export-vr-code">Export VR (Visual Representation): <code>export-vr</code></a></h4>
+<div class="paragraph">
+<p>This feature is currently work in progress!</p>
+</div>
+<div class="paragraph">
+<p>Exports a visualisation representation of the schedule (timetable) of a group or person(s) to a PNG file+
+Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>export-vr [n/NAME]</code><br></p>
+</li>
+<li>
+<p><code>export-vr [g/GROUP_NAME]</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>export-vr g/CS2103T Team project</code></p>
+</li>
+<li>
+<p><code>export-vr n/John Doe</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-closest-location-code-closestlocation-code"><a class="link" href="#get-closest-location-code-closestlocation-code">Get Closest Location: <code>closestlocation</code></a></h4>
+<div class="paragraph">
+<p>This command is used to get the closest common location among a list of locations you entered.</p>
+</div>
+<div class="paragraph">
+<p>Boundaries of this command:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We define closest common location as the location that requires the least average time to travel to from the
+locations stated in the list.</p>
+</li>
+<li>
+<p>We only support locations that are from NUSMods. Any other location would be voided and not be taken into
+consideration for the computation of the closest location.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>closestlocation l/LOCATIONA LOCATIONB &#8230;&#8203;</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>closestlocation l/LT16 LT15 AS5</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-free-time-slot-code-show-freetime-code"><a class="link" href="#show-free-time-slot-code-show-freetime-code">Show Free Time slot: <code>show-freetime</code></a></h4>
+<div class="paragraph">
+<p><strong>Overview</strong>
+When the command is executed a popup will appear that shows the closest common location for a particular free time slot in a group.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FreeTimePopup.png" alt="FreeTimePopup">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Description</em></p>
+</div>
+<div class="paragraph">
+<p>There are three main information that you will see when you execute the command.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Closest common location will be shown on the top right corner.</p>
+</li>
+<li>
+<p>The picture on google maps of the closest common location will be shown below the header.</p>
+</li>
+<li>
+<p>The full details of will be shown on the left side of the popup.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Second and third closest location will be shown</p>
+</li>
+<li>
+<p>The average time to reach the location for the various choices</p>
+</li>
+<li>
+<p>A list of voided location that TimeBook does not support</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show-freetime g/GROUP_NAME id/SLOT_NUMBER</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>show-freetime g/CS2103T id/2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">Clearing all entries: <code>clear</code></a></h4>
+<div class="paragraph">
+<p>Clears all entries from the TimeBook.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p>TimeBook data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TimeBook folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>List/Show All Persons</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Add Person</strong> <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203; [c/NUS_MOD_LINK]</code><br>
+e.g. <code>addperson n/James Ho p/22224444 em/jamesho@example.com a/123, Clementi Rd, 1234665 r/Always helpful tag/friend tag/colleague</code></p>
+</li>
+<li>
+<p><strong>Edit Person</strong> : <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code><br>
+e.g. <code>editperson ed/James Lee em/jameslee@example.com</code></p>
+</li>
+<li>
+<p><strong>Delete Person</strong> : <code>delete n/NAME</code><br>
+e.g. <code>deleteperson n/Benedict</code></p>
+</li>
+<li>
+<p><strong>Find Person</strong> : <code>findperson n/NAME</code><br>
+e.g. <code>findperson n/James Jake</code></p>
+</li>
+<li>
+<p><strong>Add Event to Person&#8217;s Schedule</strong> : <code>addevent n/NAME e/EVENT_NAME t/DATETIME</code><br>
+e.g. <code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
+</li>
+<li>
+<p><strong>Add Module to Person&#8217;s Schedule</strong> : <code>addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br>
+e.g. <code>addmod n/John m/CS2103T class/G01,T5 ay/2019/2020 s/1</code></p>
+</li>
+<li>
+<p><strong>Add Modules to Person&#8217;s Schedule via NUSMods Link</strong> : <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code><br>
+e.g. <code>addmods n/John l/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code></p>
+</li>
+<li>
+<p><strong>Show Module Classes Schedule</strong> : <code>showmod m/MODULE_CODE [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br>
+e.g. <code>showmod m/CS3230 ay/2019/2020 s/2</code></p>
+</li>
+<li>
+<p><strong>Show Person Details and Schedule</strong> : <code>show n/NAME</code><br>
+e.g. <code>show n/James Lee</code></p>
+</li>
+<li>
+<p><strong>Add Group</strong> <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code><br>
+e.g. <code>addgroup g/CS2103 r/Project Group</code></p>
+</li>
+<li>
+<p><strong>Add Person to Group</strong> : <code>addtogroup n/NAME g/GROUP_NAME</code><br>
+e.g. <code>addtogroup n/John g/CS2103</code></p>
+</li>
+<li>
+<p><strong>Edit Group</strong> <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code><br>
+e.g. <code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code></p>
+</li>
+<li>
+<p><strong>Delete Group</strong> : <code>deletegroup g/GROUP_NAME</code><br>
+e.g. <code>deletegroup g/CS2103</code></p>
+</li>
+<li>
+<p><strong>Find Group</strong> : <code>findgroup g/GROUP_NAME</code><br>
+e.g. <code>findgroup g/CS2103</code></p>
+</li>
+<li>
+<p><strong>Show Group Details and Schedule</strong> : <code>show g/GROUP_NAME</code><br>
+e.g. <code>show g/CS2030 T2</code></p>
+</li>
+<li>
+<p><strong>Export Visual Representation</strong> : <code>export-vr [n/NAME]… [g/GROUP_NAME]… o/SAVE_LOCATION</code><br>
+e.g. <code>export-vr g/TimeBook o/timetable.jpg</code></p>
+</li>
+<li>
+<p><strong>Closest Location</strong> : <code>closestlocation l/LOCATIONA LOCATIONB &#8230;&#8203;</code><br>
+e.g. <code>closestlocation l/LT16 LT15 AS5</code></p>
+</li>
+<li>
+<p><strong>Show Free Time Slot</strong> : <code>show-freetime g/GROUP_NAME id/SLOT_NUMBER</code><br>
+e.g. <code>show-freetime g/CS2103T id/2</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Exit</strong> : <code>exit</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -544,4 +1052,4 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 08:39:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 10:46:18 UTC</div></div></div></body></html>

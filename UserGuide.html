@@ -19,7 +19,11 @@
 </ul>
 </li>
 <li><a href="#quick-start">3. Quick Start</a></li>
-<li><a href="#unexperienced-cli-user">4. Unexperienced CLI user</a></li>
+<li><a href="#unexperienced-cli-user">4. Unexperienced CLI user</a>
+<ul class="sectlevel2">
+<li><a href="#suggestions-autocomplete">4.1. Suggestions Autocomplete</a></li>
+</ul>
+</li>
 <li><a href="#Features">5. Commands</a>
 <ul class="sectlevel2">
 <li><a href="#navigation">5.1. Navigation</a>
@@ -215,6 +219,105 @@ command box of the application.</p>
 </div>
 <div class="paragraph">
 <p>You can play around with the commands in <a href="#command-summary">Section 7, &#8220;Command Summary&#8221;</a> to get yourself warmed up.</p>
+</div>
+<div class="sect2">
+<h3 id="suggestions-autocomplete"><a class="link" href="#suggestions-autocomplete">4.1. Suggestions Autocomplete</a></h3>
+<div class="paragraph">
+<p>TimeBook comes with a helpful feature that provides suggested commands or relevant values so you can spend less time typing commands and more time on your group meetings.</p>
+</div>
+<div class="paragraph">
+<p>When you type a command, TimeBook will show a dropdown with similarly matching commands. For example, you type in the command <code>add</code>. TimeBook will then suggest commands such as <code>addevent</code>, <code>addgroup</code>, <code>addperson</code> like so:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/user-guide-example-step1.png" alt="user guide example step1" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>If you meant to type the <code>addevent</code> command, you can immediately select it by pressing the <kbd>Tab</kbd> key. Otherwise, you can pick other options by using the <kbd>Up</kbd> or <kbd>Down</kbd> arrow keys and then hit the <kbd>Tab</kbd> key to confirm your selection. For now, try selecting the <code>addtogroup</code> command. TimeBook will complete the command like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/user-guide-example-step2.png" alt="user guide example step2" width="50%">
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>tip: You can type an abbreviated version of the command as long as the letters are in order! For example, instead of typing <code>addtogroup</code>, try <code>atg</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Remember how TimeBook can also suggest relevant values? Let&#8217;s try that by specifying a person&#8217;s name using the <code>n/</code> parameter like so:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/user-guide-example-step3.png" alt="user guide example step3" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>Again, TimeBook provides useful suggestions, in this case, the names of the people we&#8217;ve previously added. Now, try using the <kbd>Tab</kbd> key to immediately fill in "Bobby".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/user-guide-example-step4.png" alt="user guide example step4" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>Now, let&#8217;s complete the <code>addtogroup</code> command. Let&#8217;s add Bobby to the Friends group by typing <code>g/</code> and using the suggestions to help us pick the Friends group.</p>
+</div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 14.2857%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/user-guide-example-step5.png" alt="user guide example step5">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">–<kbd>Tab</kbd>–&gt;</p></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/user-guide-example-step6.png" alt="user guide example step6">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Let&#8217;s say we change our mind and don&#8217;t want to add Bobby to the Friends group. No problem, just remove Bobby&#8217;s name and pick someone else using the familiar <kbd>Up</kbd>, <kbd>Down</kbd> and <kbd>Tab</kbd> keys. TimeBook is smart enough to only fill in the name parameter and won&#8217;t mess up the rest of your command.</p>
+</div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 14.2857%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/user-guide-example-step7.png" alt="user guide example step7">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">–<kbd>Tab</kbd>–&gt;</p></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="images/command-suggestions/user-guide-example-step8.png" alt="user guide example step8">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Congratulations! You&#8217;ve now mastered the suggestions feature using just three simple keys, the <kbd>Up</kbd> and <kbd>Down</kbd> arrow keys to navigate between suggestions and the <kbd>Tab</kbd> key to select it.<br>
+The following sections will explain all the commands we have in TimeBook and what they do.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1818,4 +1921,4 @@ e.g. <code>show-freetime g/CS2103T id/2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 13:02:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 14:25:38 UTC</div></div></div></body></html>

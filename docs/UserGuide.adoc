@@ -17,29 +17,36 @@ endif::[]
 
 By: `Team TimeBook`      Since: `Aug 2019`      Licence: `MIT`
 
-Our team is still working on the User Guide. Keep a look out for more cool and exciting features coming soon!
+Our team is still working on the User Guide.
+Keep a look out for more cool and exciting features coming soon!
 
 == Introduction
 
-Thank you for checking out TimeBook! TimeBook is a desktop application that is morphed from AddressBook Level 3 (AB3). TimeBook is a scheduling application that aims to help busy NUS undergraduates keep track of the schedules of the user and his or her friends. It also can find the common free time and venues among the user and his or her friends. TimeBook will have the following features:
+Thank you for checking out TimeBook!
+TimeBook is a desktop application that is morphed from AddressBook Level 3 (AB3).
+TimeBook is a scheduling application that aims to help busy NUS undergraduates keep track of the schedules of the user and his or her friends.
+It also can find the common free time and venues among the user and his or her friends.
+TimeBook will have the following features:
 
-.  A graphical user interface (GUI) but most of the interactions with the application would happen using command line interface (CLI).
-.  Allows users to add the schedules of his or her friends and organise them into groups.
-.  Deconflict different schedules of different people and different groups to find the common free time among them.
-.  Integration with NUSmods API to allow users to enter their NUSmods timetable link to add it to their schedule.
-.  Integration with Google Maps API to allow the application to evaluate the best venue for the group to meet up during the free time in their schedules.
+. A graphical user interface (GUI) but most of the interactions with the application would happen using command line interface (CLI).
+. Allows users to add the schedules of his or her friends and organise them into groups.
+. Deconflict different schedules of different people and different groups to find the common free time among them.
+. Integration with NUSmods API to allow users to enter their NUSmods timetable link to add it to their schedule.
+. Integration with Google Maps API to allow the application to evaluate the best venue for the group to meet up during the free time in their schedules.
 
 == Understanding this guide
+
 === Basic Information
+
 This guide explains how you can use *TimeBook* to the fullest extent to assist you to plan for your group's meeting.
 
-You can find the steps needed to start scheduling group activities with your friends or loved ones in the <<Quick Start, *quick start section*>> and general
-*lifecycle* usage of our application. If you happen to stumble upon some difficulties, our <<FAQ,*Frequently Asked Questions*>> (FAQ) is
-here to address that. If you are an experienced *Command Line Interface (CLI)* user, you can hop right into using the application by
-looking at our <<Command Summary, *Command Summary*>>. Otherwise, take a look at the <<Inexperienced CLI user, *Inexperienced CLI User*>> section to obtain more information on how
-to use our application.
+You can find the steps needed to start scheduling group activities with your friends or loved ones in the <<Quick Start, *quick start section*>> and general *lifecycle* usage of our application.
+If you happen to stumble upon some difficulties, our <<FAQ,*Frequently Asked Questions*>> (FAQ) is here to address that.
+If you are an experienced *Command Line Interface (CLI)* user, you can hop right into using the application by looking at our <<Command Summary, *Command Summary*>>.
+Otherwise, take a look at the <<Inexperienced CLI user, *Inexperienced CLI User*>> section to obtain more information on how to use our application.
 
-We have used the following symbols to help you better understand our application usage. (For now we have not picked our symbols yet.)
+We have used the following symbols to help you better understand our application usage.
+(For now we have not picked our symbols yet.)
 
 [width="80%",cols="^3, ^10",options="header"]
 |====
@@ -51,16 +58,17 @@ We have used the following symbols to help you better understand our application
 
 == Quick Start
 
-.  Ensure you have Java `11` or above installed in your Computer.
-.  Download the latest `timebook.jar` link:{repoURL}/releases[here].
-.  Copy the file to the folder you want to use as the home folder for your TimeBook.
-.  Double-click the file to start the app. The GUI should appear in a few seconds.
+. Ensure you have Java `11` or above installed in your Computer.
+. Download the latest `timebook.jar` link:{repoURL}/releases[here].
+. Copy the file to the folder you want to use as the home folder for your TimeBook.
+. Double-click the file to start the app.
+The GUI should appear in a few seconds.
 +
 image::Ui.png[width="790"]
 +
-.  Type the command in the command box and press kbd:[Enter] to execute it. +
+. Type the command in the command box and press kbd:[Enter] to execute it. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
-.  Some example commands you can try:
+. Some example commands you can try:
 
 * *`list`* : lists all information in TimeBook.
 * *`addperson`* `n/John Doe p/98765432 em/johnd@example.com a/John street, block 123, #01-01` : adds a contact named `John Doe` to the TimeBook.
@@ -69,44 +77,50 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 * *`addtogroup`* `n/John Doe` `g/CS2103` : Adds a person `John Doe` into the group `CS2103`.
 * *`exit`* : exits the app
 
-.  Refer to <<Features>> for details of each command.
+. Refer to <<Features>> for details of each command.
 
 == Inexperienced CLI user
 
-Unlike most applications, where you use your mouse to interact with the application such as scrolling and clicking, our application
-mostly use the *Command Line Interface*. Most of the time, you would be interacting with the application through typing commands in the
-command box of the application.
+Unlike most applications, where you use your mouse to interact with the application such as scrolling and clicking, our application mostly use the *Command Line Interface*.
+Most of the time, you would be interacting with the application through typing commands in the command box of the application.
 
 You can play around with the commands in <<Command Summary, *Command Summary*>> to get yourself warmed up.
 
 == GUI Components
 
-In this section, you will learn more about the different components of our application. Here is an overview of
-all of the components in our application:
+In this section, you will learn more about the different components of our application.
+Here is an overview of all of the components in our application:
 
 image::guiComponents.png[]
 
 === MenuBar
+
 You may use the menu bar to access file or exit the application.
 
 image::menuBar.png[]
 
 === Schedule Display
+
 The schedule display is the main component that you will be looking at to look schedules of yours or others!
 
 image::scheduleDisplay.png[]
 
 === Tabs
-Tabs will contain your contacts and your groups. You can use it to see all your existing contacts and groups!
+
+Tabs will contain your contacts and your groups.
+You can use it to see all your existing contacts and groups!
 
 image::tabs.png[]
 
 === Result Display Box
-This box shows you whether your command executed is successful or unsuccessful. If you encounter an error message here, look at our errors meaning section to see what is the cause of error.
+
+This box shows you whether your command executed is successful or unsuccessful.
+If you encounter an error message here, look at our errors meaning section to see what is the cause of error.
 
 image::resultDisplayBox.png[]
 
 === Command Box
+
 Type your commands here to execute them!
 
 image::commandBox.png[]
@@ -115,40 +129,53 @@ image::commandBox.png[]
 
 TimeBook comes with a helpful feature that provides suggested commands or relevant values so you can spend less time typing commands and more time on your group meetings.
 
-When you type a command, TimeBook will show a dropdown with similarly matching commands. For example, you type in the command `add`. TimeBook will then suggest commands such as `addevent`, `addgroup`, `addperson` like so:
+When you type a command, TimeBook will show a dropdown with similarly matching commands.
+For example, you type in the command `add`.
+TimeBook will then suggest commands such as `addevent`, `addgroup`, `addperson` like so:
 
 image::command-suggestions/user-guide-example-step1.png[width=50%]
 
-If you meant to type the `addevent` command, you can immediately select it by pressing the kbd:[Tab] key. Otherwise, you can pick other options by using the kbd:[Up] or kbd:[Down] arrow keys and then hit the kbd:[Tab] key to confirm your selection. For now, try selecting the `addtogroup` command. TimeBook will complete the command like this:
+If you meant to type the `addevent` command, you can immediately select it by pressing the kbd:[Tab] key.
+Otherwise, you can pick other options by using the kbd:[Up] or kbd:[Down] arrow keys and then hit the kbd:[Tab] key to confirm your selection.
+For now, try selecting the `addtogroup` command.
+TimeBook will complete the command like this:
 
 image::command-suggestions/user-guide-example-step2.png[width=50%]
 
 *****
-image:./icons/lightbulb.png[] You can type an abbreviated version of the command as long as the letters are in order! For example, instead of typing `addtogroup`, try `atg`.
+image:./icons/lightbulb.png[] You can type an abbreviated version of the command as long as the letters are in order!
+For example, instead of typing `addtogroup`, try `atg`.
 *****
 
-Remember how TimeBook can also suggest relevant values? Let's try that by specifying a person's name using the `n/` parameter like so:
+Remember how TimeBook can also suggest relevant values?
+Let's try that by specifying a person's name using the `n/` parameter like so:
 
 image::command-suggestions/user-guide-example-step3.png[width=50%]
 
-Again, TimeBook provides useful suggestions, in this case, the names of the people we've previously added. Now, try using the kbd:[Tab] key to immediately fill in "Bobby".
+Again, TimeBook provides useful suggestions, in this case, the names of the people we've previously added.
+Now, try using the kbd:[Tab] key to immediately fill in "Bobby".
 
 image::command-suggestions/user-guide-example-step4.png[width=50%]
 
-Now, let's complete the `addtogroup` command. Let's add Bobby to the Friends group by typing `g/` and using the suggestions to help us pick the Friends group.
+Now, let's complete the `addtogroup` command.
+Let's add Bobby to the Friends group by typing `g/` and using the suggestions to help us pick the Friends group.
 
 [width="100%",cols="^3,^1,^3",frame="none",grid="none",valign="middle"]
 |=======
 a|image::command-suggestions/user-guide-example-step5.png[] | –kbd:[Tab]–> a|image::command-suggestions/user-guide-example-step6.png[]
 |=======
 
-Let's say we change our mind and don't want to add Bobby to the Friends group. No problem, just remove Bobby's name and pick someone else using the familiar kbd:[Up], kbd:[Down] and kbd:[Tab] keys. TimeBook is smart enough to only fill in the name parameter and won't mess up the rest of your command.
+Let's say we change our mind and don't want to add Bobby to the Friends group.
+No problem, just remove Bobby's name and pick someone else using the familiar kbd:[Up], kbd:[Down] and kbd:[Tab] keys.
+TimeBook is smart enough to only fill in the name parameter and won't mess up the rest of your command.
+
 [width="100%",cols="^3,^1,^3",frame="none",grid="none",valign="middle"]
 |=======
 a|image::command-suggestions/user-guide-example-step7.png[] | –kbd:[Tab]–> a|image::command-suggestions/user-guide-example-step8.png[]
 |=======
 
-Congratulations! You've now mastered the suggestions feature using just three simple keys, the kbd:[Up] and kbd:[Down] arrow keys to navigate between suggestions and the kbd:[Tab] key to select it. +
+Congratulations!
+You've now mastered the suggestions feature using just three simple keys, the kbd:[Up] and kbd:[Down] arrow keys to navigate between suggestions and the kbd:[Tab] key to select it. +
 The following sections will explain all the commands we have in TimeBook and what they do.
 
 [[Features]]
@@ -166,10 +193,12 @@ The following sections will explain all the commands we have in TimeBook and wha
 === Navigation
 
 ==== Home: `home`
+
 You can return back to the home page to see your upcoming schedule.
 Format: `home`
 
 ==== Switch tabs: `switch-tab`
+
 You can switch the tab of *Person* and *Group* using this command.
 Format: `switch-tab`
 
@@ -187,12 +216,12 @@ Format: `exit`
 ==== Adding a person: `addperson`
 
 Adds a person to the TimeBook +
-Format: `addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]... [c/NUS_MOD_LINK]`
+Format: `addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]... `
 
 Examples:
 
 * `addperson n/Catherine em/catherineCanCook@imail.com`
-* `addperson n/John Doe em/JohnDoe@imail.com c/23F6B742CE`
+* `addperson n/John Doe em/JohnDoe@imail.com`
 
 ==== Editing a person: `editperson`
 
@@ -230,20 +259,10 @@ Examples:
 * `deleteperson n/Benedict` +
 Deletes the person named `Benedict` from the TimeBook.
 
-==== Locating persons by name: `findperson`
-
-Finds the person whose name contains the given keyword. +
-Format: `findperson n/NAME`
-
-****
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Shows the person in the tabs panel.
-****
-
 ==== Show person: `show`
-Want to arrange a private meeting with someone in TimeBook? You can see the schedule of this person up to 4 weeks in advance using
-the `show` command. +
+
+Want to arrange a private meeting with someone in TimeBook?
+You can see the schedule of this person up to 4 weeks in advance using the `show` command. +
 Format: `show n/NAME`
 
 ****
@@ -255,35 +274,73 @@ Examples:
 * Type `show n/Bobby` in the command line as shown below: +
 
 image::showpersoncommand.png[]
-Hit the kbd:[Enter] key and you should see details of the person! You should see a window similar to the one below.
+Hit the kbd:[Enter] key and you should see details of the person!
+You should see a window similar to the one below.
 
 image::showpersonresult.png[]
 
 *****
 image:./icons/lightbulb.png[] You can use the command `n` to help you scroll the schedule view without touching your mouse!
 
-image:./icons/lightbulb.png[] You can use the command `nw` see next week's schedule! You may see this person's schedule up to 4 weeks in advance.
+image:./icons/lightbulb.png[] You can use the command `nw` see next week's schedule!
+You may see this person's schedule up to 4 weeks in advance.
 *****
-
-==== Listing all persons: `list`
-
-Shows a list of all persons in the TimeBook. +
-Format: `list`
 
 === Schedule Management
 
 ==== Add Event to Schedule: `addevent`
 
-Adds an event into the schedule of a person in the TimeBook. Only schedules without clashes between time slots can be added to the TimeBook.
+Adds an event into the schedule of a person in the TimeBook.
+Only schedules without clashes between time slots can be added to the TimeBook.
 Can be used to mark a person as unavailable either on one-off dates or on a particular day every week +
 Format:
 
+* `addevent e/EVENT_NAME t/DATETIME` +
 * `addevent n/NAME e/EVENT_NAME t/DATETIME` +
+
+*****
+image:./icons/lightbulb.png[] By not specifying `NAME`, the event will be added to the User.
+*****
+
+* `addevent e/Project Meeting t/27092019-1500-1600-I3`
+
+****
+* Adds an event `Project Meeting` to your schedule.
+****
 
 Examples:
 
-* `addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25`
-* `addevent n/John c/23F6B742CE`
+* `addevent n/John e/Math Lecture t/26092019-1300-1400-LT25`
+
+****
+* Adds an event `Math Lecture` to `John` 's schedule.
+****
+
+==== Delete an Event from a Schedule: `deleteevent`
+
+Deletes an event from the schedule of a person in the TimeBook.
+
+Format:
+
+* `deleteevent e/EVENT_NAME`
+
+****
+Deletes an event specified by `EVENT_NAME` from the User's schedule.
+****
+
+* `deleteevent n/NAME e/EVENT_NAME
+
+****
+Deletes an event specified by `EVENT_NAME` from the schedule of the person specified by `NAME`.
+****
+
+Examples:
+
+* `deleteevent n/Bobby e/Swimming Lessons`
+
+****
+Deletes the event `Swimming Lessons` from `Bobby` 's schedule.
+****
 
 ==== Add Module to Schedule: `addmod`
 
@@ -295,7 +352,6 @@ Format: `addmod n/NAME m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE
 * Currently supports academic year 2019/2020 and semester 1 only.
 * image:./icons/warning.png[]: Just like adding a normal event via `addevent`, the module will only be added if the specified classes does not clash with any events in the person's schedule.
 ****
-
 
 Examples:
 
@@ -315,7 +371,8 @@ image::nusmods/addmod2.PNG[]
 
 ==== Add Modules via NUSMods Link: `addmods`
 
-Already have your modules timetable on NUSMods? Great, you can easily add your modules timetable into TimeBook with the `addmods` command!
+Already have your modules timetable on NUSMods?
+Great, you can easily add your modules timetable into TimeBook with the `addmods` command!
 
 Format: `addmods n/NAME l/NUSMODS_SHARE_LINK`
 
@@ -345,17 +402,31 @@ image::nusmods/addmods2.PNG[]
 ==== Adding a group: `addgroup`
 
 Adds a group to the TimeBook +
-Format: `addgroup g/GROUP_NAME [r/GROUP_REMARK]`
+Format: `addgroup g/GROUP_NAME [d/GROUP_DESCRIPTION] [r/GROUP_REMARK] [role/USER_ROLE]`
+
+****
+* Creates a with name `GROUP_NAME`.
+* A group can be optionally created with a description, a remark, and the user's role in the Group.
+****
 
 Examples:
 
-* `addgroup g/CS2103 r/Project Group`
 * `addgroup g/Friends`
+
+****
+Creates a group called `Friends`
+****
+
+* `addgroup g/CS2103 d/Project Group role/Leader`
+
+****
+Creates a group called `CS2103` which a description and your role in the Group.
+****
 
 ==== Editing a group: `editgroup`
 
 Edits an existing group in the TimeBook. +
-Format: `editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]`
+Format: `editgroup ed/GROUP_NAME [g/GROUP_NAME] [d/GROUP_DESCRIPTION] [r/GROUP_REMARK] [role/USER_ROLE]`
 
 ****
 * Edits the group specified by `GROUP_NAME`.
@@ -366,7 +437,11 @@ Format: `editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]`
 Examples:
 
 * `editgroup ed/CS2103 g/CS3203 r/Project Discussion Group` +
-Edits the group specified by group name 'CS2103' with a new group name 'CS3203' and group remark `Project Discussion Group` respectively.
+
+
+****
+Edits the group specified by group name `CS2103` with a new group name `CS3203` and group remark `Project Discussion Group` respectively.
+****
 
 ==== Deleting a group: `deletegroup`
 
@@ -381,21 +456,16 @@ Format: `deletegroup g/GROUP_NAME`
 Examples:
 
 * `deletegroup g/CS2103` +
-Deletes the 'CS2103' group from the TimeBook.
 
-==== Locating group by name: `findgroup`
-
-Finds the group whose name contains the given keyword. +
-Format: `findgroup g/GROUP_NAME`
 
 ****
-* Only the group name is searched.
-* Only full words will be matched
-* Finds the group in the tabs panel.
+Deletes the `CS2103` group from the TimeBook.
 ****
 
 ==== Show group: `show`
-Want to schedule your next group meeting? You can view a group's schedule up to 4 weeks in advance. +
+
+Want to schedule your next group meeting?
+You can view a group's schedule up to 4 weeks in advance. +
 Format: `show g/GROUP_NAME`
 
 ****
@@ -421,14 +491,41 @@ image:./icons/lightbulb.png[] You can use the command `nw` to help you show next
 
 ==== Add Person to Group: `addtogroup`
 
-Adds a person specified by 'NAME' into a group specified by 'GROUP_NAME' in the TimeBook.
+Adds a person specified by `NAME` with a role specified by `ROLE` into a group specified by `GROUP_NAME` in the TimeBook.
+
 Format:
 
-* `addtogroup n/NAME g/GROUP_NAME`
+* `addtogroup n/NAME g/GROUP_NAME [role/ROLE]`
 
 Examples:
 
 * `addtogroup n/John g/CS2103`
+
+****
+adds `John` into group `CS2103`
+****
+
+* `addtogroup n/Bobby g/CS3203 r/Leader`
+
+****
+adds `Bobby` into group `CS3203` with a role `Leader`
+****
+
+==== Delete a Person from Group: `deletefromgroup`
+
+Deletes a person specified by `NAME` from a group specified by `GROUP_NAME`
+
+Format:
+
+* `deletefromgroup n/NAME g/GROUP_NAME`
+
+Examples:
+
+* `deletefromgroup n/Bobby g/CS2103`
+
+****
+Removes `Bobby` from the group `CS2103`
+****
 
 === Advanced Features
 
@@ -451,8 +548,8 @@ Examples:
 
 This feature is currently work in progress!
 
-Want to share your group's schedule with your friends? This command exports a visualisation representation of the
-schedule (timetable) of a group or person(s) to a PNG file! +
+Want to share your group's schedule with your friends?
+This command exports a visualisation representation of the schedule (timetable) of a group or person(s) to a PNG file! +
 Format:
 
 * `export-vr [n/NAME]` +
@@ -487,8 +584,7 @@ Examples:
 
 === Closest Common Location
 
-TimeBook will also help you to decide where to meet for your project meetings by suggesting to you where is the closest
-location for everyone to meet in NUS based on their schedule.
+TimeBook will also help you to decide where to meet for your project meetings by suggesting to you where is the closest location for everyone to meet in NUS based on their schedule.
 
 *Steps*
 
@@ -501,39 +597,39 @@ location for everyone to meet in NUS based on their schedule.
 
 *Constraints*
 
-Due to the lack of internet connectivity, TimeBook will only support locations that are in NUSMods and identifiable by
-Google Maps. The full list of the supported locations is below.
+Due to the lack of internet connectivity, TimeBook will only support locations that are in NUSMods and identifiable by Google Maps.
+The full list of the supported locations is below.
 
 *Definitions*
 
-. We define closest common location as the location that requires the least average distance to travel to from different
-sources by car.
-. Locations that are not supported are voided and are not used for the calculations of the closest common location and
-average travelling distance.
+. We define closest common location as the location that requires the least average distance to travel to from different sources by car.
+. Locations that are not supported are voided and are not used for the calculations of the closest common location and average travelling distance.
 . Refer to the `Developer Guide` on how we compute the closest common location.
 
-
 ==== Closest Common Location Popup `popup`
+
 command: `popup g/ [groupname] i/[id]`
 
 image::gmaps/SuccessfulPopup.png[SuccessfulPopup]
+
 [#img-SuccessfulPopup]
 .An example of a popup when `popup` is executed
 
 _Description_
 
-When the command is executed a popup will appear that shows the all the information of the closest common location
-for a particular free time slot in a group.
+When the command is executed a popup will appear that shows the all the information of the closest common location for a particular free time slot in a group.
 
 _Parameters_
 
 . `[groupname]`
-- Description: This is the name of the Group you want to find the free time for. The `groupname` can be found on the
+- Description: This is the name of the Group you want to find the free time for.
+The `groupname` can be found on the
 `groups` tab in the user interface.(Use `switch-tab` if your tab is on persons)
 - Type: `String`
 . `[id]`
-- Description: This is the `id` of the free time slot of a group. You can get this `id` from the user interface when you
-use `show g/[groupname]` command. You can only enter the `id` that is shown on the screen.
+- Description: This is the `id` of the free time slot of a group.
+You can get this `id` from the user interface when you use `show g/[groupname]` command.
+You can only enter the `id` that is shown on the screen.
 - Type: `String`
 
 _Success Response_
@@ -546,8 +642,8 @@ There are two main information that you will see in the popup when you execute t
 .. First choice represents the first closest and so on and so forth.
 .. The average distance(m) to reach the various location will be displayed below the respective choices.
 .. A list of voided location that TimeBook does not support will be shown at the bottom of the popup.
-. The picture of the closest common location on google maps will be shown on the left of the popup. Where the marker
-represent the exact location of the first closest common location.
+. The picture of the closest common location on google maps will be shown on the left of the popup.
+Where the marker represent the exact location of the first closest common location.
 
 _Failure Response_
 
@@ -568,8 +664,8 @@ Format: `clear`
 
 ==== Upcoming schedule list.
 
-Unsure of what is your next event for the day? TimeBook's home page has a list that keeps track of your upcoming
-events for the day and would automatically tick off events that have past!
+Unsure of what is your next event for the day?
+TimeBook's home page has a list that keeps track of your upcoming events for the day and would automatically tick off events that have past!
 Format: `home`
 
 === Saving the data
@@ -627,9 +723,7 @@ e.g. `show-freetime g/CS2103T id/2`
 
 == Supported Locations
 
-!===
-|Valid Location|Valid Location|Valid Location|Valid Location|Valid Location|Valid Location|
-|AS4-0116|AS3-0214|AS3-0213|AS3-0303|AS3-0212|AS3-0302|AS1-0303|AS1-0302|AS5-0309|LT9
+!=== |Valid Location|Valid Location|Valid Location|Valid Location|Valid Location|Valid Location| |AS4-0116|AS3-0214|AS3-0213|AS3-0303|AS3-0212|AS3-0302|AS1-0303|AS1-0302|AS5-0309|LT9
 
 AS1-0304|AS6-0214|AS5-0205|AS2-0413|AS3-0215|LT12|AS7-0119|AS4-0118|LT11|AS1-0209|
 
@@ -737,5 +831,4 @@ E1-06-14|CELC-SR1A|CELC-TR6|BIZ2-0115|BIZ2-0116|BIZ2-0112|CAPT-SR4|RC4-SR6|TH-SR
 
 RH-CONF-RM|KRH-SR3|SH-SR1|AS3-0314|AS3-0312|AS3-0208|AS3-0316|ISS/3-12|ISS/2-9|ISS/4-6|
 
-ISS/3-3|ISS/2-1|ISS/AUD|ISS/3-1|ISS/3-5|ISS/4-4|TP-SR7|TP-SR4|TP-SR5|TP-SR6|
-!===
+ISS/3-3|ISS/2-1|ISS/AUD|ISS/3-1|ISS/3-5|ISS/4-4|TP-SR7|TP-SR4|TP-SR5|TP-SR6| !===

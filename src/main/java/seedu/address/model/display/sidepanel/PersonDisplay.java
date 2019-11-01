@@ -1,7 +1,9 @@
 package seedu.address.model.display.sidepanel;
 
+import java.util.Optional;
 import java.util.Set;
 
+import seedu.address.model.mapping.Role;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -20,6 +22,7 @@ public class PersonDisplay extends Display {
     private final Address address;
     private final Remark remark;
     private final Set<Tag> tags;
+    private Optional<Role> role = Optional.empty();
 
     public PersonDisplay(Name name, Phone phone, Email email, Address address, Remark remark, Set<Tag> tags) {
         this.name = name;
@@ -37,6 +40,16 @@ public class PersonDisplay extends Display {
         this.address = person.getAddress();
         this.remark = person.getRemark();
         this.tags = person.getTags();
+    }
+
+    public PersonDisplay(Person person, Role role) {
+        this.name = person.getName();
+        this.phone = person.getPhone();
+        this.email = person.getEmail();
+        this.address = person.getAddress();
+        this.remark = person.getRemark();
+        this.tags = person.getTags();
+        this.role = Optional.of(role);
     }
 
     public Name getName() {
@@ -61,6 +74,10 @@ public class PersonDisplay extends Display {
 
     public Set<Tag> getTags() {
         return tags;
+    }
+
+    public Role getRole() {
+        return role.orElse(Role.emptyRole());
     }
 
     /**

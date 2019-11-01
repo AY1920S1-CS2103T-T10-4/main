@@ -468,12 +468,12 @@
     -fx-alignment: center;
 }
 
-#groupDetailCard, #detailCard, #listHeaderContainer, #listMemberContainer {
+#groupDetailContainer, #detailCard, #listHeaderContainer, #listMemberContainer, #exportContainer {
     -fx-background: #222831;
     -fx-background-color: #222831;
 }
 
-#groupDetailCard .label {
+#groupDetailContainer .label {
     -fx-text-fill: white;
 }
 
@@ -483,6 +483,11 @@
 
 #locationsViewContainer .label {
     -fx-text-fill: #FFFFFF;
+}
+
+#listHeaderContainer {
+    -fx-border-color: #393E46;
+    -fx-border-style: solid none none none;
 }
 
 #listHeaders .label {
@@ -510,6 +515,10 @@
     -fx-opacity: 0.87;
     -fx-font-family: "Segoe UI Light";
     -fx-font-size: 12;
+}
+
+#offsetRegion {
+    -fx-background-color: linear-gradient(from 0px 0px to 2px 2px, reflect,  #222831 30%, #393E46  47%);;
 }
 
 #personDetailContainer {
@@ -562,20 +571,20 @@
 
 #timeslotMajorLine {
     -fx-border-color: derive(#393E46, 20%);
-    -fx-border-style: solid none none solid
+    -fx-border-style: solid none none solid;
 }
 
 #timeslotMinorLine {
     -fx-border-color: derive(#393E46, 20%);
-    -fx-border-style: dotted none none dotted
+    -fx-border-style: dotted none none dotted;
 }
 
 #scheduleContainer {
     -fx-border-color: derive(#222831, 20%);
+    -fx-background-color: derive(#222831, 20%);
 }
 
 #scheduleContainer #title {
-    -fx-background-color: derive(#222831, 20%);
     -fx-opacity: 1 !important;
 }
 
@@ -588,6 +597,10 @@
 #scheduleContents {
     -fx-background: #393E46;
     -fx-background-color: #393E46;
+}
+
+#scheduleContents #dayEvenStackPane {
+    -fx-background-color: derive(#222831, 0%);
 }
 
 #scheduleContents:hover {

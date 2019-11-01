@@ -1,5 +1,7 @@
 package seedu.address.logic.internal.gmaps;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
@@ -55,7 +57,9 @@ public class ClosestLocation {
      * @return
      */
     public ClosestCommonLocationData closestLocationData(ArrayList<String> locationNameList) {
+        requireNonNull(locationNameList);
         ClosestCommonLocationData closestCommonLocationData = new ClosestCommonLocationData();
+        closestCommonLocationData.setLocationEntered(locationNameList);
         String firstClosest = null;
         String secondClosest = null;
         String thirdClosest = null;
@@ -63,7 +67,7 @@ public class ClosestLocation {
         int groupSize = locationNameList.size();
         try {
             if (locationNameList.isEmpty()) {
-                throw new IllegalValueException("No location entered");
+                throw new IllegalValueException("You must enter at least one location.");
             }
             ArrayList<ArrayList<Long>> currMatrix = new ArrayList<ArrayList<Long>>();
             ArrayList<Location> validLocationList = locationGraph.getValidLocationList();
@@ -89,8 +93,10 @@ public class ClosestLocation {
                 currMatrix.add(currRow);
             }
 
+            closestCommonLocationData.setInvalidLocation(invalidLocation);
             if (currMatrix.isEmpty()) {
-                throw new IllegalValueException("All location entered cannot be identified by TimeBook");
+                throw new IllegalValueException("All location entered cannot be identified by TimeBook. Refer to  "
+                        + "Supported Location table in User Guide to ge the supported locations.");
             }
 
             ArrayList<Long> totalDistance = new ArrayList<>();
@@ -152,10 +158,10 @@ public class ClosestLocation {
             closestCommonLocationData.setFirstAvg(firstClosestAvgTime);
             closestCommonLocationData.setSecondAvg(secondClosestAvgTime);
             closestCommonLocationData.setThirdAvg(thirdClosestAvgTime);
-            closestCommonLocationData.setInvalidLocation(invalidLocation);
+            closestCommonLocationData.setValidLocation(locationNameList);
             closestCommonLocationData.setOk(true);
         } catch (IllegalValueException e) {
-            logger.info(e.getMessage());
+            closestCommonLocationData.setErrorResponse(e.getLocalizedMessage());
         }
         return closestCommonLocationData;
     }

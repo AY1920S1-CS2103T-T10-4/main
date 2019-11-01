@@ -5,7 +5,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUPNAME;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.display.detailwindow.ClosestCommonLocationData;
@@ -22,13 +24,13 @@ import seedu.address.model.group.exceptions.GroupNotFoundException;
 public class PopupCommand extends Command {
 
     public static final String COMMAND_WORD = "popup";
-    public static final String MESSAGE_SUCCESS = "Showing locations.";
-    public static final String MESSAGE_FAILURE = "Internal error";
-    public static final String MESSAGE_FAILURE_NO_LOCATION = "We could not find a common "
-            + "location because all places cannot be found in NUS. The locations are:\n";
+    public static final String MESSAGE_SUCCESS = "Closest Location found! See the popup for information.";
+    public static final String MESSAGE_INTERNAL_ERROR = "Internal error";
+    public static final String MESSAGE_USER_ERROR = "We could not find a common "
+            + "location because:\n";
     public static final String MESSAGE_USAGE = COMMAND_WORD + " " + PREFIX_GROUPNAME + " GROUPNAME"
             + PREFIX_FREETIMESLOT_ID + " FREETIMESLOTID";
-
+    private final Logger logger = LogsCenter.getLogger(this.getClass());
     private GroupName groupName;
     private int id;
 
@@ -56,29 +58,37 @@ public class PopupCommand extends Command {
 
             System.out.println("TEST: " + freeTimeslot.get().toString());
 
-            ClosestCommonLocationData commonLocationData = freeTimeslot.get().getClosestCommonLocationData();
+            ClosestCommonLocationData commonLocationData;
+            if (freeTimeslot.isPresent()) {
+                commonLocationData = freeTimeslot.get().getClosestCommonLocationData();
+            } else {
+                return new CommandResult("Invalid time slot ID: " + id + ". Please enter a valid id as "
+                        + "shown in the GUI.");
+            }
 
             if (!commonLocationData.isOk()) {
-                String locations = "";
+                String errorResponse = "";
 
                 if (freeTimeslot.get().getVenues().size() == 0) {
-                    locations = "Everyone has not started their schedule yet. Feel free to meet up any time.";
+                    errorResponse = "Everyone has not started their schedule yet. Feel free to meet up any time.";
+                } else if (commonLocationData.getErrorResponse().length() != 0) {
+                    errorResponse = commonLocationData.getErrorResponse();
+                } else {
+                    logger.warning("Unknown error for time slot: " + freeTimeslot.get().toString());
+                    return new CommandResult(MESSAGE_INTERNAL_ERROR);
                 }
 
-                for (String s : freeTimeslot.get().getVenues()) {
-                    locations += s + "\n";
-                }
-                return new CommandResult(MESSAGE_FAILURE_NO_LOCATION + locations);
+                return new CommandResult(MESSAGE_USER_ERROR + errorResponse);
             }
 
             if (freeTimeslot.isEmpty()) {
-                return new CommandResult(MESSAGE_FAILURE);
+                return new CommandResult(MESSAGE_INTERNAL_ERROR);
             }
 
             return new CommandResult(MESSAGE_SUCCESS, false, false, false, false, true,
                     freeTimeslot.get().getClosestCommonLocationData());
         } catch (GroupNotFoundException e) {
-            return new CommandResult(MESSAGE_FAILURE);
+            return new CommandResult(MESSAGE_INTERNAL_ERROR);
         }
     }
 

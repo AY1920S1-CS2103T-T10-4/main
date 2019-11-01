@@ -19,13 +19,10 @@ public class GroupDetailCard extends UiPart<Region> {
     private Label groupName;
     @FXML
     private Label groupDescription;
-    @FXML
-    private Label groupRemark;
 
     public GroupDetailCard(GroupDisplay groupDisplay) {
         super(FXML);
         groupName.setText(groupDisplay.getGroupName().toString());
         groupDescription.setText(groupDisplay.getGroupDescription().toString());
-        groupRemark.setText(groupDisplay.getGroupRemark().remark);
     }
 }

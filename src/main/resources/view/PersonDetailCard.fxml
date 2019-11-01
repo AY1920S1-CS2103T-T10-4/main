@@ -30,25 +30,25 @@
                 <ImageView fitHeight="50" fitWidth="50">
                     <Image url="@/images/phone_icon.png"/>
                 </ImageView>
-                <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" alignment="CENTER" prefHeight="100"/>
+                <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" alignment="CENTER" prefHeight="50"/>
             </HBox>
             <HBox spacing="10">
                 <ImageView fitHeight="50" fitWidth="50">
                     <Image url="@/images/address_icon.png"/>
                 </ImageView>
-                <Label fx:id="address" styleClass="cell_small_label" text="\$address" alignment="CENTER" prefHeight="100"/>
+                <Label fx:id="address" styleClass="cell_small_label" text="\$address" alignment="CENTER" prefHeight="50"/>
             </HBox>
             <HBox spacing="10">
                 <ImageView fitHeight="50" fitWidth="50">
                     <Image url="@/images/email_icon.png"/>
                 </ImageView>
-                <Label fx:id="email" styleClass="cell_small_label" text="\$email" alignment="CENTER" prefHeight="100"/>
+                <Label fx:id="email" styleClass="cell_small_label" text="\$email" alignment="CENTER" prefHeight="50"/>
             </HBox>
             <HBox spacing="10">
                 <ImageView fitHeight="50" fitWidth="50">
                     <Image url="@/images/remark_icon.png"/>
                 </ImageView>
-                <Label fx:id="remark" styleClass="cell_small_label" text="\$remark" alignment="CENTER" prefHeight="100"/>
+                <Label fx:id="remark" styleClass="cell_small_label" text="\$remark" alignment="CENTER" prefHeight="50"/>
             </HBox>
         </VBox>
     </GridPane>

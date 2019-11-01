@@ -300,7 +300,7 @@ public class DisplayModelManager {
             }
         }
 
-        return new PersonSchedule(scheduleName, new PersonDisplay(person), role, scheduleDisplay);
+        return new PersonSchedule(scheduleName, new PersonDisplay(person, role), scheduleDisplay);
     }
 
     /**

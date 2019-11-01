@@ -16,6 +16,42 @@ class ClosestCommonLocationDataTest {
     void init() {
         closestCommonLocationData = new ClosestCommonLocationData();
     }
+
+    @Test
+    void getErrorResponseAllLocationInvalid() {
+        ArrayList<String> input = new ArrayList<>(Arrays.asList("FOO", "BAR", "HELLO"));
+        closestCommonLocationData.setErrorResponse("ERROR: FOO BAR");
+        closestCommonLocationData.setLocationEntered(input);
+        closestCommonLocationData.setInvalidLocation(input);
+        assertEquals("ERROR: FOO BAR\n"
+                + "Source location: FOO, BAR, HELLO\n"
+                + "Invalid Source location: FOO, BAR, HELLO\n", closestCommonLocationData.getErrorResponse());
+    }
+
+    @Test
+    void getErrorResponseSomeLocationInvalid() {
+        ArrayList<String> input = new ArrayList<>(Arrays.asList("FOO", "BAR", "HELLO"));
+        closestCommonLocationData.setErrorResponse("ERROR: FOO BAR");
+        closestCommonLocationData.setLocationEntered(input);
+        closestCommonLocationData.setValidLocation(new ArrayList<>(Arrays.asList("HELLO")));
+        closestCommonLocationData.setInvalidLocation(new ArrayList<>(Arrays.asList("FOO", "BAR")));
+        assertEquals("ERROR: FOO BAR\n"
+                + "Source location: FOO, BAR, HELLO\n"
+                + "Valid Source location: HELLO\n"
+                + "Invalid Source location: FOO, BAR\n", closestCommonLocationData.getErrorResponse());
+    }
+
+    @Test
+    void getErrorResponseAllValid() {
+        ArrayList<String> input = new ArrayList<>(Arrays.asList("FOO", "BAR", "HELLO"));
+        closestCommonLocationData.setErrorResponse("ERROR: FOO BAR");
+        closestCommonLocationData.setLocationEntered(input);
+        closestCommonLocationData.setValidLocation(input);
+        assertEquals("ERROR: FOO BAR\n"
+                + "Source location: FOO, BAR, HELLO\n"
+                + "Valid Source location: FOO, BAR, HELLO\n", closestCommonLocationData.getErrorResponse());
+    }
+
     @Test
     void getImage() {
         closestCommonLocationData.setFirstClosest("LT17");
@@ -43,19 +79,19 @@ class ClosestCommonLocationDataTest {
     @Test
     void getFirstAvg() {
         closestCommonLocationData.setFirstAvg((long) Long.MAX_VALUE);
-        assertEquals(Long.MAX_VALUE, closestCommonLocationData.getFirstAvg());
+        assertEquals("Avg distance: 9223372036854775807(meters)", closestCommonLocationData.getFirstAvg());
     }
 
     @Test
     void getSecondAvg() {
         closestCommonLocationData.setSecondAvg((long) Long.MAX_VALUE);
-        assertEquals(Long.MAX_VALUE, closestCommonLocationData.getSecondAvg());
+        assertEquals("Avg distance: 9223372036854775807(meters)", closestCommonLocationData.getSecondAvg());
     }
 
     @Test
     void getThirdAvg() {
         closestCommonLocationData.setThirdAvg((long) Long.MAX_VALUE);
-        assertEquals(Long.MAX_VALUE, closestCommonLocationData.getThirdAvg());
+        assertEquals("Avg distance: 9223372036854775807(meters)", closestCommonLocationData.getThirdAvg());
     }
 
     @Test

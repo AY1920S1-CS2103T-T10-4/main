@@ -148,7 +148,7 @@ public class TimeBookParser {
             return new ShowCommandParser().parse(arguments);
 
         case ExportCommand.COMMAND_WORD:
-            return new ExportCommandParser().parse(arguments);
+            return new ExportCommand();
 
         case ClosestLocationCommand.COMMAND_WORD:
             return new ClosestLocationCommandParser().parse(arguments);

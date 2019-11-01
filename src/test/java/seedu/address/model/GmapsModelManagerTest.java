@@ -22,16 +22,17 @@ class GmapsModelManagerTest {
         ArrayList<String> locationNameList = new ArrayList<>(Arrays.asList("LT17", "LT17", "LT17"));
         ClosestCommonLocationData result = gmapsModelManager.closestLocationData(locationNameList);
         assertEquals(result.getFirstClosest(), "LT17");
-        assertEquals(result.getFirstAvg(), (long) 0);
+        assertEquals("Avg distance: 0(meters)", result.getFirstAvg());
     }
 
     @Test
     void closestLocationDataString() {
         ArrayList<String> locationNameList = new ArrayList<>(Arrays.asList("LT17", "LT17", "LT17"));
         String result = gmapsModelManager.closestLocationDataString(locationNameList);
-        String expectedResult = "\nFirst closest location: LT17 | Average travelling distance/meters 0\n"
-                + "Second closest location: LT19 | Average travelling distance/meters 11\n"
-                + "Third closest location: LT8 | Average travelling distance/meters 224\n";
+        String expectedResult = "\nFirst closest location: LT17 | Average travelling distance/meters Avg distance: "
+                + "0(meters)\nSecond closest location: LT19 | Average travelling distance/meters Avg distance: "
+                + "11(meters)\nThird closest location: LT8 | Average travelling distance/meters Avg distance: "
+                + "224(meters)\n";
         assertEquals(expectedResult, result);
     }
 }

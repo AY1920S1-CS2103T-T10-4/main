@@ -27,6 +27,5 @@ public interface VisualExporter {
         RenderedImage renderedImage = fromFXImage(image, null);
         ImageIO.write(renderedImage, fileformat, new File(filepath));
     };
-
 }
 

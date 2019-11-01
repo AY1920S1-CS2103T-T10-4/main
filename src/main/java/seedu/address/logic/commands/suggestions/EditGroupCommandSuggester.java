@@ -18,7 +18,9 @@ import seedu.address.model.group.exceptions.GroupNotFoundException;
 public class EditGroupCommandSuggester extends Suggester {
     public static final List<Prefix> SUPPORTED_PREFIXES = List.of(
             CliSyntax.PREFIX_EDIT,
-            CliSyntax.PREFIX_REMARK
+            CliSyntax.PREFIX_REMARK,
+            CliSyntax.PREFIX_DESCRIPTION,
+            CliSyntax.PREFIX_ROLE
     );
 
     protected static Optional<Group> getSelectedGroup(final Model model, final ArgumentList arguments) {
@@ -44,15 +46,27 @@ public class EditGroupCommandSuggester extends Suggester {
         final Prefix prefix = commandArgument.getPrefix();
         final String value = commandArgument.getValue();
 
+        if (!SUPPORTED_PREFIXES.contains(prefix)) {
+            return null;
+        }
+
         if (prefix.equals(CliSyntax.PREFIX_EDIT)) {
             return model.groupSuggester(value);
-        } else if (prefix.equals(CliSyntax.PREFIX_REMARK)) {
-            final Optional<Group> optionalSelectedGroup = getSelectedGroup(model, arguments);
+        }
 
-            if (optionalSelectedGroup.isPresent()) {
-                final Group selectedGroup = optionalSelectedGroup.get();
-                return List.of(selectedGroup.getGroupRemark().toString());
-            }
+        final Optional<Group> optionalSelectedGroup = getSelectedGroup(model, arguments);
+        if (optionalSelectedGroup.isEmpty()) {
+            return null;
+        }
+
+        final Group selectedGroup = optionalSelectedGroup.get();
+
+        if (prefix.equals(CliSyntax.PREFIX_REMARK)) {
+            return List.of(selectedGroup.getGroupRemark().toString());
+        } else if (prefix.equals(CliSyntax.PREFIX_DESCRIPTION)) {
+            return List.of(selectedGroup.getGroupDescription().toString());
+        } else if (prefix.equals(CliSyntax.PREFIX_ROLE)) {
+            return List.of(selectedGroup.getUserRole().getRole());
         }
 
         return null;

@@ -44,9 +44,6 @@ public class ScheduleView extends UiPart<Region> {
     private Label title;
 
     @FXML
-    private VBox scheduleContainer;
-
-    @FXML
     private ScrollPane scheduleHeaderWrapper;
 
     @FXML
@@ -159,7 +156,7 @@ public class ScheduleView extends UiPart<Region> {
             VBox timeslotContainer = new VBox();
             Region firstRegionOffset = new Region();
             firstRegionOffset.setPrefSize(preferredWidth, oneHourLength / 2);
-            firstRegionOffset.setId("timeslotMajorLine");
+            firstRegionOffset.setId("offsetRegion");
             timeslotContainer.getChildren().add(firstRegionOffset);
             for (int k = startTime; k < endTime; k++) {
                 StackPane timeslotRegion = new StackPane();
@@ -173,6 +170,7 @@ public class ScheduleView extends UiPart<Region> {
                 timeslotMinorRegion.getChildren().addAll(offset, timeslotMinorRegion1);
                 if (k == endTime - 1) {
                     timeslotMajorRegion.setPrefSize(preferredWidth, oneHourLength / 2);
+                    timeslotMajorRegion.setId("offsetRegion");
                     timeslotRegion.getChildren().addAll(timeslotMajorRegion);
                     timeslotContainer.getChildren().add(timeslotRegion);
                 } else {
@@ -182,6 +180,8 @@ public class ScheduleView extends UiPart<Region> {
                 }
             }
             stackPane.getChildren().add(timeslotContainer);
+            String altDayId = l % 2 == 0 ? "dayEvenStackPane" : "dayOddStackPane";
+            stackPane.setId(altDayId);
             dayTimeslotStackPanes.put(DayOfWeek.of(offsetDay), stackPane);
             scheduleView.add(stackPane, l, 0, 1, endTime - startTime);
         }

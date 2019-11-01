@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.createUnmodifiableObserv
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,7 @@ import seedu.address.logic.commands.AddNusModsCommand;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.AddToGroupCommand;
 import seedu.address.logic.commands.DeleteEventCommand;
+import seedu.address.logic.commands.DeleteFromGroupCommand;
 import seedu.address.logic.commands.DeleteGroupCommand;
 import seedu.address.logic.commands.DeletePersonCommand;
 import seedu.address.logic.commands.EditGroupCommand;
@@ -34,6 +36,9 @@ import seedu.address.logic.parser.CliSyntax;
 import seedu.address.logic.parser.CommandArgument;
 import seedu.address.logic.parser.Prefix;
 import seedu.address.model.Model;
+import seedu.address.model.group.Group;
+import seedu.address.model.group.GroupName;
+import seedu.address.model.group.exceptions.GroupNotFoundException;
 
 /**
  * Represents a source of suggestions with hidden internal logic.
@@ -48,6 +53,7 @@ public abstract class Suggester {
             Map.entry(AddPersonCommand.COMMAND_WORD, AddPersonCommandSuggester.class),
             Map.entry(AddToGroupCommand.COMMAND_WORD, AddToGroupCommandSuggester.class),
             Map.entry(DeleteEventCommand.COMMAND_WORD, DeleteEventCommandSuggester.class),
+            Map.entry(DeleteFromGroupCommand.COMMAND_WORD, DeleteFromGroupCommandSuggester.class),
             Map.entry(DeleteGroupCommand.COMMAND_WORD, DeleteGroupCommandSuggester.class),
             Map.entry(DeletePersonCommand.COMMAND_WORD, DeletePersonCommandSuggester.class),
             Map.entry(EditGroupCommand.COMMAND_WORD, EditGroupCommandSuggester.class),
@@ -192,4 +198,18 @@ public abstract class Suggester {
      */
     protected abstract List<String> provideSuggestions(
             final Model model, final ArgumentList arguments, final CommandArgument commandArgument);
+
+    protected static Optional<Group> getGroupByName(final Model model, final String groupName) {
+        CollectionUtil.requireAllNonNull(model, groupName);
+        Group group;
+        final GroupName groupNameObj = new GroupName(groupName);
+
+        try {
+            group = model.findGroup(groupNameObj);
+        } catch (GroupNotFoundException e) {
+            group = null;
+        }
+
+        return Optional.ofNullable(group);
+    }
 }

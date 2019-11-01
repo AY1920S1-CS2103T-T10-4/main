@@ -97,7 +97,7 @@ public class SuggestionLogicManager implements SuggestionLogic {
             return SelectionResult.of(commandText, caretPosition);
         }
 
-        if (isCaretWithinCommandWordSection(commandTokens, caretPosition)) {
+        if (commandTokens.arguments.isBlank() || isCaretWithinCommandWordSection(commandTokens, caretPosition)) {
             String newCommand = selectedValue;
             final int newCaretPosition = selectedValue.length() + 1;
 

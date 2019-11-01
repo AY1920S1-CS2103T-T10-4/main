@@ -26,12 +26,12 @@ class ClosestLocationCommandTest {
     @Test
     void execute() throws CommandException {
         ClosestLocationCommand closestLocationCommand = new ClosestLocationCommand(locationNameList);
-        String expectedResult = "Closest location found: \nFirst closest location: LT17 "
-                + "| Average travelling distance/meters 0\n"
-                + "Second closest location: LT19 | Average travelling distance/meters 11\n"
-                + "Third closest location: LT8 | Average travelling distance/meters 224\n"
-                + " location you entered: LT17 LT17 LT17 ";
-        assertEquals(expectedResult, closestLocationCommand.execute(model).getFeedbackToUser());
+        String expectedResult = "Closest location found: \n"
+               + "First closest location: LT17 | Average travelling distance/meters Avg distance: 0(meters)\n"
+               + "Second closest location: LT19 | Average travelling distance/meters Avg distance: 11(meters)\n"
+               + "Third closest location: LT8 | Average travelling distance/meters Avg distance: 224(meters)\n"
+               + " location you entered: LT17 LT17 LT17 ";
+        assertEquals(closestLocationCommand.execute(model).getFeedbackToUser(), expectedResult);
     }
 
     @Test

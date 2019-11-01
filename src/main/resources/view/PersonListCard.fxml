@@ -21,9 +21,11 @@
       </padding>
       <HBox spacing="15" alignment="CENTER_LEFT">
         <StackPane id="personId" fx:id="personId"></StackPane>
-        <Label id="name" fx:id="name" text="\$first" styleClass="cell_big_label" />
+        <VBox spacing="5">
+          <Label id="name" fx:id="name" text="\$first" styleClass="cell_big_label" />
+          <FlowPane fx:id="tags" />
+        </VBox>
       </HBox>
-      <FlowPane fx:id="tags" />
     </VBox>
   </GridPane>
 </HBox>

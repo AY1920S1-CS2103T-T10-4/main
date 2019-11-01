@@ -7,6 +7,7 @@ import java.util.List;
 
 import seedu.address.model.display.detailwindow.PersonSchedule;
 import seedu.address.model.display.schedulewindow.FreeSchedule;
+import seedu.address.model.display.schedulewindow.ScheduleWindowDisplayType;
 import seedu.address.model.group.GroupName;
 
 /**
@@ -20,6 +21,7 @@ public class GroupScheduleViewManager implements ScheduleViewManager {
     private ArrayList<FreeSchedule> freeSchedules;
     private int weekNumber;
     private ScheduleView scheduleView;
+    private LocalDate currentDate;
 
     public GroupScheduleViewManager(HashMap<Integer, ArrayList<PersonSchedule>> monthSchedules,
                                     ArrayList<String> colors,
@@ -29,6 +31,7 @@ public class GroupScheduleViewManager implements ScheduleViewManager {
         this.groupName = groupName;
         this.freeSchedules = freeSchedules;
         this.weekNumber = 0;
+        this.currentDate = LocalDate.now();
         initScheduleView();
     }
 
@@ -37,7 +40,6 @@ public class GroupScheduleViewManager implements ScheduleViewManager {
      * Group schedules show free time.
      */
     private void initScheduleView() {
-        LocalDate currentDate = LocalDate.now();
         LocalDate dateToShow = currentDate.plusDays(7 * weekNumber);
         this.scheduleView = new ScheduleView(monthSchedules.get(weekNumber), colors,
                 groupName.toString(), dateToShow);
@@ -53,6 +55,19 @@ public class GroupScheduleViewManager implements ScheduleViewManager {
     @Override
     public List<String> getColors() {
         return colors;
+    }
+
+    @Override
+    public ScheduleWindowDisplayType getScheduleWindowDisplayType() {
+        return ScheduleWindowDisplayType.GROUP;
+    }
+
+    @Override
+    public ScheduleView getScheduleViewCopy() {
+        ScheduleView copy = new ScheduleView(monthSchedules.get(weekNumber),
+                colors, groupName.toString(), currentDate);
+        copy.setFreeTime(freeSchedules.get(weekNumber));
+        return copy;
     }
 
     @Override

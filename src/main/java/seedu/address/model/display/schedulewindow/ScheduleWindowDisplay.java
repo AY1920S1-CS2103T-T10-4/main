@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import seedu.address.model.display.detailwindow.PersonSchedule;
 import seedu.address.model.display.sidepanel.GroupDisplay;
+import seedu.address.model.display.sidepanel.PersonDisplay;
 
 /**
  * Main window display model.
@@ -70,6 +71,15 @@ public class ScheduleWindowDisplay {
 
     public ArrayList<FreeSchedule> getFreeSchedule() {
         return freeScheduleWeeks;
+    }
+
+    public ArrayList<PersonDisplay> getPersonDisplays() {
+        ArrayList<PersonDisplay> personDisplays = new ArrayList<>();
+        ArrayList<PersonSchedule> schedules = personSchedules.get(0);
+        for (PersonSchedule p : schedules) {
+            personDisplays.add(p.getPersonDisplay());
+        }
+        return personDisplays;
     }
 
     /**

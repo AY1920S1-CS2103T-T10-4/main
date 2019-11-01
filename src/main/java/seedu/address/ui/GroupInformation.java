@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import seedu.address.model.display.schedulewindow.ScheduleWindowDisplay;
+import seedu.address.model.display.sidepanel.GroupDisplay;
+import seedu.address.model.display.sidepanel.PersonDisplay;
 import seedu.address.ui.util.GroupDetailCard;
 import seedu.address.ui.util.MemberList;
 
@@ -26,20 +27,17 @@ public class GroupInformation extends UiPart<Region> {
 
     private List<String> colors;
 
-    public GroupInformation(ScheduleWindowDisplay scheduleWindowDisplay, List<String> colors) {
+    public GroupInformation(List<PersonDisplay> members, GroupDisplay groupDisplay, List<String> colors) {
         super(FXML);
-        ArrayList<String> names = scheduleWindowDisplay.getPersonSchedules().get(0).stream()
-                .map(wkSch -> wkSch.getPersonDisplay().getName().toString())
+        ArrayList<String> names = members.stream().map(p -> p.getName().toString())
                 .collect(Collectors.toCollection(ArrayList::new));
-        ArrayList<String> emails = scheduleWindowDisplay.getPersonSchedules().get(0).stream()
-                .map(wkSch -> wkSch.getPersonDisplay().getEmail().toString())
+        ArrayList<String> emails = members.stream().map(p -> p.getEmail().toString())
                 .collect(Collectors.toCollection(ArrayList::new));
-        ArrayList<String> roles = scheduleWindowDisplay.getPersonSchedules().get(0).stream()
-                .map(wkSch -> wkSch.getRole().toString())
+        ArrayList<String> roles = members.stream().map(p -> p.getRole().toString())
                 .collect(Collectors.toCollection(ArrayList::new));
 
         this.colors = colors;
-        GroupDetailCard groupCard = new GroupDetailCard(scheduleWindowDisplay.getGroupDisplay());
+        GroupDetailCard groupCard = new GroupDetailCard(groupDisplay);
         groupDetails.getChildren().add(groupCard.getRoot());
         groupMembers.getChildren().add(new MemberList(names, emails, roles, colors).getRoot());
     }

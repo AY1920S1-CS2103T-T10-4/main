@@ -45,4 +45,27 @@ class EditGroupCommandSuggesterTest extends EditCommandSuggesterTest {
 
         assertNoSuggestions(argumentList, argumentList.get(1));
     }
+
+    @Test
+    void getSuggestion_prefixDescriptionExactGroup_currentDescription() {
+        final ArgumentList argumentList = argumentListOf(
+                new CommandArgument(CliSyntax.PREFIX_EDIT, 0, TypicalGroups.GROUPNAME1.toString()),
+                new CommandArgument(CliSyntax.PREFIX_DESCRIPTION, 1, "")
+        );
+
+        final List<String> expectedSuggestions = List.of(TypicalGroups.GROUPDESCRIPTION1.toString());
+        final List<String> actualSuggestions = getSuggestions(argumentList, argumentList.get(1));
+        assertEquals(expectedSuggestions, actualSuggestions);
+    }
+
+    @Test
+    void getSuggestion_prefixDescriptionNonExistentGroup_noSuggestion() {
+        final ArgumentList argumentList = argumentListOf(
+                new CommandArgument(CliSyntax.PREFIX_EDIT, 0, TypicalGroups.GROUPNAME0.toString()),
+                new CommandArgument(CliSyntax.PREFIX_REMARK, 1, "")
+        );
+
+        assertNoSuggestions(argumentList, argumentList.get(1));
+    }
+
 }

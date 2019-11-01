@@ -10,26 +10,16 @@
 <?import javafx.geometry.Insets?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          prefHeight="500.0" fx:id="defaultStartViewContainer">
-    <columnConstraints>
-        <ColumnConstraints percentWidth="50" />
-        <ColumnConstraints percentWidth="50" />
-    </columnConstraints>
+          prefHeight="500.0" fx:id="defaultStartViewContainer" vgap="10" hgap="10">
+    <rowConstraints>
+        <RowConstraints percentHeight="10" vgrow="SOMETIMES"/>
+        <RowConstraints percentHeight="90" vgrow="SOMETIMES"/>
+    </rowConstraints>
     <padding>
-        <Insets top="10"/>
+        <Insets left="10" right="10" top="10" bottom="10"/>
     </padding>
-    <Label fx:id="defaultTitle" prefWidth="1000.0" GridPane.rowIndex="0"
+    <Label fx:id="defaultTitle" prefWidth="900.0" GridPane.rowIndex="0"
            GridPane.columnIndex="0" GridPane.columnSpan="2" alignment="CENTER"/>
-    <VBox GridPane.rowIndex="1" GridPane.columnIndex="0" alignment="CENTER">
-        <padding>
-            <Insets top="10" left="10" bottom="10"/>
-        </padding>
-        <StackPane fx:id="calendarPlaceHolder" />
-    </VBox>
-    <VBox GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER">
-        <padding>
-            <Insets top="10" left="10" bottom="10"/>
-        </padding>
-        <StackPane fx:id="noticeBoardPlaceHolder"/>
-    </VBox>
+    <StackPane fx:id="calendarPlaceHolder" GridPane.rowIndex="1" GridPane.columnIndex="0" alignment="TOP_LEFT" maxWidth="900"/>
+    <StackPane fx:id="noticeBoardPlaceHolder" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="TOP_LEFT" maxWidth="900"/>
 </GridPane>

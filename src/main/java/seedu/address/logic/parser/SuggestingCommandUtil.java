@@ -17,6 +17,7 @@ import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.AddToGroupCommand;
 import seedu.address.logic.commands.ClosestLocationCommand;
 import seedu.address.logic.commands.DeleteEventCommand;
+import seedu.address.logic.commands.DeleteFromGroupCommand;
 import seedu.address.logic.commands.DeleteGroupCommand;
 import seedu.address.logic.commands.DeletePersonCommand;
 import seedu.address.logic.commands.EditGroupCommand;
@@ -50,6 +51,7 @@ public class SuggestingCommandUtil {
             AddToGroupCommand.COMMAND_WORD,
             ClosestLocationCommand.COMMAND_WORD,
             DeleteEventCommand.COMMAND_WORD,
+            DeleteFromGroupCommand.COMMAND_WORD,
             DeleteGroupCommand.COMMAND_WORD,
             DeletePersonCommand.COMMAND_WORD,
             EditGroupCommand.COMMAND_WORD,

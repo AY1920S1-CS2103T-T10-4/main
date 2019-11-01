@@ -9,10 +9,9 @@
 <?import javafx.geometry.Insets?>
 
 <VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      prefHeight="300.0">
-    <ScrollPane fx:id="listHeaderContainer" prefWidth="600" vbarPolicy="NEVER" hbarPolicy="NEVER">
-        <GridPane id="listHeaders" fx:id="listHeaders" prefWidth="600" prefHeight="50">
+      xmlns:fx="http://javafx.com/fxml">
+    <ScrollPane fx:id="listHeaderContainer" prefWidth="300" vbarPolicy="NEVER" hbarPolicy="NEVER">
+        <GridPane id="listHeaders" fx:id="listHeaders" prefWidth="300">
             <columnConstraints>
                 <ColumnConstraints percentWidth="25" />
                 <ColumnConstraints percentWidth="40" />
@@ -26,8 +25,8 @@
             <Label text="Role" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS"/>
         </GridPane>
     </ScrollPane>
-    <ScrollPane fx:id="listMemberContainer" minHeight="150" prefWidth="600" vbarPolicy="NEVER" hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
-        <VBox fx:id="listMembers" prefWidth="600" spacing="10">
+    <ScrollPane fx:id="listMemberContainer" minHeight="150" prefWidth="300" vbarPolicy="NEVER" hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+        <VBox fx:id="listMembers" prefWidth="300" spacing="10">
         </VBox>
     </ScrollPane>
 </VBox>

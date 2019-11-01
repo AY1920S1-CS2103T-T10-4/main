@@ -68,10 +68,6 @@ public class PersonCard extends UiPart<Region> {
 
     public static String getPersonInitials(String personName) {
         String[] fragmentedNames = personName.toUpperCase().split(" ");
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < fragmentedNames.length; i++) {
-            stringBuilder.append(fragmentedNames[i].charAt(0));
-        }
-        return stringBuilder.toString();
+        return fragmentedNames[0].charAt(0) + "";
     }
 }

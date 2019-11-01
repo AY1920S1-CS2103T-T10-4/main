@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class ArrayListUtil {
     /**
-     * Method used to transferm an array list to string where each element separated by a ,
+     * Method used to transform an array list to string where each element separated by a ,
      * @param arrayList
      * @return
      */

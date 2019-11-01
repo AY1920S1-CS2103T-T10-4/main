@@ -28,11 +28,11 @@ public class BubbleGenerator {
     }
 
     public StackPane getBubble() {
-        String color = ColorGenerator.generateColorList(1).get(0);
+        //String color = ColorGenerator.generateColorList().get(0);
         Ellipse outer = new Ellipse(size / 2, size / 2);
         Label bubbleLabel = new Label(bubbleContent);
         bubbleLabel.setStyle("-fx-text-fill: black; -fx-font-size: 20;");
-        outer.setStyle("-fx-fill: " + color + ";");
+        outer.setStyle("-fx-fill: #42A5F5;");
         bubbleContainer.getChildren().addAll(outer, bubbleLabel);
         return bubbleContainer;
     }

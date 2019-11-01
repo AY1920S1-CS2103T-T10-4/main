@@ -34,12 +34,13 @@ This section documents a summary of the major and minor contributions I have mad
 ** Project management:
 *** Managed releases `v1.1` - `v1.4` (4 releases) on GitHub
 ** Enhancements to existing features:
-//*** Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
-//*** Wrote tests for features I implemented (Pull requests https://github.com[#36], https://github.com[#38])
+*** Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
+*** Wrote tests for features I implemented (https://github.com/AY1920S1-CS2103T-T10-4/main/pull/189[#189])
 ** Documentation:
 *** Added documentation for the Developer Guide and User Guide, for the sections related to NUSMods and External API that I implemented.
 ** Community:
-//*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
+//TODO: update after dry run
+*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
 ** Tools:
 *** Integrated a Github plugin (Coveralls) to the team repo
 *** Integrated a Github plugin (Travis CI) to the team repo
@@ -52,7 +53,9 @@ This section documents a summary of the major and minor contributions I have mad
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-include::../UserGuide.adoc[tag=nusmods]
+include::../UserGuide.adoc[tag=addmod]
+
+include::../UserGuide.adoc[tag=addmods]
 
 == Contributions to the Developer Guide
 

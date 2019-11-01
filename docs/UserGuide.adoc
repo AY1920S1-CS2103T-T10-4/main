@@ -285,6 +285,7 @@ Examples:
 * `addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25`
 * `addevent n/John c/23F6B742CE`
 
+// tag::addmod[]
 ==== Add Module to Schedule: `addmod`
 
 Adds an NUS module as an event to a person's schedule in TimeBook.
@@ -313,6 +314,9 @@ image::nusmods/addmod1.PNG[]
 
 image::nusmods/addmod2.PNG[]
 
+// end::addmod[]
+
+// tag::addmods[]
 ==== Add Modules via NUSMods Link: `addmods`
 
 Already have your modules timetable on NUSMods? Great, you can easily add your modules timetable into TimeBook with the `addmods` command!
@@ -339,6 +343,8 @@ image::nusmods/addmods1.PNG[]
 . If you manage to successfully add all the modules and their respective classes into the person's schedule, you will see the person's schedule appearing with the newly added timeslots:
 
 image::nusmods/addmods2.PNG[]
+
+// end::addmods[]
 
 === Group Management
 

@@ -1172,7 +1172,7 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code>) to their TimeBook schedules.</p>
 </div>
 <div class="paragraph">
-<p>The <code>AddNusModsCommand</code> can be executed by the user through the CLI with the following syntax <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code>. The share link contains semester number, module codes and lesson numbers, which are used for creating and adding events to the person&#8217;s schedule.</p>
+<p>The <code>AddNusModsCommand</code> can be executed by the user through the CLI with the following syntax <code>addmods n/NAME link/NUSMODS_SHARE_LINK</code>. The share link contains semester number, module codes and lesson numbers, which are used for creating and adding events to the person&#8217;s schedule.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows what happens when <code>AddNusModsCommand</code> is executed:</p>
@@ -1185,7 +1185,7 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>addmods n/NAME l/https//nusmods.com/&#8230;&#8203;</code></p>
+<p>User enters <code>addmods n/NAME link/https//nusmods.com/&#8230;&#8203;</code></p>
 </li>
 <li>
 <p>The name string will be parsed into a <code>Name</code> object. The argument string for link will be parsed in <code>AddNusModsCommandParser</code> into a <code>NusModsShareLink</code>, containing the <code>SemesterNo</code>, <code>ModuleCodes</code> and <code>LessonNos</code>. Both the <code>Name</code> and <code>NusModsShareLink</code> objects will then be passed into the <code>AddNusModsCommand</code> constructor.</p>
@@ -1889,4 +1889,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 17:58:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 18:06:11 UTC</div></div></div></body></html>

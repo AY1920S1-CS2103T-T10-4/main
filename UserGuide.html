@@ -24,7 +24,11 @@ Keep a look out for more cool and exciting features coming soon!</p>
 <li><a href="#gui-components">5. GUI Components</a>
 <ul class="sectlevel2">
 <li><a href="#menubar">5.1. MenuBar</a></li>
-<li><a href="#schedule-display">5.2. Schedule Display</a></li>
+<li><a href="#schedule-display">5.2. Schedule Display</a>
+<ul class="sectlevel3">
+<li><a href="#how-to-read-the-schedule-view">5.2.1. How to read the schedule view</a></li>
+</ul>
+</li>
 <li><a href="#tabs">5.3. Tabs</a></li>
 <li><a href="#result-display-box">5.4. Result Display Box</a></li>
 <li><a href="#command-box">5.5. Command Box</a></li>
@@ -268,6 +272,33 @@ Here is an overview of all of the components in our application:</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/scheduleDisplay.png" alt="scheduleDisplay">
+</div>
+</div>
+<div class="sect3">
+<h4 id="how-to-read-the-schedule-view"><a class="link" href="#how-to-read-the-schedule-view">5.2.1. How to read the schedule view</a></h4>
+<div class="paragraph">
+<p>Unsure of how to read the combined schedules of your friends in TimeBook? Here is a simple example to guide you!</p>
+</div>
+<div class="paragraph">
+<p>TimeBook ensures that the leftmost column will always start from today&#8217;s date. Each unnumbered coloured block belongs to
+someone&#8217;s schedule in the group. For example, the image below highlights all of Charlie&#8217;s schedule.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/charlieBusyTimeslot.png" alt="charlieBusyTimeslot">
+</div>
+</div>
+<div class="paragraph">
+<p>Take note of the numbered green boxes you see below!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/freeTimeslot.png" alt="freeTimeslot">
+</div>
+</div>
+<div class="paragraph">
+<p>These are the common free time slot that you and your group members share! You can use
+these numbered green boxes to arrange your meetings or share it with your group members to pick.</p>
 </div>
 </div>
 </div>
@@ -1159,29 +1190,13 @@ Format: <code>show g/GROUP_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Want to share your group&#8217;s schedule with your friends?
-This command exports a visualisation representation of the schedule (timetable) of a group or person(s) to a PNG file!<br>
+This command exports a visualisation representation of currently showing schedule (timetable) of a group or person(s) to a PNG file!<br>
 Format:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>export-vr [n/NAME]</code><br></p>
-</li>
-<li>
-<p><code>export-vr [g/GROUP_NAME]</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>export-vr g/CS2103T Team project</code></p>
-</li>
-<li>
-<p><code>export-vr n/John Doe</code></p>
+<p><code>export-vr</code><br></p>
 </li>
 </ul>
 </div>
@@ -1666,4 +1681,4 @@ e.g. <code>show-freetime g/CS2103T id/2</code></p>
 <p>ISS/3-3|ISS/2-1|ISS/AUD|ISS/3-1|ISS/3-5|ISS/4-4|TP-SR7|TP-SR4|TP-SR5|TP-SR6| !===</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 16:32:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 04:22:44 UTC</div></div></div></body></html>

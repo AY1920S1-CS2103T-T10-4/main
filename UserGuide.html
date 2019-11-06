@@ -82,11 +82,10 @@ Keep a look out for more cool and exciting features coming soon!</p>
 <ul class="sectlevel3">
 <li><a href="#closest-common-location-popup-code-popup-code">6.6.1. Closest Common Location Popup <code>popup</code></a></li>
 <li><a href="#close-popup-code-esc-code">6.6.2. Close popup <code>esc</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">6.6.3. Clearing all entries: <code>clear</code></a></li>
-<li><a href="#upcoming-schedule-list">6.6.4. Upcoming schedule list.</a></li>
 </ul>
 </li>
-<li><a href="#saving-the-data">6.7. Saving the data</a></li>
+<li><a href="#upcoming-schedule-list">6.7. Upcoming schedule list.</a></li>
+<li><a href="#saving-the-data">6.8. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">7. FAQ</a></li>
@@ -573,6 +572,9 @@ Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS
 <li>
 <p>You can remove all the person&#8217;s tags by typing <code>tag/</code> without specifying any tags after it.</p>
 </li>
+<li>
+<p>Note: <code>TAG</code> cannot have white space in the argument.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -587,7 +589,7 @@ Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS
 Edits the phone number and email address of the person with name 'John Doe' to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
-<p><code>edit ed/Betsy n/Betsy Crower tag/</code><br>
+<p><code>editperson ed/Betsy n/Betsy Crower tag/</code><br>
 Edits the person 'Betsy' to a new name 'Betsy Crower' and clears all existing tags.</p>
 </li>
 </ul>
@@ -747,10 +749,15 @@ You may see this person&#8217;s schedule up to 4 weeks in advance.</p>
 <div class="sect3">
 <h4 id="add-event-to-schedule-code-addevent-code"><a class="link" href="#add-event-to-schedule-code-addevent-code">6.3.1. Add Event to Schedule: <code>addevent</code></a></h4>
 <div class="paragraph">
+<p><strong>Description</strong></p>
+</div>
+<div class="paragraph">
 <p>Adds an event into the schedule of a person in the TimeBook.
 Only schedules without clashes between time slots can be added to the TimeBook.
-Can be used to mark a person as unavailable either on one-off dates or on a particular day every week<br>
-Format:</p>
+Can be used to mark a person as unavailable either on one-off dates or on a particular day every week<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Format:</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -761,6 +768,89 @@ Format:</p>
 <p><code>addevent n/NAME e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong>Parameters</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>NAME</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Description:</strong> The name of the person you want to add the event to. If the parameter is empty, the event
+will be added to your own schedule.</p>
+</li>
+<li>
+<p><strong>Prefix:</strong> <code>n/</code></p>
+</li>
+<li>
+<p><strong>Requirements:</strong> Optional</p>
+</li>
+<li>
+<p><strong>Data Type:</strong> String</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>EVENT_NAME</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Description:</strong> The name of the event you want to add to your schedule</p>
+</li>
+<li>
+<p><strong>Prefix:</strong> <code>e/</code></p>
+</li>
+<li>
+<p><strong>Requirements:</strong> Required</p>
+</li>
+<li>
+<p><strong>Data Type:</strong> String</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>DATETIME</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Description:</strong> The date, time and location of the event. You can specify multiple <code>DATETIME</code> if you want the
+event to repeat in different <code>DATETIME</code>. Note that the location of the event cannot contain <code>e/</code>, <code>n/</code> or <code>t/</code>.</p>
+</li>
+<li>
+<p><strong>Prefix:</strong> <code>t/</code></p>
+</li>
+<li>
+<p><strong>Requirements:</strong> Require at least one <code>DATETIME</code> per event. In the <code>DATETIME</code> parameter it is optional for you to
+specify the <code>LOCATION</code></p>
+</li>
+<li>
+<p><strong>Data Type:</strong> String</p>
+</li>
+<li>
+<p>*Format: * `e/DATE - START_TIME - END_TIME - [LOCATION]</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>DATE</code> : ddMMyyyy</p>
+</li>
+<li>
+<p><code>TIME</code> : HHmm(24H)</p>
+</li>
+<li>
+<p><code>LOCATION</code>: String without <code>e/</code>, <code>n/</code>, <code>t/</code> (Optional)</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1146,7 +1236,8 @@ To personalize TimeBook and make it yours, rename <code>Alice</code> by entering
 <div class="sect3">
 <h4 id="add-person-to-group-code-addtogroup-code"><a class="link" href="#add-person-to-group-code-addtogroup-code">6.4.5. Add Person to Group: <code>addtogroup</code></a></h4>
 <div class="paragraph">
-<p>Adds a person specified by <code>NAME</code> with a role specified by <code>ROLE</code> into a group specified by <code>GROUP_NAME</code> in the TimeBook.</p>
+<p>Adds a person specified by <code>NAME</code> with a role specified by <code>ROLE</code> into a group specified by <code>GROUP_NAME</code> in the
+TimeBook.</p>
 </div>
 <div class="paragraph">
 <p>Format:</p>
@@ -1257,7 +1348,9 @@ Format:</p>
 <div class="sect2">
 <h3 id="closest-common-location"><a class="link" href="#closest-common-location">6.6. Closest Common Location</a></h3>
 <div class="paragraph">
-<p>TimeBook will also help you to decide where to meet for your project meetings by suggesting to you where is the closest location for everyone to meet in NUS based on their schedule.</p>
+<p>TimeBook will also help you to decide where to meet for your project meetings by suggesting to you which
+location is the center for everyone. The center location is the closest location for everyone to meet in NUS based
+on their schedule. In time book we define the center location for everyone as the <em>closest common location</em>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Steps</strong></p>
@@ -1319,6 +1412,16 @@ The full list of the supported locations is below.</p>
 <div class="paragraph">
 <p>command: <code>popup g/ GROUP_NAME i/ID</code></p>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>popup g/CS2103T i/2</code></p>
+</li>
+</ul>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/gmaps/SuccessfulPopup.png" alt="SuccessfulPopup">
@@ -1329,7 +1432,8 @@ The full list of the supported locations is below.</p>
 <p><em>Description</em></p>
 </div>
 <div class="paragraph">
-<p>When the command is executed a popup will appear that shows the all the information of the closest common location for a particular free time slot in a group.</p>
+<p>When the command is executed a popup will appear that shows the all the information of the closest common location
+for a particular free time slot in a group.</p>
 </div>
 <div class="paragraph">
 <p><em>Parameters</em></p>
@@ -1375,12 +1479,50 @@ You can only enter the <code>id</code> that is shown on the screen.</p>
 <p>If you follow the steps above, a popup will appear as seen in the Figure above.</p>
 </div>
 <div class="paragraph">
-<p>There are two main information that you will see in the popup when you execute the command.</p>
+<p>There are two main information that you will see in the popup when you execute ththe command.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The full details of the first, second and third closest common location will be shown on the right side of the popup.</p>
+<p>The summary of the results will be displayed on the top of the popup.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Your best location to meet up is:</strong> The first choice location to meet(closest for everyone).</p>
+</li>
+<li>
+<p><strong>Everyone&#8217;s locations:</strong> List of locations that the group members will be at before the free time slot.</p>
+</li>
+<li>
+<p><strong>Out of all these locations, the valid locations are:</strong> List of TimeBook supported locations that the group members
+will be at before the free time slot that.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Subset of the <strong>Everyone&#8217;s locations:</strong> list</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Locations that cannot be found in NUS:</strong> List of locations that the group members will be at before the free time
+slot but not supported by TimeBook.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Subset of the <strong>Everyone&#8217;s locations:</strong> list</p>
+</li>
+<li>
+<p>If all the locations are valid, this attribute will be empty as seen in the Figure above</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The full details of the first, second and third closest common location will be shown on the bottom of the popup.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1390,54 +1532,83 @@ You can only enter the <code>id</code> that is shown on the screen.</p>
 <p>The average distance(m) to reach the various location will be displayed below the respective choices.</p>
 </li>
 <li>
-<p>A list of voided location that TimeBook does not support will be shown at the bottom of the popup.</p>
+<p>The picture of the location of the venue on Google Maps will be displayed below each choice.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>For locations that are not supported on Google Maps, a picture of the center of NUS will be displayed.</p>
 </li>
 </ol>
 </div>
 </li>
-<li>
-<p>The picture of the closest common location on google maps will be shown on the left of the popup.
-Where the marker represent the exact location of the first closest common location.</p>
+</ol>
+</div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p><em>Failure Response</em></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p><code>Error</code> when all the source locations are not recognised by TimeBook, a popup will not appear.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Feedback box will show: <code>We could not find a common location because all places cannot be found in NUS. The locations are:</code></p>
 </li>
-</ol>
-</div>
-</li>
-<li>
-<p><code>Error</code> when all the group members are not in school before the free time slot, a popup will not appear.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Feedback box will show: <code>Everyone has not started their schedule yet. Feel free to meet up any time.</code>
-Format:</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Feedback box will show:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code> We could not find a common location because all places cannot be found in NUS. The locations are:</code></pre>
+</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>popup g/CS2103T i/2</code></p>
+<p><code>Error</code> when all the group members are not in school before the free time slot, a popup will not appear.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Feedback box will show:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>We could not find a common location because:
+Everyone has not started their schedule yet. Feel free to meet up any time.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Error</code> when invalid free time slot <code>ID</code> entered.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Feedback box will show:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Invalid time slot ID: 0. Please enter a valid id as shown in the GUI.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Error</code> when invalid <code>GROUP_NAME</code> entered.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Feedback box will show:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Cannot recognise GROUP_NAME. Make sure you entered the correct value.</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1450,24 +1621,17 @@ and return to the main screen.</p>
 <p>Format: <kbd>esc</kbd> button on keyboard.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">6.6.3. Clearing all entries: <code>clear</code></a></h4>
-<div class="paragraph">
-<p>Clears all entries from the TimeBook.<br>
-Format: <code>clear</code></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="upcoming-schedule-list"><a class="link" href="#upcoming-schedule-list">6.6.4. Upcoming schedule list.</a></h4>
+<div class="sect2">
+<h3 id="upcoming-schedule-list"><a class="link" href="#upcoming-schedule-list">6.7. Upcoming schedule list.</a></h3>
 <div class="paragraph">
 <p>Unsure of what is your next event for the day?
 TimeBook&#8217;s home page has a list that keeps track of your upcoming events for the day and would automatically tick off events that have past!
 Format: <code>home</code></p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">6.7. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">6.8. Saving the data</a></h3>
 <div class="paragraph">
 <p>TimeBook data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1493,6 +1657,19 @@ To personalize TimeBook and make it yours, rename <code>Alice</code> by entering
 <li>
 <p><em>How do I transfer my data to another Computer?</em></p>
 <p>Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TimeBook folder.</p>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+</li>
+<li>
+<p><em>Why can I enter irrelevant arguments?</em></p>
+<p>We understand that users occasionally make error while typing and it is frustrating for the application to fail because
+of it. Thus for all commands that do not require any arguments(ie <code>help</code>, <code>home</code> and <code>exit</code>), TimeBook allows you to
+enter any value after the command word. For example <code>help 1</code> will execute <code>help</code> command eventhough <code>1</code> is irrelevant to
+the command. We hope with this feature you will have a seamless and pleasant experience with TimeBook.</p>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
 </li>
 </ol>
 </div>
@@ -2269,4 +2446,4 @@ e.g. <code>popup g/CS2103T i/2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 15:12:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 18:44:39 UTC</div></div></div></body></html>

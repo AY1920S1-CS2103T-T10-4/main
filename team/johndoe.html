@@ -187,28 +187,28 @@ Format: <code>show n/NAME</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Type <code>show n/Bobby</code> in the command line as shown below:<br></p>
-</li>
-</ul>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/showpersoncommand.png" alt="showpersoncommand">
 </div>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>Hit the <kbd>Enter</kbd> key and you should see details of the person!
 You should see a window similar to the one below.</p>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/showpersonresult.png" alt="showpersonresult">
 </div>
+</div>
+</li>
+</ol>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -235,37 +235,27 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addevent e/EVENT_NAME t/DATETIME</code><br></p>
+<p><code>addevent e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br></p>
 </li>
 <li>
-<p><code>addevent n/NAME e/EVENT_NAME t/DATETIME</code><br></p>
+<p><code>addevent n/NAME e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br></p>
 </li>
 </ul>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> By not specifying <code>NAME</code>, the event will be added to the User.</p>
+<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> By not specifying <code>NAME</code>, the event will be added to your schedule.</p>
 </div>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addevent e/Project Meeting t/27092019-1500-1600-I3</code></p>
+<p><code>addevent e/Project Meeting t/27092019-1500-1600-I3</code><br>
+Adds an event <code>Project Meeting</code> to your schedule.</p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Adds an event <code>Project Meeting</code> to your schedule.</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -273,20 +263,10 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addevent n/John e/Math Lecture t/26092019-1300-1400-LT25</code></p>
+<p><code>addevent n/John e/Math Lecture t/26092019-1300-1400-LT25 t/03102019-1300-1400-LT25</code><br>
+Adds an event <code>Math Lecture</code> that occurs on multiple dates to <code>John</code>'s schedule.</p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Adds an event <code>Math Lecture</code> to <code>John</code> 's schedule.</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -300,30 +280,14 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteevent e/EVENT_NAME</code></p>
+<p><code>deleteevent e/EVENT_NAME</code><br>
+Deletes an event specified by <code>EVENT_NAME</code> from your schedule.</p>
 </li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Deletes an event specified by <code>EVENT_NAME</code> from the User&#8217;s schedule.</p>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p>`deleteevent n/NAME e/EVENT_NAME</p>
+<p><code>deleteevent n/NAME e/EVENT_NAME</code><br>
+Deletes an event specified by <code>EVENT_NAME</code> from the schedule of the person specified by <code>NAME</code>.</p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Deletes an event specified by <code>EVENT_NAME</code> from the schedule of the person specified by <code>NAME</code>.</p>
-</div>
-</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -331,16 +295,10 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteevent n/Bobby e/Swimming Lessons</code></p>
+<p><code>deleteevent n/Bobby e/Swimming Lessons</code><br>
+Deletes the event <code>Swimming Lessons</code> from <code>Bobby</code> 's schedule.</p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Deletes the event <code>Swimming Lessons</code> from <code>Bobby</code> 's schedule.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -371,13 +329,16 @@ Format:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addmod n/John m/CS2103T cl/LEC:G01</code>: This adds CS2103T lecture G01 to John&#8217;s schedule.</p>
+<p><code>addmod n/John m/CS2103T cl/LEC:G01</code><br>
+This adds CS2103T lecture G01 to John&#8217;s schedule.</p>
 </li>
 <li>
-<p><code>addmod n/John m/CS3230 cl/LEC:1,TUT:08</code>: This adds CS3230 lecture 1 and tutorial 08 to John&#8217;s schedule.</p>
+<p><code>addmod n/John m/CS3230 cl/LEC:1,TUT:08</code><br>
+This adds CS3230 lecture 1 and tutorial 08 to John&#8217;s schedule.</p>
 </li>
 <li>
-<p><code>addmod n/John m/CS2100 cl/LEC:1,TUT:01,LAB:08</code>: This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
+<p><code>addmod n/John m/CS2100 cl/LEC:1,TUT:01,LAB:08</code><br>
+This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
 </li>
 </ul>
 </div>
@@ -388,25 +349,21 @@ Format:</p>
 <ol class="arabic">
 <li>
 <p>Add a module&#8217;s classes easily by typing <code>addmod</code> into the command box and specifying the appropriate parameters, then press <b class="button">Enter</b> to execute it.</p>
-</li>
-</ol>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/nusmods/addmod1.PNG" alt="addmod1">
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>If you manage to successfully add the module and its classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
-</li>
-</ol>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/nusmods/addmod2.PNG" alt="addmod2">
 </div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect3">
@@ -441,10 +398,12 @@ Great, you can easily add your modules timetable into TimeBook with the <code>ad
 <div class="ulist">
 <ul>
 <li>
-<p><code>addmods n/John link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code>: This will add the modules in the NUSMods link to John&#8217;s schedule.</p>
+<p><code>addmods n/John link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
+This will add the modules in the NUSMods link to John&#8217;s schedule.</p>
 </li>
 <li>
-<p><code>addmods n/Bob link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code>: This will add the modules in teh NUSMods link to Bob&#8217;s schedule.</p>
+<p><code>addmods n/Bob link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
+This will add the modules in teh NUSMods link to Bob&#8217;s schedule.</p>
 </li>
 </ul>
 </div>
@@ -455,25 +414,21 @@ Great, you can easily add your modules timetable into TimeBook with the <code>ad
 <ol class="arabic">
 <li>
 <p>Add an NUSMods timetable easily by typing <code>addmods</code> into the command box and follow the format as shown above, then press <b class="button">Enter</b> to execute it.</p>
-</li>
-</ol>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/nusmods/addmods1.PNG" alt="addmods1">
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>If you manage to successfully add all the modules and their respective classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
-</li>
-</ol>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/nusmods/addmods2.PNG" alt="addmods2">
 </div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -493,7 +448,7 @@ Format: <code>addgroup g/GROUP_NAME [d/GROUP_DESCRIPTION] [r/GROUP_REMARK] [role
 <p>Creates a with name <code>GROUP_NAME</code>.</p>
 </li>
 <li>
-<p>A group can be optionally created with a description, a remark, and the user&#8217;s role in the Group.</p>
+<p>A group can be optionally created with a description, a remark, and your role in the Group.</p>
 </li>
 </ul>
 </div>
@@ -505,30 +460,14 @@ Format: <code>addgroup g/GROUP_NAME [d/GROUP_DESCRIPTION] [r/GROUP_REMARK] [role
 <div class="ulist">
 <ul>
 <li>
-<p><code>addgroup g/Friends</code></p>
+<p><code>addgroup g/Friends</code><br>
+Creates a group called <code>Friends</code></p>
 </li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Creates a group called <code>Friends</code></p>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><code>addgroup g/CS2103 d/Project Group role/Leader</code></p>
+<p><code>addgroup g/CS2103 d/Project Group role/Leader</code><br>
+Creates a group called <code>CS2103</code> with a description of <code>Project Group</code> and your role in the Group as the <code>Leader</code>.</p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Creates a group called <code>CS2103</code> which a description and your role in the Group.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -560,16 +499,10 @@ Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [d/GROUP_DESCRIPTION] [r/GR
 <div class="ulist">
 <ul>
 <li>
-<p><code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code><br></p>
+<p><code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code><br>
+Edits the group specified by group name <code>CS2103</code> with a new group name <code>CS3203</code> and group remark <code>Project Discussion Group</code> respectively.</p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Edits the group specified by group name <code>CS2103</code> with a new group name <code>CS3203</code> and group remark <code>Project Discussion Group</code> respectively.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -598,16 +531,10 @@ Format: <code>deletegroup g/GROUP_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletegroup g/CS2103</code><br></p>
+<p><code>deletegroup g/CS2103</code><br>
+Deletes the <code>CS2103</code> group from the TimeBook.</p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Deletes the <code>CS2103</code> group from the TimeBook.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -631,25 +558,25 @@ Format: <code>show g/GROUP_NAME</code></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Type <code>show g/CS2103</code> in the command line as shown below<br></p>
-</li>
-</ul>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/showgroupcommand.png" alt="showgroupcommand">
 </div>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>Hit the <kbd>Enter</kbd> key and you should see the details of this group in a similar window below.</p>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/showgroupresult.png" alt="showgroupresult">
 </div>
+</div>
+</li>
+</ol>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -683,30 +610,14 @@ Format: <code>show g/GROUP_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addtogroup n/John g/CS2103</code></p>
+<p><code>addtogroup n/John g/CS2103</code><br>
+Adds <code>John</code> into group <code>CS2103</code></p>
 </li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>adds <code>John</code> into group <code>CS2103</code></p>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><code>addtogroup n/Bobby g/CS3203 r/Leader</code></p>
+<p><code>addtogroup n/Bobby g/CS3203 role/Leader</code><br>
+Adds <code>Bobby</code> into group <code>CS3203</code> with a role <code>Leader</code></p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>adds <code>Bobby</code> into group <code>CS3203</code> with a role <code>Leader</code></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect3">
@@ -730,16 +641,10 @@ Format: <code>show g/GROUP_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletefromgroup n/Bobby g/CS2103</code></p>
+<p><code>deletefromgroup n/Bobby g/CS2103</code><br>
+Removes <code>Bobby</code> from the group <code>CS2103</code></p>
 </li>
 </ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Removes <code>Bobby</code> from the group <code>CS2103</code></p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -957,7 +862,7 @@ Format:</p>
 and return to the main screen.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>esc</code> button on keyboard.</p>
+<p>Format: <kbd>esc</kbd> button on keyboard.</p>
 </div>
 </div>
 <div class="sect3">
@@ -988,9 +893,22 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
 <div class="sectionbody">
+<div id="alice-notice" class="qlist qanda">
+<ol>
+<li>
+<p><em>Who is Alice? / How do I store my details and schedule?</em></p>
+<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule.<br>
+&#160;<br>
+To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-person-command"><code>edituser</code> command</a>.</p>
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TimeBook folder.</p>
+<p>&#160;<br></p>
+</div>
+</li>
+<li>
+<p><em>How do I transfer my data to another Computer?</em></p>
+<p>Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TimeBook folder.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1019,7 +937,7 @@ e.g. <code>deleteperson n/Benedict</code></p>
 e.g. <code>findperson n/James Jake</code></p>
 </li>
 <li>
-<p><strong>Add Event to Person&#8217;s Schedule</strong> : <code>addevent n/NAME e/EVENT_NAME t/DATETIME</code><br>
+<p><strong>Add Event to Person&#8217;s Schedule</strong> : <code>addevent n/NAME e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br>
 e.g. <code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
 </li>
 <li>
@@ -1766,4 +1684,4 @@ e.g. <code>popup g/CS2103T i/2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 16:42:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 01:44:19 UTC</div></div></div></body></html>

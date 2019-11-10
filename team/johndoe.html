@@ -136,1793 +136,249 @@
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="deleting-a-person-code-deleteperson-code"><a class="link" href="#deleting-a-person-code-deleteperson-code">Deleting a person: <code>deleteperson</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified person from the TimeBook.<br>
-Format: <code>deleteperson n/NAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Removes the person from all the groups they are in</p>
-</li>
-<li>
-<p>Deletes the person specified by 'NAME'</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deleteperson n/Benedict</code><br>
-Deletes the person named <code>Benedict</code> from the TimeBook.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="show-person-code-show-code"><a class="link" href="#show-person-code-show-code">Show person: <code>show</code></a></h4>
-<div class="paragraph">
-<p>Want to arrange a private meeting with someone in TimeBook?
-You can see the schedule of this person up to 4 weeks in advance using the <code>show</code> command.<br>
-Format: <code>show n/NAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Shows the full name, address, email, phone number and schedule of this person.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>show n/Bobby</code> in the command line as shown below:<br></p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/showpersoncommand.png" alt="showpersoncommand">
-</div>
-</div>
-</li>
-<li>
-<p>Hit the <kbd>Enter</kbd> key and you should see details of the person!
-You should see a window similar to the one below.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/showpersonresult.png" alt="showpersonresult">
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>n</code> to help you scroll the schedule view without touching your mouse!</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>nw</code> see next week&#8217;s schedule!
-You may see this person&#8217;s schedule up to 4 weeks in advance.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="schedule-management"><a class="link" href="#schedule-management">Schedule Management</a></h3>
-<div class="sect3">
-<h4 id="add-event-to-schedule-code-addevent-code"><a class="link" href="#add-event-to-schedule-code-addevent-code">Add Event to Schedule: <code>addevent</code></a></h4>
-<div class="paragraph">
-<p><strong>Description</strong></p>
-</div>
-<div class="paragraph">
-<p>Adds an event into the schedule of a person in the TimeBook.
-Only schedules without clashes between time slots can be added to the TimeBook.
-Can be used to mark a person as unavailable either on one-off dates or on a particular day every week<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addevent e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br></p>
-</li>
-<li>
-<p><code>addevent n/NAME e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Parameters</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>NAME</code></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Description:</strong> The name of the person you want to add the event to. If the parameter is empty, the event
-will be added to your own schedule.</p>
-</li>
-<li>
-<p><strong>Prefix:</strong> <code>n/</code></p>
-</li>
-<li>
-<p><strong>Requirements:</strong> Optional</p>
-</li>
-<li>
-<p><strong>Data Type:</strong> String</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><code>EVENT_NAME</code></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Description:</strong> The name of the event you want to add to your schedule</p>
-</li>
-<li>
-<p><strong>Prefix:</strong> <code>e/</code></p>
-</li>
-<li>
-<p><strong>Requirements:</strong> Required</p>
-</li>
-<li>
-<p><strong>Data Type:</strong> String</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><code>DATETIME</code></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Description:</strong> The date, time and location of the event. You can specify multiple <code>DATETIME</code> if you want the
-event to repeat in different <code>DATETIME</code>. Note that the location of the event cannot contain <code>e/</code>, <code>n/</code> or <code>t/</code>.</p>
-</li>
-<li>
-<p><strong>Prefix:</strong> <code>t/</code></p>
-</li>
-<li>
-<p><strong>Requirements:</strong> Require at least one <code>DATETIME</code> per event. In the <code>DATETIME</code> parameter it is optional for you to
-specify the <code>LOCATION</code></p>
-</li>
-<li>
-<p><strong>Data Type:</strong> String</p>
-</li>
-<li>
-<p>*Format: * `e/DATE - START_TIME - END_TIME - [LOCATION]</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p><code>DATE</code> : ddMMyyyy</p>
-</li>
-<li>
-<p><code>TIME</code> : HHmm(24H)</p>
-</li>
-<li>
-<p><code>LOCATION</code>: String without <code>e/</code>, <code>n/</code>, <code>t/</code> (Optional)</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> By not specifying <code>NAME</code>, the event will be added to your schedule.</p>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addevent e/Project Meeting t/27092019-1500-1600-I3</code><br>
-Adds an event <code>Project Meeting</code> to your schedule.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addevent n/John e/Math Lecture t/26092019-1300-1400-LT25 t/03102019-1300-1400-LT25</code><br>
-Adds an event <code>Math Lecture</code> that occurs on multiple dates to <code>John</code>'s schedule.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-an-event-from-a-schedule-code-deleteevent-code"><a class="link" href="#delete-an-event-from-a-schedule-code-deleteevent-code">Delete an Event from a Schedule: <code>deleteevent</code></a></h4>
-<div class="paragraph">
-<p>Deletes an event from the schedule of a person in the TimeBook.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deleteevent e/EVENT_NAME</code><br>
-Deletes an event specified by <code>EVENT_NAME</code> from your schedule.</p>
-</li>
-<li>
-<p><code>deleteevent n/NAME e/EVENT_NAME</code><br>
-Deletes an event specified by <code>EVENT_NAME</code> from the schedule of the person specified by <code>NAME</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deleteevent n/Bobby e/Swimming Lessons</code><br>
-Deletes the event <code>Swimming Lessons</code> from <code>Bobby</code> 's schedule.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">Add Module to Schedule: <code>addmod</code></a></h4>
-<div class="paragraph">
-<p>Adds an NUS module as an event to a person&#8217;s schedule in TimeBook.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>addmod n/NAME m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE:CLASS_2_NUMBER,&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Currently supports academic year 2019/2020 and semester 1 only.</p>
-</li>
-<li>
-<p><span class="image"><img src="../images/icons/warning.png" alt="warning"></span>: Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addmod n/John m/CS2103T cl/LEC:G01</code><br>
-This adds CS2103T lecture G01 to John&#8217;s schedule.</p>
-</li>
-<li>
-<p><code>addmod n/John m/CS3230 cl/LEC:1,TUT:08</code><br>
-This adds CS3230 lecture 1 and tutorial 08 to John&#8217;s schedule.</p>
-</li>
-<li>
-<p><code>addmod n/John m/CS2100 cl/LEC:1,TUT:01,LAB:08</code><br>
-This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Step-By-Step:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Add a module&#8217;s classes easily by typing <code>addmod</code> into the command box and specifying the appropriate parameters, then press <b class="button">Enter</b> to execute it.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/nusmods/addmod1.PNG" alt="addmod1">
-</div>
-</div>
-</li>
-<li>
-<p>If you manage to successfully add the module and its classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/nusmods/addmod2.PNG" alt="addmod2">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-modules-via-nusmods-link-code-addmods-code"><a class="link" href="#add-modules-via-nusmods-link-code-addmods-code">Add Modules via NUSMods Link: <code>addmods</code></a></h4>
-<div class="paragraph">
-<p>Already have your modules timetable on NUSMods?
-Great, you can easily add your modules timetable into TimeBook with the <code>addmods</code> command!</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>addmods n/NAME link/NUSMODS_SHARE_LINK</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Reads the specified <code>NUSMODS_SHARE_LINK</code> to get the modules and classes, then adds the classes into the person&#8217;s schedule.</p>
-</li>
-<li>
-<p>Currently supports academic year 2019/2020 and semester 1 only.</p>
-</li>
-<li>
-<p><span class="image"><img src="../images/icons/warning.png" alt="warning"></span>: Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addmods n/John link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
-This will add the modules in the NUSMods link to John&#8217;s schedule.</p>
-</li>
-<li>
-<p><code>addmods n/Bob link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
-This will add the modules in teh NUSMods link to Bob&#8217;s schedule.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Step-By-Step:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Add an NUSMods timetable easily by typing <code>addmods</code> into the command box and follow the format as shown above, then press <b class="button">Enter</b> to execute it.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/nusmods/addmods1.PNG" alt="addmods1">
-</div>
-</div>
-</li>
-<li>
-<p>If you manage to successfully add all the modules and their respective classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/nusmods/addmods2.PNG" alt="addmods2">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="group-management"><a class="link" href="#group-management">Group Management</a></h3>
-<div class="sect3">
-<h4 id="adding-a-group-code-addgroup-code"><a class="link" href="#adding-a-group-code-addgroup-code">Adding a group: <code>addgroup</code></a></h4>
-<div class="paragraph">
-<p>Adds a group to the TimeBook<br>
-Format: <code>addgroup g/GROUP_NAME [d/GROUP_DESCRIPTION] [r/GROUP_REMARK] [role/USER_ROLE]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Creates a with name <code>GROUP_NAME</code>.</p>
-</li>
-<li>
-<p>A group can be optionally created with a description, a remark, and your role in the Group.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create.
-<br>
-&#160;<br>
-To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code> command</a>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addgroup g/Friends</code><br>
-Creates a group called <code>Friends</code></p>
-</li>
-<li>
-<p><code>addgroup g/CS2103 d/Project Group role/Leader</code><br>
-Creates a group called <code>CS2103</code> with a description of <code>Project Group</code> and your role in the Group as the <code>Leader</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-group-code-editgroup-code"><a class="link" href="#editing-a-group-code-editgroup-code">Editing a group: <code>editgroup</code></a></h4>
-<div class="paragraph">
-<p>Edits an existing group in the TimeBook.<br>
-Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [d/GROUP_DESCRIPTION] [r/GROUP_REMARK] [role/USER_ROLE]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the group specified by <code>GROUP_NAME</code>.</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code><br>
-Edits the group specified by group name <code>CS2103</code> with a new group name <code>CS3203</code> and group remark <code>Project Discussion Group</code> respectively.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">Deleting a group: <code>deletegroup</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified group from the TimeBook.<br>
-Format: <code>deletegroup g/GROUP_NAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the group specified by 'GROUP_NAME'</p>
-</li>
-<li>
-<p>The people who were in this group will not be deleted.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletegroup g/CS2103</code><br>
-Deletes the <code>CS2103</code> group from the TimeBook.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">Show group: <code>show</code></a></h4>
-<div class="paragraph">
-<p>Want to schedule your next group meeting?
-You can view a group&#8217;s schedule up to 4 weeks in advance.<br>
-Format: <code>show g/GROUP_NAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Shows the description, members and aggregated schedules for this group.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create.
-<br>
-&#160;<br>
-To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code> command</a>.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Type <code>show g/CS2103</code> in the command line as shown below<br></p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/showgroupcommand.png" alt="showgroupcommand">
-</div>
-</div>
-</li>
-<li>
-<p>Hit the <kbd>Enter</kbd> key and you should see the details of this group in a similar window below.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/showgroupresult.png" alt="showgroupresult">
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>n</code> to help you scroll the schedule view without touching your mouse!</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>nw</code> to help you show next week&#8217;s schedule!</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-person-to-group-code-addtogroup-code"><a class="link" href="#add-person-to-group-code-addtogroup-code">Add Person to Group: <code>addtogroup</code></a></h4>
-<div class="paragraph">
-<p>Adds a person specified by <code>NAME</code> with a role specified by <code>ROLE</code> into a group specified by <code>GROUP_NAME</code> in the
-TimeBook.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addtogroup n/NAME g/GROUP_NAME [role/ROLE]</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addtogroup n/John g/CS2103</code><br>
-Adds <code>John</code> into group <code>CS2103</code></p>
-</li>
-<li>
-<p><code>addtogroup n/Bobby g/CS3203 role/Leader</code><br>
-Adds <code>Bobby</code> into group <code>CS3203</code> with a role <code>Leader</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-a-person-from-group-code-deletefromgroup-code"><a class="link" href="#delete-a-person-from-group-code-deletefromgroup-code">Delete a Person from Group: <code>deletefromgroup</code></a></h4>
-<div class="paragraph">
-<p>Deletes a person specified by <code>NAME</code> from a group specified by <code>GROUP_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletefromgroup n/NAME g/GROUP_NAME</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletefromgroup n/Bobby g/CS2103</code><br>
-Removes <code>Bobby</code> from the group <code>CS2103</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="advanced-features"><a class="link" href="#advanced-features">Advanced Features</a></h3>
-<div class="sect3">
-<h4 id="show-module-code-showmod-code"><a class="link" href="#show-module-code-showmod-code">Show Module: <code>showmod</code></a></h4>
-<div class="paragraph">
-<p>Want to know more information about an NUS module? Use <code>showmod</code> to quickly open up the NUSMods page for a specific module on your browser!</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>showmod m/MODULE_CODE</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>showmod m/CS2103T</code><br>
-Opens up <a href="https://nusmods.com/modules/CS2103T" class="bare">https://nusmods.com/modules/CS2103T</a> on your default browser.</p>
-</li>
-<li>
-<p><code>showmod m/CS2101</code><br>
-Opens up <a href="https://nusmods.com/modules/CS2101" class="bare">https://nusmods.com/modules/CS2101</a> on your default browser.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="export-vr-visual-representation-code-export-vr-code"><a class="link" href="#export-vr-visual-representation-code-export-vr-code">Export VR (Visual Representation): <code>export-vr</code></a></h4>
-<div class="paragraph">
-<p>This feature is currently work in progress!</p>
-</div>
-<div class="paragraph">
-<p>Want to share your group&#8217;s schedule with your friends?
-This command exports a visualisation representation of currently showing schedule (timetable) of a group or person(s) to a PNG file!<br>
-Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>export-vr</code><br></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="closest-common-location"><a class="link" href="#closest-common-location">Closest Common Location</a></h3>
-<div class="paragraph">
-<p>TimeBook will also help you to decide where to meet for your project meetings by suggesting to you which
-location is the center for everyone. The center location is the closest location for everyone to meet in NUS based
-on their schedule. In time book we define the center location for everyone as the <em>closest common location</em>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Steps</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Setup your group by:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Adding your group members to your TimeBook with <code>addperson</code> command</p>
-</li>
-<li>
-<p>Adding your group to TimeBook with <code>addgroup</code> command</p>
-</li>
-<li>
-<p>Add your group members to your group with <code>addtogroup</code> command</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Find the free common time when you want to meet with <code>show</code> command</p>
-</li>
-<li>
-<p>With the free time slot <code>id</code> get the details for the closest common location with <code>popup</code> command</p>
-</li>
-<li>
-<p>Press <code>esc</code> button to close the popup</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Constraints</strong></p>
-</div>
-<div class="paragraph">
-<p>Due to the lack of internet connectivity, TimeBook will only support locations that are in NUSMods and identifiable by Google Maps.
-The full list of the supported locations is below.</p>
-</div>
-<div class="paragraph">
-<p><strong>Definitions</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>We define closest common location as the location that requires the least average distance to travel to from different sources by car.</p>
-</li>
-<li>
-<p>Locations that are not supported are voided and are not used for the calculations of the closest common location and average travelling distance.</p>
-</li>
-<li>
-<p>Refer to the <code>Developer Guide</code> on how we compute the closest common location.</p>
-</li>
-</ol>
-</div>
-<div class="sect3">
-<h4 id="closest-common-location-popup-code-popup-code"><a class="link" href="#closest-common-location-popup-code-popup-code">Closest Common Location Popup <code>popup</code></a></h4>
-<div class="paragraph">
-<p>command: <code>popup g/ GROUP_NAME i/ID</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>popup g/CS2103T i/2</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/gmaps/SuccessfulPopup.png" alt="SuccessfulPopup">
-</div>
-</div>
-<div id="img-SuccessfulPopup" class="paragraph">
-<div class="title">An example of a popup when <code>popup</code> is executed</div>
-<p><em>Description</em></p>
-</div>
-<div class="paragraph">
-<p>When the command is executed a popup will appear that shows the all the information of the closest common location
-for a particular free time slot in a group.</p>
-</div>
-<div class="paragraph">
-<p><em>Parameters</em></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>GROUP_NAME</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Description: This is the name of the Group you want to find the free time for.
-The <code>groupname</code> can be found on the
-<code>groups</code> tab in the user interface.(Use <code>switch-tab</code> if your tab is on persons)</p>
-</li>
-<li>
-<p>Type: <code>String</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>ID</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Description: This is the <code>id</code> of the free time slot of a group.
-You can get this <code>id</code> from the user interface when you use <code>show g/[groupname]</code> command.
-You can only enter the <code>id</code> that is shown on the screen.</p>
-</li>
-<li>
-<p>Type: <code>String</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>Success Response</em></p>
-</div>
-<div class="paragraph">
-<p>If you follow the steps above, a popup will appear as seen in the Figure above.</p>
-</div>
-<div class="paragraph">
-<p>There are two main information that you will see in the popup when you execute ththe command.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The summary of the results will be displayed on the top of the popup.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Your best location to meet up is:</strong> The first choice location to meet(closest for everyone).</p>
-</li>
-<li>
-<p><strong>Everyone&#8217;s locations:</strong> List of locations that the group members will be at before the free time slot.</p>
-</li>
-<li>
-<p><strong>Out of all these locations, the valid locations are:</strong> List of TimeBook supported locations that the group members
-will be at before the free time slot that.</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Subset of the <strong>Everyone&#8217;s locations:</strong> list</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Locations that cannot be found in NUS:</strong> List of locations that the group members will be at before the free time
-slot but not supported by TimeBook.</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Subset of the <strong>Everyone&#8217;s locations:</strong> list</p>
-</li>
-<li>
-<p>If all the locations are valid, this attribute will be empty as seen in the Figure above</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>The full details of the first, second and third closest common location will be shown on the bottom of the popup.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>First choice represents the first closest and so on and so forth.</p>
-</li>
-<li>
-<p>The average distance(m) to reach the various location will be displayed below the respective choices.</p>
-</li>
-<li>
-<p>The picture of the location of the venue on Google Maps will be displayed below each choice.</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>For locations that are not supported on Google Maps, a picture of the center of NUS will be displayed.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>Failure Response</em></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Error</code> when all the source locations are not recognised by TimeBook, a popup will not appear.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Feedback box will show:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code> We could not find a common location because all places cannot be found in NUS. The locations are:</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Error</code> when all the group members are not in school before the free time slot, a popup will not appear.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Feedback box will show:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>We could not find a common location because:
-Everyone has not started their schedule yet. Feel free to meet up any time.</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Error</code> when invalid free time slot <code>ID</code> entered.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Feedback box will show:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>Invalid time slot ID: 0. Please enter a valid id as shown in the GUI.</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Error</code> when invalid <code>GROUP_NAME</code> entered.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Feedback box will show:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>Cannot recognise GROUP_NAME. Make sure you entered the correct value.</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="close-popup-code-esc-code"><a class="link" href="#close-popup-code-esc-code">Close popup <code>esc</code></a></h4>
-<div class="paragraph">
-<p>After you are done with viewing the information on the popup press <code>esc</code> button on your keyboard to close the popup and
-and return to the main screen.</p>
-</div>
-<div class="paragraph">
-<p>Format: <kbd>esc</kbd> button on keyboard.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="upcoming-schedule-list"><a class="link" href="#upcoming-schedule-list">Upcoming schedule list.</a></h3>
-<div class="paragraph">
-<p>Unsure of what is your next event for the day?
-TimeBook&#8217;s home page has a list that keeps track of your upcoming events for the day and would automatically tick off events that have past!
-Format: <code>home</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
-<div class="paragraph">
-<p>TimeBook data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
-<div class="sectionbody">
-<div id="alice-notice" class="qlist qanda">
-<ol>
-<li>
-<p><em>Who is Alice? / How do I store my details and schedule?</em></p>
-<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create.
-<br>
-&#160;<br>
-To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code> command</a>.</p>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-</li>
-<li>
-<p><em>How do I transfer my data to another Computer?</em></p>
-<p>Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TimeBook folder.</p>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-</li>
-<li>
-<p><em>Why can I enter irrelevant arguments?</em></p>
-<p>We understand that users occasionally make error while typing and it is frustrating for the application to fail because
-of it. Thus for all commands that do not require any arguments(ie <code>help</code>, <code>home</code> and <code>exit</code>), TimeBook allows you to
-enter any value after the command word. For example <code>help 1</code> will execute <code>help</code> command eventhough <code>1</code> is irrelevant to
-the command. We hope with this feature you will have a seamless and pleasant experience with TimeBook.</p>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>List/Show All Persons</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Add Person</strong> <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203; [c/NUS_MOD_LINK]</code><br>
-e.g. <code>addperson n/James Ho p/22224444 em/jamesho@example.com a/123, Clementi Rd, 1234665 r/Always helpful tag/friend tag/colleague</code></p>
-</li>
-<li>
-<p><strong>Edit Person</strong> : <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code><br>
-e.g. <code>editperson ed/James Lee em/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Delete Person</strong> : <code>delete n/NAME</code><br>
-e.g. <code>deleteperson n/Benedict</code></p>
-</li>
-<li>
-<p><strong>Find Person</strong> : <code>findperson n/NAME</code><br>
-e.g. <code>findperson n/James Jake</code></p>
-</li>
-<li>
-<p><strong>Add Event to Person&#8217;s Schedule</strong> : <code>addevent n/NAME e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br>
-e.g. <code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
-</li>
-<li>
-<p><strong>Add Module to Person&#8217;s Schedule</strong> : <code>addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br>
-e.g. <code>addmod n/John m/CS2103T class/G01,T5 ay/2019/2020 s/1</code></p>
-</li>
-<li>
-<p><strong>Add Modules to Person&#8217;s Schedule via NUSMods Link</strong> : <code>addmods n/NAME l/NUSMODS_SHARE_LINK</code><br>
-e.g. <code>addmods n/John l/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code></p>
-</li>
-<li>
-<p><strong>Show Module Classes Schedule</strong> : <code>showmod m/MODULE_CODE [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br>
-e.g. <code>showmod m/CS3230 ay/2019/2020 s/2</code></p>
-</li>
-<li>
-<p><strong>Show Person Details and Schedule</strong> : <code>show n/NAME</code><br>
-e.g. <code>show n/James Lee</code></p>
-</li>
-<li>
-<p><strong>Add Group</strong> <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code><br>
-e.g. <code>addgroup g/CS2103 r/Project Group</code></p>
-</li>
-<li>
-<p><strong>Add Person to Group</strong> : <code>addtogroup n/NAME g/GROUP_NAME</code><br>
-e.g. <code>addtogroup n/John g/CS2103</code></p>
-</li>
-<li>
-<p><strong>Edit Group</strong> <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code><br>
-e.g. <code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code></p>
-</li>
-<li>
-<p><strong>Delete Group</strong> : <code>deletegroup g/GROUP_NAME</code><br>
-e.g. <code>deletegroup g/CS2103</code></p>
-</li>
-<li>
-<p><strong>Find Group</strong> : <code>findgroup g/GROUP_NAME</code><br>
-e.g. <code>findgroup g/CS2103</code></p>
-</li>
-<li>
-<p><strong>Show Group Details and Schedule</strong> : <code>show g/GROUP_NAME</code><br>
-e.g. <code>show g/CS2030 T2</code></p>
-</li>
-<li>
-<p><strong>Export Visual Representation</strong> : <code>export-vr [n/NAME]… [g/GROUP_NAME]… o/SAVE_LOCATION</code><br>
-e.g. <code>export-vr g/TimeBook o/timetable.jpg</code></p>
-</li>
-<li>
-<p><strong>Closest Location</strong> : <code>closestlocation l/LOCATIONA LOCATIONB &#8230;&#8203;</code><br>
-e.g. <code>closestlocation l/LT16 LT15 AS5</code></p>
-</li>
-<li>
-<p><strong>Show Free Time Slot</strong> : <code>popup g/GROUP_NAME i/SLOT_NUMBER</code><br>
-e.g. <code>popup g/CS2103T i/2</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="supported-locations"><a class="link" href="#supported-locations">Supported Locations</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.091%;">
+<col style="width: 100%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" colspan="10">Valid Locations</th>
-<th class="tableblock halign-left valign-top"></th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0116</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0214</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0213</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0303</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0212</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0302</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0303</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0302</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS5-0309</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT9</p>
-<p class="tableblock">AS1-0304</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0214</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS5-0205</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0413</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0215</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS7-0119</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0118</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0209</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0109</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0212</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0203</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0208</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0601</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS5-0202</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0206</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS7-0102</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS8-0402</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UT-AUD1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ERC-SR9CAM</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ERC-SR8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ERC-GLR</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0306</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ERC-SR10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-SR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-GLR</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-GLR</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0333</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0211</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0338</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0119</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0205</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS7-0106</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0309</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0604</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0301</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0213</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0335</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-SR8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-LT51</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS8-0401</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0215B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0207</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS7-0101</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0201</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NAK-AUD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ERC-SR11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-LT52</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0603</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ERC-ALR</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0435</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0437</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT7A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT28</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-03</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0304</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0510</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-SR8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0509</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0304</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0117</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0312</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS7-0117</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS8-0405</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0311</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS5-0203</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT13</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0308</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0316</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0313</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0203</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0204</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-ELAB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS2-0302</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0524</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0307</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0602</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS8-0646</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0204</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0305</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0523</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-SR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS7-0201</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0208</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CHPC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS7-0201A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-B107</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-B109</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-B110</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0212</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0115</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS1-0210</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS8-0647</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0209</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0519</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS4-0318</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0301</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0303</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0302</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0307</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0202</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0204</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-CMRI</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0305</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0205</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0201</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0304</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0203</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0413A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HSSMLCR</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0509</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-SR6-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0510</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0413C</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-0206</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-B104</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0301</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0118</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0114</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT17</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT16</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0202</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0224</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0404</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0420</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0228</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0117</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ1-SR6-4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT19</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0226</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0227</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0302</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0413B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0303</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0201</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0229</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I3-AUD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-VCRM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SR_LT19</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0206</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT15</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0204</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0201</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0210</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-B103</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0114</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0208</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM2-0108</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I3-0336</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I3-0338</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I3-0344</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-B112</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0113</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I3-0339</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-B108</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-B111</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-B110</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0421</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0209</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UT-AUD2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0211</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0203</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0207</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0212</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-B113</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-B102</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0216</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0217</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0210</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS6-0208</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0611</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0610</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-0120</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0620</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0436</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT26</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">COM1-B109</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RMI-SR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">I3-0337</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE2-ER1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE-ER5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-LT53</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-LT50</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE1-ISD-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NHM-1M-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UT-AUD3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AKIMAUD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UT22-07-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE4-GISL1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE-ER4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE2-MEZZ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AKI5B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE2-ES1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE2-ES2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AKIMLA4</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-SR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">WT-Lab</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GBT-Lab</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE-EXR-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE4-EXR1-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE4-EXR-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SDE4-EXR-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2-03-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-06</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-13</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E5-03-22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-04</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E5-03-21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4-04-04</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ENG-AUD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2A-03-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2A-02-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2A-02-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2A-03-02</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2A-04-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2A-04-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-08</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-13</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E5-03-23</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-16</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-15</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4-04-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2-0308PC5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2-0309PC6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4-02-06</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-06-04</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-02-11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-06-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-06-05</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-06-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-05</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-08</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E5-03-20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-07</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-04</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-05</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-09</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EW2-04-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E5-03-19</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-07</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2-0307PC4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E5-03-24</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2-0306PC3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-09</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4-03-07</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4A-06-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-15</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4-02-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4-04-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-05-21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-03-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-06-06</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-0410PC2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3A-05-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3A-05-04</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3A-05-07</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E5-02-32</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-04-21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-06-07</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-04-22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-04-07</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-04-06</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-04-02E</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-04-02L</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1A-01-06</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-02-21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EA-04-04</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-0506</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E5-0320-21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-06-06</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EW1-03-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EW1-02-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EW1-04-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EW1-01-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EW2-03-14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EW1-1M-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EW1-1M-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR5-3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR5-4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR4-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR5-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FED-01-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR5-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_ESR</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR4-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR4-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR5-5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR3-5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TB-08-01R</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_SR4-4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR3-4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_LT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR4-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR3-6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR4-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR2-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR3-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR2-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LAW_CR3-7</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT33</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD10-01-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT34</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S14-0619</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0430</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0307</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT29</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD7_LAB8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD7-02-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD4-02-03E</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD4_LAB9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S14-0620</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-03-01B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-07-01A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT32</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S1A-0217</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD9-01-02</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CELS-04-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT28-01-01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-TR</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-RS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-SR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-SR8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-WS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-OH</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-ER3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-HALL</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-MLAB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-SR4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-SR7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-ER2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-ER6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-ER1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-SR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-SR5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-RECS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-SR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-SR6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">YSTCM-ER4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-03-0506</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0598</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0309</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S2-0414</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S2-0415</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S2-04LAB5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S1A-03LAB1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S1A-04LAB3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S2-03LAB7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S13-M-08</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S13-M-09</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S1A-03LAB2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LT31</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S1A-04LAB4</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0431</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S8-0314</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S5-01PHYS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S5-0224</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S5-0410</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S8-0402</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S7-0401</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S14-0503</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S5-01GEN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S17-0406</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S17-0405</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S17-0512</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S17-0511</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S17-0404</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S17-0611</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S17-0304</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S17-0302</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-06-03M</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-05-01A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-06-01A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S4-02LAB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-05-03K</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-0440</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S4-04LAB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S12-0403</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S11-0204</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S11-0301</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S12-0402A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S12-0402B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S12-0402C</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S12-0402D</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S11-0302A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S12-0401</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S11-0401A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S13-0313</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S12-0402</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4-07-08</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S11-0302</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-06118</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-05102</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S16-05101</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_SR3-5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_SR3-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_SR2-1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_EA_M</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_SR2-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_SR2-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_SR3-4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_TB10SR</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_EE_CSU</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LKY_SR3-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CELS-01-08</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CQT/SR0315</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">USP-TR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">USP-SR1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">USP-SR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">USP-SR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">USP-TR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UTSRC-PR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TC-TR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TC-SR6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TC-SR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TC-SR4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TC-SR5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CAPT-SR5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CAPT-SR1-2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CAPT-SR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CAPT-SR6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RC4-SR1-2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RC4-SR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RC4-SR5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RC4-SR4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RVR_MPR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RVR_MPR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RVR-SRM04</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RVR-SRM03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RVR-SRM02</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RVR-SRM01</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-08-01E</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-0801AB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-0903EF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-09-01A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-09-01B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-08-03E</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">MD1-08-01B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR21</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR19</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR9</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-GLRm1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-PracRm6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR13</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR17</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-KChanrai</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-LT1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-TCTLT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR8</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR15</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-GLRm2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-PgRm1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR7</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-ArtsStud</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-PgRm2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CompLab</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-PerfHall</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-AChemLab</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-OChemLab</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR23</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Y-CR16</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E3-0605-06</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E2-03-03</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E4A-04-08</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">E1-06-14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CELC-SR1A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CELC-TR6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0115</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0116</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BIZ2-0112</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CAPT-SR4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RC4-SR6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TH-SR1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">KEVII-MR2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RH-CONF-RM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">KRH-SR3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SH-SR1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0314</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0312</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0208</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AS3-0316</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/3-12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/2-9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/4-6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/3-3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/2-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/AUD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/3-1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/3-5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISS/4-4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-SR7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-SR4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-SR5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TP-SR6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">!===</p>
-<p class="tableblock">== Contributions to the Developer Guide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">[Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
+It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
+Additionally, it implements the following operations:</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:07:30 UTC</div></div></div></body></html>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+</li>
+<li>
+<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+</li>
+<li>
+<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+</li>
+<li>
+<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+</li>
+<li>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+</li>
+<li>
+<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<div class="paragraph">
+<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:36:34 UTC</div></div></div></body></html>

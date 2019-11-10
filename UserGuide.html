@@ -47,29 +47,30 @@ Keep a look out for more cool and exciting features coming soon!</p>
 </li>
 <li><a href="#person-management">6.2. Person Management</a>
 <ul class="sectlevel3">
-<li><a href="#adding-a-person-code-addperson-code">6.2.1. Adding a person: <code>addperson</code></a></li>
-<li><a href="#editing-a-person-code-editperson-code">6.2.2. Editing a person: <code>editperson</code></a></li>
-<li><a href="#edit-user-command">6.2.3. Editing your details: <code>edituser</code></a></li>
+<li><a href="#edit-user-command">6.2.1. Editing your details: <code>edituser</code></a></li>
+<li><a href="#adding-a-person-code-addperson-code">6.2.2. Adding a person: <code>addperson</code></a></li>
+<li><a href="#editing-a-person-code-editperson-code">6.2.3. Editing a person: <code>editperson</code></a></li>
 <li><a href="#deleting-a-person-code-deleteperson-code">6.2.4. Deleting a person: <code>deleteperson</code></a></li>
 <li><a href="#show-person-code-show-code">6.2.5. Show person: <code>show</code></a></li>
 </ul>
 </li>
 <li><a href="#schedule-management">6.3. Schedule Management</a>
 <ul class="sectlevel3">
-<li><a href="#add-event-to-schedule-code-addevent-code">6.3.1. Add Event to Schedule: <code>addevent</code></a></li>
-<li><a href="#delete-an-event-from-a-schedule-code-deleteevent-code">6.3.2. Delete an Event from a Schedule: <code>deleteevent</code></a></li>
-<li><a href="#add-module-to-schedule-code-addmod-code">6.3.3. Add Module to Schedule: <code>addmod</code></a></li>
-<li><a href="#add-modules-via-nusmods-link-code-addmods-code">6.3.4. Add Modules via NUSMods Link: <code>addmods</code></a></li>
+<li><a href="#add-module-to-schedule-code-addmod-code">6.3.1. Add Module to Schedule: <code>addmod</code></a></li>
+<li><a href="#add-modules-via-nusmods-link-code-addmods-code">6.3.2. Add Modules via NUSMods Link: <code>addmods</code></a></li>
+<li><a href="#add-event-to-schedule-code-addevent-code">6.3.3. Add Event to Schedule: <code>addevent</code></a></li>
+<li><a href="#delete-an-event-from-a-schedule-code-deleteevent-code">6.3.4. Delete an Event from a Schedule: <code>deleteevent</code></a></li>
+<li><a href="#view-a-schedule-code-schedule-code">6.3.5. View a Schedule: <code>schedule</code></a></li>
 </ul>
 </li>
 <li><a href="#group-management">6.4. Group Management</a>
 <ul class="sectlevel3">
 <li><a href="#adding-a-group-code-addgroup-code">6.4.1. Adding a group: <code>addgroup</code></a></li>
 <li><a href="#editing-a-group-code-editgroup-code">6.4.2. Editing a group: <code>editgroup</code></a></li>
-<li><a href="#deleting-a-group-code-deletegroup-code">6.4.3. Deleting a group: <code>deletegroup</code></a></li>
-<li><a href="#show-group-code-show-code">6.4.4. Show group: <code>show</code></a></li>
-<li><a href="#add-person-to-group-code-addtogroup-code">6.4.5. Add Person to Group: <code>addtogroup</code></a></li>
-<li><a href="#delete-a-person-from-group-code-deletefromgroup-code">6.4.6. Delete a Person from Group: <code>deletefromgroup</code></a></li>
+<li><a href="#add-person-to-group-code-addtogroup-code">6.4.3. Add Person to Group: <code>addtogroup</code></a></li>
+<li><a href="#delete-a-person-from-group-code-deletefromgroup-code">6.4.4. Delete a Person from Group: <code>deletefromgroup</code></a></li>
+<li><a href="#deleting-a-group-code-deletegroup-code">6.4.5. Deleting a group: <code>deletegroup</code></a></li>
+<li><a href="#show-group-code-show-code">6.4.6. Show group: <code>show</code></a></li>
 </ul>
 </li>
 <li><a href="#advanced-features">6.5. Advanced Features</a>
@@ -523,48 +524,275 @@ Format: <code>switch-tab</code></p>
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
+<hr>
 </div>
 </div>
 <div class="sect2">
 <h3 id="person-management"><a class="link" href="#person-management">6.2. Person Management</a></h3>
 <div class="sect3">
-<h4 id="adding-a-person-code-addperson-code"><a class="link" href="#adding-a-person-code-addperson-code">6.2.1. Adding a person: <code>addperson</code></a></h4>
+<h4 id="edit-user-command"><a class="link" href="#edit-user-command">6.2.1. Editing your details: <code>edituser</code></a></h4>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Adds a person to the TimeBook<br>
-Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code></p>
+<p>When you first start using TimeBook, a default profile has been created for you!
+This default profile will have a default name: <code>User</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>To personalize TimeBook and make it yours, use the <code>edituser</code> command as described below.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addperson n/Catherine em/catherineCanCook@imail.com</code></p>
-</li>
-<li>
-<p><code>addperson n/John Doe em/JohnDoe@imail.com</code></p>
-</li>
-</ul>
+</td>
+</tr>
+</table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="editing-a-person-code-editperson-code"><a class="link" href="#editing-a-person-code-editperson-code">6.2.2. Editing a person: <code>editperson</code></a></h4>
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
-<p>Edits an existing person in the TimeBook.<br>
-Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code></p>
+<p>Lets start off by editing our profile by using the command <code>edituser</code>!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Format: <code>edituser [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person specified by <code>PERSON_NAME</code>.</p>
+<p>The <code>n/</code> prefix (optional) specifies your <code>name</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Names must be alphanumeric</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>p/</code> prefix (optional) specifies your <code>phone number</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Phone numbers must only contain numbers and must be at least 3 digits long</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>em/</code> prefix (optional) specifies your <code>email address</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Emails should be of the format local-part@domain and adhere to the following constraints:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (!#$%&amp;'*+/=?`{|}~^.-) .</p>
+</li>
+<li>
+<p>This is followed by a '@' and then a domain name. The domain name must:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>be at least 2 characters long</p>
+</li>
+<li>
+<p>start and end with alphanumeric characters</p>
+</li>
+<li>
+<p>consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>a/</code> prefix (optional) specifies your <code>address</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>An address can take any values</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>r/</code> prefix (optional) specifies a <code>remark</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A remark must be alphanumeric</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>tag/</code> prefix (optional) specifies your <code>tag</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>You can have multiple tags</p>
+</li>
+<li>
+<p>A tag must be alphanumeric and cannot contain spaces</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>When editing tags, your existing tags will be removed (i.e. adding of tags is not cumulative).</p>
+</li>
+<li>
+<p>You can remove all your tags by typing <code>tag/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Suppose our name is <code>Alice</code>, we can edit our profile like this!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edituser n/Alice p/91239123 a/Kent Ridge Drive em/alice@gmail.com r/Student</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/edituser.png" alt="edituser" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>After editing our profile, this is what we should see!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-person-code-addperson-code"><a class="link" href="#adding-a-person-code-addperson-code">6.2.2. Adding a person: <code>addperson</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The first thing to do in TimeBook is to add people that you know! It could be friends, family and even your colleagues!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To add a new person into TimeBook, simply use the command <code>addperson</code> and specify his or her name!</p>
+</div>
+<div class="paragraph">
+<p>You can also optionally specify his or her phone number, email address, home address, a remark and tags.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>n/</code> prefix specifies the <code>name</code> of the person to add</p>
+</li>
+<li>
+<p>The <code>p/</code> prefix (optional) specifies a <code>phone number</code></p>
+</li>
+<li>
+<p>The <code>em/</code> prefix (optional) specifies an <code>email address</code></p>
+</li>
+<li>
+<p>The <code>a/</code> prefix (optional) specifies an <code>address</code></p>
+</li>
+<li>
+<p>The <code>r/</code> prefix (optional) specifies a <code>remark</code></p>
+</li>
+<li>
+<p>The <code>tag/</code> prefix (optional) specifies a <code>tag</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>A person can have multiple tags</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Suppose we met our new friend <code>Fred</code> and want to add him into TimeBook, simply use this command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addperson n/Fred p/91234567 em/fred@example.com a/kent ridge drive r/friend tag/Friends tag/Colleague</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/addperson.png" alt="addperson" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>After adding <code>Fred</code> into the TimeBook, his name will appear on the list of people on tabs in the side panel!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-person-code-editperson-code"><a class="link" href="#editing-a-person-code-editperson-code">6.2.3. Editing a person: <code>editperson</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Accidentally added the wrong info of a person into TimeBook?
+No worries, you can simple edit an existing person with our <code>editperson</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To edit an existing person, simply use the <code>editperson</code> command
+and specify the name of the person you wish to edit with the <code>ed/</code> prefix!</p>
+</div>
+<div class="paragraph">
+<p>Then, simply edit each of the fields of a person with their corresponding prefixes!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>ed/</code> tag specifies the person to be edited</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This person must exist in the TimeBook</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
 <p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
@@ -580,102 +808,62 @@ Format: <code>editperson ed/PERSON_NAME [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Suppose we added Fred&#8217;s name wrongly, and he wants to be called <code>Freddie</code>.
+Additionally, he has also changed his phone number, and he wants to be your best friend!
+To update his particulars, simply execute this command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>editperson ed/John Doe p/91234567 em/johndoe@example.com</code><br>
-Edits the phone number and email address of the person with name 'John Doe' to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>editperson ed/Betsy n/Betsy Crower tag/</code><br>
-Edits the person 'Betsy' to a new name 'Betsy Crower' and clears all existing tags.</p>
+<p><code>editperson ed/Fred n/Freddie p/85868784 r/best friend tag/bestfriend</code></p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="edit-user-command"><a class="link" href="#edit-user-command">6.2.3. Editing your details: <code>edituser</code></a></h4>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create.</p>
-</div>
-<div class="paragraph">
-<p>To personalize TimeBook and make it yours, use this <code>edituser</code> command as described below.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Edits your details in the TimeBook.<br>
-Format: <code>edituser [n/NAME] [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
+<div class="imageblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits your details.</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, your existing tags will be removed (i.e. adding of tags is not cumulative).</p>
-</li>
-<li>
-<p>You can remove all your tags by typing <code>tag/</code> without specifying any tags after it.</p>
-</li>
-</ul>
-</div>
+<img src="images/ugalvin/editperson.png" alt="editperson" width="100%">
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edituser n/Frank</code><br>
-Renames your profile to the new name <code>Frank</code>.</p>
-</li>
-<li>
-<p><code>edituser p/81234567 em/frank@example.com</code><br>
-Edits your phone number and email address to be <code>81234567</code> and <code>frank@example.com</code> respectively.</p>
-</li>
-</ul>
+<p>After editing a person, this is what you will see! Freddie&#8217;s details has been updated accordingly!</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deleting-a-person-code-deleteperson-code"><a class="link" href="#deleting-a-person-code-deleteperson-code">6.2.4. Deleting a person: <code>deleteperson</code></a></h4>
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
-<p>Deletes the specified person from the TimeBook.<br>
-Format: <code>deleteperson n/NAME</code></p>
+<p>Want to delete a person from TimeBook?
+That&#8217;s easy! Simply use our <code>deleteperson</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To delete a person from TimeBook, simply use the <code>deleteperson</code> command
+and specify the name of the person you wish to delete!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteperson n/NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Removes the person from all the groups they are in</p>
+<p>the <code>n/</code> tag specifies the name of the person to be deleted</p>
 </li>
 <li>
-<p>Deletes the person specified by 'NAME'</p>
+<p>Only one person can be deleted at a time</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Suppose our business with Freddie is over, we can simply delete him from TimeBook!</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -683,10 +871,17 @@ Format: <code>deleteperson n/NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deleteperson n/Benedict</code><br>
-Deletes the person named <code>Benedict</code> from the TimeBook.</p>
+<p><code>deleteperson n/Freddie</code></p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/deleteperson.png" alt="deleteperson" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see, after deleting Freddie, he is removed from our persons tab!</p>
 </div>
 </div>
 <div class="sect3">
@@ -742,177 +937,13 @@ You may see this person&#8217;s schedule up to 4 weeks in advance.</p>
 </div>
 </div>
 </div>
+<hr>
 </div>
 </div>
 <div class="sect2">
 <h3 id="schedule-management"><a class="link" href="#schedule-management">6.3. Schedule Management</a></h3>
 <div class="sect3">
-<h4 id="add-event-to-schedule-code-addevent-code"><a class="link" href="#add-event-to-schedule-code-addevent-code">6.3.1. Add Event to Schedule: <code>addevent</code></a></h4>
-<div class="paragraph">
-<p><strong>Description</strong></p>
-</div>
-<div class="paragraph">
-<p>Adds an event into the schedule of a person in the TimeBook.
-Only schedules without clashes between time slots can be added to the TimeBook.
-Can be used to mark a person as unavailable either on one-off dates or on a particular day every week<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Format:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addevent e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br></p>
-</li>
-<li>
-<p><code>addevent n/NAME e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Parameters</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>NAME</code></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Description:</strong> The name of the person you want to add the event to. If the parameter is empty, the event
-will be added to your own schedule.</p>
-</li>
-<li>
-<p><strong>Prefix:</strong> <code>n/</code></p>
-</li>
-<li>
-<p><strong>Requirements:</strong> Optional</p>
-</li>
-<li>
-<p><strong>Data Type:</strong> String</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><code>EVENT_NAME</code></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Description:</strong> The name of the event you want to add to your schedule</p>
-</li>
-<li>
-<p><strong>Prefix:</strong> <code>e/</code></p>
-</li>
-<li>
-<p><strong>Requirements:</strong> Required</p>
-</li>
-<li>
-<p><strong>Data Type:</strong> String</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><code>DATETIME</code></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Description:</strong> The date, time and location of the event. You can specify multiple <code>DATETIME</code> if you want the
-event to repeat in different <code>DATETIME</code>. Note that the location of the event cannot contain <code>e/</code>, <code>n/</code> or <code>t/</code>.</p>
-</li>
-<li>
-<p><strong>Prefix:</strong> <code>t/</code></p>
-</li>
-<li>
-<p><strong>Requirements:</strong> Require at least one <code>DATETIME</code> per event. In the <code>DATETIME</code> parameter it is optional for you to
-specify the <code>LOCATION</code></p>
-</li>
-<li>
-<p><strong>Data Type:</strong> String</p>
-</li>
-<li>
-<p>*Format: * `e/DATE - START_TIME - END_TIME - [LOCATION]</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p><code>DATE</code> : ddMMyyyy</p>
-</li>
-<li>
-<p><code>TIME</code> : HHmm(24H)</p>
-</li>
-<li>
-<p><code>LOCATION</code>: String without <code>e/</code>, <code>n/</code>, <code>t/</code> (Optional)</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> By not specifying <code>NAME</code>, the event will be added to your schedule.</p>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addevent e/Project Meeting t/27092019-1500-1600-I3</code><br>
-Adds an event <code>Project Meeting</code> to your schedule.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addevent n/John e/Math Lecture t/26092019-1300-1400-LT25 t/03102019-1300-1400-LT25</code><br>
-Adds an event <code>Math Lecture</code> that occurs on multiple dates to <code>John</code>'s schedule.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-an-event-from-a-schedule-code-deleteevent-code"><a class="link" href="#delete-an-event-from-a-schedule-code-deleteevent-code">6.3.2. Delete an Event from a Schedule: <code>deleteevent</code></a></h4>
-<div class="paragraph">
-<p>Deletes an event from the schedule of a person in the TimeBook.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deleteevent e/EVENT_NAME</code><br>
-Deletes an event specified by <code>EVENT_NAME</code> from your schedule.</p>
-</li>
-<li>
-<p><code>deleteevent n/NAME e/EVENT_NAME</code><br>
-Deletes an event specified by <code>EVENT_NAME</code> from the schedule of the person specified by <code>NAME</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deleteevent n/Bobby e/Swimming Lessons</code><br>
-Deletes the event <code>Swimming Lessons</code> from <code>Bobby</code> 's schedule.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">6.3.3. Add Module to Schedule: <code>addmod</code></a></h4>
+<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">6.3.1. Add Module to Schedule: <code>addmod</code></a></h4>
 <div class="paragraph">
 <p>Adds an NUS module as an event to a person&#8217;s schedule in TimeBook.</p>
 </div>
@@ -977,7 +1008,7 @@ This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-modules-via-nusmods-link-code-addmods-code"><a class="link" href="#add-modules-via-nusmods-link-code-addmods-code">6.3.4. Add Modules via NUSMods Link: <code>addmods</code></a></h4>
+<h4 id="add-modules-via-nusmods-link-code-addmods-code"><a class="link" href="#add-modules-via-nusmods-link-code-addmods-code">6.3.2. Add Modules via NUSMods Link: <code>addmods</code></a></h4>
 <div class="paragraph">
 <p>Already have your modules timetable on NUSMods?
 Great, you can easily add your modules timetable into TimeBook with the <code>addmods</code> command!</p>
@@ -1041,131 +1072,565 @@ This will add the modules in teh NUSMods link to Bob&#8217;s schedule.</p>
 </ol>
 </div>
 </div>
+<div class="sect3">
+<h4 id="add-event-to-schedule-code-addevent-code"><a class="link" href="#add-event-to-schedule-code-addevent-code">6.3.3. Add Event to Schedule: <code>addevent</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Have an event outside of your NUSmods timetable? Simply add them in using the <code>addevent</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To add an event into TimeBook, simply specify the name of that event, and the time slots of that event!</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addevent [n/NAME] e/EVENT_NAME t/DATETIME&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>n/</code> (optional) prefix specifies the name of the person whom we want to add an event to.</p>
+</li>
+<li>
+<p>If the <code>n/</code> prefix is not specified, TimeBook will add the event to your schedule!</p>
+</li>
+<li>
+<p>The <code>e/</code> prefix specifies the name of the event to be added.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>An event name must be alphanumeric and must not be blank</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>t/</code> prefix specifies the time slot of that event.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Format: <code>DATE-STARTTIME-ENDTIME-LOCATION</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Date format: <code>ddMMyyyy</code></p>
+</li>
+<li>
+<p>Start/End time format: <code>HHmm</code></p>
+</li>
+<li>
+<p>Location: Can take in any values.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>An event can have multiple time slots.</p>
+</li>
+<li>
+<p>A time slot must be between <code>0800</code> to <code>2000</code> hrs.</p>
+</li>
+<li>
+<p>A time slot must not have a clash with an existing event.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Suppose Bobby has to meet his project mates to work on his project, let&#8217;s try adding that event into our TimeBook!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addevent n/Bobby e/Project Meeting t/10112019-1200-1400-COM1 t/13112019-1000-1200-AS6</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/addevent.png" alt="addevent" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>After adding the event into our TimeBook, Bobby&#8217;s schedule is automatically updated!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-event-from-a-schedule-code-deleteevent-code"><a class="link" href="#delete-an-event-from-a-schedule-code-deleteevent-code">6.3.4. Delete an Event from a Schedule: <code>deleteevent</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>What should I do if an event is cancelled? Simply delete it from TimeBook with our <code>deletevent</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To delete an event, simply execute the <code>deleteevent</code> command and specify the event to delete and the person
+to delete it from!</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteevent [n/NAME] e/EVENT_NAME</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>n/</code> (optional) prefix specifies the name of the person whom we want to delete an event from.</p>
+</li>
+<li>
+<p>If the <code>n/</code> prefix is not specified, TimeBook will try to delete the event from your schedule!</p>
+</li>
+<li>
+<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can delete a module by specifying the module code!
+A module&#8217;s event name is its module code!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Suppose Bobby wants to drop CS2105 from his timetable as he finds it too hard to cope with so many modules.
+We can simply delete it!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteevent n/Bobby e/CS2105</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/deleteevent.png" alt="deleteevent" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>After deleting that event from TimeBook, Bobby&#8217;s schedule is automatically updated!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-a-schedule-code-schedule-code"><a class="link" href="#view-a-schedule-code-schedule-code">6.3.5. View a Schedule: <code>schedule</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Want to see a schedule between you and your friends? Simple use the <code>schedule</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To generate a schedule for you and your friends, simply execute the <code>schedule</code> command and
+specify who to add to this schedule!</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>schedule n/NAME&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>n/</code> prefix specifies the name of the person whom we want to add to this schedule</p>
+</li>
+<li>
+<p>You can add multiple people into a schedule</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Lets try and generate a schedule between you, Bobby and Charlie! Execute the following command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>schedule n/Bobby n/Charlie</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/schedule.png" alt="schedule" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When executing the command, TimeBook will calculate the free time slots among the schedule members!</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="group-management"><a class="link" href="#group-management">6.4. Group Management</a></h3>
 <div class="sect3">
 <h4 id="adding-a-group-code-addgroup-code"><a class="link" href="#adding-a-group-code-addgroup-code">6.4.1. Adding a group: <code>addgroup</code></a></h4>
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
-<p>Adds a group to the TimeBook<br>
-Format: <code>addgroup g/GROUP_NAME [d/GROUP_DESCRIPTION] [r/GROUP_REMARK] [role/USER_ROLE]</code></p>
+<p>In TimeBook, we allow you to organise your contacts too! This can be done through making groups!
+This can be done using our <code>addgroup</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To add a new group into TimeBook, simply execute the <code>addgroup</code> command
+and specify the name of the group you want to make!</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addgroup g/GROUP_NAME [d/GROUP_DESCRIPTION] [role/USER_ROLE]</code></p>
+</li>
+</ul>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Creates a with name <code>GROUP_NAME</code>.</p>
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> Whenever a new group is created, you are automatically added into that group!</p>
 </li>
 <li>
-<p>A group can be optionally created with a description, a remark, and your role in the Group.</p>
+<p>The <code>g/</code> prefix specifies the name of the group you want to create.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A group name must be alphanumeric</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>d/</code> prefix (optional) gives a description to the group</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A group description must be alphanumeric</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>role/</code> prefix (optional) specifies the role you play in that group</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A role must be alphanumeric</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create.
-<br>
-&#160;<br>
-To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code> command</a>.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>Suppose you want to create a new group for your CS2103 project, and you are appointed as
+the leader for this group!</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Let&#8217;s try to add a new group with the following command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addgroup g/Friends</code><br>
-Creates a group called <code>Friends</code></p>
-</li>
-<li>
-<p><code>addgroup g/CS2103 d/Project Group role/Leader</code><br>
-Creates a group called <code>CS2103</code> with a description of <code>Project Group</code> and your role in the Group as the <code>Leader</code>.</p>
+<p><code>addgroup g/CS2103 d/A CS2103 project group role/Leader</code></p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/addgroup.png" alt="addgroup" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When a new group is added, it is automatically added into the list of groups!</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="editing-a-group-code-editgroup-code"><a class="link" href="#editing-a-group-code-editgroup-code">6.4.2. Editing a group: <code>editgroup</code></a></h4>
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
-<p>Edits an existing group in the TimeBook.<br>
-Format: <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [d/GROUP_DESCRIPTION] [r/GROUP_REMARK] [role/USER_ROLE]</code></p>
+<p>The details for your group has changed? Edit it with our <code>editgroup</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To edit an existing group, simply use the <code>editgroup</code> command
+and specify the name of the group you wish to edit with the <code>ed/</code> prefix!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>editgroup ed/GROUP [g/GROUP_NAME] [d/GROUP_DESCRIPTION] [role/USER_ROLE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the group specified by <code>GROUP_NAME</code>.</p>
+<p>The <code>ed/</code> tag specifies the group to be edited</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This group must exist in the TimeBook</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
 </li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Suppose we entered the details for our group wrongly, no worries we can edit them!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code><br>
-Edits the group specified by group name <code>CS2103</code> with a new group name <code>CS3203</code> and group remark <code>Project Discussion Group</code> respectively.</p>
+<p><code>editgroup ed/CS2103 g/CS3203 d/A CS3203 project group role/Member</code></p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/editgroup.png" alt="editgroup" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When a group is edited, it is automatically updated as shown above!</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">6.4.3. Deleting a group: <code>deletegroup</code></a></h4>
+<h4 id="add-person-to-group-code-addtogroup-code"><a class="link" href="#add-person-to-group-code-addtogroup-code">6.4.3. Add Person to Group: <code>addtogroup</code></a></h4>
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
-<p>Deletes the specified group from the TimeBook.<br>
-Format: <code>deletegroup g/GROUP_NAME</code></p>
+<p>After you have created your group, you can add people into the group with our <code>addtogroup</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To add a person into a group, simply execute the <code>addtogroup</code> command,
+and specify the person&#8217;s name and the group&#8217;s name!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addtogroup n/PERSON_NAME g/GROUP_NAME role/ROLE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the group specified by 'GROUP_NAME'</p>
+<p>The <code>n/</code> prefix specifies the name of the existing <code>person</code> in TimeBook</p>
 </li>
 <li>
-<p>The people who were in this group will not be deleted.</p>
+<p>The <code>g/</code> prefix specifies the name of the existing <code>group</code> in TimeBook</p>
+</li>
+<li>
+<p>The <code>role/</code> prefix (optional) specifies the role this person would play in the group</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Let&#8217;s add a new person Denise into our CS3203 project group!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletegroup g/CS2103</code><br>
-Deletes the <code>CS2103</code> group from the TimeBook.</p>
+<p><code>addtogroup n/Denise g/CS3203 role/Manager</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/addtogroup.png" alt="addtogroup" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When a new person is added into the group, it automatically updates the group&#8217;s schedule as well!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-person-from-group-code-deletefromgroup-code"><a class="link" href="#delete-a-person-from-group-code-deletefromgroup-code">6.4.4. Delete a Person from Group: <code>deletefromgroup</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>What if I want to remove a person from my group? You can! With our <code>deletefromgroup</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To delete a person from a group, simply execute the <code>deletefromgroup</code> command,
+and specify the person&#8217;s name and the group&#8217;s name and the person will be removed from the group!</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletefromgroup n/NAME g/GROUP_NAME</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>n/</code> prefix specifies the name of the <code>person</code></p>
+</li>
+<li>
+<p>The <code>g/</code> prefix specifies the name of the <code>group</code></p>
+</li>
+<li>
+<p>This person must be in the group</p>
+</li>
+<li>
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> deleting a person from group does not delete your contacts!
+Your contacts still exists in your persons tab!</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s remove Charlie from our group! We can simply execute the following command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletefromgroup n/Charlie g/CS3203</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/deletefromgroup.png" alt="deletefromgroup" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When a person is removed from the group, the group&#8217;s schedule will automatically be updated as well!</p>
+</div>
+</div>
 <div class="sect3">
-<h4 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">6.4.4. Show group: <code>show</code></a></h4>
+<h4 id="deleting-a-group-code-deletegroup-code"><a class="link" href="#deleting-a-group-code-deletegroup-code">6.4.5. Deleting a group: <code>deletegroup</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The project is over, and there is no need for this group anymore? Delete it!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To delete a group, simply execute the <code>deletegroup</code> command and
+specify the group&#8217;s name!</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletegroup g/GROUP_NAME</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>g/</code> prefix specifies the name of the <code>group</code></p>
+</li>
+<li>
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> deleting a group does not delete your contacts!
+Your contacts still exists in your persons tab!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s delete CS3203 group from our TimeBook! Simply use this command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletegroup g/CS3203</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/deletegroup.png" alt="deletegroup" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>Deleteing a group will automatically update your groups tab!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">6.4.6. Show group: <code>show</code></a></h4>
 <div class="paragraph">
 <p>Want to schedule your next group meeting?
 You can view a group&#8217;s schedule up to 4 weeks in advance.<br>
@@ -1231,65 +1696,6 @@ To personalize TimeBook and make it yours, rename <code>Alice</code> by entering
 <p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>nw</code> to help you show next week&#8217;s schedule!</p>
 </div>
 </div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-person-to-group-code-addtogroup-code"><a class="link" href="#add-person-to-group-code-addtogroup-code">6.4.5. Add Person to Group: <code>addtogroup</code></a></h4>
-<div class="paragraph">
-<p>Adds a person specified by <code>NAME</code> with a role specified by <code>ROLE</code> into a group specified by <code>GROUP_NAME</code> in the
-TimeBook.</p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addtogroup n/NAME g/GROUP_NAME [role/ROLE]</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addtogroup n/John g/CS2103</code><br>
-Adds <code>John</code> into group <code>CS2103</code></p>
-</li>
-<li>
-<p><code>addtogroup n/Bobby g/CS3203 role/Leader</code><br>
-Adds <code>Bobby</code> into group <code>CS3203</code> with a role <code>Leader</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-a-person-from-group-code-deletefromgroup-code"><a class="link" href="#delete-a-person-from-group-code-deletefromgroup-code">6.4.6. Delete a Person from Group: <code>deletefromgroup</code></a></h4>
-<div class="paragraph">
-<p>Deletes a person specified by <code>NAME</code> from a group specified by <code>GROUP_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletefromgroup n/NAME g/GROUP_NAME</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>deletefromgroup n/Bobby g/CS2103</code><br>
-Removes <code>Bobby</code> from the group <code>CS2103</code></p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -2446,4 +2852,4 @@ e.g. <code>popup g/CS2103T i/2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:07:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:36:34 UTC</div></div></div></body></html>

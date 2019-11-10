@@ -71,12 +71,13 @@ Keep a look out for more cool and exciting features coming soon!</p>
 <li><a href="#delete-a-person-from-group-code-deletefromgroup-code">6.4.4. Delete a Person from Group: <code>deletefromgroup</code></a></li>
 <li><a href="#deleting-a-group-code-deletegroup-code">6.4.5. Deleting a group: <code>deletegroup</code></a></li>
 <li><a href="#show-group-code-show-code">6.4.6. Show group: <code>show</code></a></li>
+<li><a href="#look-at-some-members-code-lookat-code">6.4.7. Look at some members: <code>lookat</code></a></li>
 </ul>
 </li>
 <li><a href="#advanced-features">6.5. Advanced Features</a>
 <ul class="sectlevel3">
 <li><a href="#show-module-code-showmod-code">6.5.1. Show Module: <code>showmod</code></a></li>
-<li><a href="#export-vr-visual-representation-code-export-vr-code">6.5.2. Export VR (Visual Representation): <code>export-vr</code></a></li>
+<li><a href="#export-vr-visual-representation-code-export-code">6.5.2. Export VR (Visual Representation): <code>export</code></a></li>
 </ul>
 </li>
 <li><a href="#closest-common-location">6.6. Closest Common Location</a>
@@ -176,6 +177,13 @@ Otherwise, take a look at the <a href="#inexperienced-cli-user"><strong>Inexperi
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">3. Quick Start</a></h2>
 <div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> Make sure that your screen resolution height is at least 720 pixels before you continue this section!</p>
+</div>
+</div>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -188,12 +196,10 @@ Otherwise, take a look at the <a href="#inexperienced-cli-user"><strong>Inexperi
 <p>Copy the file to the folder you want to use as the home folder for your TimeBook.</p>
 </li>
 <li>
-<p>Double-click the file to start the app.
-The GUI should appear in a few seconds.</p>
-<div class="imageblock">
-<div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
-</div>
+<p>Double-click the file to start the app.</p>
+<div class="paragraph">
+<p>The GUI should appear in a few seconds.
+<span class="image"><img src="images/Ui.png" alt="Ui" width="790"></span></p>
 </div>
 </li>
 <li>
@@ -317,8 +323,16 @@ someone&#8217;s schedule in the group. For example, the image below highlights a
 </div>
 </div>
 <div class="paragraph">
-<p>These are the common free time slot that you and your group members share! You can use
+<p>These are the common free time slot that you and your <strong>entire</strong> group members share! You can use
 these numbered green boxes to arrange your meetings or share it with your group members to pick.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> Note that the labels for each of the coloured block will become hidden if each block becomes too small!
+To get more information about the coloured block, you can just hover your mouse over it!<br></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -338,7 +352,7 @@ You can use it to see all your existing contacts and groups!</p>
 <h3 id="result-display-box"><a class="link" href="#result-display-box">5.4. Result Display Box</a></h3>
 <div class="paragraph">
 <p>This box shows you whether your command executed is successful or unsuccessful.
-If you encounter an error message here, look at our errors meaning section to see what is the cause of error.</p>
+If you encounter an error message here, look at our <a href="#faq"><strong>Frequently Asked Questions</strong></a> section to see what is the cause of error.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -501,7 +515,7 @@ The following sections will explain all the commands we have in TimeBook and wha
 <div class="sect3">
 <h4 id="home-code-home-code"><a class="link" href="#home-code-home-code">6.1.1. Home: <code>home</code></a></h4>
 <div class="paragraph">
-<p>You can return back to the home page to see your upcoming schedule.
+<p>You can return back to the home page to see your upcoming schedule for today.
 Format: <code>home</code></p>
 </div>
 </div>
@@ -929,11 +943,14 @@ You should see a window similar to the one below.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>n</code> to help you scroll the schedule view without touching your mouse!</p>
+<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>scroll</code> to help you scroll the schedule view without touching your mouse!</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>nw</code> see next week&#8217;s schedule!
-You may see this person&#8217;s schedule up to 4 weeks in advance.</p>
+<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>togglenext</code> see next week&#8217;s schedule! You may see this person&#8217;s schedule up to 4 weeks in advance.
+After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togglenext</code> command will reset the schedule view back to the first week&#8217;s schedule.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> Unfortunately, TimeBook does not let you see a schedule that has already passed.</p>
 </div>
 </div>
 </div>
@@ -1690,10 +1707,54 @@ To personalize TimeBook and make it yours, rename <code>Alice</code> by entering
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>n</code> to help you scroll the schedule view without touching your mouse!</p>
+<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>scroll</code> to help you scroll the schedule view without touching your mouse!</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>nw</code> to help you show next week&#8217;s schedule!</p>
+<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>togglenext</code> to help you show next week&#8217;s schedule!
+After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togglenext</code> command will reset the schedule view back to the first week&#8217;s schedule.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="look-at-some-members-code-lookat-code"><a class="link" href="#look-at-some-members-code-lookat-code">6.4.7. Look at some members: <code>lookat</code></a></h4>
+<div class="paragraph">
+<p>Suppose that all of your group members are extremely busy and the common free time is too short to do any productive work,
+you may use the <code>lookat</code> command to see if you can meet with some of your group members. You must be viewing a group&#8217;s
+schedule in order for this command to work.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lookat [n/Name]&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>lookat</code> command takes in any number of <code>n/Name</code> and highlights the group members according to name.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Suppose your group schedule looks like the one below.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Simply type <code>lookat n/Bobby n/Denise</code> if you are interested in inspecting both of their schedules!
+You should see that Bobby&#8217;s and Denise&#8217;s schedule become highlighted.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> Empty blocks represent the free time slots for the group members that you are looking at.
+The green blocks still represent the common free time slots for the entire group.</p>
 </div>
 </div>
 </div>
@@ -1733,19 +1794,28 @@ Opens up <a href="https://nusmods.com/modules/CS2101" class="bare">https://nusmo
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-vr-visual-representation-code-export-vr-code"><a class="link" href="#export-vr-visual-representation-code-export-vr-code">6.5.2. Export VR (Visual Representation): <code>export-vr</code></a></h4>
+<h4 id="export-vr-visual-representation-code-export-code"><a class="link" href="#export-vr-visual-representation-code-export-code">6.5.2. Export VR (Visual Representation): <code>export</code></a></h4>
 <div class="paragraph">
-<p>This feature is currently work in progress!</p>
+<p>Want to share a schedule with your friends?
+This command exports a visualisation representation of the schedule (timetable) of a group or person to a PNG file!<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="image"><img src="images/icons/warning.png" alt="warning"></span> Take note when exporting a person&#8217;s schedule, <strong>sensitive information</strong> are omitted. Only the person&#8217;s schedule is exported.</p>
 </div>
 <div class="paragraph">
-<p>Want to share your group&#8217;s schedule with your friends?
-This command exports a visualisation representation of currently showing schedule (timetable) of a group or person(s) to a PNG file!<br>
-Format:</p>
+<p><span class="image"><img src="images/icons/warning.png" alt="warning"></span> Take note that if you are exporting a group&#8217;s schedule, the <strong>entire</strong> group&#8217;s schedule will be exported. If you have used the <code>lookat</code> command, this command disregards it.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>export-vr</code><br></p>
+<p><code>export</code><br></p>
 </li>
 </ul>
 </div>
@@ -2077,7 +2147,76 @@ the command. We hope with this feature you will have a seamless and pleasant exp
 <p>&#160;<br></p>
 </div>
 </li>
+<li>
+<p><em>Help! I encountered an error!</em></p>
+<p>We understand that you may encounter a weird error message and are unsure of what it means so we prepared this section that describes the uncommon errors that you may see.</p>
+</li>
 </ol>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Error message</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">What it means:</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Invalid timing arguments</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Ensure that the time you provide as argument follow the format. Example: 11 Nov 2019, 0800 to 0900 is represented as 11112019-0800-0900</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Clash in events</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">There is already a pre-existing event that is happening at that time slot.</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Duplicate Mapping</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">This person is already in the group.</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Cannot find closest location</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">The closest common location cannot be determined because everyone is not in NUS.</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">XXX does not exist</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">This person or group does not exist in TimeBook. Some names are case-sensitive.</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">No schedule to XXX</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">This error occurs when you use <code>scroll</code> and <code>togglenext</code> command when there is no schedule shown.</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">No group schedule is shown</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">You&#8217;ll see this error when you are invoking the <code>look at</code> command when a group schedule is not displayed.</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Internal Error. Please try again later</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">You&#8217;ll see this error when our remote database cannot handle your requests.</p></th>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>+
+&#160;<br></p>
 </div>
 </div>
 </div>
@@ -2852,4 +2991,4 @@ e.g. <code>popup g/CS2103T i/2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:36:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:58:53 UTC</div></div></div></body></html>

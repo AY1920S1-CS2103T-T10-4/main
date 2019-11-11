@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Lim Yi Jie - Project Portfolio for TimeBook</title><link rel="stylesheet" href="./gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TimeBook</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T10-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"></div><div id="content"><div class="sect1">
+<h2 id="lim-yi-jie-project-portfolio-for-timebook"><a class="link" href="#lim-yi-jie-project-portfolio-for-timebook">Lim Yi Jie - Project Portfolio for TimeBook</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="about-the-project"><a class="link" href="#about-the-project">About the project</a></h3>
+<div class="paragraph">
+<p>Our team of 5 members were tasked to either enhance or morph an existing command line
+interface desktop address book application for our Software Engineering project. We chose
+to morph the original application into a group scheduling application called TimeBook.
+TimeBook aims to help busy NUS undergraduates keep track of the schedules of the user and his or her friends, and
+aid the user to arrange meetings with his or her friends.</p>
+</div>
+<div class="paragraph">
+<p>This is a screenshot of our application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/guiComponents.png" alt="guiComp" width="800" height="500">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 1. GUI for TimeBook</p>
+</div>
+<div class="paragraph">
+<p>My role was to design and write codes to display the combined schedules of NUS undergraduates from a group in the GUI
+elegantly and intuitively. In the following sections, my contribution and the relevant documentations that I have made
+will be elaborated in more detail.</p>
+</div>
+<div class="paragraph">
+<p>Note the common symbols and formatting used in this document.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><span class="image"><img src="../images/icons/important.png" alt="important"></span>&#8201;&#8212;&#8201;Important information.</p>
+</li>
+<li>
+<p><code>show</code>&#8201;&#8212;&#8201;Monospaced uncapitalised word indicates that this is a command that can be executed in the command line.</p>
+</li>
+<li>
+<p><code>ScheduleView</code>&#8201;&#8212;&#8201;Monospace capitalised indicates that this is a class or component in TimeBook.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="overview-of-contributions"><a class="link" href="#overview-of-contributions">Overview of contributions</a></h4>
+<div class="paragraph">
+<p>This section provides an overview of the code, documentation and administrative contributions to the team project</p>
+</div>
+<div class="sect4">
+<h5 id="main-feature-added-the-schedule-graphic-of-multiple-schedules-in-timebook"><a class="link" href="#main-feature-added-the-schedule-graphic-of-multiple-schedules-in-timebook">Main feature added: The schedule graphic of multiple schedules in TimeBook.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>What: Enables users to see a 7-day schedule graphic in the form of a time table in TimeBook. The <code>show</code> and <code>export</code> command does this.</p>
+</li>
+<li>
+<p>Justification: This is the key feature of TimeBook as it directly addresses the problem of having to tediously cross reference every separate schedule in order to identify free time slots for group meetings.</p>
+</li>
+<li>
+<p>Highlights: This feature that I have implemented fits well with the other features that my teammates developed. For example, one of my teammates developed
+an NUSMods parser that makes use of parsing NUSMods links into data that is then displayed using my feature. Implementing this feature is not easy as I had to first create an empty time table
+and figure out a way to add events (represented by blocks) into this empty time table without distorting the other contents in the time table. In addition, I had to design the graphic
+such that resizing the application or adjusting the screen resolution will not distort the time table. Finally, I had to test my feature using TestFX to make sure that the graphic rendered is correct.</p>
+</li>
+<li>
+<p>Credits: TestFX for providing a framework for automated GUI testing.</p>
+</li>
+</ul>
+</div>
+<div class="sect5">
+<h6 id="additional-features-that-enhances-the-schedule-graphic-shown-in-timebook"><a class="link" href="#additional-features-that-enhances-the-schedule-graphic-shown-in-timebook">Additional features that enhances the schedule graphic shown in TimeBook.</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Scroll the schedule graphic when it does not fit the user&#8217;s screen through the Command Line Interface (CLI). This is done through the <code>scroll</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Developed because our target user prefers using the CLI.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Toggle the schedule graphic to show the graphics for subsequent week&#8217;s schedule. This is done through the <code>togglenext</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enhanced usability of our application.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Look at only schedules belonging to some members of a group. This is done through the <code>lookat</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Implemented in order for users to filter and inspect the schedules of some group members in a particular group.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other contributions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Application</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Developed GUI color scheme and UI layout such as schedule window display, tabs panel and default home
+page to make significant cosmetic improvement to the application. <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/86">#86</a> <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/93">#93</a> <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/125">#125</a> <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/254">#254</a></p>
+</li>
+<li>
+<p>Wrote test cases for the application itself and its GUI that increased coverage by about 5%. <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/263">#263</a> <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/268">#268</a> <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/274">#274</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Helped to develop non-trivial UI components for my team members. <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/237">#237</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Made user guide and developer guide more reader-friendly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up TestFX for GUI Testing. <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/206">#206</a></p>
+</li>
+<li>
+<p>Created a google spreadsheet for the team to share bugs the they have found.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="contributions-to-user-guide"><a class="link" href="#contributions-to-user-guide">Contributions to User Guide</a></h4>
+<div class="paragraph">
+<p>Our team had to override the original addressbook documentation with the instructions for TimeBook. This section shows my contributions
+to the User Guide and my ability to convey instructions for the application to target users.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">Show group: <code>show</code></a></h4>
+<div class="paragraph">
+<p>Want to see your group&#8217;s schedules to plan for your next group meeting? The <code>show</code> command is what you need to see
+the schedules of your group members! You can view a group&#8217;s schedule up to 4 weeks in advance.<br>
+Format: <code>show g/GROUP_NAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Shows the description, members and aggregated schedules for this group.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Let&#8217;s say you want to organise a group meeting for a group named CS2103. Simply enter <code>show g/CS2103</code> in the command line as shown below<br></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/showgroupcommand.png" alt="showgroupcommand">
+</div>
+<div class="title">Figure 1. Command box</div>
+</div>
+</li>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you should see the details of this group in a similar window below.</p>
+<div id="showgroupresult" class="imageblock">
+<div class="content">
+<img src="../images/showgroupresult.png" alt="sgr" width="900" height="600">
+</div>
+<div class="title">Figure 2. Result after executing <code>show g/CS2103</code></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>scroll</code> to help you scroll the schedule view without touching your mouse!</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>togglenext</code> see the schedule for next week! You may see this schedule up to 4 weeks in advance.
+After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togglenext</code> command will start back on the first week&#8217;s schedule.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/icons/important.png" alt="important"></span> Unfortunately, TimeBook does not let you see a schedule that has already passed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="look-at-some-members-code-lookat-code"><a class="link" href="#look-at-some-members-code-lookat-code">Look at some members: <code>lookat</code></a></h4>
+<div class="paragraph">
+<p>Suppose that all of your group members are extremely busy and the common free time is too short to do any productive work,
+you may use the <code>lookat</code> command to see if you can meet with some of your group members. You <strong>must</strong> be viewing a group&#8217;s
+schedule in order for this command to work.</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>lookat [n/Name]&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>lookat</code> command takes in any number of <code>n/Name</code> arguments and highlights the group members according to name.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s use the same schedule exactly like the one shown <a href="#showgroupresult">above</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type <code>lookat n/Bobby n/Denise</code> if you are interested to inspect both Bobby&#8217;s and Denise&#8217;s schedules!
+You should see that both of these schedules become highlighted.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/lookatgroupresult.png" alt="lagr" width="800" height="500">
+</div>
+<div class="title">Figure 3. Zoom in of Bobby and Denise&#8217;s schedule</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="image"><img src="../images/icons/important.png" alt="important"></span> <strong>Empty blocks</strong> represent the free time slots for the group members that you are looking at.
+The green blocks still represent the common free time slots for the entire group!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="contributions-to-developer-guide"><a class="link" href="#contributions-to-developer-guide">Contributions to Developer Guide</a></h4>
+<div class="paragraph">
+<p>This section shows my contributions to the developer guide and my ability to convey technical information for my feature in the application
+that my team has developed.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="visual-representation-of-individual-s-or-group-s-schedule-feature"><a class="link" href="#visual-representation-of-individual-s-or-group-s-schedule-feature">Visual Representation of individual&#8217;s or group&#8217;s schedule feature</a></h3>
+<div class="paragraph">
+<p>The visual representation refers to the graphics you see when you view a group or an individual&#8217;s schedule in TimeBook. We will first describe how the graphics are created.
+All of these graphics are created in the <code>ScheduleView</code> class. The object oriented domain model below illustrates the problem domain of the <code>ScheduleView</code> class in TimeBook.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/yijie/ScheduleViewDomainModel.png" alt="svdm" width="500" height="500">
+</div>
+<div class="title">Figure 4. Object oriented domain model for <code>ScheduleView</code>.</div>
+</div>
+<div class="paragraph">
+<p>The <code>ScheduleView</code> class in TimeBook follows the above model closely. Let&#8217;s walk you through how the graphics are created.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Following the model, we have a class <code>PersonTimeslot</code> that behaves like an event time slot. Each <code>PersonTimeslot</code> object thus have a date, a start time and an end time.</p>
+</li>
+<li>
+<p>Separate the given <code>PersonTimeslot</code> objects into lists by dates and sort the time slots according to start times. Each list acts as a <code>Schedule</code> for a particular date.</p>
+</li>
+<li>
+<p>For each date, create a <strong>VBox</strong> (a container to to stack <code>Block</code> objects vertically). Eventually, each <strong>VBox</strong> will contain all the time slot blocks for the a particular date.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Condition: If the first <code>PersonTimeslot</code> in the list starts after 8am (TimeBook&#8217;s schedule start time), stack an empty <code>Block</code> in the <strong>VBox</strong> with the same height as the
+duration between 8am and the start time of this <code>PersonTimeslot</code> object to represent the initial offset region.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Loop through each <code>PersonTimeslot</code> object in the list, stack a coloured <code>Block</code> in the same <strong>VBox</strong>. Each of the <code>Block</code> should have the same height as the duration between the start
+and end time of its corresponding <code>PersonTimeslot</code> object.</p>
+</li>
+<li>
+<p>Stack in empty <code>Block</code> to fill the gaps between the end time of the current <code>PersonTimeslot</code> and the start time of the next <code>PersonTimeslot</code> in the list.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now that you have seen how the graphics for TimeBook are created, the next step would be to control what graphics to show. As such,
+ we made use of an abstract class <code>ScheduleViewManager</code> to control the creation of <code>ScheduleView</code> objects.
+The two classes that extend from <code>ScheduleViewManager</code> are <code>IndividualScheduleViewManager</code> and <code>GroupScheduleViewManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following methods are implemented in <code>ScheduleViewManager</code> to control the schedules displayed in the window.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleViewManager#getInstanceOf(ScheduleDisplay)</code>&#8201;&#8212;&#8201;Instantiates the <code>ScheduleViewManager</code> with a given <code>ScheduleDisplay</code> object. The <code>ScheduleDisplay</code> object contains
+all the information needed to generate a schedule view.</p>
+</li>
+<li>
+<p><code>ScheduleViewManager#scrollNext()</code>&#8201;&#8212;&#8201;Scrolls the schedule shown down. Once it reaches the bottom, it will start back at the top.</p>
+</li>
+<li>
+<p><code>ScheduleViewManager#toggleNext()</code>&#8201;&#8212;&#8201;Modifies the schedule shown to show the next week&#8217;s schedule. The schedule shown can at most show up to 4 weeks in advance. Once the fourth week is reached, it will start back at the first week.</p>
+</li>
+<li>
+<p><code>ScheduleViewManager#filterPerson(List&lt;Name&gt;)</code> Filters the schedule shown to the given list of names. This method only works when the schedule shown belongs to group.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A sample usage of the ScheduleViewManager is described below.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user wants to view a group called "Three musketeers" consisting of 3 members, Alice, Ben and Carl in TimeBook and executes the command
+<code>show g/Three musketeers</code> in the command line. The state of <code>ScheduleViewManager</code> will be initialised to show only the group&#8217;s schedule for the first week as shown in the object diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/yijie/gsvm_state1.png" alt="gsvm1" width="800" height="500">
+</div>
+<div class="title">Figure 5. Initial state of GroupScheduleViewManager after the <code>show</code> command is executed.</div>
+</div>
+<div class="paragraph">
+<p>Step 2. Suppose the user thinks that arranging a group meeting on the first week is too rushed, so he executes the <code>togglenext</code> command to view the group&#8217;s schedule for the next week.
+The state of <code>ScheduleViewManager</code> is then modified to show the second week of the group&#8217;s schedule as shown in the diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/yijie/gsvm_state2.png" alt="gsvm1" width="800" height="500">
+</div>
+<div class="title">Figure 6. State of GroupScheduleViewManager after the <code>togglenext</code> command is executed.</div>
+</div>
+<div class="paragraph">
+<p>Step 3. Suppose the user now wants to inspect some of his group members' schedules, and he executes the <code>lookat</code> command to inspect Alice&#8217;s and Carl&#8217;s schedules.
+The state of <code>ScheduleViewManager</code> is once again modified to only show the specified group members' schedules in the object diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/yijie/gsvm_state3.png" alt="gsvm1" width="800" height="500">
+</div>
+<div class="title">Figure 7. State of the GroupScheduleViewManager after the <code>lookat</code> command is executed.</div>
+</div>
+<div class="paragraph">
+<p>Now that we have the full picture of how the graphics are created and controlled, we are ready to show how the user obtain a visual representation of a person or group&#8217;s schedule using the <code>show</code> command.
+The following sequence diagram shows the sequence of events that lead to changes in the UI when an example of the <code>show</code> command is executed for a group called <strong>CS2103</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/yijie/showCommandSequenceDiagram.png" alt="showCommandSequenceDiagram">
+</div>
+<div class="title">Figure 8. Sequence diagram for the <code>show</code> command.</div>
+</div>
+<div class="paragraph">
+<p>In order to make the diagram look less messy, a reference diagram shown below is created to show what happens in the <strong>get schedule view</strong> frame.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/yijie/showCommandSdFrame.png" alt="scsdf" width="600" height="600">
+</div>
+<div class="title">Figure 9. Reference frame that was omitted from the sequence diagram.</div>
+</div>
+<div class="paragraph">
+<p>Details of how the graphics are created within the <code>ScheduleView</code> have been described above and thus, are omitted in the diagram.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Amount of detail present in schedule view.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Enable users to see schedules up to 1 week in advance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Easy to implement.</p>
+<p class="tableblock">2. Less likely for bugs when invoking other commands such as select and popup.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Users may experience difficulty to plan meetings 2 or more weeks in advance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Enable users to see schedules up to 4 weeks in advance. <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Most users should be able to plan most of their meetings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Slightly more challenging to implement.</p>
+<p class="tableblock">2. Slower as each request will take 4 times as long.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Enable users to see schedules up to an indefinite weeks in advance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Every users should be able to plan their meetings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Slow requests as every query will regenerate a new set of graphics.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">We chose to allow users to see schedules up to 4 weeks in advance mainly due to usability. We recognise that most group meetings do not happen
+within a short period of 1 week as it may seem rushed for everyone in a group. We also found that it is unnecessary to enable users to see their schedules
+after the 1 month mark since it is most likely to not have been updated yet. Thus, showing schedules for up to 4 weeks should be sufficient for our design.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Viewing some group member&#8217;s schedule in a group using the <code>lookat</code> command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Filter, but do not recalculate the free time slot to the filtered group members from the command. <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Easier to implement..</p>
+<p class="tableblock">2. User can still keep track of the entire group&#8217;s schedule.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Users may be misled to think that the <code>lookat</code> command is not working as it does not update the displayed free time slots.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. filters, recalculate and display the common free time slot for the filtered members.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. There will not be any misleading empty blocks in a group&#8217;s schedule.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Difficult to implement.</p>
+<p class="tableblock">2. Each query will take a lot longer to process the locations data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">We understand that users may want to inspect the schedules of some of his or her group members while still keeping track
+of the entire group&#8217;s common free time slots. This would be useful for users who want to organise partial group meetings
+with some of his or her group members before or after the official group meeting (where everyone attends).
+Furthermore, filtering a group member can easily be done by just creating a new group and adding group members to it.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:07:05 UTC</div></div></div></body></html>

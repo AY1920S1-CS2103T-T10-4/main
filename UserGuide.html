@@ -77,7 +77,7 @@ Keep a look out for more cool and exciting features coming soon!</p>
 <li><a href="#advanced-features">6.5. Advanced Features</a>
 <ul class="sectlevel3">
 <li><a href="#show-module-code-showmod-code">6.5.1. Show Module: <code>showmod</code></a></li>
-<li><a href="#export-vr-visual-representation-code-export-code">6.5.2. Export VR (Visual Representation): <code>export</code></a></li>
+<li><a href="#export-code-export-code">6.5.2. Export: <code>export</code></a></li>
 <li><a href="#select-time-slot-code-select-code">6.5.3. Select Time Slot: <code>select</code></a></li>
 </ul>
 </li>
@@ -236,10 +236,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create.
+<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create. Note that you, as a user, are not present in TimeBook&#8217;s contacts list!
 <br>
 &#160;<br>
-To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code> command</a>.</p>
+To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code></a> command.</p>
 </div>
 </td>
 </tr>
@@ -928,6 +928,7 @@ Format: <code>show n/NAME</code></p>
 <div class="content">
 <img src="images/showpersoncommand.png" alt="showpersoncommand">
 </div>
+<div class="title">Figure 1. Command box</div>
 </div>
 </li>
 <li>
@@ -937,6 +938,7 @@ You should see a window similar to the one below.</p>
 <div class="content">
 <img src="images/showpersonresult.png" alt="showpersonresult">
 </div>
+<div class="title">Figure 2. Result after executing the <code>show</code> command for Bobby</div>
 </div>
 </li>
 </ol>
@@ -947,15 +949,14 @@ You should see a window similar to the one below.</p>
 <p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>scroll</code> to help you scroll the schedule view without touching your mouse!</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>togglenext</code> see next week&#8217;s schedule! You may see this person&#8217;s schedule up to 4 weeks in advance.
-After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togglenext</code> command will reset the schedule view back to the first week&#8217;s schedule.</p>
+<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>togglenext</code> see the schedule for next week! You may see this schedule up to 4 weeks in advance.
+After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togglenext</code> command will start back on the first week&#8217;s schedule.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/icons/important.png" alt="important"></span> Unfortunately, TimeBook does not let you see a schedule that has already passed.</p>
 </div>
 </div>
 </div>
-<hr>
 </div>
 </div>
 <div class="sect2">
@@ -1660,8 +1661,8 @@ Your contacts still exists in your persons tab!</p>
 <div class="sect3">
 <h4 id="show-group-code-show-code"><a class="link" href="#show-group-code-show-code">6.4.6. Show group: <code>show</code></a></h4>
 <div class="paragraph">
-<p>Want to schedule your next group meeting?
-You can view a group&#8217;s schedule up to 4 weeks in advance.<br>
+<p>Want to see your group&#8217;s schedules to plan for your next group meeting? The <code>show</code> command is what you need to see
+the schedules of your group members! You can view a group&#8217;s schedule up to 4 weeks in advance.<br>
 Format: <code>show g/GROUP_NAME</code></p>
 </div>
 <div class="sidebarblock">
@@ -1683,10 +1684,10 @@ Format: <code>show g/GROUP_NAME</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create.
+<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create. Note that you, as a user, are not present in TimeBook&#8217;s contacts list!
 <br>
 &#160;<br>
-To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code> command</a>.</p>
+To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code></a> command.</p>
 </div>
 </td>
 </tr>
@@ -1698,19 +1699,21 @@ To personalize TimeBook and make it yours, rename <code>Alice</code> by entering
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Type <code>show g/CS2103</code> in the command line as shown below<br></p>
+<p>Let&#8217;s say you want to organise a group meeting for a group named CS2103. Simply enter <code>show g/CS2103</code> in the command line as shown below<br></p>
 <div class="imageblock">
 <div class="content">
 <img src="images/showgroupcommand.png" alt="showgroupcommand">
 </div>
+<div class="title">Figure 3. Command box</div>
 </div>
 </li>
 <li>
 <p>Hit the <kbd>Enter</kbd> key and you should see the details of this group in a similar window below.</p>
-<div class="imageblock">
+<div id="showgroupresult" class="imageblock">
 <div class="content">
-<img src="images/showgroupresult.png" alt="showgroupresult">
+<img src="images/showgroupresult.png" alt="sgr" width="900" height="600">
 </div>
+<div class="title">Figure 4. Result after executing <code>show g/CS2103</code></div>
 </div>
 </li>
 </ol>
@@ -1721,8 +1724,11 @@ To personalize TimeBook and make it yours, rename <code>Alice</code> by entering
 <p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>scroll</code> to help you scroll the schedule view without touching your mouse!</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>togglenext</code> to help you show next week&#8217;s schedule!
-After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togglenext</code> command will reset the schedule view back to the first week&#8217;s schedule.</p>
+<p><span class="image"><img src="images/icons/lightbulb.png" alt="lightbulb"></span> You can use the command <code>togglenext</code> see the schedule for next week! You may see this schedule up to 4 weeks in advance.
+After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togglenext</code> command will start back on the first week&#8217;s schedule.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> Unfortunately, TimeBook does not let you see a schedule that has already passed.</p>
 </div>
 </div>
 </div>
@@ -1731,7 +1737,7 @@ After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togg
 <h4 id="look-at-some-members-code-lookat-code"><a class="link" href="#look-at-some-members-code-lookat-code">6.4.7. Look at some members: <code>lookat</code></a></h4>
 <div class="paragraph">
 <p>Suppose that all of your group members are extremely busy and the common free time is too short to do any productive work,
-you may use the <code>lookat</code> command to see if you can meet with some of your group members. You must be viewing a group&#8217;s
+you may use the <code>lookat</code> command to see if you can meet with some of your group members. You <strong>must</strong> be viewing a group&#8217;s
 schedule in order for this command to work.</p>
 </div>
 <div class="paragraph">
@@ -1745,27 +1751,33 @@ schedule in order for this command to work.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>lookat</code> command takes in any number of <code>n/Name</code> and highlights the group members according to name.</p>
+<p>The <code>lookat</code> command takes in any number of <code>n/Name</code> arguments and highlights the group members according to name.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>Suppose your group schedule looks like the one below.</p>
+<p>Let&#8217;s use the same schedule exactly like the one shown <a href="#showgroupresult">above</a>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Simply type <code>lookat n/Bobby n/Denise</code> if you are interested in inspecting both of their schedules!
-You should see that Bobby&#8217;s and Denise&#8217;s schedule become highlighted.</p>
+<p>Type <code>lookat n/Bobby n/Denise</code> if you are interested to inspect both Bobby&#8217;s and Denise&#8217;s schedules!
+You should see that both of these schedules become highlighted.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lookatgroupresult.png" alt="lagr" width="800" height="500">
+</div>
+<div class="title">Figure 5. Zoom in of Bobby and Denise&#8217;s schedule</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><span class="image"><img src="images/icons/important.png" alt="important"></span> Empty blocks represent the free time slots for the group members that you are looking at.
-The green blocks still represent the common free time slots for the entire group.</p>
+<p><span class="image"><img src="images/icons/important.png" alt="important"></span> <strong>Empty blocks</strong> represent the free time slots for the group members that you are looking at.
+The green blocks still represent the common free time slots for the entire group!</p>
 </div>
 </div>
 </div>
@@ -1809,7 +1821,7 @@ Opens up <a href="https://nusmods.com/modules/CS2101" class="bare">https://nusmo
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-vr-visual-representation-code-export-code"><a class="link" href="#export-vr-visual-representation-code-export-code">6.5.2. Export VR (Visual Representation): <code>export</code></a></h4>
+<h4 id="export-code-export-code"><a class="link" href="#export-code-export-code">6.5.2. Export: <code>export</code></a></h4>
 <div class="paragraph">
 <p>Want to share a schedule with your friends?
 This command exports a visualisation representation of the schedule (timetable) of a group or person to a PNG file!<br></p>
@@ -1830,7 +1842,7 @@ This command exports a visualisation representation of the schedule (timetable) 
 <div class="ulist">
 <ul>
 <li>
-<p><code>export</code></p>
+<p>Simply enter the <code>export</code> command to export the currently shown schedule in TimeBook!<br></p>
 </li>
 </ul>
 </div>
@@ -2112,7 +2124,7 @@ to conduct your project meetings at. The image below is an example of the popup.
 <div class="content">
 <img src="images/gmaps/SuccessfulPopup.png" alt="SuccessfulPopup">
 </div>
-<div class="title">Figure 1. An example of a popup when <code>selectfreetime</code> is executed</div>
+<div class="title">Figure 6. An example of a popup when <code>selectfreetime</code> is executed</div>
 </div>
 <div class="paragraph">
 <p>command: <code>selectfreetime [week/WEEK_NUMBER] i/FREETIMESLOTID</code></p>
@@ -2362,10 +2374,10 @@ There is no need to save manually.</p>
 <ol>
 <li>
 <p><em>Who is Alice? / How do I store my details and schedule?</em></p>
-<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create.
+<p>When you first start using TimeBook, it will create a hidden person called <code>Alice</code> to store your details and schedule. This profile will be a member of every group you create. Note that you, as a user, are not present in TimeBook&#8217;s contacts list!
 <br>
 &#160;<br>
-To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code> command</a>.</p>
+To personalize TimeBook and make it yours, rename <code>Alice</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code></a> command.</p>
 <div class="paragraph">
 <p>&#160;<br></p>
 </div>
@@ -2455,8 +2467,7 @@ the command. We hope with this feature you will have a seamless and pleasant exp
 </tbody>
 </table>
 <div class="paragraph">
-<p>+
-&#160;<br></p>
+<p>&#160;<br></p>
 </div>
 </div>
 </div>
@@ -3231,4 +3242,4 @@ e.g. <code>selectfreetime i/1</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:52:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:07:05 UTC</div></div></div></body></html>

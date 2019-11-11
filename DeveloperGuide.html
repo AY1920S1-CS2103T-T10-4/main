@@ -29,7 +29,7 @@
 <li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">3.5. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
-<li><a href="#visual-representation-of-individual-s-or-group-s-schedule">3.7. Visual Representation of individual&#8217;s or group&#8217;s schedule</a></li>
+<li><a href="#visual-representation-of-individual-s-or-group-s-schedule-feature">3.7. Visual Representation of individual&#8217;s or group&#8217;s schedule feature</a></li>
 <li><a href="#Implementation-ClosestLocation">3.8. Closest Common Location</a></li>
 <li><a href="#add-nusmods-to-schedule">3.9. Add NUSMods To Schedule</a></li>
 <li><a href="#external-apis">3.10. External APIs</a></li>
@@ -176,6 +176,10 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<div class="paragraph">
+<p>This section describes the various UI components that make up TimeBook&#8217;s Graphical User Interface. The diagram below shows the
+full structure of the UI component.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -186,7 +190,38 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>In general, TimeBook&#8217;s UI consists of a <code>MainWindow</code> that is made up of the following main parts:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>CommandBox</code>&#8201;&#8212;&#8201;The box that users would key in commands to execute.</p>
+</li>
+<li>
+<p><code>ResultDisplay</code>&#8201;&#8212;&#8201;The box that would show response to the user after every command has been executed.</p>
+</li>
+<li>
+<p><code>TabPanel</code>&#8201;&#8212;&#8201;The tabs at the left side of the window. It displays the list of groups or persons that have been added to TimeBook.</p>
+</li>
+<li>
+<p><code>ScheduleView</code>&#8201;&#8212;&#8201;The display that contains the graphics of schedules belonging to individuals or groups.</p>
+</li>
+<li>
+<p><code>GroupInformationDisplay</code>&#8201;&#8212;&#8201;The display that contains in-depth information about the group.</p>
+</li>
+<li>
+<p><code>PersonInformationDisplay</code>&#8201;&#8212;&#8201;The display that contains in-depth information about the person.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Additionally, TimeBook also has a separate window for popups when users executes the <code>select</code> or <code>selectfreetime</code> commands.
+The major ui components for this separate window are <code>LocationView</code> and <code>TimeslotView</code>.</p>
+</div>
+<div class="paragraph">
+<p>All these components, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class. Note that not all of these ui components are shown
+at any one point in time. For example, the TabPanel gets displaced with either GroupInformationDisplay or PersonInformationDisplay
+when a user executes commands such as <code>addgroup</code> or <code>addevent</code>. In a nut shell, the MainWindow will show different ui components depending on the command executed.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -1222,175 +1257,204 @@ So for the above example, the command entered is <code>findperson n/</code> with
 </div>
 </div>
 <div class="sect2">
-<h3 id="visual-representation-of-individual-s-or-group-s-schedule"><a class="link" href="#visual-representation-of-individual-s-or-group-s-schedule">3.7. Visual Representation of individual&#8217;s or group&#8217;s schedule</a></h3>
+<h3 id="visual-representation-of-individual-s-or-group-s-schedule-feature"><a class="link" href="#visual-representation-of-individual-s-or-group-s-schedule-feature">3.7. Visual Representation of individual&#8217;s or group&#8217;s schedule feature</a></h3>
 <div class="paragraph">
-<p>A separate class <code>ScheduleView</code> will be created to facilitate the creation of the schedule view belonging to individuals and groups.
-Depending on the constructor used in this class, different types of schedules will be shown. There are two types of constructors:
-* <code>ScheduleView(WeekSchedule personSchedule)</code> This constructor is used to construct a schedule view of an individual.
-* <code>ScheduleView(List&lt;WeekSchedule&gt; personSchedules, List&lt;String&gt; colors, WeekSchedule freeSchedule)</code> This constructor is used to construct a schedule view of a group</p>
-</div>
-<div class="paragraph">
-<p>These methods are used in the MainWindow class, where MainWindow will display instances of ScheduleView when various commands
-are performed.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example of how the Nodes (containers) in MainWindow changes with respect to the show command.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. After the user launches the application, the MainWindow will consist of 4 main Nodes: <code>CommandBox</code>, <code>TabsPanel</code>, <code>ResultDisplay</code> and <code>DefaultDetailWindow</code>.</p>
+<p>The visual representation refers to the graphics you see when you view a group or an individual&#8217;s schedule in TimeBook. We will first describe how the graphics are created.
+All of these graphics are created in the <code>ScheduleView</code> class. The object oriented domain model below illustrates the problem domain of the <code>ScheduleView</code> class in TimeBook.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/VisualRepresentationCD0.png" alt="VisualRepresentationCD0">
+<img src="images/yijie/ScheduleViewDomainModel.png" alt="svdm" width="500" height="500">
 </div>
-</div>
-<div class="paragraph">
-<p>Step 2a. Suppose the user has a friend named Ben in the application. The user executes <code>show n/ Ben</code> in order to view Ben&#8217;s details
-and his schedule. The state of MainWindow will now have another set of 4 Nodes: <code>CommandBox</code>, <code>ResultDisplay</code>, <code>ScheduleView</code> and <code>PersonDetailCard</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/VisualRepresentationCD1.png" alt="VisualRepresentationCD1">
-</div>
+<div class="title">Figure 14. Object oriented domain model for <code>ScheduleView</code>.</div>
 </div>
 <div class="paragraph">
-<p>Step 2b. Alternatively, suppose the user has a group named CS2103T team project. The user executes <code>show g/ CS2103T team project</code> in
-order to view the group&#8217;s schedule and information. The state of MainWindow will now have a different set of 4 Nodes: <code>CommandBox</code>, <code>ScheduleView</code>,
-<code>ResultDisplay</code> and <code>GroupInformation</code></p>
+<p>The <code>ScheduleView</code> class in TimeBook follows the above model closely. Let&#8217;s walk you through how the graphics are created.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/VisualRepresentationCD2.png" alt="VisualRepresentationCD2">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Following the model, we have a class <code>PersonTimeslot</code> that behaves like an event time slot. Each <code>PersonTimeslot</code> object thus have a date, a start time and an end time.</p>
+</li>
+<li>
+<p>Separate the given <code>PersonTimeslot</code> objects into lists by dates and sort the time slots according to start times. Each list acts as a <code>Schedule</code> for a particular date.</p>
+</li>
+<li>
+<p>For each date, create a <strong>VBox</strong> (a container to to stack <code>Block</code> objects vertically). Eventually, each <strong>VBox</strong> will contain all the time slot blocks for the a particular date.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Condition: If the first <code>PersonTimeslot</code> in the list starts after 8am (TimeBook&#8217;s schedule start time), stack an empty <code>Block</code> in the <strong>VBox</strong> with the same height as the
+duration between 8am and the start time of this <code>PersonTimeslot</code> object to represent the initial offset region.</p>
+</li>
+</ol>
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the user keys in a name or group that is not present in the application, a CommandException will be thrown to indicate
-that such name or group is not found in the application.
-</td>
-</tr>
-</table>
+</li>
+<li>
+<p>Loop through each <code>PersonTimeslot</code> object in the list, stack a coloured <code>Block</code> in the same <strong>VBox</strong>. Each of the <code>Block</code> should have the same height as the duration between the start
+and end time of its corresponding <code>PersonTimeslot</code> object.</p>
+</li>
+<li>
+<p>Stack in empty <code>Block</code> to fill the gaps between the end time of the current <code>PersonTimeslot</code> and the start time of the next <code>PersonTimeslot</code> in the list.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the show command eventually lead to changes in the UI to show the visual representation
-of an individual&#8217;s or group&#8217;s schedule.</p>
+<p>Now that you have seen how the graphics for TimeBook are created, the next step would be to control what graphics to show. As such,
+ we made use of an abstract class <code>ScheduleViewManager</code> to control the creation of <code>ScheduleView</code> objects.
+The two classes that extend from <code>ScheduleViewManager</code> are <code>IndividualScheduleViewManager</code> and <code>GroupScheduleViewManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following methods are implemented in <code>ScheduleViewManager</code> to control the schedules displayed in the window.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleViewManager#getInstanceOf(ScheduleDisplay)</code>&#8201;&#8212;&#8201;Instantiates the <code>ScheduleViewManager</code> with a given <code>ScheduleDisplay</code> object. The <code>ScheduleDisplay</code> object contains
+all the information needed to generate a schedule view.</p>
+</li>
+<li>
+<p><code>ScheduleViewManager#scrollNext()</code>&#8201;&#8212;&#8201;Scrolls the schedule shown down. Once it reaches the bottom, it will start back at the top.</p>
+</li>
+<li>
+<p><code>ScheduleViewManager#toggleNext()</code>&#8201;&#8212;&#8201;Modifies the schedule shown to show the next week&#8217;s schedule. The schedule shown can at most show up to 4 weeks in advance. Once the fourth week is reached, it will start back at the first week.</p>
+</li>
+<li>
+<p><code>ScheduleViewManager#filterPerson(List&lt;Name&gt;)</code> Filters the schedule shown to the given list of names. This method only works when the schedule shown belongs to group.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A sample usage of the ScheduleViewManager is described below.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user wants to view a group called "Three musketeers" consisting of 3 members, Alice, Ben and Carl in TimeBook and executes the command
+<code>show g/Three musketeers</code> in the command line. The state of <code>ScheduleViewManager</code> will be initialised to show only the group&#8217;s schedule for the first week as shown in the object diagram below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/VisualRepresentationSD0.png" alt="VisualRepresentationSD0">
+<img src="images/yijie/gsvm_state1.png" alt="gsvm1" width="800" height="500">
 </div>
+<div class="title">Figure 15. Initial state of GroupScheduleViewManager after the <code>show</code> command is executed.</div>
+</div>
+<div class="paragraph">
+<p>Step 2. Suppose the user thinks that arranging a group meeting on the first week is too rushed, so he executes the <code>togglenext</code> command to view the group&#8217;s schedule for the next week.
+The state of <code>ScheduleViewManager</code> is then modified to show the second week of the group&#8217;s schedule as shown in the diagram below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/VisualRepresentationSD1.png" alt="VisualRepresentationSD1">
+<img src="images/yijie/gsvm_state2.png" alt="gsvm1" width="800" height="500">
 </div>
+<div class="title">Figure 16. State of GroupScheduleViewManager after the <code>togglenext</code> command is executed.</div>
+</div>
+<div class="paragraph">
+<p>Step 3. Suppose the user now wants to inspect some of his group members' schedules, and he executes the <code>lookat</code> command to inspect Alice&#8217;s and Carl&#8217;s schedules.
+The state of <code>ScheduleViewManager</code> is once again modified to only show the specified group members' schedules in the object diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/yijie/gsvm_state3.png" alt="gsvm1" width="800" height="500">
+</div>
+<div class="title">Figure 17. State of the GroupScheduleViewManager after the <code>lookat</code> command is executed.</div>
+</div>
+<div class="paragraph">
+<p>Now that we have the full picture of how the graphics are created and controlled, we are ready to show how the user obtain a visual representation of a person or group&#8217;s schedule using the <code>show</code> command.
+The following sequence diagram shows the sequence of events that lead to changes in the UI when an example of the <code>show</code> command is executed for a group called <strong>CS2103</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/yijie/showCommandSequenceDiagram.png" alt="showCommandSequenceDiagram">
+</div>
+<div class="title">Figure 18. Sequence diagram for the <code>show</code> command.</div>
+</div>
+<div class="paragraph">
+<p>In order to make the diagram look less messy, a reference diagram shown below is created to show what happens in the <strong>get schedule view</strong> frame.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/yijie/showCommandSdFrame.png" alt="scsdf" width="600" height="600">
+</div>
+<div class="title">Figure 19. Reference frame that was omitted from the sequence diagram.</div>
+</div>
+<div class="paragraph">
+<p>Details of how the graphics are created within the <code>ScheduleView</code> have been described above and thus, are omitted in the diagram.</p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.7.1. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-user-experience-of-the-schedule-view"><a class="link" href="#aspect-user-experience-of-the-schedule-view">Aspect: User experience of the schedule view.</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a separate container for headers and schedule contents (table cells &amp; blocks).</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can read the schedule in our application a lot more easier.</p>
-</li>
-<li>
-<p>Cons: Duplicated codes in the ScheduleView class to generate the separate containers.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> A single container to contain the schedule view.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement, lesser lines of codes.</p>
-</li>
-<li>
-<p>Cons: UX will decrease due to increase difficulty to read schedules in the application.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-amount-of-detail-present-in-schedule-view"><a class="link" href="#aspect-amount-of-detail-present-in-schedule-view">Aspect: Amount of detail present in schedule view.</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Enable users to see schedules up to 1 week in advance.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: Users may experience difficulty to plan meetings 2 or more weeks in advance.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Enable users to see schedules up to 4 weeks in advance.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Most users will be able to plan most of their meetings. (Up to 1 month in advance).</p>
-</li>
-<li>
-<p>Cons: Slightly more challenging to implement in order to make sure that the schedule view is not cluttered.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-color-schemes-for-time-slot-blocks-in-schedule-view"><a class="link" href="#aspect-color-schemes-for-time-slot-blocks-in-schedule-view">Aspect: Color schemes for time slot blocks in schedule view.</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Select 10 good contrast colours to dark theme for schedules.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: More aesthetically pleasing to the user.</p>
-</li>
-<li>
-<p>Cons: Groups that have more than 10 members will have the same colours for their schedule.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Randomly generate colours depending on group size.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: All members in a group will very likely have different colours to indicate their schedule.</p>
-</li>
-<li>
-<p>Cons: Schedules with darker colours cannot be seen from a dark theme UI.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Amount of detail present in schedule view.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Enable users to see schedules up to 1 week in advance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Easy to implement.</p>
+<p class="tableblock">2. Less likely for bugs when invoking other commands such as select and popup.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Users may experience difficulty to plan meetings 2 or more weeks in advance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Enable users to see schedules up to 4 weeks in advance. <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Most users should be able to plan most of their meetings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Slightly more challenging to implement.</p>
+<p class="tableblock">2. Slower as each request will take 4 times as long.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Enable users to see schedules up to an indefinite weeks in advance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Every users should be able to plan their meetings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Slow requests as every query will regenerate a new set of graphics.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">We chose to allow users to see schedules up to 4 weeks in advance mainly due to usability. We recognise that most group meetings do not happen
+within a short period of 1 week as it may seem rushed for everyone in a group. We also found that it is unnecessary to enable users to see their schedules
+after the 1 month mark since it is most likely to not have been updated yet. Thus, showing schedules for up to 4 weeks should be sufficient for our design.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Viewing some group member&#8217;s schedule in a group using the <code>lookat</code> command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Filter, but do not recalculate the free time slot to the filtered group members from the command. <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Easier to implement..</p>
+<p class="tableblock">2. User can still keep track of the entire group&#8217;s schedule.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Users may be misled to think that the <code>lookat</code> command is not working as it does not update the displayed free time slots.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. filters, recalculate and display the common free time slot for the filtered members.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. There will not be any misleading empty blocks in a group&#8217;s schedule.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Difficult to implement.</p>
+<p class="tableblock">2. Each query will take a lot longer to process the locations data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">We understand that users may want to inspect the schedules of some of his or her group members while still keeping track
+of the entire group&#8217;s common free time slots. This would be useful for users who want to organise partial group meetings
+with some of his or her group members before or after the official group meeting (where everyone attends).
+Furthermore, filtering a group member can easily be done by just creating a new group and adding group members to it.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1403,7 +1467,7 @@ We define this location as Closest Common Location. Below is an example of this 
 <div class="content">
 <img src="images/gmaps/SuccessfulPopup.png" alt="Popup">
 </div>
-<div class="title">Figure 14. Popup for the closest common location.</div>
+<div class="title">Figure 20. Popup for the closest common location.</div>
 </div>
 <div class="sect3">
 <h4 id="definition"><a class="link" href="#definition">3.8.1. Definition</a></h4>
@@ -1457,7 +1521,7 @@ to compute the closest common location for <code>l2,ln-2 and ln1</code>.</p>
 <div class="content">
 <img src="images/gmaps/Algorithm.png" alt="Algorithm">
 </div>
-<div class="title">Figure 15. Example of how the algorithm is used. The closest common location for this instance is <code>ln-2</code>.</div>
+<div class="title">Figure 21. Example of how the algorithm is used. The closest common location for this instance is <code>ln-2</code>.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1525,7 +1589,7 @@ has a limit of 100 elements for every API call.</p>
 <div class="content">
 <img src="images/gmaps/GmapsClassDiagram.png" alt="GmapsClassDiagram">
 </div>
-<div class="title">Figure 16. Class Diagram for Closest Common Location Component</div>
+<div class="title">Figure 22. Class Diagram for Closest Common Location Component</div>
 </div>
 <div class="paragraph">
 <p><strong>There are 3 main aspects to the implementation of this component.</strong></p>
@@ -1558,7 +1622,7 @@ has a limit of 100 elements for every API call.</p>
 <div class="content">
 <img src="images/gmaps/MatrixCreationSequenceDiagram.png" alt="Gmaps-Sequence-Diagram">
 </div>
-<div class="title">Figure 17. Sequence diagram for the construction of the graph matrix</div>
+<div class="title">Figure 23. Sequence diagram for the construction of the graph matrix</div>
 </div>
 <div class="paragraph">
 <p><strong>Brief overview</strong>
@@ -1698,7 +1762,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/AddNusModsSequenceDiagram.png" alt="AddNusModsSequenceDiagram">
 </div>
-<div class="title">Figure 18. Sequence diagram of executing the AddNusModsCommand</div>
+<div class="title">Figure 24. Sequence diagram of executing the AddNusModsCommand</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1746,7 +1810,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/ModuleClassDiagram.png" alt="ModuleClassDiagram">
 </div>
-<div class="title">Figure 19. Class diagram of <code>Module</code> and associated classes</div>
+<div class="title">Figure 25. Class diagram of <code>Module</code> and associated classes</div>
 </div>
 <div class="paragraph">
 <p>The following class diagram shows the <code>Event</code> class and its associated classes relevant in the context of this feature.</p>
@@ -1755,7 +1819,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/EventClassDiagram.png" alt="EventClassDiagram" width="75%">
 </div>
-<div class="title">Figure 20. Class diagram of <code>Event</code> and associated classes</div>
+<div class="title">Figure 26. Class diagram of <code>Event</code> and associated classes</div>
 </div>
 </div>
 <div class="sect3">
@@ -1829,7 +1893,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/gmaps/ApiDiagram.png" alt="ApiDiagram" width="40%">
 </div>
-<div class="title">Figure 21. Activity diagram showing decision flow for <code>loadXXX</code> methods</div>
+<div class="title">Figure 27. Activity diagram showing decision flow for <code>loadXXX</code> methods</div>
 </div>
 </div>
 <div class="sect3">
@@ -2406,4 +2470,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:52:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:07:05 UTC</div></div></div></body></html>

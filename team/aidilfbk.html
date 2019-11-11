@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Aidil F - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TimeBook</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T10-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Aidil F - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-timebook"><a class="link" href="#project-timebook">Project: TimeBook</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TimeBook is a scheduling application that helps busy NUS undergraduates keep track of their own and their friends' schedules to find the common free time among the user and their friends and a convenient place to meet. The user interacts with TimeBook through a Command Line Interface (CLI), and its Graphical User Interface (GUI) is created with JavaFX as seen below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
+</div>
+</div>
+<div class="paragraph">
+<p>TimeBook was built by a team of five NUS Computer Science undergraduates over the course of eleven weeks, as part of the CS2103T module. It is written in Java, and has about 25 kLoC. This project portfolio document details my contributions to the project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>fuzzy matching for commands auto-completion and context-sensitive suggestions for command parameters</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>What it does</em><br>
+Provides real-time context-sensitive suggestions for commands and parameter values. Users can use the same keyboard keys to select and autocomplete the commands and parameters.</p>
+<div class="paragraph">
+<p>&#160;<br>
+In terms of commands, this feature dynamically filters all the valid commands based on the user&#8217;s input. As seen in the below figure, the user has typed <code>d</code> and only the relevant commands are suggested. Additionally, users can create their own abbreviations when typing in commands. Instead of typing <code>deletefromgroup</code>, they can type any of its letters as long as the sequence is maintained. For example, the abbreviations <code>dfg</code>, <code>delfromgroup</code>, <code>dfgr</code>, <code>dmg</code> will also suggest the <code>deletefromgroup</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/project-portfolio-commands.png" alt="project portfolio commands" width="50%">
+</div>
+<div class="title">Figure 1. Command suggestions with fuzzy matching</div>
+</div>
+<div class="paragraph">
+<p>In terms of context-sensitive parameter values, imagine the user wants to remove someone from their CS2103 group using the command <code>deletefromgroup</code>. With the group specified (i.e. <code>g/CS2103</code>), this feature only suggests the names of the people within the group when the user is specifying a name to delete (using <code>n/</code>). The feature works in real-time as the user begins typing "Charlie" and the suggestions are filtered to exclude "Bobby" and "Denise".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/project-portfolio-deletefromgroup.png" alt="project portfolio deletefromgroup" width="50%">
+</div>
+<div class="title">Figure 2. Example of context-sensitive suggestion for the name parameter (<code>n/</code>) in the <code>deletefromgroup</code> command</div>
+</div>
+</li>
+<li>
+<p><em>Justification</em><br>
+This feature significantly improves the product&#8217;s user experience, especially for novices, as users can discover what commands are available while using the app instead of continuously reference the user guide. For advanced/longtime TimeBook users, personalized command abbreviations lets them use TimeBook to solve scheduling problems faster instead of being slowed down by command entry. The parameter value suggestions let all users quickly see, select then autocomplete what they intended to type with just one additional keypress.</p>
+</li>
+<li>
+<p><em>Highlights</em><br>
+This enhancement affects existing and future commands. It required consideration of design trade offs to ensure scalability. Currently, other developers can effortlessly add this feature to their own commands. At the same time, this feature scales by letting them build more complex suggestion behaviours if needed.</p>
+</li>
+<li>
+<p><em>Credits</em><br>
+The feature was inspired by <a href="https://www.jetbrains.com/help/idea/auto-completing-code.html">IntelliJ&#8217;s Code Completion feature</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong><br>
+Added a history feature that allows the user to navigate to previous commands using the <kbd>Up</kbd>/<kbd>Down</kbd> arrow keys.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: Please view <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=aidilfbk&amp;sort=groupTitle&amp;sortWithin=title&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=aidilfbk&amp;tabRepo=AY1920S1-CS2103T-T10-4%2Fmain%5Bmaster%5D">the code that I contributed at Reposense</a>.</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/releases/tag/v1.3">release <code>v1.3</code> on GitHub</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Regrouped commands in the User Guide based on what they do (i.e. Navigation, Person Management, Group Management and Advanced Features) (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/166">#166</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Testing:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test cases for all of my features throughout (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/50">#50</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/71">#71</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/82">#82</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/150">#150</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/168">#168</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/180">#180</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/235">#235</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/239">#239</a>)</p>
+</li>
+<li>
+<p>Added a sample data set consisting of 1000 people with varying completeness of data and 365 groups that is useful for stress testing (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/145">#145</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="user-guide-contributions"><a class="link" href="#user-guide-contributions">User Guide Contributions</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Below are the sections that I contributed to the User Guide. They showcase my ability to write documentation targeting our end-users of NUS students.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="suggestions-autocomplete"><a class="link" href="#suggestions-autocomplete">Suggestions Autocomplete</a></h3>
+<div class="paragraph">
+<p>TimeBook comes with a helpful feature that provides suggested commands or relevant values so you can spend less time typing commands and more time on your group meetings.</p>
+</div>
+<div class="paragraph">
+<p>When you type a command, TimeBook will show a dropdown with similarly matching commands.
+For example, you type in the command <code>add</code>.
+TimeBook will then suggest commands such as <code>addevent</code>, <code>addgroup</code>, <code>addperson</code> like so:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/user-guide-example-step1.png" alt="user guide example step1" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>If you meant to type the <code>addevent</code> command, you can immediately select it by pressing the <kbd>Tab</kbd> key.
+Otherwise, you can pick other options by using the <kbd>Up</kbd> or <kbd>Down</kbd> arrow keys and then hit the <kbd>Tab</kbd> key to confirm your selection.
+For now, try selecting the <code>addtogroup</code> command using the <kbd>Down</kbd> and <kbd>Tab</kbd> keys.
+TimeBook will complete the command like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/user-guide-example-step2.png" alt="user guide example step2" width="50%">
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="image"><img src="../images/icons/lightbulb.png" alt="lightbulb"></span> You can type an abbreviated version of any command as long as the letters are in order!
+For example, instead of typing <code>addtogroup</code>, try <code>atg</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Remember how TimeBook can also suggest relevant values?
+Let&#8217;s try that by specifying a person&#8217;s name using the <code>n/</code> parameter like so:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/user-guide-example-step3.png" alt="user guide example step3" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>Again, TimeBook provides useful suggestions, in this case, the names of the people we&#8217;ve previously added.
+Now, try using the <kbd>Tab</kbd> key to immediately fill in "Bobby".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/user-guide-example-step4.png" alt="user guide example step4" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>Now, let&#8217;s complete the <code>addtogroup</code> command.
+Let&#8217;s add Bobby to the Friends group by typing <code>g/</code> and using the suggestions to help us pick the Friends group.</p>
+</div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 14.2857%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/user-guide-example-step5.png" alt="user guide example step5">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">–<kbd>Tab</kbd>–&gt;</p></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/user-guide-example-step6.png" alt="user guide example step6">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Let&#8217;s say we change our mind and don&#8217;t want to add Bobby to the Friends group.
+No problem, just remove Bobby&#8217;s name and pick someone else using the familiar <kbd>Up</kbd>, <kbd>Down</kbd> and <kbd>Tab</kbd> keys.
+TimeBook is smart enough to only fill in the name parameter and won&#8217;t mess up the rest of your command.</p>
+</div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 14.2857%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/user-guide-example-step7.png" alt="user guide example step7">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">–<kbd>Tab</kbd>–&gt;</p></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/user-guide-example-step8.png" alt="user guide example step8">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Congratulations!
+You&#8217;ve now mastered the suggestions feature using just three simple keys, the <kbd>Up</kbd> and <kbd>Down</kbd> arrow keys to navigate between suggestions and the <kbd>Tab</kbd> key to select it.</p>
+</div>
+<hr>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">How do I store my details and schedule?</dt>
+<dd>
+<p>When you first start using TimeBook, a default profile will be created for you!
+This default profile will have a default name: <code>User</code>
+<br>
+&#160;<br>
+To personalize TimeBook and make it yours, rename <code>User</code> by entering the command <code>edituser n/Your Name Here</code>. If you&#8217;d like to fill in more details, you can do so using the <a href="#edit-user-command"><code>edituser</code> command</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">Developer Guide Contributions</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Below are the sections that I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="command-suggestions"><a class="link" href="#command-suggestions">Command Suggestions feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The command suggestions mechanism is facilitated by <code>SuggestionLogic</code>.
+Through user-interface events provided by <code>SuggestingCommandBox</code>, it parses the command that was entered to provide context-sensitive suggestions.</p>
+</div>
+<div class="paragraph">
+<p>It does this by identifying the <code>commandWord</code> (e.g. <code>deleteperson</code>, <code>addperson</code>, etc.) and <code>arguments</code> provided (e.g. <code>n/Alice</code>, <code>g/CS2103T</code>) and by using the caret position, provides command suggestions if the caret is located within the <code>commandWord</code> section or provides argument-specific suggestions by delegating to the <code>Suggester</code> registered for the specific <code>commandWord</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the command suggestions mechanism behaves at each step. Ultimately, this is what the user will see:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/developer-guide-caret-within-arguments.png" alt="developer guide caret within arguments" width="50%">
+</div>
+<div class="title">Figure 3. Example of the command suggestions mechanism</div>
+</div>
+<div class="paragraph">
+<p>Step 1. The user types in the command <code>deleteperson n/|</code> and the <code>SuggestingCommandBox</code> UI class passes the command text (i.e. <code>deleteperson n/</code>) and the caret position index (i.e. 15) to <code>SuggestionLogic</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The vertical line/pipe character (i.e. <code>|</code>) denotes the position of the caret and is not part of the entered command itself.<br>
+So for the above example, the command entered is <code>deleteperson n/</code> with the caret at the end of the command.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/Step1.svg" alt="Step1">
+</div>
+<div class="title">Figure 4. The <code>SuggestingCommandBox</code> UI class passing UI data to the <code>SuggestionLogic</code> class to obtain suggestions.</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>SuggestionLogic</code> asks the <code>TimeBookParser</code> to tokenize the command text into its two parts: the <code>commandWord</code> and the <code>arguments</code>. This is needed so the <code>SuggestionLogic</code> knows which <code>Suggester</code> to use later.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/Step2.svg" alt="Step2">
+</div>
+<div class="title">Figure 5. Tokenization of the command entered by the user</div>
+</div>
+<div id="command-suggestions-caret-within-arguments" class="paragraph">
+<p>Step 3. The <code>SuggestionLogic</code> then checks where the caret is currently positioned, either within the <code>commandWord</code> or within the <code>arguments</code> section. In this case, the caret is placed after the <code>n/</code> so it is within the <code>arguments</code> section. <a href="#command-suggestions-caret-within-commandWord">To read how the behaviour changes if the caret was placed within the <code>commandWord</code> section, click here.</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/Step3.svg" alt="Step3" width="50%">
+</div>
+<div class="title">Figure 6. The tokenized command and its caret indices</div>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>SuggestionLogic</code> asks the static <code>Suggester</code> class which <code>Prefix</code>es are supported by the current <code>commandWord</code> (i.e. <code>deleteperson</code>) for tokenizing the <code>arguments</code>. This list of supported <code>Prefix</code>es, together with the command <code>arguments</code>, are passed to the static <code>ArgumentTokenizer</code> to parse it into an <code>ArgumentList</code> containing <code>CommandArgument</code>s. Each <code>CommandArgument</code> contains the type of <code>Prefix</code> and the user-entered value.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/Step4.svg" alt="Step4">
+</div>
+<div class="title">Figure 7. Tokenizing the given arguments</div>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>SuggestionLogic</code> then asks the static <code>Suggester</code> class to create the relevant <code>Suggester</code> object based on the <code>commandWord</code>. In this case, the static <code>Suggester</code> class returns a new <code>DeletePersonCommandSuggester</code> because the <code>commandWord</code> is <code>deleteperson</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/Step5.svg" alt="Step5">
+</div>
+<div class="title">Figure 8. Creating the relevant <code>Suggester</code></div>
+</div>
+<div class="paragraph">
+<p>Step 6. The <code>SuggestionLogic</code> asks the <code>ArgumentList</code> object which <code>CommandArgument</code> is currently selected based on the user&#8217;s caret position. In this case, it is the <code>CommandArgument</code> with the <code>Prefix</code> of <code>PERSON_NAME</code> and <code>value</code> of an empty string because the caret is positioned within the <code>n/</code> text and no value has been entered.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/Step6.svg" alt="Step6">
+</div>
+<div class="title">Figure 9. Calculating which <code>CommandArgument</code> is currently selected</div>
+</div>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+<div class="paragraph">
+<p>Step 7. The <code>SuggestionLogic</code> asks for the suggestions from the <code>DeletePersonCommandSuggester</code> by providing three things to it. First, the current <code>Model</code> object, second the previously parsed <code>ArgumentList</code> object and finally, the <code>CommandArgument</code> to provide suggestions for. After obtaining the list of suggestions, the <code>SuggestionLogic</code> class returns it to the <code>SuggestingCommandBox</code> UI class for display.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/Step7.svg" alt="Step7">
+</div>
+<div class="title">Figure 10. Obtaining and displaying suggestions</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram condenses all the above diagrams into one, given the input <code>deleteperson n/|</code>:</p>
+</div>
+<div class="paragraph">
+<div class="title">Full sequence diagram for input <code>deleteperson n/|</code></div>
+<p><span class="image"><img src="../images/command-suggestions/DeletePersonSequenceDiagram.svg" alt="DeletePersonSequenceDiagram"></span></p>
+</div>
+<div id="command-suggestions-caret-within-commandWord" class="paragraph">
+<p>The <code>SuggestionLogic</code> behaves differently when the caret position is within the <code>commandWord</code> section. The sequence diagram below shows the behaviour for the case of <code>find|person n/</code>. <a href="#command-suggestions-caret-within-arguments">To read how the behaviour changes if the caret was placed within the <code>arguments</code> section, click here.</a></p>
+</div>
+<div class="paragraph">
+<div class="title">Sequence diagram for when the caret position is within the <code>commandWord</code> section</div>
+<p><span class="image"><img src="../images/command-suggestions/SuggestingCommands.svg" alt="SuggestingCommands"></span></p>
+</div>
+<div class="paragraph">
+<p>The result is the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/developer-guide-caret-within-commandWord.png" alt="developer guide caret within commandWord" width="50%">
+</div>
+<div class="title">Figure 11. What users see when the caret is placed within the <code>commandWord</code> section</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user interacts with the command input box:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-suggestions/ActivityDiagram.svg" alt="ActivityDiagram">
+</div>
+<div class="title">Figure 12. Activity diagram showing how Command Suggestions decides what to show</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-command-suggestions-gets-its-suggestions"><a class="link" href="#aspect-how-command-suggestions-gets-its-suggestions">Aspect: How command suggestions gets its suggestions</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Ask <code>Suggester</code>s for suggestions every time anything changes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of CPU and memory usage as <code>Suggester</code>s are created and run every time the command changes or the caret is moved.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Cache suggestions based on entered command and caret position</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less CPU, may use less memory.</p>
+</li>
+<li>
+<p>Cons: Difficult to properly account for all the conditions that should cause a cache invalidation/recalculation of suggestions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-pass-around-the-command-arguments"><a class="link" href="#aspect-data-structure-to-pass-around-the-command-arguments">Aspect: Data structure to pass around the command arguments</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create an <code>ArgumentList</code> to store the ordered sequence of arguments.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Provides <code>Suggester</code>s with flexibility in providing suggestions since the relative ordering of arguments is preserved. For example, it is possible to suggest different values for each <code>class/</code> argument based on the left-closest <code>mod/</code> argument for the following command: <code>addmod n/Alice mod/CS2103T class/ mod/CS2101 class/</code>.</p>
+</li>
+<li>
+<p>Cons: Increased complexity in extracting command arguments for simpler <code>Suggester</code>s.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Reuse <code>ArgumentMultimap</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not need to maintain a separate data structure due to reuse, and developers familiar with how <code>ArgumentTokenizer.tokenize()</code> works for writing a <code>Command</code> can transfer their knowledge when writing <code>Suggester</code>s for their own commands.</p>
+</li>
+<li>
+<p>Cons: <code>Suggester</code>s are restricted in terms of the flexibility of their suggestions, as they lack info about the relative ordering of all the arguments.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:33:04 UTC</div></div></div></body></html>

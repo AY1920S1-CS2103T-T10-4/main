@@ -60,7 +60,7 @@ Keep a look out for more cool and exciting features coming soon!</p>
 <li><a href="#add-modules-via-nusmods-link-code-addmods-code">6.3.2. Add Modules via NUSMods Link: <code>addmods</code></a></li>
 <li><a href="#add-event-to-schedule-code-addevent-code">6.3.3. Add Event to Schedule: <code>addevent</code></a></li>
 <li><a href="#delete-an-event-from-a-schedule-code-deleteevent-code">6.3.4. Delete an Event from a Schedule: <code>deleteevent</code></a></li>
-<li><a href="#view-a-schedule-code-schedule-code">6.3.5. View a Schedule: <code>schedule</code></a></li>
+<li><a href="#generate-a-schedule-code-schedule-code">6.3.5. Generate a Schedule: <code>schedule</code></a></li>
 </ul>
 </li>
 <li><a href="#group-management">6.4. Group Management</a>
@@ -78,6 +78,7 @@ Keep a look out for more cool and exciting features coming soon!</p>
 <ul class="sectlevel3">
 <li><a href="#show-module-code-showmod-code">6.5.1. Show Module: <code>showmod</code></a></li>
 <li><a href="#export-vr-visual-representation-code-export-code">6.5.2. Export VR (Visual Representation): <code>export</code></a></li>
+<li><a href="#select-time-slot-code-select-code">6.5.3. Select Time Slot: <code>select</code></a></li>
 </ul>
 </li>
 <li><a href="#closest-common-location">6.6. Closest Common Location</a>
@@ -1254,7 +1255,7 @@ We can simply delete it!</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-a-schedule-code-schedule-code"><a class="link" href="#view-a-schedule-code-schedule-code">6.3.5. View a Schedule: <code>schedule</code></a></h4>
+<h4 id="generate-a-schedule-code-schedule-code"><a class="link" href="#generate-a-schedule-code-schedule-code">6.3.5. Generate a Schedule: <code>schedule</code></a></h4>
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
@@ -1818,6 +1819,197 @@ This command exports a visualisation representation of the schedule (timetable) 
 <p><code>export</code><br></p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="select-time-slot-code-select-code"><a class="link" href="#select-time-slot-code-select-code">6.5.3. Select Time Slot: <code>select</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Want to get more information about a particular time slot? Want to know where the venue of that time slot is?
+No worries! Simply select the time slot and TimeBook will tell you all about it!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>When viewing a schedule on TimeBook, you can select a time slot to get more information out of it!</p>
+</div>
+<div class="paragraph">
+<p>The <code>select</code> command works when view a group&#8217;s schedule, person&#8217;s schedule or home page! The format for this command&#8217;s
+use are detailed below!</p>
+</div>
+<div class="paragraph">
+<p>Format (group schedule): <code>select n/NAME [week/WEEK_NUMBER] i/ID</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Selects a time slot specified by <code>ID</code> that belongs to a person specified by <code>NAME</code>, on week <code>WEEK_NUMBER</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format (person schedule): <code>select [week/WEEK_NUMBER] i/ID</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Selects a time slot specified by <code>ID</code> on week <code>WEEK_NUMBER</code> that belongs to the current person shown in the schedule</p>
+</li>
+<li>
+<p>If a name is specified, TimeBook will ignore it! Because we know you want to view the current person that is shown!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format (home): <code>select i/ID</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Selects a time slot specified by <code>ID</code> on your home page. The home page will not show the ID of the time slot,
+the <code>ID</code> is ordered with the earliest time slot as <code>ID:1</code></p>
+</li>
+<li>
+<p>If a person name or week is specified, TimeBook will ignore it! Because we know you want to view the time slots on your home page!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Prefixes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/</code>: specifies the name of a person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A name must be alphanumeric</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>week/</code> specifies the week of the schedule (optional)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A week must be an interger between 1 and 4 inclusive</p>
+</li>
+<li>
+<p>If no week number is specified, TimeBook will choose the default week 1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>i/</code>: specifies the ID number of the time slot</p>
+<div class="ulist">
+<ul>
+<li>
+<p>An ID must be a positive number.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When you execute the <code>select</code> command, it  generates a pop up window that shows you the details of the selected time slot!
+We have also integrated this service with GoogleMaps and shows you the location of this time slot on the map!</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows how a pop up window will look like!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/selectpopup.png" alt="selectpopup" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>After you have viewed the time slot details, simply press the <code>ESC</code> key on your keyboard, and it will close the pop up!
+You will never have to touch your mouse!</p>
+</div>
+<div class="paragraph">
+<p>| <span class="image"><img src="images/icons/important.png" alt="important"></span> | When the location of the time slot is not a valid location in NUS, the location
+will not be shown on the map!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/select1.png" alt="select1" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When a group&#8217;s schedule is shown, each members time slots are colour coded as shown above.
+Each time slot is also labeled with an ID for easy reference!</p>
+</div>
+<div class="paragraph">
+<p>Let us try to select Bobby&#8217;s time slot 1. To select it, simply execute the following command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select n/Bobby i/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After executing that command, a pop up will be shown just like the one above!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/select2.png" alt="select2" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When a person&#8217;s schedule is shown, each events are colour coded as shown above.
+Each time slot is also labeled with an ID for easy reference! The name of the event is also shown!</p>
+</div>
+<div class="paragraph">
+<p>Let us try to select time slot 1. To select it, simply execute the following command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select i/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After executing that command, a pop up will be shown just like the one above!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/select3.png" alt="select3" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When the home page is shown, you can select each time slot on the list! Do note that the first time slot on the list
+will have <code>ID:1</code> and the following time slots will follow with the next number. We chose to omit the number so you have
+a more cleaner home page!</p>
+</div>
+<div class="paragraph">
+<p>Simply execute the <code>select</code> command and specify the time slot you want to view like so:</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select i/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After executing that command, a pop up will be shown similar to the one above!</p>
 </div>
 </div>
 </div>
@@ -2991,4 +3183,4 @@ e.g. <code>popup g/CS2103T i/2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:35:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:33:14 UTC</div></div></div></body></html>

@@ -1,0 +1,831 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Alvin Ng - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TimeBook</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T10-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Alvin Ng - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-timebook"><a class="link" href="#project-timebook">PROJECT: TimeBook</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My team was tasked with enhancing a basic command line interface desktop addressbook book application for our Software Engineering project.
+We chose to morph it into scheduler application called <strong>TimeBook</strong>. Our application aims to help NUS (National University of Singapore) students
+keep track of their schedules and that of their peers. It has unique features such as NUSmods integration, GoogleMaps enabled location suggestion service,
+as well as the ability to generate common free time slots among the a group of individual schedules.</p>
+</div>
+<div class="paragraph">
+<p><strong>TimeBook</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/homepage.png" alt="homepage">
+</div>
+</div>
+<div class="paragraph">
+<p>My main role was to design a model for users to input their schedules, as well as the schedules of their peers.
+I also implemented an algorithm that generates a combined schedule of a group of schedules that shows the overview
+of the group&#8217;s schedule, as well as the common free time slots in the group.</p>
+</div>
+<div class="paragraph">
+<p>The following sections illustrate these enhancements in more detail as well as the relevant documentation I
+have added to the user and developer guides in relation to these enhancements.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section shows a summary of my coding, documentation, and other helpful contributions to the team project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Schedule Generator</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the user to generate a combined schedule of any number of people. It also deconflicts the combined schedule
+and generates the common free time slots among the members. The user is also able to see the event, timings and venues
+of each member&#8217;s schedule in the combined schedule.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Justification</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The schedule of a typical NUS student is usually very busy. Finding the best time to meet up among a group can be a
+hassle as not everyone is free at certain times. Typically, NUS students have to painstakingly deconflict everyone&#8217;s schedules
+in order to find a common free time to meet up. This feature removes this hassle by combining the schedules of a group of
+people, deconflicting the schedules and shows which are the time slots where everyone is free.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Highlights</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This feature works closely with external data sources such as NUSMods API(Application Programming Interface) to
+easily import their NUSmod timetables, as well as GoogleMaps API to show to the user the location of each of the time slots.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>A combined schedule:</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/schedulerdemo.png" alt="schedulerdemo">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=totalCommits%20dsc&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=Alvinnyk&amp;tabRepo=AY1920S1-CS2103T-T10-4%2Fmain%5Bmaster%5D">Repo Sense</a>]</p>
+</li>
+<li>
+<p><strong>Minor enhancements</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Select Command</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the user to select any time slot on the schedule. It will generate a pop up window that shows the user
+details of the time slot such as the event name, timings and the location on Google Maps. (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/259">#259</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Implemented Websocket</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the application to access external data sources such as NUSmods and GoogleMaps API. (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/42">#42</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/43">#43</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/44">#44</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Morphing and enhancement of existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Morphed existing model for use in TimeBook (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/56">#56</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/149">#149</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/265">#265</a>)</p>
+</li>
+<li>
+<p>Implemented new commands to interact with model (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/56">#56</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/162">#162</a>)</p>
+</li>
+<li>
+<p>Implemented storage component to save model data(Pull requests <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/70">#70</a>)</p>
+</li>
+<li>
+<p>Wrote tests for model and logic component and increased coverage by a total of 11% (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/257">#257</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/262">#262</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/266">#266</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="sect3">
+<h4 id="generate-a-schedule-code-schedule-code"><a class="link" href="#generate-a-schedule-code-schedule-code">Generate a Schedule: <code>schedule</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Want to see a schedule between you and your friends? Simple use the <code>schedule</code> command!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>To generate a schedule for you and your friends, simply execute the <code>schedule</code> command and
+specify who to add to this schedule!</p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>schedule n/NAME&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>n/</code> prefix specifies the name of the person whom we want to add to this schedule</p>
+</li>
+<li>
+<p>You can add multiple people into a schedule</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Lets try and generate a schedule between you, Bobby and Charlie! Execute the following command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>schedule n/Bobby n/Charlie</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/schedule.png" alt="schedule" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When executing the command, TimeBook will calculate the free time slots among the schedule members!</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="select-time-slot-code-select-code"><a class="link" href="#select-time-slot-code-select-code">Select Time Slot: <code>select</code></a></h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Want to get more information about a particular time slot? Want to know where the venue of that time slot is?
+No worries! Simply select the time slot and TimeBook will tell you all about it!</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>When viewing a schedule on TimeBook, you can select a time slot to get more information out of it!</p>
+</div>
+<div class="paragraph">
+<p>The <code>select</code> command works when you are viewing a group&#8217;s schedule, person&#8217;s schedule or home page! The format for this command&#8217;s
+use are detailed below!</p>
+</div>
+<div class="paragraph">
+<p>Format (group schedule): <code>select n/NAME [week/WEEK_NUMBER] i/ID</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Selects a time slot specified by <code>ID</code> that belongs to a person specified by <code>NAME</code>, on week <code>WEEK_NUMBER</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format (person schedule): <code>select [week/WEEK_NUMBER] i/ID</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Selects a time slot specified by <code>ID</code> on week <code>WEEK_NUMBER</code> that belongs to the current person shown in the schedule</p>
+</li>
+<li>
+<p>If a name is specified, TimeBook will ignore it! Because we know you want to view the current person that is shown!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format (home): <code>select i/ID</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Selects a time slot specified by <code>ID</code> on your home page. The home page will not show the ID of the time slot,
+the <code>ID</code> is ordered with the earliest time slot as <code>ID:1</code></p>
+</li>
+<li>
+<p>If a person name or week is specified, TimeBook will ignore it! Because we know you want to view the time slots on your home page!</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Prefixes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/</code>: specifies the name of a person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A name must be alphanumeric</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>week/</code> specifies the week of the schedule (optional)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A week must be an interger between 1 and 4 inclusive</p>
+</li>
+<li>
+<p>If no week number is specified, TimeBook will choose the default week 1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>i/</code>: specifies the ID number of the time slot</p>
+<div class="ulist">
+<ul>
+<li>
+<p>An ID must be a positive number.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When you execute the <code>select</code> command, it  generates a pop up window that shows you the details of the selected time slot!
+We have also integrated this service with GoogleMaps and shows you the location of this time slot on the map!</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows how a pop up window will look like!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/selectpopup.png" alt="selectpopup" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>After you have viewed the time slot details, simply press the <code>ESC</code> key on your keyboard, and it will close the pop up!
+You will never have to touch your mouse!</p>
+</div>
+<div class="paragraph">
+<p>| <span class="image"><img src="../images/icons/important.png" alt="important"></span> | When the location of the time slot is not a valid location in NUS, the location
+will not be shown on the map!</p>
+</div>
+<div class="paragraph">
+<p>The following shows some example usage!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/select1.png" alt="select1" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When a group&#8217;s schedule is shown, each members time slots are colour coded as shown above.
+Each time slot is also labeled with an ID for easy reference!</p>
+</div>
+<div class="paragraph">
+<p>Let us try to select Bobby&#8217;s time slot 1. To select it, simply execute the following command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select n/Bobby i/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After executing that command, a pop up will be shown just like the one above!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/select2.png" alt="select2" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When a person&#8217;s schedule is shown, each events are colour coded as shown above.
+Each time slot is also labeled with an ID for easy reference! The name of the event is also shown!</p>
+</div>
+<div class="paragraph">
+<p>Let us try to select time slot 1. To select it, simply execute the following command!</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select i/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After executing that command, a pop up will be shown just like the one above!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/select3.png" alt="select3" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>When the home page is shown, you can select each time slot on the list! Do note that the first time slot on the list
+will have <code>ID:1</code> and the following time slots will follow with the next number. We chose to omit the number so you have
+a more cleaner home page!</p>
+</div>
+<div class="paragraph">
+<p>Simply execute the <code>select</code> command and specify the time slot you want to view like so:</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select i/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After executing that command, a pop up will be shown similar to the one above!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="schedule-generator"><a class="link" href="#schedule-generator">Schedule Generator</a></h3>
+<div class="paragraph">
+<p>The Schedule Generator feature allows users to generate a combined schedule of any number of people. It combines these
+schedules together, generates the common free time slots and packages it into a visual representation for the user.</p>
+</div>
+<div class="paragraph">
+<p>This allows the user to quickly identify the common free time slots among the user and the members of the group.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The Schedule Generator feature is facilitated by <code>ScheduleManager</code>. It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleManager#updateScheduleWithPerson()</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This method takes in the following as inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Person</code> person: the schedule of the person to be generated</p>
+</li>
+<li>
+<p><code>LocalDateTime</code> time: The start date and time of the schedule to be generated from</p>
+</li>
+<li>
+<p><code>ScheduleState</code> type: The type of schedule to be generated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generates a <code>ScheduleDisplay</code> of <code>type</code> of the <code>person</code>, spanning from <code>time</code> to 4 weeks later</p>
+</li>
+<li>
+<p>Updates the ScheduleDisplay with the generated schedule</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ScheduleManager#updateScheduleWithUser()</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This method takes in the following as inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>User</code> user: The schedule of the user to be generated</p>
+</li>
+<li>
+<p><code>LocalDateTime</code> time: The start date and time of the schedule to be generated from</p>
+</li>
+<li>
+<p><code>ScheduleState</code> type: The type of schedule to be generated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generates a <code>ScheduleDisplay</code> of <code>type</code> of the <code>user</code>, spanning from <code>time</code> to 4 weeks later</p>
+</li>
+<li>
+<p>Updates the ScheduleDisplay with the generated schedule</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ScheduleManager#updateScheduleWithGroup()</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This method takes in the following as inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Group</code> group: The schedule of the group to be generated</p>
+</li>
+<li>
+<p><code>ArrayList&lt;Person&gt;</code> persons: The list of Person in the group</p>
+</li>
+<li>
+<p><code>ArrayList&lt;PersonToGroupMapping&gt;</code> mappings: Represents the role of each Person in the group</p>
+</li>
+<li>
+<p><code>LocalDateTime</code> time: The start date and time of the schedule to be generated from</p>
+</li>
+<li>
+<p><code>ScheduleState</code> type: The type of schedule to be generated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generates a <code>ScheduleDisplay</code> of <code>type</code> of the <code>group</code>, spanning from <code>time</code> to 4 weeks later</p>
+</li>
+<li>
+<p>Generates the <code>FreeSchedule</code> of the <code>group</code></p>
+</li>
+<li>
+<p>Updates the ScheduleDisplay with the generated schedule</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ScheduleManager#updateScheduleWithPersons()</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This method takes in the following as inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ArrayList&lt;Person&gt;</code> persons: The list of Person to generate the schedule from</p>
+</li>
+<li>
+<p><code>LocalDateTime</code> time: The start date and time of the schedule to be generated from</p>
+</li>
+<li>
+<p><code>ScheduleState</code> type: The type of schedule to be generated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generates a <code>ScheduleDisplay</code> of <code>type</code> of the list of <code>person</code>, spanning from <code>time</code> to 4 weeks later</p>
+</li>
+<li>
+<p>Generates the <code>FreeSchedule</code> of the list of <code>person</code></p>
+</li>
+<li>
+<p>Updates the ScheduleDisplay with the generated schedule</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>ScheduleDisplay</code> is an object that contains all the schedule information to be shown to the user.</p>
+</div>
+<div class="paragraph">
+<p>There are 3 types of <code>ScheduleDisplays</code> that extends from <code>ScheduleDisplay</code>.
+The type of <code>ScheduleDisplay</code> that is generated is based on the <code>ScheduleState</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PersonScheduleDisplay</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>ScheduleDisplay</code> object that only shows the Schedule of a singular <code>Person</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>HomeScheduleDisplay</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>ScheduleDisplay</code> object that shows the Schedule of the <code>User</code> object</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>GroupScheduleDisplay</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>ScheduleDisplay</code> object that shows the Schedule of a group of <code>Persons</code> including the <code>User</code></p>
+</li>
+<li>
+<p>It contains a <code>FreeSchedule</code> object that tells the user the common <code>FreeTimeslots</code> among the <code>Persons</code> in the group</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="usage-scenario"><a class="link" href="#usage-scenario">Usage Scenario</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the ScheduleManager behaves
+when a schedule command is executed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Step 1</code>: User enters command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>User enters a command: <code>schedule n/NAME1 n/NAME2</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Step 2</code>: LogicManager parses the command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>TimeBookParser#parseCommand</code> is called would parse the input and
+create a new <code>ScheduleCommandParser</code> object and calls the <code>ScheduleCommandParser#parse</code> method
+to parse the command arguments</p>
+</li>
+<li>
+<p>The <code>ScheduleCommandParser</code> would parse the arguments into a List of <code>Name</code> objects (i.e. NAME1, NAME2)
+and create a new <code>ScheduleCommand</code> with the List of <code>Names</code>.</p>
+</li>
+<li>
+<p>The <code>ScheduleCommandParser</code> then and returns the <code>ScheduleCommand</code> to <code>LogicManager</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Step 3</code>: Execute the command</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LogicManager</code> calls <code>ScheduleCommand#execute</code> method</p>
+</li>
+<li>
+<p><code>ScheduleCommand</code> creates a new List of <code>Persons</code></p>
+</li>
+<li>
+<p><code>ModelManager#getUser</code> method is called to get the <code>User</code> object and <code>ScheduleCommand</code> adds it
+to the List of <code>Persons</code></p>
+</li>
+<li>
+<p>For each <code>Name</code> is the List of <code>Names</code>, <code>ModelManager#findPerson</code> is called by supplying a <code>Name</code>
+object to get the <code>Person</code> object specified by the <code>Name</code> object.</p>
+</li>
+<li>
+<p><code>ScheduleCommand</code> then adds the <code>Person</code> into the List of <code>Persons</code></p>
+</li>
+<li>
+<p><code>ScheduleCommand</code> calls the <code>ModelManager#updateScheduleWithPersons</code> method with the List of <code>Persons</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the ScheduleCommand is executed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/scheduleGeneratorSequenceDiagram1.png" alt="scheduleGeneratorSequenceDiagram1" width="100%">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Step 4</code>: Generate the Schedule</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ModelManager</code> calls the <code>ScheduleManager#updateScheduleWithPersons</code> method with the List of <code>Persons</code></p>
+</li>
+<li>
+<p>The <code>ScheduleManager</code> now generates the combined schedules of the List of <code>Persons</code> as well as the
+free time slots and packages it into a <code>GroupScheduleDisplay</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This is done by first extracting the schedule and details of each person to generate a
+list of <code>PersonSchedule</code></p>
+</li>
+<li>
+<p>With the list of <code>PersonSchedule</code>, the <code>#generateFreeSchedule</code> method is called and it will
+generate a <code>FreeSchedule</code>. A <code>FreeSchedule</code> will contain all the details of each <code>FreeTimeslot</code>
+such as previous location data of each person, start time and end time.</p>
+</li>
+<li>
+<p>The <code>ScheduleManager</code> then packages all these information into a <code>GroupScheduleDisplay</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Step 5</code>: Update the ScheduleDisplay</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleManager</code> now updates the current <code>ScheduleDisplay</code> to be shown to the user</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>ScheduleDisplay</code> is generated:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/scheduleGeneratorSequenceDiagram2.png" alt="scheduleGeneratorSequenceDiagram2" width="100%">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Step 6</code>: Return feedback to user</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>ScheduleCommand</code> has finished executing and returns a <code>CommandResult</code> with the feedback to user
+to <code>LogicManager</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Apart from generating a <code>GroupScheduleDisplay</code>, the <code>ScheduleManager</code> is also able to generate
+Schedules of a <code>Person</code> or a <code>User</code> as well.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when the <code>ScheduleManager</code> is invoked to
+generate a <code>ScheduleDisplay</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/scheduler/scheduleGeneratorActivityDiagram.png" alt="scheduleGeneratorActivityDiagram" width="100%">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-code-scheduledisplay-code-is-generated-and-stored"><a class="link" href="#aspect-how-the-code-scheduledisplay-code-is-generated-and-stored">Aspect: How the <code>ScheduleDisplay</code> is generated and stored</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Generates the <code>ScheduleDisplay</code> in runtime only when the application
+needs to show a schedule to the user.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Saves memory space, and does not need to compute the <code>ScheduleDisplay</code> of every group and person upon startup.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in runtime as the <code>ScheduleDisplay</code> is only generated when required.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Upon startup, generate each Group&#8217;s <code>ScheduleDisplay</code> and store them within the <code>Group</code> object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better runtime performance as the <code>ScheduleDisplay</code> is already generated.</p>
+</li>
+<li>
+<p>Cons: Will have perfomance issues in terms of memory usage. Each Group&#8217;s and Person&#8217;s <code>ScheduleDisplay</code> will also
+have to be generated and stored in memory.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:52:24 UTC</div></div></div></body></html>

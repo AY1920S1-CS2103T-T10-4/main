@@ -22,7 +22,7 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-finding-free-timeslot-feature">3.1. [Proposed] Finding Free Timeslot feature</a></li>
+<li><a href="#schedule-generator">3.1. Schedule Generator</a></li>
 <li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
 <li><a href="#command-suggestions">3.3. Command Suggestions feature</a></li>
 <li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
@@ -336,71 +336,376 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-finding-free-timeslot-feature"><a class="link" href="#proposed-finding-free-timeslot-feature">3.1. [Proposed] Finding Free Timeslot feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h3 id="schedule-generator"><a class="link" href="#schedule-generator">3.1. Schedule Generator</a></h3>
 <div class="paragraph">
-<p>The finding free timeslot feature is implemented by <code>ScheduleGenerator</code>. It generates the current <code>WeekSchedule</code> of a group and the common free timeslot among its members and updates the <code>ScheduleView</code> to be displayed to the user. Additionally, it implements the following operations:</p>
+<p>The Schedule Generator feature allows users to generate a combined schedule of any number of people. It combines these
+schedules together, generates the common free time slots among the input people&#8217;s schedules and packages it
+into a visual representation for the user.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The Schedule Generator feature is facilitated by <code>ScheduleManager</code>. It implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>ScheduleGenerator#getFreeTimeslot()</code>&#8201;&#8212;&#8201;Generates a <code>personSchedule</code> of a group and updates the <code>ScheduleView</code>.</p>
+<p><code>ScheduleManager#updateScheduleWithPerson()</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This method takes in the following as inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Person</code> person: the schedule of the person to be generated</p>
+</li>
+<li>
+<p><code>LocalDateTime</code> time: The start date and time of the schedule to be generated from</p>
+</li>
+<li>
+<p><code>ScheduleState</code> type: The type of schedule to be generated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generates a <code>ScheduleDisplay</code> of <code>type</code> of the <code>person</code>, spanning from <code>time</code> to 4 weeks later</p>
+</li>
+<li>
+<p>Updates the ScheduleDisplay with the generated schedule</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ScheduleManager#updateScheduleWithUser()</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This method takes in the following as inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>User</code> user: The schedule of the user to be generated</p>
+</li>
+<li>
+<p><code>LocalDateTime</code> time: The start date and time of the schedule to be generated from</p>
+</li>
+<li>
+<p><code>ScheduleState</code> type: The type of schedule to be generated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generates a <code>ScheduleDisplay</code> of <code>type</code> of the <code>user</code>, spanning from <code>time</code> to 4 weeks later</p>
+</li>
+<li>
+<p>Updates the ScheduleDisplay with the generated schedule</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ScheduleManager#updateScheduleWithGroup()</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This method takes in the following as inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Group</code> group: The schedule of the group to be generated</p>
+</li>
+<li>
+<p><code>ArrayList&lt;Person&gt;</code> persons: The list of Person in the group</p>
+</li>
+<li>
+<p><code>ArrayList&lt;PersonToGroupMapping&gt;</code> mappings: Represents the role of each Person in the group</p>
+</li>
+<li>
+<p><code>LocalDateTime</code> time: The start date and time of the schedule to be generated from</p>
+</li>
+<li>
+<p><code>ScheduleState</code> type: The type of schedule to be generated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generates a <code>ScheduleDisplay</code> of <code>type</code> of the <code>group</code>, spanning from <code>time</code> to 4 weeks later</p>
+</li>
+<li>
+<p>Generates the <code>FreeSchedule</code> of the <code>group</code></p>
+</li>
+<li>
+<p>Updates the ScheduleDisplay with the generated schedule</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>ScheduleManager#updateScheduleWithPersons()</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This method takes in the following as inputs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ArrayList&lt;Person&gt;</code> persons: The list of Person to generate the schedule from</p>
+</li>
+<li>
+<p><code>LocalDateTime</code> time: The start date and time of the schedule to be generated from</p>
+</li>
+<li>
+<p><code>ScheduleState</code> type: The type of schedule to be generated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Generates a <code>ScheduleDisplay</code> of <code>type</code> of the list of <code>person</code>, spanning from <code>time</code> to 4 weeks later</p>
+</li>
+<li>
+<p>Generates the <code>FreeSchedule</code> of the list of <code>person</code></p>
+</li>
+<li>
+<p>Updates the ScheduleDisplay with the generated schedule</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#getFreeTimeslot()</code></p>
+<p><code>ScheduleDisplay</code> is an object that contains all the schedule information to be shown to the user.</p>
 </div>
 <div class="paragraph">
-<p>Firstly, the <code>getFreeTimeslot()</code> method takes in as input an ArrayList of <code>Person</code> and updates the ScheduleView of the TimeBook. When the method is executed, it checks the schedule of each <code>Person</code> in the TimeBook and generates a new combined <code>WeekSchedule</code> of the whole list of <code>Person</code>. Also, only <code>TimeSlots</code> that are within the week are checked and put into the 'WeekSchedule'. The generated <code>WeekSchedule</code> will then contain the individual schedules of each <code>Person</code> in the list for the week.</p>
+<p>There are 3 types of <code>ScheduleDisplays</code> that extends from <code>ScheduleDisplay</code>.
+The type of <code>ScheduleDisplay</code> that is generated is based on the <code>ScheduleState</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>PersonScheduleDisplay</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>ScheduleDisplay</code> object that only shows the Schedule of a singular <code>Person</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>HomeScheduleDisplay</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>ScheduleDisplay</code> object that shows the Schedule of the <code>User</code> object</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>GroupScheduleDisplay</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>ScheduleDisplay</code> object that shows the Schedule of a group of <code>Persons</code> including the <code>User</code></p>
+</li>
+<li>
+<p>It contains a <code>FreeSchedule</code> object that tells the user the common <code>FreeTimeslots</code> among the <code>Persons</code> in the group</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>After the <code>WeekSchedule</code> has been generated, the method now generates a new schedule of the free timeslots within the <code>WeekSchedule</code>. It checks the <code>WeekSchedule</code> and generates a new <code>FreeTimeSchedule</code> with contains all the timeslots in which there are no clashes with the <code>personSchedule</code>. It also only generates <code>FreeTimeslots</code> for the week.</p>
+<p>Given below is an example usage scenario of how the ScheduleManager behaves
+when a schedule command is executed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Step 1</code>: User enters command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>User enters a command: <code>schedule n/NAME1 n/NAME2</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Step 2</code>: LogicManager parses the command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>TimeBookParser#parseCommand</code> is called would parse the input and
+create a new <code>ScheduleCommandParser</code> object and calls the <code>ScheduleCommandParser#parse</code> method
+to parse the command arguments</p>
+</li>
+<li>
+<p>The <code>ScheduleCommandParser</code> would parse the arguments into a List of <code>Name</code> objects (i.e. NAME1, NAME2)
+and create a new <code>ScheduleCommand</code> with the List of <code>Names</code>.</p>
+</li>
+<li>
+<p>The <code>ScheduleCommandParser</code> then and returns the <code>ScheduleCommand</code> to <code>LogicManager</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Step 3</code>: Execute the command</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LogicManager</code> calls <code>ScheduleCommand#execute</code> method</p>
+</li>
+<li>
+<p><code>ScheduleCommand</code> creates a new List of <code>Persons</code></p>
+</li>
+<li>
+<p><code>ModelManager#getUser</code> method is called to get the <code>User</code> object and <code>ScheduleCommand</code> adds it
+to the List of <code>Persons</code></p>
+</li>
+<li>
+<p>For each <code>Name</code> is the List of <code>Names</code>, <code>ModelManager#findPerson</code> is called by supplying a <code>Name</code>
+object to get the <code>Person</code> object specified by the <code>Name</code> object.</p>
+</li>
+<li>
+<p><code>ScheduleCommand</code> then adds the <code>Person</code> into the List of <code>Persons</code></p>
+</li>
+<li>
+<p><code>ScheduleCommand</code> calls the <code>ModelManager#updateScheduleWithPersons</code> method with the List of <code>Persons</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Additionally, the generated <code>FreeTimeSchedule</code> also contains the information of the last venue the <code>Person</code> has been. This information is then used to calculate the closest location for all <code>Person</code> to meet.</p>
-</div>
-<div class="paragraph">
-<p>Finally, after generating the <code>WeekSchedule</code> and <code>FreeTimeSchedule</code>, it now updates the <code>ScheduleView</code> of <code>TimeBook</code>. This 'ScheduleView' is then displayed to the user through the UI.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the generateFreeTimeslot operation works:</p>
+<p>The following sequence diagram shows how the ScheduleCommand is executed:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FindFreeTimeslotSequenceDiagram.png" alt="FindFreeTimeslotSequenceDiagram">
+<img src="images/ugalvin/scheduleGeneratorSequenceDiagram1.png" alt="scheduleGeneratorSequenceDiagram1" width="100%">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Step 4</code>: Generate the Schedule</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ModelManager</code> calls the <code>ScheduleManager#updateScheduleWithPersons</code> method with the List of <code>Persons</code></p>
+</li>
+<li>
+<p>The <code>ScheduleManager</code> now generates the combined schedules of the List of <code>Persons</code> as well as the
+free time slots and packages it into a <code>GroupScheduleDisplay</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This is done by first extracting the schedule and details of each person to generate a
+list of <code>PersonSchedule</code></p>
+</li>
+<li>
+<p>With the list of <code>PersonSchedule</code>, the <code>#generateFreeSchedule</code> method is called and it will
+generate a <code>FreeSchedule</code>. A <code>FreeSchedule</code> will contain all the details of each <code>FreeTimeslot</code>
+such as previous location data of each person, start time and end time.</p>
+</li>
+<li>
+<p>The <code>ScheduleManager</code> then packages all these information into a <code>GroupScheduleDisplay</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Step 5</code>: Update the ScheduleDisplay</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ScheduleManager</code> now updates the current <code>ScheduleDisplay</code> to be shown to the user</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>ScheduleDisplay</code> is generated:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/scheduleGeneratorSequenceDiagram2.png" alt="scheduleGeneratorSequenceDiagram2" width="100%">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Step 6</code>: Return feedback to user</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>ScheduleCommand</code> has finished executing and returns a <code>CommandResult</code> with the feedback to user
+to <code>LogicManager</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Apart from generating a <code>GroupScheduleDisplay</code>, the <code>ScheduleManager</code> is also able to generate
+Schedules of a <code>Person</code> or a <code>User</code> as well.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when the <code>ScheduleManager</code> is invoked to
+generate a <code>ScheduleDisplay</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ugalvin/scheduleGeneratorActivityDiagram.png" alt="scheduleGeneratorActivityDiagram" width="100%">
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-the-code-weekschedule-code-is-generated-and-stored"><a class="link" href="#aspect-how-the-code-weekschedule-code-is-generated-and-stored">Aspect: How the <code>WeekSchedule</code> is generated and stored</a></h5>
+<h5 id="aspect-how-the-code-scheduledisplay-code-is-generated-and-stored"><a class="link" href="#aspect-how-the-code-scheduledisplay-code-is-generated-and-stored">Aspect: How the <code>ScheduleDisplay</code> is generated and stored</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Generates the <code>WeekSchedule</code> only when the <code>ShowGroup</code> command is executed.</p>
+<p><strong>Alternative 1 (current choice):</strong> Generates the <code>ScheduleDisplay</code> in runtime only when the application
+needs to show a schedule to the user.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Saves memory space, and does not need to compute the <code>WeekSchedule</code> of every group upon startup.</p>
+<p>Pros: Saves memory space, and does not need to compute the <code>ScheduleDisplay</code> of every group and person upon startup.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in runtime as there is no preprocessing as the <code>WeekSchedule</code> is only generated when required.</p>
+<p>Cons: May have performance issues in runtime as the <code>ScheduleDisplay</code> is only generated when required.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Upon startup, generate each Group&#8217;s <code>WeekSchedule</code> and store them within the <code>Group</code> object.</p>
+<p><strong>Alternative 2:</strong> Upon startup, generate each Group&#8217;s <code>ScheduleDisplay</code> and store them within the <code>Group</code> object.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Better runtime performance as the <code>WeekSchedule</code> is already generated.</p>
+<p>Pros: Better runtime performance as the <code>ScheduleDisplay</code> is already generated.</p>
 </li>
 <li>
-<p>Cons: Will have perfomance issues in terms of memory usage. Each Group&#8217;s <code>WeekSchedule</code> will also have to be updated whenever a <code>Person</code> is added, edited or deleted.</p>
+<p>Cons: Will have perfomance issues in terms of memory usage. Each Group&#8217;s and Person&#8217;s <code>ScheduleDisplay</code> will also
+have to be generated and stored in memory.</p>
 </li>
 </ul>
 </div>
@@ -413,7 +718,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.2.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -627,7 +932,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect2">
 <h3 id="command-suggestions"><a class="link" href="#command-suggestions">3.3. Command Suggestions feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.3.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The command suggestions mechanism is facilitated by <code>SuggestionLogic</code>.
 Through user-interface events provided by <code>SuggestingCommandBox</code>, it parses the command that was entered to provide context-sensitive suggestions.</p>
@@ -1071,7 +1376,7 @@ of an individual&#8217;s or group&#8217;s schedule.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.8.3. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.8.3. Implementation</a></h4>
 <div class="paragraph">
 <p>Overview of the implementation</p>
 </div>
@@ -1167,7 +1472,7 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <div class="sect2">
 <h3 id="add-nusmods-to-schedule"><a class="link" href="#add-nusmods-to-schedule">3.9. Add NUSMods To Schedule</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.9.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.9.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code>) to their TimeBook schedules.</p>
 </div>
@@ -1889,4 +2194,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:09:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:35:39 UTC</div></div></div></body></html>

@@ -796,43 +796,35 @@ generate a <code>ScheduleDisplay</code>:</p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-the-code-scheduledisplay-code-is-generated-and-stored"><a class="link" href="#aspect-how-the-code-scheduledisplay-code-is-generated-and-stored">Aspect: How the <code>ScheduleDisplay</code> is generated and stored</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Generates the <code>ScheduleDisplay</code> in runtime only when the application
-needs to show a schedule to the user.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Saves memory space, and does not need to compute the <code>ScheduleDisplay</code> of every group and person upon startup.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in runtime as the <code>ScheduleDisplay</code> is only generated when required.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Upon startup, generate each Group&#8217;s <code>ScheduleDisplay</code> and store them within the <code>Group</code> object.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Better runtime performance as the <code>ScheduleDisplay</code> is already generated.</p>
-</li>
-<li>
-<p>Cons: Will have perfomance issues in terms of memory usage. Each Group&#8217;s and Person&#8217;s <code>ScheduleDisplay</code> will also
-have to be generated and stored in memory.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">How the <code>ScheduleDisplay</code> is generated and stored</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Generates the <code>ScheduleDisplay</code> in runtime only when the application needs to show a schedule to the user. <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Saves memory space, and does not need to compute the <code>ScheduleDisplay</code> of every group and person upon startup.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. May have performance issues in runtime as the <code>ScheduleDisplay</code> is only generated when required.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Upon startup, generate each Group&#8217;s <code>ScheduleDisplay</code> and store them within the <code>Group</code> object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Better runtime performance as the <code>ScheduleDisplay</code> is already generated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Will have perfomance issues in terms of memory usage. Each Group&#8217;s and Person&#8217;s <code>ScheduleDisplay</code> will also have to be generated and stored in memory.</p></td>
+</tr>
+</tbody>
+</table>
 <hr>
 </div>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 16:51:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 17:10:59 UTC</div></div></div></body></html>

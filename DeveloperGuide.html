@@ -781,41 +781,33 @@ generate a <code>ScheduleDisplay</code>:</p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.3. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-the-code-scheduledisplay-code-is-generated-and-stored"><a class="link" href="#aspect-how-the-code-scheduledisplay-code-is-generated-and-stored">Aspect: How the <code>ScheduleDisplay</code> is generated and stored</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Generates the <code>ScheduleDisplay</code> in runtime only when the application
-needs to show a schedule to the user.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Saves memory space, and does not need to compute the <code>ScheduleDisplay</code> of every group and person upon startup.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in runtime as the <code>ScheduleDisplay</code> is only generated when required.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Upon startup, generate each Group&#8217;s <code>ScheduleDisplay</code> and store them within the <code>Group</code> object.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Better runtime performance as the <code>ScheduleDisplay</code> is already generated.</p>
-</li>
-<li>
-<p>Cons: Will have perfomance issues in terms of memory usage. Each Group&#8217;s and Person&#8217;s <code>ScheduleDisplay</code> will also
-have to be generated and stored in memory.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">How the <code>ScheduleDisplay</code> is generated and stored</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Generates the <code>ScheduleDisplay</code> in runtime only when the application needs to show a schedule to the user. <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Saves memory space, and does not need to compute the <code>ScheduleDisplay</code> of every group and person upon startup.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. May have performance issues in runtime as the <code>ScheduleDisplay</code> is only generated when required.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Upon startup, generate each Group&#8217;s <code>ScheduleDisplay</code> and store them within the <code>Group</code> object.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Better runtime performance as the <code>ScheduleDisplay</code> is already generated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Will have perfomance issues in terms of memory usage. Each Group&#8217;s and Person&#8217;s <code>ScheduleDisplay</code> will also have to be generated and stored in memory.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -952,72 +944,66 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-command-suggestions-gets-its-suggestions"><a class="link" href="#aspect-how-command-suggestions-gets-its-suggestions">Aspect: How command suggestions gets its suggestions</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Ask <code>Suggester</code>s for suggestions every time anything changes</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of CPU and memory usage as <code>Suggester</code>s are created and run every time the command changes or the caret is moved.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Cache suggestions based on entered command and caret position</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less CPU, may use less memory.</p>
-</li>
-<li>
-<p>Cons: Difficult to properly account for all the conditions that should cause a cache invalidation/recalculation of suggestions.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-pass-around-the-command-arguments"><a class="link" href="#aspect-data-structure-to-pass-around-the-command-arguments">Aspect: Data structure to pass around the command arguments</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Create an <code>ArgumentList</code> to store the ordered sequence of arguments.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Provides <code>Suggester</code>s with flexibility in providing suggestions since the relative ordering of arguments is preserved. For example, it is possible to suggest different values for each <code>class/</code> argument based on the left-closest <code>mod/</code> argument for the following command: <code>addmod n/Alice mod/CS2103T class/ mod/CS2101 class/</code>.</p>
-</li>
-<li>
-<p>Cons: Increased complexity in extracting command arguments for simpler <code>Suggester</code>s.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Reuse <code>ArgumentMultimap</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate data structure due to reuse, and developers familiar with how <code>ArgumentTokenizer.tokenize()</code> works for writing a <code>Command</code> can transfer their knowledge when writing <code>Suggester</code>s for their own commands.</p>
-</li>
-<li>
-<p>Cons: <code>Suggester</code>s are restricted in terms of the flexibility of their suggestions, as they lack info about the relative ordering of all the arguments.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">How command suggestions gets its suggestions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Ask <code>Suggester</code>s for suggestions every time anything changes <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Easy to implement.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. May have performance issues in terms of CPU and memory usage as <code>Suggester</code>s are created and run every time the command changes or the caret is moved.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Cache suggestions based on entered command and caret position</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Will use less CPU, may use less memory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Difficult to properly account for all the conditions that should cause a cache invalidation/recalculation of suggestions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">Correctness of suggestions is preferred over additional CPU/memory usage as caching suggestions but improperly invalidating them can lead to user (and developer) confusion. In this design, <code>Suggester</code>s can still choose to implement their own cache if necessary.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Data structure to pass around the command arguments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Create an <code>ArgumentList</code> to store the ordered sequence of arguments. <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Provides <code>Suggester</code>s with flexibility in providing suggestions since the relative ordering of arguments is preserved.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Increased complexity in extracting command arguments for simpler <code>Suggester</code>s.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Reuse <code>ArgumentMultimap</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. We do not need to maintain a separate data structure due to reuse, and developers familiar with how <code>ArgumentTokenizer.tokenize()</code> works for writing a <code>Command</code> can transfer their knowledge when writing <code>Suggester</code>s for their own commands.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. <code>Suggester</code>s are restricted in terms of the flexibility of their suggestions, as they lack info about the relative ordering of all the arguments.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">The chosen design allows for more complex <code>Suggester</code> behaviour. For example, this design enables the suggestion of different values for each <code>class/</code> argument based on the left-closest <code>mod/</code> argument for the following command: <code>addmod n/Alice mod/CS2103T class/ mod/CS2101 class/</code>.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2326,4 +2312,4 @@ Expected: No lessons will be added to John&#8217;s schedule. Error message shows
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 16:51:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 17:10:59 UTC</div></div></div></body></html>

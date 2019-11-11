@@ -1,0 +1,786 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Klement Tan(A0183726X) - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TimeBook</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T10-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Klement Tan(A0183726X) - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-timebook"><a class="link" href="#project-timebook">PROJECT: TimeBook</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My team was tasked to work on a basic command line interface desktop AddressBook application for our Software Engineering project. We chose to morph AddressBook to an application, <strong>TimeBook</strong> that makes scheduling team meetings a breeze for students.
+Students can keep track of their various on-going projects and sync the schedule of their project members onto a single platform.
+They can easily find common free time slot within a project group and we will suggest the closest location for everyone to meet.
+With TimeBook, scheduling Project meetings will no longer be a hassle.</p>
+</div>
+<div class="paragraph">
+<p><strong>TimeBook</strong></p>
+</div>
+<div id="img-guiComponent" class="imageblock">
+<div class="content">
+<img src="../images/guiComponents.png" alt="guiComponent">
+</div>
+<div class="title">Figure 1. Home window of TimeBook</div>
+</div>
+<div class="paragraph">
+<p>My role was to be the project manager and create an algorithm to compute the best location for a meeting based on the project members'
+initial locations. This resolves the issue of students having to pick from the vast variety of options to choose the most suitable  venues
+for project team meetings.The following sections illustrates this feature in detail, as well as the relevant documentation
+I have added to the user and developer guides in relation to these enhancements.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section shows a summary of my contribution to TimeBook. It includes the contribution to code base, documentation and other helpful contributions.</p>
+</div>
+<div class="paragraph">
+<p><strong>Major Feature added</strong>: I added a feature that helps project teams choose the closest location for everyone to meet. Below is a visual representation of the feature:</p>
+</div>
+<div id="img-SuccessfulPopup" class="imageblock">
+<div class="content">
+<img src="../images/gmaps/SuccessfulPopup.png" alt="SuccessfulPopup">
+</div>
+<div class="title">Figure 2. Home window of TimeBook</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>What it does</strong>: The popup command will display a popup(Figure 2 above) with information on are the three best place
+for everyone to meet during the school day. We define the best place to meet as the location that requires the least
+average travelling distance. As seen above, the users will be given the top 3 location with the least average travelling
+distance. They will know what the average travelling distance for each location and a picture of the location in Google
+Maps.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: NUS is a large campus with over five-hundred different venues to conduct the project meeting.
+Finding the best place to meet for a project can be a hassle as project teams the best location. This feature tackles
+this issue by using Google Maps to compute an unbiased closest common location that will benefit the team as a whole.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This feature works closely with external data sources such as NUSMods API(Application Programming
+Interface) to determine the initial location of the project members and Google Maps to compute the average traveling
+distance. Additionally I had to apply graph theory concepts to develop an algorithm to compute the closest common location.
+This feature is closely dependent on <code>Ui</code>, <code>Scheduling</code> and <code>NUSMods</code> component of TimeBook. I had to work closely
+with the other group members to ensure the seamless integration of this feature into TimeBook.</p>
+</li>
+<li>
+<p><strong>Challenges</strong>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Google Maps</strong>:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Google Maps APIs calls cost USD$10-USD$20/1000 calls. I had to minimise API calls by having a deep understanding of
+Google Maps APIs and carefully designing this feature to optimise resources constraints.</p>
+</li>
+<li>
+<p>There were bugs in Google Maps API and I had to meticulously analyze the API to identify potential break points caused by them.</p>
+</li>
+<li>
+<p>Google Maps Distance Matrix API only allows for return 100 elements per call but the complete graph I had to construct
+requires 10,000 elements. I had to carefully split the elements to blocks less than 100 and combine them together after the
+API was called.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>NUS Mods</strong>:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Not all locations on NUS Mods were identifiable on Google Maps, I had to create a systematical approach to convert the locations
+on NUS Mods to locations that are identifiable on Google Maps.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Credits</strong>: Utilized NUSMods and Google Maps API to get the necessary data for the feature.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Other Contributions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=totalCommits%20dsc&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=klementtan&amp;tabRepo=AY1920S1-CS2103T-T10-4%2Fmain%5Bmaster%5D">Repo Sense</a>]</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test cases for <code>Storage</code> component <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/261">#261</a>. Increase coverage by 4%.</p>
+</li>
+<li>
+<p>Worked with Marcus to implement caching of NUSMods and Google Maps API data.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In charge of making sure the team meets the weekly deadline and delegated issues among the team.</p>
+</li>
+<li>
+<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
+</li>
+<li>
+<p>Created <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/tree/master/.github/ISSUE_TEMPLATE"><code>Issue</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/blob/master/pull_request_template.md"><code>Pull Request</code></a> templates for more standardization in the repository.</p>
+</li>
+<li>
+<p>Introduced an agile planning board <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/projects/1">here</a></p>
+</li>
+<li>
+<p>Designed TimeBook <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/blob/master/src/main/resources/images/timebook_logo.png">logo</a> for additional branding.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote test cases for storage component and increased coverage by 4% (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/261">#261</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adopted <a href="https://swagger.io/docs/specification/about/">Open API Specification</a> style of documentation into the UG for
+a clearer, more standardized and easier to read user guide.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Group each command into <code>tag</code> so that we can split explanation of the User logic into the tags explanation and the
+detailed command logic into the command explanation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Drew high level design diagram for <code>Storage</code> component.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a third party API(Google Maps) to the project</p>
+</li>
+<li>
+<p>Introduced Lucid Chart to the team for easy design of UML diagrams.</p>
+</li>
+<li>
+<p>Integrated <a href="https://app.codacy.com/manual/AY1920S1-CS2103T-T10-4/main/dashboard"><code>Codacy</code></a> into the repository.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Closest-Common-Location"><a class="link" href="#Closest-Common-Location">Closest Common Location</a></h3>
+<div class="paragraph">
+<p>TimeBook will also help you to decide where to meet for your project meetings by suggesting to you an optimal
+location for everyone. The optimal location is the closest location for everyone to meet in NUS based
+on their schedule. In time book we define the optimal location for everyone as the <em>closest common location</em>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Steps</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set up your group by:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Adding your group members to your TimeBook with <code>addperson</code> command</p>
+</li>
+<li>
+<p>Adding your group to TimeBook with <code>addgroup</code> command</p>
+</li>
+<li>
+<p>Add your group members to your group with <code>addtogroup</code> command</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Get the relevant information for your group schedule with <code>show g/[GROUP_NAME]</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Identify the <code>ID</code> and <code>Week</code> of the time slot you want to get the closest common location for.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>With the free time slot <code>id</code> and <code>week</code> get the details for the closest common location with <code>selectfreetime</code> command</p>
+</li>
+<li>
+<p>Press <code>esc</code> button to close the popup</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Constraints</strong></p>
+</div>
+<div class="paragraph">
+<p>Due to the lack of internet connectivity, TimeBook will only support locations that are in NUSMods and identifiable by Google Maps.
+The full list of supported locations is <a href="UserGuide.html#Supported-Locations">below</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Definitions</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We define closest common location as the location that requires the least average distance to travel to and from different sources by car.</p>
+</li>
+<li>
+<p>Locations that are not supported are voided and are not used for the calculations of the closest common location and average travelling distance.</p>
+</li>
+<li>
+<p>Refer to the <code>Developer Guide</code> on how we computed the closest common location.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="select-free-time-code-selectfreetime-code"><a class="link" href="#select-free-time-code-selectfreetime-code">Select Free Time <code>selectfreetime</code></a></h4>
+<div class="paragraph">
+<p>Select a free time slot to launch a popup window with all the relevant information to help you make decide on the venue
+to conduct your project meetings at. The image below is an example of the popup.</p>
+</div>
+<div class="paragraph">
+<p>Below is an example of a popup.</p>
+</div>
+<div id="img-SuccessfulPopup" class="imageblock">
+<div class="content">
+<img src="../images/gmaps/SuccessfulPopup.png" alt="SuccessfulPopup">
+</div>
+<div class="title">Figure 3. An example of a popup when <code>selectfreetime</code> is executed</div>
+</div>
+<div class="paragraph">
+<p>command: <code>selectfreetime [week/WEEK_NUMBER] i/FREETIMESLOTID</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>selectfreetime i/3</code></p>
+</li>
+<li>
+<p><code>selectfreetime week/2 i/3</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>Description</em></p>
+</div>
+<div class="paragraph">
+<p>When the command is executed, a popup will appear that shows all the information of the closest common location
+for a particular free time slot in a group.</p>
+</div>
+<div class="paragraph">
+<p><em>Prerequisite</em></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You must be have group on TimeBook with members in it.</p>
+</li>
+<li>
+<p>You must execute <code>show g/[GROUP NAME]</code> before executing <code>selectfreetime</code> command.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>Parameters</em></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>[WEEK_NUMBER]</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Description: The week(1-4) of the group schedule you want to select the free time slot from. If parameter is not
+stated, it will default to the first week(the default schedule when you execute <code>show g/GROUP_NAME</code>).</p>
+</li>
+<li>
+<p>Type: <code>Integer</code></p>
+</li>
+<li>
+<p>Enum: <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>FREETIMESLOTID</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Description: ID of the free time slot in the <a href="UserGuide.html#Supported-Locations">schedule</a>. You can get this from the number in the free time slot box.
+You can only enter the <code>id</code> that is shown on the screen.</p>
+</li>
+<li>
+<p>Type: <code>Integer</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>Success Response</em></p>
+</div>
+<div class="paragraph">
+<p>If you follow the steps above, a popup will appear as seen in the Figure above.</p>
+</div>
+<div class="paragraph">
+<p>There are two main information that you will see in the popup when you execute the command.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The summary of the results that will be <code>displayed</code> on the top of the popup.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Your best location to meet up is:</strong> The first choice location to meet(closest for everyone).</p>
+</li>
+<li>
+<p><strong>Everyone&#8217;s locations:</strong> List of locations that the group members will be at before the free time slot.</p>
+</li>
+<li>
+<p><strong>Out of all these locations, the valid locations are:</strong> List of TimeBook supported locations that the group members
+will be at before the free time slot that.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Subset of the <strong>Everyone&#8217;s locations:</strong> list</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Locations that cannot be found in NUS:</strong> List of locations that the group members will be at before the free time
+slot but not supported by TimeBook.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Subset of the <strong>Everyone&#8217;s locations:</strong> list</p>
+</li>
+<li>
+<p>If all the locations are valid, this attribute will be empty as seen in the Figure above</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The full details of the first, second and third closest common location will be shown at the bottom of the popup.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>First choice represents the first closest and so on and so forth.</p>
+</li>
+<li>
+<p>The average distance(m) to reach the various locations will be displayed below the respective choices.</p>
+</li>
+<li>
+<p>The picture of the location of the venue on Google Maps will be displayed below each choice.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>For locations that are not supported on Google Maps, a picture of the center of NUS will be displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><em>Failure Response</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Error</code> when all the source locations are not recognised by TimeBook, a popup will not appear.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Feedback box will show:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code> We could not find a common location because all places cannot be found in NUS. The locations are:</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Error</code> when all the group members are not in school before the free time slot, a popup will not appear.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Feedback box will show:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>We could not find a common location because:
+Everyone has not started their schedule yet. Feel free to meet up any time.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Error</code> when invalid free time slot <code>ID</code> entered.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Feedback box will show:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Invalid time slot ID: 0. Please enter a valid id as shown in the GUI.</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Error</code> when invalid <code>GROUP_NAME</code> entered.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Feedback box will show:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Cannot recognise GROUP_NAME. Make sure you entered the correct value.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="close-popup-code-esc-code"><a class="link" href="#close-popup-code-esc-code">Close popup <code>esc</code></a></h4>
+<div class="paragraph">
+<p>After you are done with viewing the information on the popup press <code>esc</code> button on your keyboard to close the popup and
+and return to the main screen.</p>
+</div>
+<div class="paragraph">
+<p>Format: <kbd>esc</kbd> button on keyboard.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">Closest Common Location</a></h3>
+<div class="paragraph">
+<p>Closest common location utilises Google Maps API to get the best center location to meet for a group project meeting.
+We define this location as Closest Common Location. Below is an example of this feature.</p>
+</div>
+<div id="img-Popup" class="imageblock">
+<div class="content">
+<img src="../images/gmaps/SuccessfulPopup.png" alt="Popup">
+</div>
+<div class="title">Figure 4. Popup for the closest common location.</div>
+</div>
+<div class="sect3">
+<h4 id="definition"><a class="link" href="#definition">Definition</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Due to connectivity constraints, we cannot support location outside of NUS. View <a href="UserGuide.html#Supported-Locations">User Guide</a> for the full list of location we support.</p>
+</li>
+<li>
+<p>The closest location is the location that has the least average travelling distance by car from the various sources.</p>
+</li>
+<li>
+<p>All invalid locations are omitted and will not be considered in the computation of the closest common locations.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="algorithm"><a class="link" href="#algorithm">Algorithm</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a complete graph where the vertices are the different locations in NUS and edges are the respective travelling distance by car from location <code>u</code> to <code>v</code></p>
+</li>
+<li>
+<p>Represent this graph in a v x v matrix where <code>i</code> represent the source location and <code>j</code> represent destination location and <code>distanceMatrix[i][j]</code> represents the time needed to travel from <code>i</code> to <code>j</code></p>
+</li>
+<li>
+<p>To get the closest common location of S1 &#8230;&#8203; Sn:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Get the rows i = l1 &#8230;&#8203; ln</p>
+</li>
+<li>
+<p>Sum the values of the rows to a new row <code>totalDistance</code></p>
+</li>
+<li>
+<p>The smallest value in the row is the closest common location</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Below is an example of how the algorithm is applied on arbitrary locations <code>l1&#8230;&#8203;ln</code> with arbitrary travelling distance
+to compute the closest common location for <code>l2,ln-2 and ln1</code>.</p>
+</div>
+<div id="img-GmapsClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/gmaps/Algorithm.png" alt="Algorithm">
+</div>
+<div class="title">Figure 5. Example of how the algorithm is used. The closest common location for this instance is <code>ln-2</code>.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p><strong>Consideration</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Google Maps API charges USD$10-USD$20 per 1000 call.</p>
+</li>
+<li>
+<p><a href="https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing">Google Maps Distance Matrix Api</a>
+has a limit of 100 elements for every API call.</p>
+</li>
+<li>
+<p>Google Maps Api has bug</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Inconsistency in identifying locations. Example</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>NUS_LT17</code> is identified as the correct location and <code>LT17</code> is not.</p>
+</li>
+<li>
+<p><code>NUS_AS6</code> is not identified as the correct location but <code>AS6</code> is identified as the correct location.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Certain locations are not supported by Google Maps</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>S4</code> and <code>S6</code> are identifiable but <code>S5</code> is not.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Some locations are valid on Google Maps Places Api but not on Google Maps Distance Matrix Api.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Not all venues on NUSMods are identifiable on Google Maps API.</p>
+</li>
+<li>
+<p>Some venues on NUSMods are in the same building(ie AS6-0213 and AS6-0214).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Implementation</strong></p>
+</div>
+<div class="paragraph">
+<p>The image below represents the Class Diagram for Closest Common Location component of TimeBook</p>
+</div>
+<div id="img-GmapsClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/gmaps/GmapsClassDiagram.png" alt="GmapsClassDiagram">
+</div>
+<div class="title">Figure 6. Class Diagram for Closest Common Location Component</div>
+</div>
+<div class="paragraph">
+<p><strong>There are 3 main aspects to the implementation of this component.</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>External API</p>
+</li>
+<li>
+<p>Creating the matrix</p>
+</li>
+<li>
+<p>Getting the closest location</p>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="external-api"><a class="link" href="#external-api">External API</a></h5>
+<div class="paragraph">
+<p>To support the limited internet connection, we preprocess the relevant data and save it into the resources directory (See <a href="#External APIs">External APIs</a>).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="constructing-the-graph-matrix"><a class="link" href="#constructing-the-graph-matrix">Constructing the graph matrix</a></h5>
+<div class="paragraph">
+<p>Below is the sequence diagram for the creation of the matrix.</p>
+</div>
+<div id="img-Gmaps-Sequence-Diagram" class="imageblock">
+<div class="content">
+<img src="../images/gmaps/MatrixCreationSequenceDiagram.png" alt="Gmaps-Sequence-Diagram">
+</div>
+<div class="title">Figure 7. Sequence diagram for the construction of the graph matrix</div>
+</div>
+<div class="paragraph">
+<p><strong>Brief overview</strong>
+The initialising of the matrix is broken into 2 steps. The first step is to get the list of locations in NUSMods and
+checking against Google Maps API if that location is identifiable by Google. The second step is to use the identifiable
+location to construct the matrix.</p>
+</div>
+<div class="paragraph">
+<p><strong>Steps</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Check if the name of the location in NUSMods is identifiable on Google Maps. <code>ProcessVenues#process</code> is the driver for this step.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Call NUSMods API with <code>Cache#loadVenues</code> to get an array of Venues in NUS,</p>
+</li>
+<li>
+<p>Iterate through each venue and sanitize it to Google Maps Identifiable location.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Sanitizes the location name given by NUSMods by appending <code>NUS_</code> to the front and removing any characters after <code>-</code>
+or <code>/</code> as the room in the building does not matter. This will help to reduce the cost of Google Maps API calls.</p>
+</li>
+<li>
+<p><code>UrlUtil#conditionalLocationName</code> maps the location name that are not supported on Google Maps to a valid location
+name.</p>
+</li>
+<li>
+<p>Each venue in the array will have a <code>validLocationName</code> and <code>placeId</code> mapped to it in the
+<code>Location</code> class. This will help with the generation of Google Maps Distance Matrix API and retrieving of the location
+image from Google Maps Maps Static API</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Construct matrix. <code>ProcessLocationGraph#process</code> is the driver for this step.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Get the list of valid location with the relevant data(<code>placeId</code> and <code>validLocationName</code>)</p>
+</li>
+<li>
+<p>Divide this list into blocks of 10 to keep under the 100 element limit of Google Maps.</p>
+</li>
+<li>
+<p>Call Google Maps Distance Matrix Api for all the blocks in the list.</p>
+</li>
+<li>
+<p>Combine the API response into a single 2-Dimensional array where <code>distanceMatrix: ArrayList&lt;ArrayList&lt;Long&gt;&gt;</code>.</p>
+</li>
+<li>
+<p>Use the constructed 2-Dimensional to instantiate <code>LocationGraph</code> which would be utilised to compute all the
+closest common location.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">Getting closest location</a></h4>
+<div class="paragraph">
+<p><code>ClosestLocation#closestLocationData</code> executes algorithm above to compute the closest common location. Similar to how
+<code>JSON</code> is used to transfer data in <code>HTTP APIs</code>, <code>ClosestCommonLocationData</code> is used to transfer the relevant data to the
+<code>UI</code> to display the popup.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:25:24 UTC</div></div></div></body></html>

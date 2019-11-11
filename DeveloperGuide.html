@@ -17,23 +17,20 @@
 <li><a href="#Design-Logic">2.3. Logic component</a></li>
 <li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-API">2.6. Api component</a></li>
-<li><a href="#Design-API">2.7. Api component</a></li>
-<li><a href="#Design-Commons">2.8. Common classes</a></li>
+<li><a href="#Design-API">2.6. Api Component</a></li>
+<li><a href="#Design-Commons">2.7. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#schedule-generator">3.1. Schedule Generator</a></li>
-<li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#command-suggestions">3.3. Command Suggestions feature</a></li>
-<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
-<li><a href="#visual-representation-of-individual-s-or-group-s-schedule-feature">3.7. Visual Representation of individual&#8217;s or group&#8217;s schedule feature</a></li>
-<li><a href="#Implementation-ClosestLocation">3.8. Closest Common Location</a></li>
-<li><a href="#add-nusmods-to-schedule">3.9. Add NUSMods To Schedule</a></li>
-<li><a href="#external-apis">3.10. External APIs</a></li>
+<li><a href="#command-suggestions">3.2. Command Suggestions feature</a></li>
+<li><a href="#logging">3.3. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#visual-representation-of-individual-s-or-group-s-schedule-feature">3.5. Visual Representation of individual&#8217;s or group&#8217;s schedule feature</a></li>
+<li><a href="#Implementation-ClosestLocation">3.6. Closest Common Location</a></li>
+<li><a href="#add-nusmods-to-schedule">3.7. Add NUSMods To Schedule</a></li>
+<li><a href="#external-apis">3.8. External APIs</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -386,7 +383,7 @@ when a user executes commands such as <code>addgroup</code> or <code>addevent</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-API"><a class="link" href="#Design-API">2.6. Api component</a></h3>
+<h3 id="Design-API"><a class="link" href="#Design-API">2.6. Api Component</a></h3>
 <div class="paragraph">
 <p>The following diagram explains the design of the API component:</p>
 </div>
@@ -423,44 +420,7 @@ Currently there is no <code>Api</code> interface or <code>ApiManager</code> to m
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-API"><a class="link" href="#Design-API">2.7. Api component</a></h3>
-<div class="paragraph">
-<p>The following diagram explains the design of the API component:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/api/ApiComponentClassDiagram.png" alt="ApiComponentClassDiagram">
-</div>
-<div class="title">Figure 14. Expected structure of API Component in <code>v2.0</code>.</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Currently there is no <code>Api</code> interface or <code>ApiManager</code> to manage the external interactions with other components. Other components are directly accessing static methods in the <code>xxxApi</code> classes and <code>Cache</code> class for accessing API data. We intend to refactor the component to make it more OOP as shown in the figure above in <code>v2.0</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>Api</code>,</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>handles queries to external APIs such as Google Maps and NUSMods.</p>
-</li>
-<li>
-<p>handles caching of API results for limited connectivity support.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.8. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.7. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
@@ -859,223 +819,9 @@ have to be generated and stored in memory.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="command-suggestions"><a class="link" href="#command-suggestions">3.2. Command Suggestions feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
-<div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="command-suggestions"><a class="link" href="#command-suggestions">3.3. Command Suggestions feature</a></h3>
-<div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.3.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The command suggestions mechanism is facilitated by <code>SuggestionLogic</code>.
 Through user-interface events provided by <code>SuggestingCommandBox</code>, it parses the command that was entered to provide context-sensitive suggestions.</p>
@@ -1090,7 +836,7 @@ Through user-interface events provided by <code>SuggestingCommandBox</code>, it 
 <div class="content">
 <img src="images/command-suggestions/developer-guide-caret-within-arguments.png" alt="developer guide caret within arguments" width="50%">
 </div>
-<div class="title">Figure 15. Example of the command suggestions mechanism</div>
+<div class="title">Figure 14. Example of the command suggestions mechanism</div>
 </div>
 <div class="paragraph">
 <p>Step 1. The user types in the command <code>deleteperson n/|</code> and the <code>SuggestingCommandBox</code> UI class passes the command text (i.e. <code>deleteperson n/</code>) and the caret position index (i.e. 15) to <code>SuggestionLogic</code>.</p>
@@ -1112,7 +858,7 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/Step1.svg" alt="Step1">
 </div>
-<div class="title">Figure 16. The <code>SuggestingCommandBox</code> UI class passing UI data to the <code>SuggestionLogic</code> class to obtain suggestions.</div>
+<div class="title">Figure 15. The <code>SuggestingCommandBox</code> UI class passing UI data to the <code>SuggestionLogic</code> class to obtain suggestions.</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The <code>SuggestionLogic</code> asks the <code>TimeBookParser</code> to tokenize the command text into its two parts: the <code>commandWord</code> and the <code>arguments</code>. This is needed so the <code>SuggestionLogic</code> knows which <code>Suggester</code> to use later.</p>
@@ -1121,7 +867,7 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/Step2.svg" alt="Step2">
 </div>
-<div class="title">Figure 17. Tokenization of the command entered by the user</div>
+<div class="title">Figure 16. Tokenization of the command entered by the user</div>
 </div>
 <div id="command-suggestions-caret-within-arguments" class="paragraph">
 <p>Step 3. The <code>SuggestionLogic</code> then checks where the caret is currently positioned, either within the <code>commandWord</code> or within the <code>arguments</code> section. In this case, the caret is placed after the <code>n/</code> so it is within the <code>arguments</code> section. <a href="#command-suggestions-caret-within-commandWord">To read how the behaviour changes if the caret was placed within the <code>commandWord</code> section, click here.</a></p>
@@ -1130,7 +876,7 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/Step3.svg" alt="Step3" width="50%">
 </div>
-<div class="title">Figure 18. The tokenized command and its caret indices</div>
+<div class="title">Figure 17. The tokenized command and its caret indices</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The <code>SuggestionLogic</code> asks the static <code>Suggester</code> class which <code>Prefix</code>es are supported by the current <code>commandWord</code> (i.e. <code>deleteperson</code>) for tokenizing the <code>arguments</code>. This list of supported <code>Prefix</code>es, together with the command <code>arguments</code>, are passed to the static <code>ArgumentTokenizer</code> to parse it into an <code>ArgumentList</code> containing <code>CommandArgument</code>s. Each <code>CommandArgument</code> contains the type of <code>Prefix</code> and the user-entered value.</p>
@@ -1139,7 +885,7 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/Step4.svg" alt="Step4">
 </div>
-<div class="title">Figure 19. Tokenizing the given arguments</div>
+<div class="title">Figure 18. Tokenizing the given arguments</div>
 </div>
 <div class="paragraph">
 <p>Step 5. The <code>SuggestionLogic</code> then asks the static <code>Suggester</code> class to create the relevant <code>Suggester</code> object based on the <code>commandWord</code>. In this case, the static <code>Suggester</code> class returns a new <code>DeletePersonCommandSuggester</code> because the <code>commandWord</code> is <code>deleteperson</code>.</p>
@@ -1148,7 +894,7 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/Step5.svg" alt="Step5">
 </div>
-<div class="title">Figure 20. Creating the relevant <code>Suggester</code></div>
+<div class="title">Figure 19. Creating the relevant <code>Suggester</code></div>
 </div>
 <div class="paragraph">
 <p>Step 6. The <code>SuggestionLogic</code> asks the <code>ArgumentList</code> object which <code>CommandArgument</code> is currently selected based on the user&#8217;s caret position. In this case, it is the <code>CommandArgument</code> with the <code>Prefix</code> of <code>PERSON_NAME</code> and <code>value</code> of an empty string because the caret is positioned within the <code>n/</code> text and no value has been entered.</p>
@@ -1157,7 +903,7 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/Step6.svg" alt="Step6">
 </div>
-<div class="title">Figure 21. Calculating which <code>CommandArgument</code> is currently selected</div>
+<div class="title">Figure 20. Calculating which <code>CommandArgument</code> is currently selected</div>
 </div>
 <div class="paragraph">
 <p>&#160;<br></p>
@@ -1169,7 +915,7 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/Step7.svg" alt="Step7">
 </div>
-<div class="title">Figure 22. Obtaining and displaying suggestions</div>
+<div class="title">Figure 21. Obtaining and displaying suggestions</div>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram condenses all the above diagrams into one, given the input <code>deleteperson n/|</code>:</p>
@@ -1192,7 +938,7 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/developer-guide-caret-within-commandWord.png" alt="developer guide caret within commandWord" width="50%">
 </div>
-<div class="title">Figure 23. What users see when the caret is placed within the <code>commandWord</code> section</div>
+<div class="title">Figure 22. What users see when the caret is placed within the <code>commandWord</code> section</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user interacts with the command input box:</p>
@@ -1201,11 +947,11 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 <div class="content">
 <img src="images/command-suggestions/ActivityDiagram.svg" alt="ActivityDiagram">
 </div>
-<div class="title">Figure 24. Activity diagram showing how Command Suggestions decides what to show</div>
+<div class="title">Figure 23. Activity diagram showing how Command Suggestions decides what to show</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-command-suggestions-gets-its-suggestions"><a class="link" href="#aspect-how-command-suggestions-gets-its-suggestions">Aspect: How command suggestions gets its suggestions</a></h5>
 <div class="ulist">
@@ -1275,20 +1021,14 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1319,13 +1059,13 @@ So for the above example, the command entered is <code>deleteperson n/</code> wi
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="visual-representation-of-individual-s-or-group-s-schedule-feature"><a class="link" href="#visual-representation-of-individual-s-or-group-s-schedule-feature">3.7. Visual Representation of individual&#8217;s or group&#8217;s schedule feature</a></h3>
+<h3 id="visual-representation-of-individual-s-or-group-s-schedule-feature"><a class="link" href="#visual-representation-of-individual-s-or-group-s-schedule-feature">3.5. Visual Representation of individual&#8217;s or group&#8217;s schedule feature</a></h3>
 <div class="paragraph">
 <p>The visual representation refers to the graphics you see when you view a group or an individual&#8217;s schedule in TimeBook. We will first describe how the graphics are created.
 All of these graphics are created in the <code>ScheduleView</code> class. The object oriented domain model below illustrates the problem domain of the <code>ScheduleView</code> class in TimeBook.</p>
@@ -1334,7 +1074,7 @@ All of these graphics are created in the <code>ScheduleView</code> class. The ob
 <div class="content">
 <img src="images/yijie/ScheduleViewDomainModel.png" alt="svdm" width="500" height="500">
 </div>
-<div class="title">Figure 25. Object oriented domain model for <code>ScheduleView</code>.</div>
+<div class="title">Figure 24. Object oriented domain model for <code>ScheduleView</code>.</div>
 </div>
 <div class="paragraph">
 <p>The <code>ScheduleView</code> class in TimeBook follows the above model closely. Let&#8217;s walk you through how the graphics are created.</p>
@@ -1403,7 +1143,7 @@ all the information needed to generate a schedule view.</p>
 <div class="content">
 <img src="images/yijie/gsvm_state1.png" alt="gsvm1" width="800" height="500">
 </div>
-<div class="title">Figure 26. Initial state of GroupScheduleViewManager after the <code>show</code> command is executed.</div>
+<div class="title">Figure 25. Initial state of GroupScheduleViewManager after the <code>show</code> command is executed.</div>
 </div>
 <div class="paragraph">
 <p>Step 2. Suppose the user thinks that arranging a group meeting on the first week is too rushed, so he executes the <code>togglenext</code> command to view the group&#8217;s schedule for the next week.
@@ -1413,7 +1153,7 @@ The state of <code>ScheduleViewManager</code> is then modified to show the secon
 <div class="content">
 <img src="images/yijie/gsvm_state2.png" alt="gsvm1" width="800" height="500">
 </div>
-<div class="title">Figure 27. State of GroupScheduleViewManager after the <code>togglenext</code> command is executed.</div>
+<div class="title">Figure 26. State of GroupScheduleViewManager after the <code>togglenext</code> command is executed.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. Suppose the user now wants to inspect some of his group members' schedules, and he executes the <code>lookat</code> command to inspect Alice&#8217;s and Carl&#8217;s schedules.
@@ -1423,7 +1163,7 @@ The state of <code>ScheduleViewManager</code> is once again modified to only sho
 <div class="content">
 <img src="images/yijie/gsvm_state3.png" alt="gsvm1" width="800" height="500">
 </div>
-<div class="title">Figure 28. State of the GroupScheduleViewManager after the <code>lookat</code> command is executed.</div>
+<div class="title">Figure 27. State of the GroupScheduleViewManager after the <code>lookat</code> command is executed.</div>
 </div>
 <div class="paragraph">
 <p>Now that we have the full picture of how the graphics are created and controlled, we are ready to show how the user obtain a visual representation of a person or group&#8217;s schedule using the <code>show</code> command.
@@ -1433,7 +1173,7 @@ The following sequence diagram shows the sequence of events that lead to changes
 <div class="content">
 <img src="images/yijie/showCommandSequenceDiagram.png" alt="showCommandSequenceDiagram">
 </div>
-<div class="title">Figure 29. Sequence diagram for the <code>show</code> command.</div>
+<div class="title">Figure 28. Sequence diagram for the <code>show</code> command.</div>
 </div>
 <div class="paragraph">
 <p>In order to make the diagram look less messy, a reference diagram shown below is created to show what happens in the <strong>get schedule view</strong> frame.</p>
@@ -1442,13 +1182,13 @@ The following sequence diagram shows the sequence of events that lead to changes
 <div class="content">
 <img src="images/yijie/showCommandSdFrame.png" alt="scsdf" width="600" height="600">
 </div>
-<div class="title">Figure 30. Reference frame that was omitted from the sequence diagram.</div>
+<div class="title">Figure 29. Reference frame that was omitted from the sequence diagram.</div>
 </div>
 <div class="paragraph">
 <p>Details of how the graphics are created within the <code>ScheduleView</code> have been described above and thus, are omitted in the diagram.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.7.1. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.1. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -1526,7 +1266,7 @@ Furthermore, filtering a group member can easily be done by just creating a new 
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">3.8. Closest Common Location</a></h3>
+<h3 id="Implementation-ClosestLocation"><a class="link" href="#Implementation-ClosestLocation">3.6. Closest Common Location</a></h3>
 <div class="paragraph">
 <p>Closest common location utilises Google Maps API to get the best center location to meet for a group project meeting.
 We define this location as Closest Common Location. Below is an example of this feature.</p>
@@ -1535,10 +1275,10 @@ We define this location as Closest Common Location. Below is an example of this 
 <div class="content">
 <img src="images/gmaps/SuccessfulPopup.png" alt="Popup">
 </div>
-<div class="title">Figure 31. Popup for the closest common location.</div>
+<div class="title">Figure 30. Popup for the closest common location.</div>
 </div>
 <div class="sect3">
-<h4 id="definition"><a class="link" href="#definition">3.8.1. Definition</a></h4>
+<h4 id="definition"><a class="link" href="#definition">3.6.1. Definition</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1554,7 +1294,7 @@ We define this location as Closest Common Location. Below is an example of this 
 </div>
 </div>
 <div class="sect3">
-<h4 id="algorithm"><a class="link" href="#algorithm">3.8.2. Algorithm</a></h4>
+<h4 id="algorithm"><a class="link" href="#algorithm">3.6.2. Algorithm</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1585,15 +1325,15 @@ We define this location as Closest Common Location. Below is an example of this 
 <p>Below is an example of how the algorithm is applied on arbitrary locations <code>l1&#8230;&#8203;ln</code> with arbitrary travelling distance
 to compute the closest common location for <code>l2,ln-2 and ln1</code>.</p>
 </div>
-<div id="img-GmapsClassDiagram" class="imageblock">
+<div id="img-Algorithm" class="imageblock">
 <div class="content">
 <img src="images/gmaps/Algorithm.png" alt="Algorithm">
 </div>
-<div class="title">Figure 32. Example of how the algorithm is used. The closest common location for this instance is <code>ln-2</code>.</div>
+<div class="title">Figure 31. Example of how the algorithm is used. The closest common location for this instance is <code>ln-2</code>.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.8.3. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.6.3. Implementation</a></h4>
 <div class="paragraph">
 <p><strong>Consideration</strong></p>
 </div>
@@ -1657,7 +1397,7 @@ has a limit of 100 elements for every API call.</p>
 <div class="content">
 <img src="images/gmaps/GmapsClassDiagram.png" alt="GmapsClassDiagram">
 </div>
-<div class="title">Figure 33. Class Diagram for Closest Common Location Component</div>
+<div class="title">Figure 32. Class Diagram for Closest Common Location Component</div>
 </div>
 <div class="paragraph">
 <p><strong>There are 3 main aspects to the implementation of this component.</strong></p>
@@ -1690,7 +1430,7 @@ has a limit of 100 elements for every API call.</p>
 <div class="content">
 <img src="images/gmaps/MatrixCreationSequenceDiagram.png" alt="Gmaps-Sequence-Diagram">
 </div>
-<div class="title">Figure 34. Sequence diagram for the construction of the graph matrix</div>
+<div class="title">Figure 33. Sequence diagram for the construction of the graph matrix</div>
 </div>
 <div class="paragraph">
 <p><strong>Brief overview</strong>
@@ -1761,7 +1501,7 @@ closest common location.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">3.8.4. Getting closest location</a></h4>
+<h4 id="getting-closest-location"><a class="link" href="#getting-closest-location">3.6.4. Getting closest location</a></h4>
 <div class="paragraph">
 <p><code>ClosestLocation#closestLocationData</code> executes algorithm above to compute the closest common location. Similar to how
 <code>JSON</code> is used to transfer data in <code>HTTP APIs</code>, <code>ClosestCommonLocationData</code> is used to transfer the relevant data to the
@@ -1769,9 +1509,9 @@ closest common location.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.8.5. Design Considerations</a></h4>
-<div class="sect5">
-<h6 id="aspect-limited-connectivity-support"><a class="link" href="#aspect-limited-connectivity-support">Aspect: Limited Connectivity Support</a></h6>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.5. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-limited-connectivity-support"><a class="link" href="#aspect-limited-connectivity-support">Aspect: Limited Connectivity Support</a></h5>
 <div class="paragraph">
 <p>Current choice: we chose alternative 2 as we have limited Google Maps API calls and to reduce the time and space complexity
 of the application.</p>
@@ -1811,9 +1551,9 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-nusmods-to-schedule"><a class="link" href="#add-nusmods-to-schedule">3.9. Add NUSMods To Schedule</a></h3>
+<h3 id="add-nusmods-to-schedule"><a class="link" href="#add-nusmods-to-schedule">3.7. Add NUSMods To Schedule</a></h3>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.9.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code> or <code>AddNusModCommand</code>) to their TimeBook schedules.</p>
 </div>
@@ -1830,7 +1570,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/AddNusModsSequenceDiagram.png" alt="AddNusModsSequenceDiagram">
 </div>
-<div class="title">Figure 35. Sequence diagram of executing the AddNusModsCommand</div>
+<div class="title">Figure 34. Sequence diagram of executing the AddNusModsCommand</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1878,7 +1618,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/ModuleClassDiagram.png" alt="ModuleClassDiagram">
 </div>
-<div class="title">Figure 36. Class diagram of <code>Module</code> and associated classes</div>
+<div class="title">Figure 35. Class diagram of <code>Module</code> and associated classes</div>
 </div>
 <div class="paragraph">
 <p>The following class diagram shows the <code>Event</code> class and its associated classes relevant in the context of this feature.</p>
@@ -1887,11 +1627,11 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/EventClassDiagram.png" alt="EventClassDiagram" width="75%">
 </div>
-<div class="title">Figure 37. Class diagram of <code>Event</code> and associated classes</div>
+<div class="title">Figure 36. Class diagram of <code>Event</code> and associated classes</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.2. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -1930,12 +1670,12 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="external-apis"><a class="link" href="#external-apis">3.10. External APIs</a></h3>
+<h3 id="external-apis"><a class="link" href="#external-apis">3.8. External APIs</a></h3>
 <div class="paragraph">
 <p>The application requires data from the <a href="https://api.nusmods.com/v2/">NUSMods API</a> for the <a href="#add-nusmods-to-schedule">Add NUSMods To Schedule</a> feature and data from the <a href="https://developers.google.com/maps/documentation">Google Maps API</a> for the <a href="#Closest Common Location(Micro Service)">Closest Common Location</a> feature. The following subsections describe the implementation of the <a href="#Design-API">Api component</a>:</p>
 </div>
 <div class="sect3">
-<h4 id="apis"><a class="link" href="#apis">3.10.1. APIs</a></h4>
+<h4 id="apis"><a class="link" href="#apis">3.8.1. APIs</a></h4>
 <div class="paragraph">
 <p>We have implemented an <code>Api</code> component to contain the logic of interfacing with external APIs, the architecture diagram of this component can be seen in <a href="#Design-API">Design &#8594; Api component</a>.</p>
 </div>
@@ -1953,7 +1693,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="caching-api-results"><a class="link" href="#caching-api-results">3.10.2. Caching API Results</a></h4>
+<h4 id="caching-api-results"><a class="link" href="#caching-api-results">3.8.2. Caching API Results</a></h4>
 <div class="paragraph">
 <p>To support limited connectivity in our application, the results of all API queries are preprocessed and saved into the resources directory. This is managed by the <code>Cache</code> class. The following activity diagram shows how the caching feature works when external data is required for the execution of a certain command:</p>
 </div>
@@ -1961,11 +1701,11 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/gmaps/ApiDiagram.png" alt="ApiDiagram" width="40%">
 </div>
-<div class="title">Figure 38. Activity diagram showing decision flow for <code>loadXXX</code> methods</div>
+<div class="title">Figure 37. Activity diagram showing decision flow for <code>loadXXX</code> methods</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="preprocessing-nusmods-api"><a class="link" href="#preprocessing-nusmods-api">3.10.3. Preprocessing NUSMods API</a></h4>
+<h4 id="preprocessing-nusmods-api"><a class="link" href="#preprocessing-nusmods-api">3.8.3. Preprocessing NUSMods API</a></h4>
 <div class="paragraph">
 <p>We preprocess the data collected from NUSMods API so that we can cache the data for offline usage and perform some early computation steps (e.g. validation, parsing) to reduce the computation cost during actual use in the application.</p>
 </div>
@@ -1974,13 +1714,13 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="preprocessing-google-maps-api"><a class="link" href="#preprocessing-google-maps-api">3.10.4. Preprocessing Google Maps API</a></h4>
+<h4 id="preprocessing-google-maps-api"><a class="link" href="#preprocessing-google-maps-api">3.8.4. Preprocessing Google Maps API</a></h4>
 <div class="paragraph">
 <p>All preprocessing of raw API data for Google Maps are done in the <code>GmapsJsonUtils</code> class.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.10.5. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.8.5. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 25%;">
@@ -2593,4 +2333,4 @@ Expected: No lessons will be added to John&#8217;s schedule. Error message shows
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:56:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 16:40:01 UTC</div></div></div></body></html>

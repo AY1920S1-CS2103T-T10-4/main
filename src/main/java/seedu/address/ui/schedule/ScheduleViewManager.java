@@ -24,14 +24,14 @@ public abstract class ScheduleViewManager {
     protected static final Logger LOGGER = LogsCenter.getLogger(ScheduleViewManager.class);
     protected ScheduleState type;
     protected ScheduleView scheduleView;
-    protected int weekNumber;
+    protected int weekNumberShown;
     protected LocalDate currentDate;
 
     public static ScheduleViewManager getInstanceOf(ScheduleDisplay scheduleDisplay)
             throws InvalidScheduleViewException {
         ScheduleState displayType = scheduleDisplay.getState();
 
-        if (!isValidSchedules(scheduleDisplay.getPersonSchedules())) {
+        if (!areSchedulesValid(scheduleDisplay.getPersonSchedules())) {
             LOGGER.severe("Schedule given is invalid.");
             throw new InvalidScheduleViewException("The schedule has clashes between events!");
         }
@@ -61,7 +61,7 @@ public abstract class ScheduleViewManager {
      * @param personSchedules List of schedules given.
      * @return boolean.
      */
-    private static boolean isValidSchedules(ArrayList<PersonSchedule> personSchedules) {
+    private static boolean areSchedulesValid(ArrayList<PersonSchedule> personSchedules) {
         boolean isValid = true;
         for (PersonSchedule personSchedule : personSchedules) {
             for (int i = 0; i < 4; i++) {

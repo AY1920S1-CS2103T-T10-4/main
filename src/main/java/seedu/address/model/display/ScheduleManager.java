@@ -9,8 +9,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.GmapsModelManager;
 import seedu.address.model.display.locationdata.ClosestCommonLocationData;
 import seedu.address.model.display.scheduledisplay.GroupScheduleDisplay;
@@ -44,6 +47,8 @@ import seedu.address.ui.util.ColorGenerator;
  */
 public class ScheduleManager {
 
+    private static final Logger logger = LogsCenter.getLogger(ScheduleManager.class);
+
     private static final int DAYS_OF_A_WEEK = 7;
     private static final int WEEKS_OF_A_MONTH = 4;
 
@@ -72,6 +77,8 @@ public class ScheduleManager {
      */
     public void updateScheduleWithPerson(Person person, LocalDateTime time,
                                          ScheduleState type) {
+        assert(type.equals(ScheduleState.PERSON));
+        logger.log(Level.INFO, String.format("Generating Schedule of %s", person.getName().toString()));
         updateScheduleWindowDisplay(person, time, type);
     }
 
@@ -79,6 +86,8 @@ public class ScheduleManager {
      * Updates with a schedule of the user.
      */
     public void updateScheduleWithUser(User user, LocalDateTime time, ScheduleState type) {
+        assert(type.equals(ScheduleState.PERSON) || type.equals(ScheduleState.HOME));
+        logger.log(Level.INFO, String.format("Generating Schedule of %s (user)", user.getName().toString()));
         updateScheduleWindowDisplay(user, time, type);
     }
 
@@ -91,8 +100,12 @@ public class ScheduleManager {
                                         LocalDateTime time,
                                         ScheduleState type) {
 
+        assert(type.equals(ScheduleState.GROUP));
         mappingList.add(new PersonToGroupMapping(new PersonId(-1), group.getGroupId(), group.getUserRole()));
-        updateScheduleWindowDisplay(persons, mappingList, new GroupDisplay(group), time, type);
+        GroupDisplay groupDisplay = new GroupDisplay(group);
+        logger.log(Level.INFO, String.format("Generating Schedule of %s (group)",
+                groupDisplay.getGroupName().toString()));
+        updateScheduleWindowDisplay(persons, mappingList, groupDisplay, time, type);
     }
 
     /**
@@ -102,7 +115,10 @@ public class ScheduleManager {
                                           LocalDateTime now,
                                           ScheduleState type) {
 
+        assert(type.equals(ScheduleState.GROUP));
         GroupDisplay groupDisplay = new GroupDisplay(persons);
+        logger.log(Level.INFO, String.format("Generating Schedule of %s (group)",
+                groupDisplay.getGroupName().toString()));
         updateScheduleWindowDisplay(persons, null, groupDisplay, now, type);
 
     }
@@ -243,7 +259,6 @@ public class ScheduleManager {
                 selectedColor = color;
             } else {
                 selectedColor = ColorGenerator.generateColor(e);
-
             }
 
             ArrayList<Timeslot> timeslots = currentEvent.getTimeslots();
@@ -275,6 +290,9 @@ public class ScheduleManager {
                     );
 
                     scheduleDisplay.get(currentStartTime.getDayOfWeek()).add(timeslot);
+                } else {
+                    logger.log(Level.FINE, String.format("%s is not within schedule range: "
+                            + "event is omitted from schedule", eventName));
                 }
             }
         }
@@ -295,6 +313,8 @@ public class ScheduleManager {
                                               LocalDateTime now) {
 
         HashMap<DayOfWeek, ArrayList<FreeTimeslot>> freeSchedule = new HashMap<>();
+
+        logger.log(Level.FINE, "Generating FreeSchedule..");
 
         // Used to allocate an ID for each FreeTimeslot
         int freeTimeslotIdCounter = 1;

@@ -78,6 +78,7 @@ on NUS Mods to locations that are identifiable on Google Maps.
 ** Documentation:
 *** Adopted https://swagger.io/docs/specification/about/[Open API Specification] style of documentation into the UG for
 a clearer, more standardized and easier to read user guide.
+*** Create high level Architecture Diagram for Storage Component.
 **** Group each command into `tag` so that we can split explanation of the User logic into the tags explanation and the
 detailed command logic into the command explanation.
 ** Tools:

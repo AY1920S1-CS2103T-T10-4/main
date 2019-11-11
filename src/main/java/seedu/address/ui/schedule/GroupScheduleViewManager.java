@@ -28,10 +28,10 @@ public class GroupScheduleViewManager extends ScheduleViewManager {
         this.filteredPersonSchedules = originalPersonSchedules;
         this.groupName = groupName;
         this.freeSchedules = freeSchedules;
-        super.weekNumber = 0;
+        super.weekNumberShown = 0;
         super.currentDate = LocalDate.now();
         super.type = ScheduleState.GROUP;
-        super.LOGGER.info("Generating schedule view for " + groupName.toString() + ".");
+        super.LOGGER.info("Generating schedule view for " + groupName.toString());
     }
 
     /**
@@ -39,19 +39,20 @@ public class GroupScheduleViewManager extends ScheduleViewManager {
      * Group schedules show free time.
      */
     private void update() {
-        LocalDate dateToShow = currentDate.plusDays(7 * weekNumber);
+        LocalDate dateToShow = currentDate.plusDays(7 * weekNumberShown);
         ArrayList<WeekSchedule> weekSchedules = filteredPersonSchedules
-                .stream().map(personSchedule -> personSchedule.getScheduleDisplay().get(weekNumber))
+                .stream().map(personSchedule -> personSchedule.getScheduleDisplay().get(weekNumberShown))
                 .collect(Collectors.toCollection(ArrayList::new));
-        super.scheduleView = new ScheduleView(weekSchedules, "Week " + (weekNumber + 1) + " "
+        super.scheduleView = new ScheduleView(weekSchedules, "Week " + (weekNumberShown + 1) + " "
                 + groupName.toString(), dateToShow);
         //Required to set the free time schedule first before generating the schedule.
-        super.scheduleView.setFreeTime(freeSchedules.get(weekNumber));
+        super.scheduleView.setFreeTime(freeSchedules.get(weekNumberShown));
         super.scheduleView.generateSchedule();
     }
 
     /**
-     *
+     * Filters the given person schedules with a given list of names.
+     * @param filteredList List of names to be filtered.
      */
     private void filterPerson(List<Name> filteredList) {
         filteredPersonSchedules = new ArrayList<>();
@@ -59,7 +60,6 @@ public class GroupScheduleViewManager extends ScheduleViewManager {
         for (PersonSchedule personSchedule : originalPersonSchedules) {
             if (filteredListCopy.contains(personSchedule.getPersonDisplay().getName())) {
                 //Person is found in the filtered list.
-                int index = originalPersonSchedules.indexOf(personSchedule);
                 filteredPersonSchedules.add(personSchedule);
                 filteredListCopy.remove(personSchedule.getPersonDisplay().getName());
             }
@@ -75,19 +75,19 @@ public class GroupScheduleViewManager extends ScheduleViewManager {
 
     @Override
     public void toggleNext() {
-        super.weekNumber = (weekNumber + 1) % 4;
+        super.weekNumberShown = (weekNumberShown + 1) % 4;
     }
 
     @Override
     public ScheduleView getScheduleViewCopy() {
         List<WeekSchedule> weekSchedules = new ArrayList<>();
         for (int i = 0; i < originalPersonSchedules.size(); i++) {
-            weekSchedules.add(originalPersonSchedules.get(i).getScheduleDisplay().get(weekNumber));
+            weekSchedules.add(originalPersonSchedules.get(i).getScheduleDisplay().get(weekNumberShown));
         }
 
         ScheduleView copy = new ScheduleView(weekSchedules,
-                groupName.toString(), currentDate.plusDays(7 * weekNumber));
-        copy.setFreeTime(freeSchedules.get(weekNumber));
+                groupName.toString(), currentDate.plusDays(7 * weekNumberShown));
+        copy.setFreeTime(freeSchedules.get(weekNumberShown));
         copy.generateSchedule();
         return copy;
     }

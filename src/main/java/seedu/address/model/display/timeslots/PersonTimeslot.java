@@ -105,15 +105,4 @@ public class PersonTimeslot {
         }
     }
 
-    @Override
-    public String toString() {
-        String output = "";
-        output += eventName + " "
-                + "ID: " + id.toString() + " "
-                + startTime.toString() + " "
-                + endTime.toString() + " "
-                + venue.toString();
-
-        return output;
-    }
 }

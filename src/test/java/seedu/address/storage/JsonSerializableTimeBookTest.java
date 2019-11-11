@@ -1,5 +1,6 @@
 package seedu.address.storage;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
@@ -26,7 +27,7 @@ public class JsonSerializableTimeBookTest {
                 JsonSerializableTimeBook.class).get();
         TimeBook timeBookFromFile = dataFromFile.toModelType();
         TimeBook typicalTimeBook = TypicalTimeBook.get();
-        //assertTrue(timeBookFromFile.equals(typicalTimeBook));
+        assertTrue(timeBookFromFile.equals(typicalTimeBook));
     }
 
     @Test

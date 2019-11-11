@@ -25,6 +25,7 @@ Keep a look out for more cool and exciting features coming soon!
 == Introduction
 
 Thank you for checking out TimeBook!
+// tag::ppp-introduction[]
 TimeBook is a desktop application that is morphed from AddressBook Level 3 (AB3).
 TimeBook is a scheduling application that aims to help busy NUS undergraduates keep track of the schedules of you and your friends.
 It also can find the common free time and venues among you and your friends.
@@ -35,6 +36,7 @@ TimeBook will have the following features:
 . Deconflict different schedules of different people and different groups to find the common free time among them.
 . Integration with NUSmods API to allow users to enter their NUSmods timetable link to add it to their schedule.
 . Integration with Google Maps API to allow the application to evaluate the best venue for the group to meet up during the free time in their schedules.
+// end::ppp-introduction[]
 
 == Understanding this guide
 
@@ -432,27 +434,28 @@ ___
 // tag::addmod[]
 ==== Add Module to Schedule: `addmod`
 
-Adds an NUS module as an event to a person's schedule in TimeBook.
+Want to add an NUS module to you or your friend's schedule on TimeBook? You can do so with the `addmod` command! If you already have your timetable on NUSMods, check out <<Add Modules via NUSMods Link: `addmods`,the `addmods` command>>!
 
-Format: `addmod n/NAME m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE:CLASS_2_NUMBER,...`
+Format: `addmod [n/NAME] m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE:CLASS_2_NUMBER,...`
 
 ****
 * Currently supports academic year 2019/2020 and semester 1 only.
+* If the NAME is not provided, then the modules will be added to the default user, which is you!
 * image:./icons/warning.png[]: Just like adding a normal event via `addevent`, the module will only be added if the specified classes does not clash with any events in the person's schedule.
 ****
 
 Examples:
 
-* `addmod n/John m/CS2103T cl/LEC:G01` +
-This adds CS2103T lecture G01 to John's schedule.
+* `addmod m/CS2103T cl/LEC:G01` +
+This adds CS2103T lecture G01 to your schedule.
 * `addmod n/John m/CS3230 cl/LEC:1,TUT:08` +
 This adds CS3230 lecture 1 and tutorial 08 to John's schedule.
 * `addmod n/John m/CS2100 cl/LEC:1,TUT:01,LAB:08` +
 This adds CS2100 lecture 1, tutorial 01 and lab 08 to John's schedule.
 
-Step-By-Step:
+*How do I add an NUS module to my schedule?*
 
-. Add a module's classes easily by typing `addmod` into the command box and specifying the appropriate parameters, then press btn:[Enter] to execute it.
+. Suppose you want to add CS3230 lecture 1 and tutorial 08 to your schedule. You can add the classes to your schedule easily by first typing `addmod m/CS3230 cl/LEC:1,TUT:08` into the command box, then pressing btn:[Enter] to execute it!
 +
 image::nusmods/addmod1.PNG[]
 
@@ -467,28 +470,31 @@ image::nusmods/addmod2.PNG[]
 Already have your modules timetable on NUSMods?
 Great, you can easily add your modules timetable into TimeBook with the `addmods` command!
 
-Format: `addmods n/NAME link/NUSMODS_SHARE_LINK`
+Format: `addmods [n/NAME] link/NUSMODS_SHARE_LINK`
 
 ****
 * Reads the specified `NUSMODS_SHARE_LINK` to get the modules and classes, then adds the classes into the person's schedule.
+* If the NAME is not provided, then the modules will be added to the default user, which is you!
 * Currently supports academic year 2019/2020 and semester 1 only.
 * image:./icons/warning.png[]: Just like adding a normal event via `addevent`, the module will only be added if the specified classes does not clash with any events in the person's schedule.
 ****
 
-Examples:
+*Examples:*
 
+* `addmods link/https://nusmods.com/timetable/sem-1/share?CS2101=&CS2103T=LEC:G05&CS3230=LEC:1,TUT:08&CS3243=TUT:07,LEC:1&GEQ1000=TUT:D17` +
+This will add the modules in the NUSMods link to your schedule.
 * `addmods n/John link/https://nusmods.com/timetable/sem-1/share?CS2101=&CS2103T=LEC:G05&CS3230=LEC:1,TUT:08&CS3243=TUT:07,LEC:1&GEQ1000=TUT:D17` +
 This will add the modules in the NUSMods link to John's schedule.
 * `addmods n/Bob link/https://nusmods.com/timetable/sem-1/share?CS2101=&CS2103T=LEC:G05&CS3230=LEC:1,TUT:08&CS3243=TUT:07,LEC:1&GEQ1000=TUT:D17` +
-This will add the modules in teh NUSMods link to Bob's schedule.
+This will add the modules in the NUSMods link to Bob's schedule.
 
-Step-By-Step:
+*How do I add my team member John's NUSMods timetable to TimeBook?*
 
-. Add an NUSMods timetable easily by typing `addmods` into the command box and follow the format as shown above, then press btn:[Enter] to execute it.
+. Well that is simple, add John's NUSMods timetable by first typing `addmods n/John link/` into the command box, then copy and paste his NUSMods link. Finally, press btn:[Enter] to execute it.
 +
 image::nusmods/addmods1.PNG[]
 
-. If you manage to successfully add all the modules and their respective classes into the person's schedule, you will see the person's schedule appearing with the newly added timeslots:
+. If the command succeeds, you will see John's schedule update with the newly added timeslots from his NUSMods timetable:
 +
 image::nusmods/addmods2.PNG[]
 // end::addmods[]
@@ -561,7 +567,7 @@ image::ugalvin/deleteevent.png[width=100%]
 
 After deleting that event from TimeBook, Bobby's schedule is automatically updated!
 
-==== View a Schedule: `schedule`
+==== Generate a Schedule: `schedule`
 ____
 Want to see a schedule between you and your friends? Simple use the `schedule` command!
 ____
@@ -795,43 +801,6 @@ image:./icons/important.png[] Empty blocks represent the free time slots for the
 The green blocks still represent the common free time slots for the entire group.
 *****
 
-
-=== Advanced Features
-
-// tag::showmod[]
-==== Show Module: `showmod`
-
-Want to know more information about an NUS module? Use `showmod` to quickly open up the NUSMods page for a specific module on your browser!
-
-Format:
-
-* `showmod m/MODULE_CODE`
-
-Examples:
-
-* `showmod m/CS2103T` +
-Opens up https://nusmods.com/modules/CS2103T on your default browser.
-* `showmod m/CS2101` +
-Opens up https://nusmods.com/modules/CS2101 on your default browser.
-// end::showmod[]
-
-==== Export VR (Visual Representation): `export`
-
-Want to share a schedule with your friends?
-This command exports a visualisation representation of the schedule (timetable) of a group or person to a PNG file! +
-
-****
-image:./icons/warning.png[] Take note when exporting a person's schedule, *sensitive information* are omitted. Only the person's schedule is exported.
-
-image:./icons/warning.png[] Take note that if you are exporting a group's schedule, the *entire* group's schedule will be exported. If you have used the `lookat` command, this command disregards it.
-****
-
-Format:
-
-* `export` +
-
-//tag::Closest-Common-Location[]
-[[Closest-Common-Location]]
 === Closest Common Location
 
 TimeBook will also help you to decide where to meet for your project meetings by suggesting to you an optimal
@@ -960,6 +929,138 @@ and return to the main screen.
 
 Format: kbd:[esc] button on keyboard.
 // end::Closest-Common-Location[]
+
+=== Advanced Features
+
+// tag::showmod[]
+==== Show Module: `showmod`
+
+Want to know more information about an NUS module? Use `showmod` to quickly open up the NUSMods page for a specific module on your browser!
+
+Format: `showmod m/MODULE_CODE`
+
+****
+* image:./icons/warning.png[]: This command requires internet connection.
+****
+
+Examples:
+
+* `showmod m/CS2103T` +
+Opens up https://nusmods.com/modules/CS2103T on your default browser.
+* `showmod m/CS2101` +
+Opens up https://nusmods.com/modules/CS2101 on your default browser.
+// end::showmod[]
+
+==== Export VR (Visual Representation): `export`
+
+Want to share a schedule with your friends?
+This command exports a visualisation representation of the schedule (timetable) of a group or person to a PNG file! +
+
+****
+image:./icons/warning.png[] Take note when exporting a person's schedule, *sensitive information* are omitted. Only the person's schedule is exported.
+
+image:./icons/warning.png[] Take note that if you are exporting a group's schedule, the *entire* group's schedule will be exported. If you have used the `lookat` command, this command disregards it.
+****
+
+Format:
+
+* `export` +
+
+//tag::Closest-Common-Location[]
+[[Closest-Common-Location]]
+=======
+==== Select Time Slot: `select`
+
+____
+Want to get more information about a particular time slot? Want to know where the venue of that time slot is?
+No worries! Simply select the time slot and TimeBook will tell you all about it!
+____
+
+When viewing a schedule on TimeBook, you can select a time slot to get more information out of it!
+
+The `select` command works when view a group's schedule, person's schedule or home page! The format for this command's
+use are detailed below!
+
+Format (group schedule): `select n/NAME [week/WEEK_NUMBER] i/ID`
+
+* Selects a time slot specified by `ID` that belongs to a person specified by `NAME`, on week `WEEK_NUMBER`
+
+Format (person schedule): `select [week/WEEK_NUMBER] i/ID`
+
+* Selects a time slot specified by `ID` on week `WEEK_NUMBER` that belongs to the current person shown in the schedule
+
+* If a name is specified, TimeBook will ignore it! Because we know you want to view the current person that is shown!
+
+Format (home): `select i/ID`
+
+* Selects a time slot specified by `ID` on your home page. The home page will not show the ID of the time slot,
+the `ID` is ordered with the earliest time slot as `ID:1`
+
+* If a person name or week is specified, TimeBook will ignore it! Because we know you want to view the time slots on your home page!
+
+Prefixes:
+
+* `n/`: specifies the name of a person
+** A name must be alphanumeric
+* `week/` specifies the week of the schedule (optional)
+** A week must be an interger between 1 and 4 inclusive
+** If no week number is specified, TimeBook will choose the default week 1
+* `i/`: specifies the ID number of the time slot
+** An ID must be a positive number.
+
+When you execute the `select` command, it  generates a pop up window that shows you the details of the selected time slot!
+We have also integrated this service with GoogleMaps and shows you the location of this time slot on the map!
+
+The figure below shows how a pop up window will look like!
+
+image::ugalvin/selectpopup.png[width=100%]
+
+After you have viewed the time slot details, simply press the `ESC` key on your keyboard, and it will close the pop up!
+You will never have to touch your mouse!
+
+| image:./icons/important.png[] | When the location of the time slot is not a valid location in NUS, the location
+will not be shown on the map!
+
+image::ugalvin/select1.png[width=100%]
+
+When a group's schedule is shown, each members time slots are colour coded as shown above.
+Each time slot is also labeled with an ID for easy reference!
+
+Let us try to select Bobby's time slot 1. To select it, simply execute the following command!
+
+Example:
+
+* `select n/Bobby i/1`
+
+After executing that command, a pop up will be shown just like the one above!
+
+
+image::ugalvin/select2.png[width=100%]
+
+When a person's schedule is shown, each events are colour coded as shown above.
+Each time slot is also labeled with an ID for easy reference! The name of the event is also shown!
+
+Let us try to select time slot 1. To select it, simply execute the following command!
+
+Example:
+
+* `select i/1`
+
+After executing that command, a pop up will be shown just like the one above!
+
+image::ugalvin/select3.png[width=100%]
+
+When the home page is shown, you can select each time slot on the list! Do note that the first time slot on the list
+will have `ID:1` and the following time slots will follow with the next number. We chose to omit the number so you have
+a more cleaner home page!
+
+Simply execute the `select` command and specify the time slot you want to view like so:
+
+Example:
+
+* `select i/1`
+
+After executing that command, a pop up will be shown similar to the one above!
 
 === Upcoming schedule list.
 

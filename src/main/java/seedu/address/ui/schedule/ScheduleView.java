@@ -34,8 +34,8 @@ public class ScheduleView extends UiPart<Region> {
     public static final int END_TIME = 20;
     public static final double ONE_HOUR_LENGTH = 60;
     protected static final int HALF_HOUR = 30;
-    protected static final int BLOCK_WIDTH = 140;
-    protected static final double THRESHOLD_TO_OMIT_LABELS = 20;
+    protected static final int PREFERRED_BLOCK_WIDTH = 140;
+    protected static final double THRESHOLD_SIZE_TO_OMIT_LABELS = 20;
     private static final String FXML = "ScheduleView.fxml";
 
     @FXML
@@ -124,7 +124,7 @@ public class ScheduleView extends UiPart<Region> {
                 individualSchedule.getChildren().addAll(new Block(HALF_HOUR).makeEmptyBlock(),
                         getDayVBoxOfIndividualSchedule(eventsToday));
                 //Change line 99 for collapsible blocks.
-                individualSchedule.setPrefWidth(BLOCK_WIDTH / schedulesShown.size());
+                individualSchedule.setPrefWidth(PREFERRED_BLOCK_WIDTH / schedulesShown.size());
                 combinedSchedules.getChildren().add(individualSchedule);
             }
             dateStackPanes.get(now.plusDays(i - 1)).getChildren().add(combinedSchedules);
@@ -194,7 +194,7 @@ public class ScheduleView extends UiPart<Region> {
     }
 
     /**
-     * Method to create a block that represents the occupied/busy time slots of an individual for a particular day.
+     * Creates a graphic that represents the occupied/busy time slots of an individual for a particular day.
      *
      * @param daySchedule List that contains all occupied time slots of the individual on a particular day.
      * @return VBox that represents the individual's busy time slots for this particular day.
@@ -231,7 +231,7 @@ public class ScheduleView extends UiPart<Region> {
     }
 
     /**
-     * Method to append the free times of a group into the group schedule.
+     * Sets the free times of a group into the group schedule.
      * @param schedule A schedule that contains the available time for all group members.
      */
     public void setFreeTime(FreeSchedule schedule) {
@@ -249,7 +249,7 @@ public class ScheduleView extends UiPart<Region> {
 
 
     /**
-     * Method to create a block that represents free time in groups on a particular day.
+     * Creates a graphic that represents free time in groups on a particular day.
      * Only called for group schedules. Free time is shown by a translucent green rectangle on the UI.
      * @param freeSchedule The common free time among groups for a particular day.
      * @return VBox that represents the free time block.
@@ -280,7 +280,7 @@ public class ScheduleView extends UiPart<Region> {
     }
 
     /**
-     * Method to invoke scrolling events to the schedule view.
+     * Invokes scrolling events to the schedule view.
      */
     public void scrollNext() {
         if (scheduleContents.getVvalue() == 0) {
@@ -291,31 +291,32 @@ public class ScheduleView extends UiPart<Region> {
     }
 
     /**
-     * A class to create a time slot block in the UI.
+     * A class to create a time slot block in ScheduleView.
      */
     class Block {
-        private double heightOfTimeSlot;
-        private double width = BLOCK_WIDTH;
+        private double heightOfBlock;
+        private double widthOfBlock = PREFERRED_BLOCK_WIDTH;
 
         public Block(int duration) {
 
+            // Scale size of width according to preferred block width only when schedule supplied is not empty.
             if (schedulesShown.size() != 0) {
-                this.width = BLOCK_WIDTH / schedulesShown.size();
+                this.widthOfBlock = PREFERRED_BLOCK_WIDTH / schedulesShown.size();
             }
 
             int hours = duration / 60;
             double minutes = duration % 60;
-            this.heightOfTimeSlot = hours * ONE_HOUR_LENGTH + (minutes / 60.0) * ONE_HOUR_LENGTH;
+            this.heightOfBlock = hours * ONE_HOUR_LENGTH + (minutes / 60.0) * ONE_HOUR_LENGTH;
         }
 
         /**
-         * Method to obtain a coloured timeslot;
+         * Method to obtain a coloured timeSlot;
          */
         private Region makeColouredBlock(String color) {
             Region colouredBlock = new Region();
-            colouredBlock.setPrefSize(width, heightOfTimeSlot);
-            double radiusToSet = (BLOCK_WIDTH / (28.0 * schedulesShown.size()));
-            if (heightOfTimeSlot < THRESHOLD_TO_OMIT_LABELS) {
+            colouredBlock.setPrefSize(widthOfBlock, heightOfBlock);
+            double radiusToSet = (PREFERRED_BLOCK_WIDTH / (28.0 * schedulesShown.size()));
+            if (heightOfBlock < THRESHOLD_SIZE_TO_OMIT_LABELS) {
                 radiusToSet = 0;
             }
             colouredBlock.setStyle("-fx-background-color: " + color
@@ -334,12 +335,12 @@ public class ScheduleView extends UiPart<Region> {
          */
         private StackPane makeColouredBlockWithText(String color, String text, String tooltipMessage) {
             //Ensure that the block must be greater than 10px in height otherwise block will become distorted.
-            assert heightOfTimeSlot > 10;
+            assert heightOfBlock > 10;
 
             StackPane container = new StackPane();
             Region colouredBlock = makeColouredBlock(color);
             container.getChildren().addAll(colouredBlock);
-            if (width > THRESHOLD_TO_OMIT_LABELS && heightOfTimeSlot > THRESHOLD_TO_OMIT_LABELS) {
+            if (widthOfBlock > THRESHOLD_SIZE_TO_OMIT_LABELS && heightOfBlock > THRESHOLD_SIZE_TO_OMIT_LABELS) {
                 container.getChildren().add(createLabel(text));
             }
             Tooltip tooltip = new Tooltip(tooltipMessage);
@@ -355,32 +356,32 @@ public class ScheduleView extends UiPart<Region> {
          */
         private Label createLabel(String text) {
             Label textLabel = new Label(text);
-            if (heightOfTimeSlot < 30) {
-                double fontSize = heightOfTimeSlot / 3;
+            if (heightOfBlock < 30) {
+                double fontSize = heightOfBlock / 3;
                 textLabel.setStyle("-fx-font-size: " + fontSize + ";");
             }
             return textLabel;
         }
 
         /**
-         * Method to create a transparent block in the table view to indicate free time.
+         * Creates a transparent block in the table view to indicate free time.
          * @return Region that represents the free time in the schedule.
          */
         private Region makeEmptyBlock() {
             Region result = new Region();
-            result.setPrefSize(BLOCK_WIDTH, heightOfTimeSlot);
-            result.setMaxSize(BLOCK_WIDTH, heightOfTimeSlot);
+            result.setPrefSize(PREFERRED_BLOCK_WIDTH, heightOfBlock);
+            result.setMaxSize(PREFERRED_BLOCK_WIDTH, heightOfBlock);
             return result;
         }
 
         /**
-         * Method to create a free time slot block with an id.
+         * Creates a free time slot block with an id.
          * @param text The id to be set in the block.
          * @return StackPane.
          */
         private StackPane makeFreeBlock(String text) {
             //Assert that each free block height is greater than 10px;
-            assert heightOfTimeSlot > 10;
+            assert heightOfBlock > 10;
 
             StackPane freeTimeSlot = new StackPane();
             Label label = createLabel(text);

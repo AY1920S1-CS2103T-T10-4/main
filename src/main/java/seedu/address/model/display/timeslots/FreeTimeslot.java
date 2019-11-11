@@ -32,19 +32,6 @@ public class FreeTimeslot {
         this.endTime = endTime;
     }
 
-    /**
-     * For debugging purposes only.
-     */
-    public String toString() {
-        String s = "";
-        s += "id: " + id + " === "
-                + startTime.toString() + " - "
-                + endTime.toString() + " "
-                + venues + " "
-                + "closest location: " + closestCommonLocationData.getFirstClosest() + "\n";
-        return s;
-    }
-
     public int getId() {
         return this.id;
     }

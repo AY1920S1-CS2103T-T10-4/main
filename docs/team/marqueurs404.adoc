@@ -1,0 +1,66 @@
+= Marcus Ong - Project Portfolio
+:site-section: AboutUs
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+
+== PROJECT: TimeBook
+
+== Overview
+
+include::../UserGuide.adoc[tag=ppp-introduction]
+
+This document summarizes my contributions to the TimeBook project in terms of the code, user guide and developer guide.
+
+== Summary of contributions
+
+This section documents a summary of the major and minor contributions I have made to this project.
+
+* *Major enhancement*: implemented *the ability to add NUSMods timetables to schedules*
+** What it does: This feature allows the user to add their own NUSMods timetables by providing their NUSMods link or by adding individual modules.
+** Justification: This feature improves the product significantly given our target user of busy NUS undergraduates as they can quickly setup their timetable just by using pre-existing data from NUSMods rather than creating their own schedule from scratch.
+** Highlights: This implementation was challenging as it required the development of a new API component to query, transform and store external data. Extensive checks have to be done to make sure the data is correctly handled. It also required an analysis of multiple design alternatives in order to find a balance between the complexity of the implementation and robust offline support. A caching mechanism to store query results and a pre-processing program was written to store all relevant NUSMods data for offline support.
+** Credits: The https://api.nusmods.com/v2/[NUSMods API] was used for retrieving NUSMods data. The https://code.google.com/archive/p/json-simple/[JSON.simple library] was used to encode and decode the JSON data that was retrieved from the NUSMods API.
+
+* *Minor enhancement*: added a `showmod` command that allows the user to open up the https://nusmods.com/MODULE page on the browser, so that the user can view a module's details on NUSMods.
+
+* *Code contributed*: See on https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=marqueurs404&sort=groupTitle&sortWithin=title&since=2019-09-06&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=zoom[Reposense]
+
+* *Other contributions*:
+
+** Project management:
+*** Managed releases `v1.1` - `v1.4` (4 releases) on GitHub
+** Enhancements to existing features:
+*** Wrote tests for features I implemented (https://github.com/AY1920S1-CS2103T-T10-4/main/pull/189[#189])
+** Documentation:
+*** Added documentation for the Developer Guide and User Guide, for the sections related to NUSMods and External API that I implemented. (https://github.com/AY1920S1-CS2103T-T10-4/main/pull/135[#135], https://github.com/AY1920S1-CS2103T-T10-4/main/pull/137[#137], https://github.com/AY1920S1-CS2103T-T10-4/main/pull/144[#144], https://github.com/AY1920S1-CS2103T-T10-4/main/pull/172[#172], https://github.com/AY1920S1-CS2103T-T10-4/main/pull/174[#174])
+*** Updated documentation for the Developer Guide for the Design -> Architecture, Design -> Model component and Design -> Api component. (https://github.com/AY1920S1-CS2103T-T10-4/main/pull/278[#278])
+** Community:
+*** Reported bugs and suggestions for other teams in the class during the practical exam dry run.
+** Tools:
+*** Integrated a Github plugin (Coveralls) to the team repo
+*** Integrated a Github plugin (Travis CI) to the team repo
+*** Set up a Telegram Bot to notify team members of Travis build statuses on success or failure (https://github.com/AY1920S1-CS2103T-T10-4/main/commit/049c9d34e602d9b74d83636ac5ac33324408ffb4[#45])
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide, namely the `addmod`, `addmods` and `showmod` commands. They showcase my ability to write documentation targeting end-users._
+|===
+
+include::../UserGuide.adoc[tag=addmod]
+
+include::../UserGuide.adoc[tag=addmods]
+
+include::../UserGuide.adoc[tag=showmod]
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are the *Add NUSMods To Schedule* section and the *External APIs* section that I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+include::../DeveloperGuide.adoc[tag=nusmods]
+
+include::../DeveloperGuide.adoc[tag=websocket-marcus-1]
+include::../DeveloperGuide.adoc[tag=websocket-marcus-2]

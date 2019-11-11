@@ -47,7 +47,7 @@
           <StackPane fx:id="sideBarPlaceholder" styleClass="pane-with-border"
                      VBox.vgrow="ALWAYS" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS"/>
 
-          <StackPane fx:id="detailsViewPlaceholder"
+          <StackPane fx:id="scheduleDisplayPlaceholder"
                       GridPane.columnIndex="1" GridPane.rowIndex="0"/>
         </GridPane>
         <!-- <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" /> !-->

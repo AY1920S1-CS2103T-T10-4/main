@@ -15,10 +15,10 @@ public class IndividualScheduleViewManager extends ScheduleViewManager {
 
     public IndividualScheduleViewManager(PersonSchedule personSchedule) {
         this.personSchedule = personSchedule;
-        super.weekNumber = 0;
+        super.weekNumberShown = 0;
         super.currentDate = LocalDate.now();
         super.type = ScheduleState.PERSON;
-        super.LOGGER.info("Generating schedule for " + personSchedule.getPersonDisplay().getName().fullName + ".");
+        super.LOGGER.info("Generating schedule for " + personSchedule.getPersonDisplay().getName().fullName);
     }
 
     /**
@@ -26,9 +26,9 @@ public class IndividualScheduleViewManager extends ScheduleViewManager {
      * Individual schedules do not show free time.
      */
     private void update() {
-        LocalDate dateToShow = currentDate.plusDays(weekNumber * 7);
+        LocalDate dateToShow = currentDate.plusDays(weekNumberShown * 7);
         super.scheduleView = new ScheduleView(List.of(personSchedule
-                .getScheduleDisplay().get(weekNumber)), "Week " + (weekNumber + 1) + " "
+                .getScheduleDisplay().get(weekNumberShown)), "Week " + (weekNumberShown + 1) + " "
                 + personSchedule.getPersonDisplay().getName().fullName, dateToShow);
         super.scheduleView.generateSchedule();
     }
@@ -47,15 +47,15 @@ public class IndividualScheduleViewManager extends ScheduleViewManager {
     @Override
     public ScheduleView getScheduleViewCopy() {
         ScheduleView copy = new ScheduleView(List.of(personSchedule
-                .getScheduleDisplay().get(weekNumber)),
-                personSchedule.getPersonDisplay().getName().fullName, currentDate.plusDays(7 * weekNumber));
+                .getScheduleDisplay().get(weekNumberShown)),
+                personSchedule.getPersonDisplay().getName().fullName, currentDate.plusDays(7 * weekNumberShown));
         copy.generateSchedule();
         return copy;
     }
 
     @Override
     public void toggleNext() {
-        super.weekNumber = (weekNumber + 1) % 4;
+        super.weekNumberShown = (weekNumberShown + 1) % 4;
     }
 
     @Override

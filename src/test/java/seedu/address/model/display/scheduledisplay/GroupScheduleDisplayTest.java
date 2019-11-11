@@ -2,19 +2,22 @@ package seedu.address.model.display.scheduledisplay;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.testutil.grouputil.TypicalGroups.GROUP_DESCRIPTION1;
 import static seedu.address.testutil.grouputil.TypicalGroups.GROUP_NAME1;
 import static seedu.address.testutil.personutil.TypicalPersonDescriptor.ALICE;
 import static seedu.address.testutil.personutil.TypicalPersonDescriptor.ZACK;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.ModelManager;
+import seedu.address.model.display.sidepanel.GroupDisplay;
+import seedu.address.model.display.timeslots.FreeSchedule;
 import seedu.address.model.group.exceptions.GroupNotFoundException;
 import seedu.address.model.person.exceptions.InvalidTimeslotException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -34,21 +37,30 @@ class GroupScheduleDisplayTest {
 
     @Test
     void getGroupDisplay() {
-        assertNotNull(groupScheduleDisplay.getGroupDisplay());
+        GroupDisplay groupDisplay = groupScheduleDisplay.getGroupDisplay();
+        assertEquals(groupDisplay.getGroupDescription(), GROUP_DESCRIPTION1);
+        assertEquals(groupDisplay.getGroupName(), GROUP_NAME1);
     }
 
     @Test
     void getFreeSchedule() {
-        assertNotNull(groupScheduleDisplay.getFreeSchedule());
+        ArrayList<FreeSchedule> freeSchedules = groupScheduleDisplay.getFreeSchedule();
+        assertTrue(freeSchedules.size() == 4);
     }
 
     @Test
     void getFreeTimeslot() {
         assertThrows(InvalidTimeslotException.class, () ->
+                groupScheduleDisplay.getFreeTimeslot(1, -1));
+
+        assertThrows(InvalidTimeslotException.class, () ->
                 groupScheduleDisplay.getFreeTimeslot(1, 123));
 
         assertDoesNotThrow(() ->
                 groupScheduleDisplay.getFreeTimeslot(1, 1));
+
+        assertDoesNotThrow(() ->
+                groupScheduleDisplay.getFreeTimeslot(2, 1));
     }
 
     @Test

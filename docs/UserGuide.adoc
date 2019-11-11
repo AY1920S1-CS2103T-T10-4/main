@@ -129,7 +129,7 @@ someone's schedule in the group. For example, the image below highlights all of 
 image::charlieBusyTimeslot.png[]
 
 Take note of the numbered green boxes you see below!
-[[FreeTimeSlot-Scheule]]
+
 image::freeTimeslot.png[]
 
 These are the common free time slot that you and your *entire* group members share! You can use
@@ -796,116 +796,73 @@ The green blocks still represent the common free time slots for the entire group
 *****
 
 
-=== Advanced Features
-
-// tag::showmod[]
-==== Show Module: `showmod`
-
-Want to know more information about an NUS module? Use `showmod` to quickly open up the NUSMods page for a specific module on your browser!
-
-Format:
-
-* `showmod m/MODULE_CODE`
-
-Examples:
-
-* `showmod m/CS2103T` +
-Opens up https://nusmods.com/modules/CS2103T on your default browser.
-* `showmod m/CS2101` +
-Opens up https://nusmods.com/modules/CS2101 on your default browser.
-// end::showmod[]
-
-==== Export VR (Visual Representation): `export`
-
-Want to share a schedule with your friends?
-This command exports a visualisation representation of the schedule (timetable) of a group or person to a PNG file! +
-
-****
-image:./icons/warning.png[] Take note when exporting a person's schedule, *sensitive information* are omitted. Only the person's schedule is exported.
-
-image:./icons/warning.png[] Take note that if you are exporting a group's schedule, the *entire* group's schedule will be exported. If you have used the `lookat` command, this command disregards it.
-****
-
-Format:
-
-* `export` +
-
 //tag::Closest-Common-Location[]
 [[Closest-Common-Location]]
 === Closest Common Location
 
-TimeBook will also help you to decide where to meet for your project meetings by suggesting to you an optimal
-location for everyone. The optimal location is the closest location for everyone to meet in NUS based
-on their schedule. In time book we define the optimal location for everyone as the _closest common location_.
+TimeBook will also help you to decide where to meet for your project meetings by suggesting to you which
+location is the center for everyone. The center location is the closest location for everyone to meet in NUS based
+on their schedule. In time book we define the center location for everyone as the _closest common location_.
 
 *Steps*
 
-. Set up your group by:
+. Setup your group by:
 .. Adding your group members to your TimeBook with `addperson` command
 .. Adding your group to TimeBook with `addgroup` command
 .. Add your group members to your group with `addtogroup` command
-. Get the relevant information for your group schedule with `show g/[GROUP_NAME]`
-.. Identify the `ID` and `Week` of the time slot you want to get the closest common location for.
-. With the free time slot `id` and `week` get the details for the closest common location with `selectfreetime` command
+. Find the free common time when you want to meet with `show` command
+. With the free time slot `id` get the details for the closest common location with `popup` command
 . Press `esc` button to close the popup
 
 *Constraints*
 
 Due to the lack of internet connectivity, TimeBook will only support locations that are in NUSMods and identifiable by Google Maps.
-The full list of supported locations is <<UserGuide#Supported-Locations, below>>.
+The full list of the supported locations is below.
 
 *Definitions*
 
-. We define closest common location as the location that requires the least average distance to travel to and from different sources by car.
+. We define closest common location as the location that requires the least average distance to travel to from different sources by car.
 . Locations that are not supported are voided and are not used for the calculations of the closest common location and average travelling distance.
-. Refer to the `Developer Guide` on how we computed the closest common location.
+. Refer to the `Developer Guide` on how we compute the closest common location.
 
-==== Select Free Time `selectfreetime`
+==== Closest Common Location Popup `popup`
 
-Select a free time slot to launch a popup window with all the relevant information to help you make decide on the venue
-to conduct your project meetings at. The image below is an example of the popup.
-
-Below is an example of a popup.
-[#img-SuccessfulPopup]
-.An example of a popup when `selectfreetime` is executed
-image::gmaps/SuccessfulPopup.png[SuccessfulPopup]
-
-command: `selectfreetime [week/WEEK_NUMBER] i/FREETIMESLOTID`
+command: `popup g/ GROUP_NAME i/ID`
 
 Examples:
 
-* `selectfreetime i/3`
-* `selectfreetime week/2 i/3`
+* `popup g/CS2103T i/2`
+
+image::gmaps/SuccessfulPopup.png[SuccessfulPopup]
+
+[#img-SuccessfulPopup]
+.An example of a popup when `popup` is executed
 
 _Description_
 
-When the command is executed, a popup will appear that shows all the information of the closest common location
+When the command is executed a popup will appear that shows the all the information of the closest common location
 for a particular free time slot in a group.
-
-_Prerequisite_
-
-. You must be have group on TimeBook with members in it.
-. You must execute `show g/[GROUP NAME]` before executing `selectfreetime` command.
 
 _Parameters_
 
-. `[WEEK_NUMBER]`
-- Description: The week(1-4) of the group schedule you want to select the free time slot from. If parameter is not
-stated, it will default to the first week(the default schedule when you execute `show g/GROUP_NAME`).
-- Type: `Integer`
-- Enum: `1`, `2`, `3`, `4`
-. `FREETIMESLOTID`
-- Description: ID of the free time slot in the <<UserGuide#Supported-Locations, schedule>>. You can get this from the number in the free time slot box.
+. `GROUP_NAME`
+- Description: This is the name of the Group you want to find the free time for.
+The `groupname` can be found on the
+`groups` tab in the user interface.(Use `switch-tab` if your tab is on persons)
+- Type: `String`
+. `ID`
+- Description: This is the `id` of the free time slot of a group.
+You can get this `id` from the user interface when you use `show g/[groupname]` command.
 You can only enter the `id` that is shown on the screen.
-- Type: `Integer`
+- Type: `String`
 
 _Success Response_
 
 If you follow the steps above, a popup will appear as seen in the Figure above.
 
-There are two main information that you will see in the popup when you execute the command.
+There are two main information that you will see in the popup when you execute ththe command.
 
-. The summary of the results that will be `displayed` on the top of the popup.
+. The summary of the results will be displayed on the top of the popup.
 .. *Your best location to meet up is:* The first choice location to meet(closest for everyone).
 .. *Everyone's locations:* List of locations that the group members will be at before the free time slot.
 .. *Out of all these locations, the valid locations are:* List of TimeBook supported locations that the group members
@@ -915,9 +872,9 @@ will be at before the free time slot that.
 slot but not supported by TimeBook.
 ... Subset of the *Everyone's locations:* list
 ... If all the locations are valid, this attribute will be empty as seen in the Figure above
-. The full details of the first, second and third closest common location will be shown at the bottom of the popup.
+. The full details of the first, second and third closest common location will be shown on the bottom of the popup.
 .. First choice represents the first closest and so on and so forth.
-.. The average distance(m) to reach the various locations will be displayed below the respective choices.
+.. The average distance(m) to reach the various location will be displayed below the respective choices.
 .. The picture of the location of the venue on Google Maps will be displayed below each choice.
 ... For locations that are not supported on Google Maps, a picture of the center of NUS will be displayed.
 
@@ -959,7 +916,134 @@ After you are done with viewing the information on the popup press `esc` button 
 and return to the main screen.
 
 Format: kbd:[esc] button on keyboard.
-// end::Closest-Common-Location[]
+
+
+=== Advanced Features
+
+// tag::showmod[]
+==== Show Module: `showmod`
+
+Want to know more information about an NUS module? Use `showmod` to quickly open up the NUSMods page for a specific module on your browser!
+
+Format:
+
+* `showmod m/MODULE_CODE`
+
+Examples:
+
+* `showmod m/CS2103T` +
+Opens up https://nusmods.com/modules/CS2103T on your default browser.
+* `showmod m/CS2101` +
+Opens up https://nusmods.com/modules/CS2101 on your default browser.
+// end::showmod[]
+
+==== Export VR (Visual Representation): `export`
+
+Want to share a schedule with your friends?
+This command exports a visualisation representation of the schedule (timetable) of a group or person to a PNG file! +
+
+****
+image:./icons/warning.png[] Take note when exporting a person's schedule, *sensitive information* are omitted. Only the person's schedule is exported.
+
+image:./icons/warning.png[] Take note that if you are exporting a group's schedule, the *entire* group's schedule will be exported. If you have used the `lookat` command, this command disregards it.
+****
+
+Format:
+
+* `export` +
+
+==== Select Time Slot: `select`
+
+____
+Want to get more information about a particular time slot? Want to know where the venue of that time slot is?
+No worries! Simply select the time slot and TimeBook will tell you all about it!
+____
+
+When viewing a schedule on TimeBook, you can select a time slot to get more information out of it!
+
+The `select` command works when view a group's schedule, person's schedule or home page! The format for this command's
+use are detailed below!
+
+Format (group schedule): `select n/NAME [week/WEEK_NUMBER] i/ID`
+
+* Selects a time slot specified by `ID` that belongs to a person specified by `NAME`, on week `WEEK_NUMBER`
+
+Format (person schedule): `select [week/WEEK_NUMBER] i/ID`
+
+* Selects a time slot specified by `ID` on week `WEEK_NUMBER` that belongs to the current person shown in the schedule
+
+* If a name is specified, TimeBook will ignore it! Because we know you want to view the current person that is shown!
+
+Format (home): `select i/ID`
+
+* Selects a time slot specified by `ID` on your home page. The home page will not show the ID of the time slot,
+the `ID` is ordered with the earliest time slot as `ID:1`
+
+* If a person name or week is specified, TimeBook will ignore it! Because we know you want to view the time slots on your home page!
+
+Prefixes:
+
+* `n/`: specifies the name of a person
+** A name must be alphanumeric
+* `week/` specifies the week of the schedule (optional)
+** A week must be an interger between 1 and 4 inclusive
+** If no week number is specified, TimeBook will choose the default week 1
+* `i/`: specifies the ID number of the time slot
+** An ID must be a positive number.
+
+When you execute the `select` command, it  generates a pop up window that shows you the details of the selected time slot!
+We have also integrated this service with GoogleMaps and shows you the location of this time slot on the map!
+
+The figure below shows how a pop up window will look like!
+
+image::ugalvin/selectpopup.png[width=100%]
+
+After you have viewed the time slot details, simply press the `ESC` key on your keyboard, and it will close the pop up!
+You will never have to touch your mouse!
+
+| image:./icons/important.png[] | When the location of the time slot is not a valid location in NUS, the location
+will not be shown on the map!
+
+image::ugalvin/select1.png[width=100%]
+
+When a group's schedule is shown, each members time slots are colour coded as shown above.
+Each time slot is also labeled with an ID for easy reference!
+
+Let us try to select Bobby's time slot 1. To select it, simply execute the following command!
+
+Example:
+
+* `select n/Bobby i/1`
+
+After executing that command, a pop up will be shown just like the one above!
+
+
+image::ugalvin/select2.png[width=100%]
+
+When a person's schedule is shown, each events are colour coded as shown above.
+Each time slot is also labeled with an ID for easy reference! The name of the event is also shown!
+
+Let us try to select time slot 1. To select it, simply execute the following command!
+
+Example:
+
+* `select i/1`
+
+After executing that command, a pop up will be shown just like the one above!
+
+image::ugalvin/select3.png[width=100%]
+
+When the home page is shown, you can select each time slot on the list! Do note that the first time slot on the list
+will have `ID:1` and the following time slots will follow with the next number. We chose to omit the number so you have
+a more cleaner home page!
+
+Simply execute the `select` command and specify the time slot you want to view like so:
+
+Example:
+
+* `select i/1`
+
+After executing that command, a pop up will be shown similar to the one above!
 
 === Upcoming schedule list.
 
@@ -1053,13 +1137,12 @@ e.g. `show g/CS2030 T2`
 e.g. `export-vr g/TimeBook o/timetable.jpg`
 * *Closest Location* : `closestlocation l/LOCATIONA LOCATIONB ...` +
 e.g. `closestlocation l/LT16 LT15 AS5`
-* *Select Free Time Slot* : `selectfreetime [week/WEEK_NUMBER] i/FREETIMESLOTID` +
-e.g. `selectfreetim i/1`
+* *Show Free Time Slot* : `popup g/GROUP_NAME i/SLOT_NUMBER` +
+e.g. `popup g/CS2103T i/2`
 * *Help* : `help`
 * *Clear* : `clear`
 * *Exit* : `exit`
 
-[[Supported-Locations]]
 == Supported Locations
 
 !===

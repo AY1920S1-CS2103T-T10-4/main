@@ -2,7 +2,6 @@ package seedu.address.model.display.timeslots;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
@@ -19,9 +18,15 @@ class PersonTimeslotTest {
 
     private final int id = 1;
     private final String eventName = "eventName";
-    private ClosestCommonLocationData closestCommonLocationData;
+    private final LocalDate date = LocalDate.of(2019, 11, 11);
+    private final LocalTime startTime = LocalTime.of(10, 30);
+    private final LocalTime endTime = LocalTime.of(11, 30);
+    private final Venue venue = new Venue("venue");
+    private final String color = ColorGenerator.generateColor(0);
+
     private PersonTimeslot personTimeslot;
     private PersonTimeslot personTimeslotGroup;
+    private ClosestCommonLocationData closestCommonLocationData;
 
     @BeforeEach
     void init() {
@@ -30,24 +35,24 @@ class PersonTimeslotTest {
 
         personTimeslot = new PersonTimeslot(
                 eventName,
-                LocalDate.of(2019, 11, 11),
-                LocalTime.of(10, 30),
-                LocalTime.of(11, 30),
-                new Venue("venue"),
-                ColorGenerator.generateColor(0),
+                date,
+                startTime,
+                endTime,
+                venue,
+                color,
                 false,
                 closestCommonLocationData
         );
 
         personTimeslotGroup = new PersonTimeslot(
                 eventName,
-                LocalDate.of(2019, 11, 11),
-                LocalTime.of(10, 30),
-                LocalTime.of(11, 30),
-                new Venue("venue"),
-                ColorGenerator.generateColor(0),
+                date,
+                startTime,
+                endTime,
+                venue,
+                color,
                 true,
-                new ClosestCommonLocationData()
+                closestCommonLocationData
         );
     }
 
@@ -75,22 +80,22 @@ class PersonTimeslotTest {
 
     @Test
     void getStartTime() {
-        assertEquals(LocalTime.of(10, 30), personTimeslot.getStartTime());
+        assertEquals(startTime, personTimeslot.getStartTime());
     }
 
     @Test
     void getEndTime() {
-        assertEquals(LocalTime.of(11, 30), personTimeslot.getEndTime());
+        assertEquals(endTime, personTimeslot.getEndTime());
     }
 
     @Test
     void getVenue() {
-        assertEquals(new Venue("venue"), personTimeslot.getVenue());
+        assertEquals(venue, personTimeslot.getVenue());
     }
 
     @Test
     void getDate() {
-        assertEquals(LocalDate.of(2019, 11, 11), personTimeslot.getDate());
+        assertEquals(date, personTimeslot.getDate());
     }
 
     @Test
@@ -101,7 +106,7 @@ class PersonTimeslotTest {
 
     @Test
     void getColor() {
-        assertEquals(ColorGenerator.generateColor(0), personTimeslot.getColor());
+        assertEquals(color, personTimeslot.getColor());
     }
 
     @Test
@@ -124,8 +129,4 @@ class PersonTimeslotTest {
         assertFalse(personTimeslot.isClash(LocalTime.of(11, 31)));
     }
 
-    @Test
-    void testToString() {
-        assertNotNull(personTimeslot.toString());
-    }
 }

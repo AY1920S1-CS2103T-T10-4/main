@@ -80,7 +80,7 @@ public class MainWindow extends UiPart<Stage> {
     //private StackPane statusbarPlaceholder;
 
     @FXML
-    private StackPane detailsViewPlaceholder;
+    private StackPane scheduleDisplayPlaceholder;
 
     public MainWindow(Stage primaryStage, Logic logic) {
         super(FXML, primaryStage);
@@ -166,7 +166,7 @@ public class MainWindow extends UiPart<Stage> {
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
 
         //setting up default detailsview
-        detailsViewPlaceholder.getChildren().add(new DefaultStartView(logic.getScheduleDisplay()
+        scheduleDisplayPlaceholder.getChildren().add(new DefaultStartView(logic.getScheduleDisplay()
                 .getPersonSchedules().get(0))
                 .getRoot());
     }
@@ -184,13 +184,12 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
-     * Handles change of details view
-     *
-     * @param details details to be set inside detailsViewPlaceHolder in MainWindow.
+     * Sets graphic of the schedule view window.
+     * @param graphic details to be set inside detailsViewPlaceHolder in MainWindow.
      */
-    public void handleChangeOnDetailsView(Node details) {
-        detailsViewPlaceholder.getChildren().clear();
-        detailsViewPlaceholder.getChildren().add(details);
+    public void setGraphicForScheduleDisplay(Node graphic) {
+        scheduleDisplayPlaceholder.getChildren().clear();
+        scheduleDisplayPlaceholder.getChildren().add(graphic);
     }
 
     /**
@@ -219,11 +218,13 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
-     * Handles switching tabs to view person's or group's detail.
+     * Sets the graphic for the side panel.
+     * @param graphic The graphic to be placed in the side panel.
+     * @param type The type.
      */
-    public void handleSidePanelChange(Node details, SidePanelDisplayType type) {
+    public void setSidePanelGraphic(Node graphic, SidePanelDisplayType type) {
         sideBarPlaceholder.getChildren().clear();
-        sideBarPlaceholder.getChildren().add(details);
+        sideBarPlaceholder.getChildren().add(graphic);
         currentSidePanelDisplay = type;
     }
 
@@ -294,10 +295,6 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
-    public PersonListPanel getPersonListPanel() {
-        return personListPanel;
-    }
-
     /**
      * Executes the command and returns the result.
      *
@@ -310,7 +307,6 @@ public class MainWindow extends UiPart<Stage> {
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
 
             ScheduleDisplay scheduleDisplay = logic.getScheduleDisplay();
-
             //Command results that require early return statements.
             if (commandResult.isScroll()) {
                 handleScroll();
@@ -324,7 +320,7 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isToggleNextWeek()) {
                 scheduleViewManager.toggleNext();
-                handleChangeOnDetailsView(scheduleViewManager.getScheduleView().getRoot());
+                setGraphicForScheduleDisplay(scheduleViewManager.getScheduleView().getRoot());
                 return commandResult;
             }
 
@@ -336,11 +332,11 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isFilter()) {
                 GroupScheduleDisplay groupScheduleDisplay = (GroupScheduleDisplay) scheduleDisplay;
                 if (!groupScheduleDisplay.getFilteredNames().isEmpty()) {
-                    handleSidePanelChange(new GroupInformation(groupScheduleDisplay.getPersonDisplays(),
+                    setSidePanelGraphic(new GroupInformation(groupScheduleDisplay.getPersonDisplays(),
                             groupScheduleDisplay.getFilteredNames().get(), groupScheduleDisplay.getGroupDisplay(),
                             ColorGenerator::generateColor).getRoot(), SidePanelDisplayType.GROUP);
                     scheduleViewManager.filterPersonsFromSchedule(groupScheduleDisplay.getFilteredNames().get());
-                    handleChangeOnDetailsView(scheduleViewManager.getScheduleView().getRoot());
+                    setGraphicForScheduleDisplay(scheduleViewManager.getScheduleView().getRoot());
                 }
                 return commandResult;
             }
@@ -374,8 +370,8 @@ public class MainWindow extends UiPart<Stage> {
             case PERSON:
                 PersonScheduleDisplay personScheduleDisplay = (PersonScheduleDisplay) scheduleDisplay;
                 //There is only 1 schedule in the scheduleWindowDisplay
-                handleChangeOnDetailsView(scheduleViewManager.getScheduleView().getRoot());
-                handleSidePanelChange(
+                setGraphicForScheduleDisplay(scheduleViewManager.getScheduleView().getRoot());
+                setSidePanelGraphic(
                         new PersonDetailCard(personScheduleDisplay
                                 .getPersonSchedules()
                                 .get(0)
@@ -384,15 +380,15 @@ public class MainWindow extends UiPart<Stage> {
                 break;
             case GROUP:
                 GroupScheduleDisplay groupScheduleDisplay = (GroupScheduleDisplay) scheduleDisplay;
-                handleChangeOnDetailsView(scheduleViewManager.getScheduleView().getRoot());
-                handleSidePanelChange(new GroupInformation(groupScheduleDisplay.getPersonDisplays(), null,
+                setGraphicForScheduleDisplay(scheduleViewManager.getScheduleView().getRoot());
+                setSidePanelGraphic(new GroupInformation(groupScheduleDisplay.getPersonDisplays(), null,
                                 groupScheduleDisplay.getGroupDisplay(), ColorGenerator::generateColor).getRoot(),
                         SidePanelDisplayType.GROUP);
                 break;
             case HOME:
                 HomeScheduleDisplay homeScheduleDisplay = (HomeScheduleDisplay) scheduleDisplay;
 
-                handleChangeOnDetailsView(new DefaultStartView(homeScheduleDisplay
+                setGraphicForScheduleDisplay(new DefaultStartView(homeScheduleDisplay
                         .getPersonSchedules().get(0))
                         .getRoot());
                 handleChangeToTabsPanel();

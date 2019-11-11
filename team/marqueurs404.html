@@ -11,14 +11,13 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>TimeBook is a desktop application that is morphed from AddressBook Level 3 (AB3).
-TimeBook is a scheduling application that aims to help busy NUS undergraduates keep track of the schedules of you and your friends.
-It also can find the common free time and venues among you and your friends.
+TimeBook is a scheduling application that aims to help busy NUS undergraduates keep track of schedules of their friends and them, and find the best meeting times and venues.
 TimeBook will have the following features:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>A graphical user interface (GUI) but most of the interactions with the application would happen using command line interface (CLI).</p>
+<p>A beautiful graphical user interface (GUI) with  most of the user interactions via the command line interface (CLI).</p>
 </li>
 <li>
 <p>Allows users to add the schedules of his or her friends and organise them into groups.</p>
@@ -77,24 +76,10 @@ TimeBook will have the following features:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
-</li>
-</ul>
-</div>
+<p>Project management: Managed releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Wrote tests for features I implemented (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/189">#189</a>)</p>
-</li>
-</ul>
-</div>
+<p>Wrote tests for features that I implemented (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/189">#189</a>)</p>
 </li>
 <li>
 <p>Documentation:</p>
@@ -110,27 +95,17 @@ TimeBook will have the following features:</p>
 </div>
 </li>
 <li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Reported bugs and suggestions for other teams in the class during the practical exam dry run.</p>
-</li>
-</ul>
-</div>
+<p>Community: Reported bugs and suggestions for other teams in the class during the practical exam dry run.</p>
 </li>
 <li>
 <p>Tools:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a Github plugin (Coveralls) to the team repo</p>
+<p>Integrated Github plugins (Coveralls &amp; Travis CI) to the team repo</p>
 </li>
 <li>
-<p>Integrated a Github plugin (Travis CI) to the team repo</p>
-</li>
-<li>
-<p>Set up a Telegram Bot to notify team members of Travis build statuses on success or failure (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/commit/049c9d34e602d9b74d83636ac5ac33324408ffb4">#45</a>)</p>
+<p>Set up a Telegram Bot for Travis build status notifications (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/commit/049c9d34e602d9b74d83636ac5ac33324408ffb4">#45</a>)</p>
 </li>
 </ul>
 </div>
@@ -151,78 +126,10 @@ TimeBook will have the following features:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide, namely the <code>addmod</code>, <code>addmods</code> and <code>showmod</code> commands. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are some of the sections that I contributed to the User Guide, namely the <code>addmod</code>, <code>addmods</code> and <code>showmod</code> commands. They showcase my ability to write documentation targeting end-users. The <code>addmod</code> section is abbreviated for brevity&#8217;s sake.</em></p></td>
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">Add Module to Schedule: <code>addmod</code></a></h4>
-<div class="paragraph">
-<p>Want to add an NUS module to you or your friend&#8217;s schedule on TimeBook? You can do so with the <code>addmod</code> command! If you already have your timetable on NUSMods, check out <a href="#add-modules-via-nusmods-link-code-addmods-code">the <code>addmods</code> command</a>!</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>addmod [n/NAME] m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE:CLASS_2_NUMBER,&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Currently supports academic year 2019/2020 and semester 1 only.</p>
-</li>
-<li>
-<p>If the NAME is not provided, then the modules will be added to the default user, which is you!</p>
-</li>
-<li>
-<p><span class="image"><img src="../images/icons/warning.png" alt="warning"></span>: Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addmod m/CS2103T cl/LEC:G01</code><br>
-This adds CS2103T lecture G01 to your schedule.</p>
-</li>
-<li>
-<p><code>addmod n/John m/CS3230 cl/LEC:1,TUT:08</code><br>
-This adds CS3230 lecture 1 and tutorial 08 to John&#8217;s schedule.</p>
-</li>
-<li>
-<p><code>addmod n/John m/CS2100 cl/LEC:1,TUT:01,LAB:08</code><br>
-This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>How do I add an NUS module to my schedule?</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Suppose you want to add CS3230 lecture 1 and tutorial 08 to your schedule. You can add the classes to your schedule easily by first typing <code>addmod m/CS3230 cl/LEC:1,TUT:08</code> into the command box, then pressing <b class="button">Enter</b> to execute it!</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/nusmods/addmod1.PNG" alt="addmod1">
-</div>
-</div>
-</li>
-<li>
-<p>If you manage to successfully add the module and its classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/nusmods/addmod2.PNG" alt="addmod2">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
 <div class="sect3">
 <h4 id="add-modules-via-nusmods-link-code-addmods-code"><a class="link" href="#add-modules-via-nusmods-link-code-addmods-code">Add Modules via NUSMods Link: <code>addmods</code></a></h4>
 <div class="paragraph">
@@ -296,6 +203,51 @@ This will add the modules in the NUSMods link to Bob&#8217;s schedule.</p>
 </div>
 </div>
 <div class="sect3">
+<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">Add Module to Schedule: <code>addmod</code></a></h4>
+<div class="paragraph">
+<p>Want to add an NUS module to you or your friend&#8217;s schedule on TimeBook? You can do so with the <code>addmod</code> command! If you already have your timetable on NUSMods, check out <a href="#add-modules-via-nusmods-link-code-addmods-code">the <code>addmods</code> command</a>!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addmod [n/NAME] m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Currently supports academic year 2019/2020 and semester 1 only.</p>
+</li>
+<li>
+<p>If the NAME is not provided, then the modules will be added to the default user, which is you!</p>
+</li>
+<li>
+<p><span class="image"><img src="../images/icons/warning.png" alt="warning"></span>: Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmod m/CS2103T cl/LEC:G01</code><br>
+This adds CS2103T lecture G01 to your schedule.</p>
+</li>
+<li>
+<p><code>addmod n/John m/CS3230 cl/LEC:1,TUT:08</code><br>
+This adds CS3230 lecture 1 and tutorial 08 to John&#8217;s schedule.</p>
+</li>
+<li>
+<p><code>addmod n/John m/CS2100 cl/LEC:1,TUT:01,LAB:08</code><br>
+This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
 <h4 id="show-module-code-showmod-code"><a class="link" href="#show-module-code-showmod-code">Show Module: <code>showmod</code></a></h4>
 <div class="paragraph">
 <p>Want to know more information about an NUS module? Use <code>showmod</code> to quickly open up the NUSMods page for a specific module on your browser!</p>
@@ -329,6 +281,9 @@ Opens up <a href="https://nusmods.com/modules/CS2101" class="bare">https://nusmo
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>&#8230;&#8203;[more in UserGuide]</p>
+</div>
 </div>
 </div>
 </div>
@@ -341,7 +296,7 @@ Opens up <a href="https://nusmods.com/modules/CS2101" class="bare">https://nusmo
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are the <strong>Add NUSMods To Schedule</strong> section and the <strong>External APIs</strong> section that I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are parts of the <strong>Add NUSMods To Schedule</strong> section and the <strong>External APIs</strong> section that I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -545,7 +500,10 @@ Opens up <a href="https://nusmods.com/modules/CS2101" class="bare">https://nusmo
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>&#8230;&#8203;[more in DeveloperGuide]</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:42:35 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:51:52 UTC</div></div></div></body></html>

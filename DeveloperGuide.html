@@ -18,7 +18,8 @@
 <li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
 <li><a href="#Design-API">2.6. Api component</a></li>
-<li><a href="#Design-Commons">2.7. Common classes</a></li>
+<li><a href="#Design-API">2.7. Api component</a></li>
+<li><a href="#Design-Commons">2.8. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">3. Implementation</a>
@@ -43,12 +44,13 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
+<li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#adding-nusmods-timetable-to-a-person-s-schedule">F.4. Adding NUSMods timetable to a person&#8217;s schedule</a></li>
+<li><a href="#adding-an-nus-module-s-lessons-to-a-person-s-schedule">F.5. Adding an NUS module&#8217;s lessons to a person&#8217;s schedule</a></li>
 </ul>
 </li>
 </ul>
@@ -420,7 +422,44 @@ Currently there is no <code>Api</code> interface or <code>ApiManager</code> to m
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.7. Common classes</a></h3>
+<h3 id="Design-API"><a class="link" href="#Design-API">2.7. Api component</a></h3>
+<div class="paragraph">
+<p>The following diagram explains the design of the API component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/api/ApiComponentClassDiagram.png" alt="ApiComponentClassDiagram">
+</div>
+<div class="title">Figure 14. Expected structure of API Component in <code>v2.0</code>.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Currently there is no <code>Api</code> interface or <code>ApiManager</code> to manage the external interactions with other components. Other components are directly accessing static methods in the <code>xxxApi</code> classes and <code>Cache</code> class for accessing API data. We intend to refactor the component to make it more OOP as shown in the figure above in <code>v2.0</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>Api</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>handles queries to external APIs such as Google Maps and NUSMods.</p>
+</li>
+<li>
+<p>handles caching of API results for limited connectivity support.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.8. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
@@ -1266,7 +1305,7 @@ All of these graphics are created in the <code>ScheduleView</code> class. The ob
 <div class="content">
 <img src="images/yijie/ScheduleViewDomainModel.png" alt="svdm" width="500" height="500">
 </div>
-<div class="title">Figure 14. Object oriented domain model for <code>ScheduleView</code>.</div>
+<div class="title">Figure 15. Object oriented domain model for <code>ScheduleView</code>.</div>
 </div>
 <div class="paragraph">
 <p>The <code>ScheduleView</code> class in TimeBook follows the above model closely. Let&#8217;s walk you through how the graphics are created.</p>
@@ -1335,7 +1374,7 @@ all the information needed to generate a schedule view.</p>
 <div class="content">
 <img src="images/yijie/gsvm_state1.png" alt="gsvm1" width="800" height="500">
 </div>
-<div class="title">Figure 15. Initial state of GroupScheduleViewManager after the <code>show</code> command is executed.</div>
+<div class="title">Figure 16. Initial state of GroupScheduleViewManager after the <code>show</code> command is executed.</div>
 </div>
 <div class="paragraph">
 <p>Step 2. Suppose the user thinks that arranging a group meeting on the first week is too rushed, so he executes the <code>togglenext</code> command to view the group&#8217;s schedule for the next week.
@@ -1345,7 +1384,7 @@ The state of <code>ScheduleViewManager</code> is then modified to show the secon
 <div class="content">
 <img src="images/yijie/gsvm_state2.png" alt="gsvm1" width="800" height="500">
 </div>
-<div class="title">Figure 16. State of GroupScheduleViewManager after the <code>togglenext</code> command is executed.</div>
+<div class="title">Figure 17. State of GroupScheduleViewManager after the <code>togglenext</code> command is executed.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. Suppose the user now wants to inspect some of his group members' schedules, and he executes the <code>lookat</code> command to inspect Alice&#8217;s and Carl&#8217;s schedules.
@@ -1355,7 +1394,7 @@ The state of <code>ScheduleViewManager</code> is once again modified to only sho
 <div class="content">
 <img src="images/yijie/gsvm_state3.png" alt="gsvm1" width="800" height="500">
 </div>
-<div class="title">Figure 17. State of the GroupScheduleViewManager after the <code>lookat</code> command is executed.</div>
+<div class="title">Figure 18. State of the GroupScheduleViewManager after the <code>lookat</code> command is executed.</div>
 </div>
 <div class="paragraph">
 <p>Now that we have the full picture of how the graphics are created and controlled, we are ready to show how the user obtain a visual representation of a person or group&#8217;s schedule using the <code>show</code> command.
@@ -1365,7 +1404,7 @@ The following sequence diagram shows the sequence of events that lead to changes
 <div class="content">
 <img src="images/yijie/showCommandSequenceDiagram.png" alt="showCommandSequenceDiagram">
 </div>
-<div class="title">Figure 18. Sequence diagram for the <code>show</code> command.</div>
+<div class="title">Figure 19. Sequence diagram for the <code>show</code> command.</div>
 </div>
 <div class="paragraph">
 <p>In order to make the diagram look less messy, a reference diagram shown below is created to show what happens in the <strong>get schedule view</strong> frame.</p>
@@ -1374,7 +1413,7 @@ The following sequence diagram shows the sequence of events that lead to changes
 <div class="content">
 <img src="images/yijie/showCommandSdFrame.png" alt="scsdf" width="600" height="600">
 </div>
-<div class="title">Figure 19. Reference frame that was omitted from the sequence diagram.</div>
+<div class="title">Figure 20. Reference frame that was omitted from the sequence diagram.</div>
 </div>
 <div class="paragraph">
 <p>Details of how the graphics are created within the <code>ScheduleView</code> have been described above and thus, are omitted in the diagram.</p>
@@ -1467,7 +1506,7 @@ We define this location as Closest Common Location. Below is an example of this 
 <div class="content">
 <img src="images/gmaps/SuccessfulPopup.png" alt="Popup">
 </div>
-<div class="title">Figure 20. Popup for the closest common location.</div>
+<div class="title">Figure 21. Popup for the closest common location.</div>
 </div>
 <div class="sect3">
 <h4 id="definition"><a class="link" href="#definition">3.8.1. Definition</a></h4>
@@ -1521,7 +1560,7 @@ to compute the closest common location for <code>l2,ln-2 and ln1</code>.</p>
 <div class="content">
 <img src="images/gmaps/Algorithm.png" alt="Algorithm">
 </div>
-<div class="title">Figure 21. Example of how the algorithm is used. The closest common location for this instance is <code>ln-2</code>.</div>
+<div class="title">Figure 22. Example of how the algorithm is used. The closest common location for this instance is <code>ln-2</code>.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1589,7 +1628,7 @@ has a limit of 100 elements for every API call.</p>
 <div class="content">
 <img src="images/gmaps/GmapsClassDiagram.png" alt="GmapsClassDiagram">
 </div>
-<div class="title">Figure 22. Class Diagram for Closest Common Location Component</div>
+<div class="title">Figure 23. Class Diagram for Closest Common Location Component</div>
 </div>
 <div class="paragraph">
 <p><strong>There are 3 main aspects to the implementation of this component.</strong></p>
@@ -1622,7 +1661,7 @@ has a limit of 100 elements for every API call.</p>
 <div class="content">
 <img src="images/gmaps/MatrixCreationSequenceDiagram.png" alt="Gmaps-Sequence-Diagram">
 </div>
-<div class="title">Figure 23. Sequence diagram for the construction of the graph matrix</div>
+<div class="title">Figure 24. Sequence diagram for the construction of the graph matrix</div>
 </div>
 <div class="paragraph">
 <p><strong>Brief overview</strong>
@@ -1762,7 +1801,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/AddNusModsSequenceDiagram.png" alt="AddNusModsSequenceDiagram">
 </div>
-<div class="title">Figure 24. Sequence diagram of executing the AddNusModsCommand</div>
+<div class="title">Figure 25. Sequence diagram of executing the AddNusModsCommand</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1810,7 +1849,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/ModuleClassDiagram.png" alt="ModuleClassDiagram">
 </div>
-<div class="title">Figure 25. Class diagram of <code>Module</code> and associated classes</div>
+<div class="title">Figure 26. Class diagram of <code>Module</code> and associated classes</div>
 </div>
 <div class="paragraph">
 <p>The following class diagram shows the <code>Event</code> class and its associated classes relevant in the context of this feature.</p>
@@ -1819,7 +1858,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/nusmods/EventClassDiagram.png" alt="EventClassDiagram" width="75%">
 </div>
-<div class="title">Figure 26. Class diagram of <code>Event</code> and associated classes</div>
+<div class="title">Figure 27. Class diagram of <code>Event</code> and associated classes</div>
 </div>
 </div>
 <div class="sect3">
@@ -1893,7 +1932,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 <div class="content">
 <img src="images/gmaps/ApiDiagram.png" alt="ApiDiagram" width="40%">
 </div>
-<div class="title">Figure 27. Activity diagram showing decision flow for <code>loadXXX</code> methods</div>
+<div class="title">Figure 28. Activity diagram showing decision flow for <code>loadXXX</code> methods</div>
 </div>
 </div>
 <div class="sect3">
@@ -2325,44 +2364,7 @@ identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -2380,7 +2382,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2418,7 +2420,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2450,7 +2452,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2469,5 +2471,63 @@ Expected: Similar to previous.</p>
 <p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="adding-nusmods-timetable-to-a-person-s-schedule"><a class="link" href="#adding-nusmods-timetable-to-a-person-s-schedule">F.4. Adding NUSMods timetable to a person&#8217;s schedule</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding via NUSMods link to a new person with an empty schedule.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A new person John is added with the <code>addperson n/John</code> command.</p>
+</li>
+<li>
+<p>Test case 1: <code>addmods link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
+Expected: John&#8217;s schedule is successfully updated with the all the lesson times and exam times for the module classes specified in the link.</p>
+</li>
+<li>
+<p>Test case 2: Enter <code>addmods link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code> twice consecutively.<br>
+Expected: No lessons are added to John&#8217;s schedule. Error message shows up due to a clash in timings between events in current schedule and the modules you are adding.</p>
+</li>
+<li>
+<p>Other incorrect addmods commands to try: <code>addmods</code>, <code>addmods n/John link/random_string</code>, <code>addmods n/John link/https//randomurl.com</code>, <code>addmods n/John link/https://nusmods.com/timetable/sem-1/share?INVALIDMODULE=LEC:G05</code>, <code>addmods n/John link/https://nusmods.com/timetable/sem-1/share?CS2103T=INVALIDCLASSTYPE:G05</code>, <code>addmods n/John link/https://nusmods.com/timetable/sem-1/share?CS2103T=LEC:INVALIDCLASSNUMBER</code><br>
+No lessons are added to John&#8217;s schedule. Error details are shown in the feedback display.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:42:35 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-nus-module-s-lessons-to-a-person-s-schedule"><a class="link" href="#adding-an-nus-module-s-lessons-to-a-person-s-schedule">F.5. Adding an NUS module&#8217;s lessons to a person&#8217;s schedule</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding CS2100 lecture 1, lab 15 and tutorial 08 to a new person with an empty schedule.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A new person John is added with the <code>addperson n/John</code> command.</p>
+</li>
+<li>
+<p>Test case 1: <code>addmod n/John m/CS2100 cl/TUT:08,LAB:15,LEC:1</code><br>
+Expected: John&#8217;s schedule is successfully updated with CS2100 lecture 1, lab 15, tutorial 08 and exam timeslots.</p>
+</li>
+<li>
+<p>Test case 2: Execute <code>addmod n/John m/CS2100 cl/TUT:08,LAB:15,LEC:1</code> twice.<br>
+Expected: No lessons will be added to John&#8217;s schedule. Error message shows up due to a clash in timings between events in current schedule and the module you are adding.</p>
+</li>
+<li>
+<p>Other incorrect addmod commands to try: <code>addmod</code>, <code>addmod n/John m/random_string</code>, <code>addmod n/John m/CCS2100 cl/random_string</code>.<br>
+Expected: No lessons are added to John&#8217;s schedule. Error details are shown in the feedback display.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:51:52 UTC</div></div></div></body></html>

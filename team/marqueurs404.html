@@ -1,0 +1,551 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Marcus Ong - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Marcus Ong - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-timebook"><a class="link" href="#project-timebook">PROJECT: TimeBook</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TimeBook is a desktop application that is morphed from AddressBook Level 3 (AB3).
+TimeBook is a scheduling application that aims to help busy NUS undergraduates keep track of the schedules of you and your friends.
+It also can find the common free time and venues among you and your friends.
+TimeBook will have the following features:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A graphical user interface (GUI) but most of the interactions with the application would happen using command line interface (CLI).</p>
+</li>
+<li>
+<p>Allows users to add the schedules of his or her friends and organise them into groups.</p>
+</li>
+<li>
+<p>Deconflict different schedules of different people and different groups to find the common free time among them.</p>
+</li>
+<li>
+<p>Integration with NUSmods API to allow users to enter their NUSmods timetable link to add it to their schedule.</p>
+</li>
+<li>
+<p>Integration with Google Maps API to allow the application to evaluate the best venue for the group to meet up during the free time in their schedules.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This document summarizes my contributions to the TimeBook project in terms of the code, user guide and developer guide.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section documents a summary of the major and minor contributions I have made to this project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: implemented <strong>the ability to add NUSMods timetables to schedules</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This feature allows the user to add their own NUSMods timetables by providing their NUSMods link or by adding individual modules.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly given our target user of busy NUS undergraduates as they can quickly setup their timetable just by using pre-existing data from NUSMods rather than creating their own schedule from scratch.</p>
+</li>
+<li>
+<p>Highlights: This implementation was challenging as it required the development of a new API component to query, transform and store external data. Extensive checks have to be done to make sure the data is correctly handled. It also required an analysis of multiple design alternatives in order to find a balance between the complexity of the implementation and robust offline support. A caching mechanism to store query results and a pre-processing program was written to store all relevant NUSMods data for offline support.</p>
+</li>
+<li>
+<p>Credits: The <a href="https://api.nusmods.com/v2/">NUSMods API</a> was used for retrieving NUSMods data. The <a href="https://code.google.com/archive/p/json-simple/">JSON.simple library</a> was used to encode and decode the JSON data that was retrieved from the NUSMods API.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a <code>showmod</code> command that allows the user to open up the <a href="https://nusmods.com/MODULE" class="bare">https://nusmods.com/MODULE</a> page on the browser, so that the user can view a module&#8217;s details on NUSMods.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: See on <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=marqueurs404&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=zoom">Reposense</a></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote tests for features I implemented (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/189">#189</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added documentation for the Developer Guide and User Guide, for the sections related to NUSMods and External API that I implemented. (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/135">#135</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/137">#137</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/144">#144</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/172">#172</a>, <a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/174">#174</a>)</p>
+</li>
+<li>
+<p>Updated documentation for the Developer Guide for the Design &#8594; Architecture, Design &#8594; Model component and Design &#8594; Api component. (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/pull/278">#278</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams in the class during the practical exam dry run.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a Github plugin (Coveralls) to the team repo</p>
+</li>
+<li>
+<p>Integrated a Github plugin (Travis CI) to the team repo</p>
+</li>
+<li>
+<p>Set up a Telegram Bot to notify team members of Travis build statuses on success or failure (<a href="https://github.com/AY1920S1-CS2103T-T10-4/main/commit/049c9d34e602d9b74d83636ac5ac33324408ffb4">#45</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide, namely the <code>addmod</code>, <code>addmods</code> and <code>showmod</code> commands. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">Add Module to Schedule: <code>addmod</code></a></h4>
+<div class="paragraph">
+<p>Want to add an NUS module to you or your friend&#8217;s schedule on TimeBook? You can do so with the <code>addmod</code> command! If you already have your timetable on NUSMods, check out <a href="#add-modules-via-nusmods-link-code-addmods-code">the <code>addmods</code> command</a>!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addmod [n/NAME] m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE:CLASS_2_NUMBER,&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Currently supports academic year 2019/2020 and semester 1 only.</p>
+</li>
+<li>
+<p>If the NAME is not provided, then the modules will be added to the default user, which is you!</p>
+</li>
+<li>
+<p><span class="image"><img src="../images/icons/warning.png" alt="warning"></span>: Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmod m/CS2103T cl/LEC:G01</code><br>
+This adds CS2103T lecture G01 to your schedule.</p>
+</li>
+<li>
+<p><code>addmod n/John m/CS3230 cl/LEC:1,TUT:08</code><br>
+This adds CS3230 lecture 1 and tutorial 08 to John&#8217;s schedule.</p>
+</li>
+<li>
+<p><code>addmod n/John m/CS2100 cl/LEC:1,TUT:01,LAB:08</code><br>
+This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>How do I add an NUS module to my schedule?</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suppose you want to add CS3230 lecture 1 and tutorial 08 to your schedule. You can add the classes to your schedule easily by first typing <code>addmod m/CS3230 cl/LEC:1,TUT:08</code> into the command box, then pressing <b class="button">Enter</b> to execute it!</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/nusmods/addmod1.PNG" alt="addmod1">
+</div>
+</div>
+</li>
+<li>
+<p>If you manage to successfully add the module and its classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/nusmods/addmod2.PNG" alt="addmod2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-modules-via-nusmods-link-code-addmods-code"><a class="link" href="#add-modules-via-nusmods-link-code-addmods-code">Add Modules via NUSMods Link: <code>addmods</code></a></h4>
+<div class="paragraph">
+<p>Already have your modules timetable on NUSMods?
+Great, you can easily add your modules timetable into TimeBook with the <code>addmods</code> command!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addmods [n/NAME] link/NUSMODS_SHARE_LINK</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Reads the specified <code>NUSMODS_SHARE_LINK</code> to get the modules and classes, then adds the classes into the person&#8217;s schedule.</p>
+</li>
+<li>
+<p>If the NAME is not provided, then the modules will be added to the default user, which is you!</p>
+</li>
+<li>
+<p>Currently supports academic year 2019/2020 and semester 1 only.</p>
+</li>
+<li>
+<p><span class="image"><img src="../images/icons/warning.png" alt="warning"></span>: Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Examples:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addmods link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
+This will add the modules in the NUSMods link to your schedule.</p>
+</li>
+<li>
+<p><code>addmods n/John link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
+This will add the modules in the NUSMods link to John&#8217;s schedule.</p>
+</li>
+<li>
+<p><code>addmods n/Bob link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
+This will add the modules in the NUSMods link to Bob&#8217;s schedule.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>How do I add my team member John&#8217;s NUSMods timetable to TimeBook?</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Well that is simple, add John&#8217;s NUSMods timetable by first typing <code>addmods n/John link/</code> into the command box, then copy and paste his NUSMods link. Finally, press <b class="button">Enter</b> to execute it.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/nusmods/addmods1.PNG" alt="addmods1">
+</div>
+</div>
+</li>
+<li>
+<p>If the command succeeds, you will see John&#8217;s schedule update with the newly added timeslots from his NUSMods timetable:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/nusmods/addmods2.PNG" alt="addmods2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-module-code-showmod-code"><a class="link" href="#show-module-code-showmod-code">Show Module: <code>showmod</code></a></h4>
+<div class="paragraph">
+<p>Want to know more information about an NUS module? Use <code>showmod</code> to quickly open up the NUSMods page for a specific module on your browser!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>showmod m/MODULE_CODE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="../images/icons/warning.png" alt="warning"></span>: This command requires internet connection.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>showmod m/CS2103T</code><br>
+Opens up <a href="https://nusmods.com/modules/CS2103T" class="bare">https://nusmods.com/modules/CS2103T</a> on your default browser.</p>
+</li>
+<li>
+<p><code>showmod m/CS2101</code><br>
+Opens up <a href="https://nusmods.com/modules/CS2101" class="bare">https://nusmods.com/modules/CS2101</a> on your default browser.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are the <strong>Add NUSMods To Schedule</strong> section and the <strong>External APIs</strong> section that I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="add-nusmods-to-schedule"><a class="link" href="#add-nusmods-to-schedule">Add NUSMods To Schedule</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code> or <code>AddNusModCommand</code>) to their TimeBook schedules.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddNusModsCommand</code> can be executed by the user through the CLI with the following syntax <code>addmods n/NAME link/NUSMODS_SHARE_LINK</code>. The share link contains semester number, module codes, class types and class numbers, which are used for creating and adding events to the person&#8217;s schedule.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddNusModCommand</code> can be executed by the user through the CLI with the following syntax <code>addmod n/NAME m/MODULE_CODE cl/CLASS_TYPE_1:CLASS_NUMBER_1,CLASS_TYPE_2:CLASS_NUMBER_2,&#8230;&#8203;</code>. This allows the user to add individual modules but requires the user to manually specify the class type and class numbers.</p>
+</div>
+<div class="paragraph">
+<p>Since the <code>AddNusModsCommand</code> is less complex than <code>AddNusModsCommand</code> as it only adds 1 module at a time and does not require URL validation and parsing, we will walk through the implementation of the latter instead. The following sequence diagram shows what happens when <code>AddNusModsCommand</code> is executed:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/nusmods/AddNusModsSequenceDiagram.png" alt="AddNusModsSequenceDiagram">
+</div>
+<div class="title">Figure 1. Sequence diagram of executing the AddNusModsCommand</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters <code>addmods n/NAME link/https//nusmods.com/&#8230;&#8203;</code>. The command string will be passed to <code>LogicManager</code> which calls <code>TimeBookParser</code> for parsing into an <code>AddNusModsCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>TimeBookParser</code> delegates the parsing to <code>AddNusModsCommandParser</code>. The name parameter will be parsed into a <code>Name</code> object, while the link parameter will be passed <code>NusModsShareLink#parseLink</code>, which validates and parses the link to create an <code>NusModsShareLink</code> object containing the <code>SemesterNo</code>, each module&#8217;s <code>ModuleCode</code>, and their corresponding lessons' <code>LessonType</code> and <code>LessonNo</code>. The <code>AddNusModsCommandParser</code> then creates an <code>AddNusModsCommand</code>, which takes in the <code>Name</code> and <code>NusModsShareLink</code> objects, and passes the command back to <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The <code>AddNusModsCommand#execute</code> is then called by the <code>LogicManager</code>. In the <code>AddNusModsCommand#execute</code> method,</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>AddNusModsCommand#getPerson</code> is called to get from the model the <code>Person</code> whose schedule will be added with the modules.</p>
+</li>
+<li>
+<p><code>AddNusModsCommand#mapModulesToEvents</code> is then called to map each module to an event. Each <code>Module</code>-<code>LessonType</code>-<code>LessonNo</code> entry in the <code>NusModsShareLink</code> is iterated through and the following is executed,</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Call <code>model#findModule</code> to get the <code>Module</code> with the given module code.</p>
+</li>
+<li>
+<p>Pass the <code>Module</code> and pairs of <code>LessonType</code>-<code>LessonNo</code> to <code>ModuleEventMappingUtil#mapModuleToEvent</code> to generate an <code>Event</code> based on the module and lesson type-number pair. One <code>Module</code> is mapped to one <code>Event</code>, and each <code>Lesson</code> in the module is used to generate multiple <code>Timeslots</code> for an event.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The created events will then be iterated through and executed with <code>person#addEvent</code> to add the events to the person&#8217;s schedule.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The command result is returned to <code>LogicManager</code> and feedback is displayed to user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows the <code>Module</code> class and its associated classes. The structure follows closely to the data retrieved from NUSMods API with some changes to suit the needs of our application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/nusmods/ModuleClassDiagram.png" alt="ModuleClassDiagram">
+</div>
+<div class="title">Figure 2. Class diagram of <code>Module</code> and associated classes</div>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows the <code>Event</code> class and its associated classes relevant in the context of this feature.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/nusmods/EventClassDiagram.png" alt="EventClassDiagram" width="75%">
+</div>
+<div class="title">Figure 3. Class diagram of <code>Event</code> and associated classes</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Ease of use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Allow user to add modules individually</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to implement.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tedious for user, as user has to specify the module code, lesson types and lesson numbers in the command.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Allow user to add modules via NUSMods share link <strong>(current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User can easily get the NUSMods share link of his/her existing NUSMods timetable and copy/paste the link into the command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Require implementation of complex URL validation and parsing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3. Allow user to import the downloaded iCalendar file from NUSMods</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens up the possibility of importing generic iCalendar files.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Harder to implement, need to deal with file IO and .ics file format parsing. Also, user is unlikely to get the iCalendar files of his/her group members (due to tediousness)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">We chose to implement choice 2 as it is the most user-friendly one. The bonus is that choice 1 has been implemented as well as it is easy to adapt what we have already implemented for choice 2 to make choice 1 work.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="external-apis"><a class="link" href="#external-apis">External APIs</a></h3>
+<div class="paragraph">
+<p>The application requires data from the <a href="https://api.nusmods.com/v2/">NUSMods API</a> for the <a href="#add-nusmods-to-schedule">Add NUSMods To Schedule</a> feature and data from the <a href="https://developers.google.com/maps/documentation">Google Maps API</a> for the <a href="#Closest Common Location(Micro Service)">Closest Common Location</a> feature. The following subsections describe the implementation of the <a href="#Design-API">Api component</a>:</p>
+</div>
+<div class="sect3">
+<h4 id="apis"><a class="link" href="#apis">APIs</a></h4>
+<div class="paragraph">
+<p>We have implemented an <code>Api</code> component to contain the logic of interfacing with external APIs, the architecture diagram of this component can be seen in <a href="#Design-API">Design &#8594; Api component</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>websocket.NusModsApi</code> class contains methods for querying different endpoints of the NUSMods API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The <code>websocket.GmapsApi</code> class contains methods for querying different endpoints of the Google Maps API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The <code>websocket.Cache</code> class handles the saving and loading of cached API results in the resources folder.</p>
+</div>
+<div class="paragraph">
+<p>The <code>websocket.util</code> folder contains various utility classes for querying external APIs.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="caching-api-results"><a class="link" href="#caching-api-results">Caching API Results</a></h4>
+<div class="paragraph">
+<p>To support limited connectivity in our application, the results of all API queries are preprocessed and saved into the resources directory. This is managed by the <code>Cache</code> class. The following activity diagram shows how the caching feature works when external data is required for the execution of a certain command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/gmaps/ApiDiagram.png" alt="ApiDiagram" width="40%">
+</div>
+<div class="title">Figure 4. Activity diagram showing decision flow for <code>loadXXX</code> methods</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="preprocessing-nusmods-api"><a class="link" href="#preprocessing-nusmods-api">Preprocessing NUSMods API</a></h4>
+<div class="paragraph">
+<p>We preprocess the data collected from NUSMods API so that we can cache the data for offline usage and perform some early computation steps (e.g. validation, parsing) to reduce the computation cost during actual use in the application.</p>
+</div>
+<div class="paragraph">
+<p>Notably, the key information that we require for each NUS module is the timetable information. However, there is no available API endpoint which provides the timetable information of all modules at once. Rather, there is only an endpoint which provides the timetable information of one module per query. Thus, we developed a small program in <code>logic.internal.nusmods.ImportMods</code>, which is executed prior to the main application itself, to query the timetable info for every module and save the data in the resources folder.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Limited Connectivity Support</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Preprocessing API results and storing it in resources folder.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can achieve complete offline support, also avoids the issue of providing API keys in production <strong>(current choice</strong>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have to run the preprocessing programs in <code>logic.internal</code> from time to time to update data files, e.g. for modules in new academic year or new locations else features will not work.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Caching Query Results</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Achieves limited connectivity support (call once and save result, then use saved result for future calls). Also, needs less work to support future data/API changes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not so useful in cases where a large number of queries is required to be preprocessed first in order to handle a single user command, e.g. finding common location requires building a <code>LocationGraph</code> after getting the locations data from Google Maps.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3. Direct API queries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement, minimal work to support future data/API changes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No limited connectivity support.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">The choice of implementation was progressive - it was initially choice 3 for prototyping, then enhanced to choice 2, and finally adapted to choice 1. Choice 1 suits our needs the best as it can achieve complete offline support and avoid handling API keys in production. Additionally, the cons of choice 1 is manageable. However, a mix of choice 1 and 2 will be required moving forward if we intend to support non-NUS locations or multiple academic semesters.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:51:47 UTC</div></div></div></body></html>

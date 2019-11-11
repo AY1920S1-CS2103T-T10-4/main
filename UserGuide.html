@@ -963,10 +963,10 @@ After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togg
 <div class="sect3">
 <h4 id="add-module-to-schedule-code-addmod-code"><a class="link" href="#add-module-to-schedule-code-addmod-code">6.3.1. Add Module to Schedule: <code>addmod</code></a></h4>
 <div class="paragraph">
-<p>Adds an NUS module as an event to a person&#8217;s schedule in TimeBook.</p>
+<p>Want to add an NUS module to you or your friend&#8217;s schedule on TimeBook? You can do so with the <code>addmod</code> command! If you already have your timetable on NUSMods, check out <a href="#add-modules-via-nusmods-link-code-addmods-code">the <code>addmods</code> command</a>!</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addmod n/NAME m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE:CLASS_2_NUMBER,&#8230;&#8203;</code></p>
+<p>Format: <code>addmod [n/NAME] m/MODULE_CODE cl/CLASS_1_TYPE:CLASS_1_NUMBER,CLASS_2_TYPE:CLASS_2_NUMBER,&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -974,6 +974,9 @@ After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togg
 <ul>
 <li>
 <p>Currently supports academic year 2019/2020 and semester 1 only.</p>
+</li>
+<li>
+<p>If the NAME is not provided, then the modules will be added to the default user, which is you!</p>
 </li>
 <li>
 <p><span class="image"><img src="images/icons/warning.png" alt="warning"></span>: Just like adding a normal event via <code>addevent</code>, the module will only be added if the specified classes does not clash with any events in the person&#8217;s schedule.</p>
@@ -988,8 +991,8 @@ After you&#8217;ve reached the fourth week&#8217;s schedule, the next <code>togg
 <div class="ulist">
 <ul>
 <li>
-<p><code>addmod n/John m/CS2103T cl/LEC:G01</code><br>
-This adds CS2103T lecture G01 to John&#8217;s schedule.</p>
+<p><code>addmod m/CS2103T cl/LEC:G01</code><br>
+This adds CS2103T lecture G01 to your schedule.</p>
 </li>
 <li>
 <p><code>addmod n/John m/CS3230 cl/LEC:1,TUT:08</code><br>
@@ -1002,12 +1005,12 @@ This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Step-By-Step:</p>
+<p><strong>How do I add an NUS module to my schedule?</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a module&#8217;s classes easily by typing <code>addmod</code> into the command box and specifying the appropriate parameters, then press <b class="button">Enter</b> to execute it.</p>
+<p>Suppose you want to add CS3230 lecture 1 and tutorial 08 to your schedule. You can add the classes to your schedule easily by first typing <code>addmod m/CS3230 cl/LEC:1,TUT:08</code> into the command box, then pressing <b class="button">Enter</b> to execute it!</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/nusmods/addmod1.PNG" alt="addmod1">
@@ -1032,7 +1035,7 @@ This adds CS2100 lecture 1, tutorial 01 and lab 08 to John&#8217;s schedule.</p>
 Great, you can easily add your modules timetable into TimeBook with the <code>addmods</code> command!</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addmods n/NAME link/NUSMODS_SHARE_LINK</code></p>
+<p>Format: <code>addmods [n/NAME] link/NUSMODS_SHARE_LINK</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1040,6 +1043,9 @@ Great, you can easily add your modules timetable into TimeBook with the <code>ad
 <ul>
 <li>
 <p>Reads the specified <code>NUSMODS_SHARE_LINK</code> to get the modules and classes, then adds the classes into the person&#8217;s schedule.</p>
+</li>
+<li>
+<p>If the NAME is not provided, then the modules will be added to the default user, which is you!</p>
 </li>
 <li>
 <p>Currently supports academic year 2019/2020 and semester 1 only.</p>
@@ -1052,27 +1058,31 @@ Great, you can easily add your modules timetable into TimeBook with the <code>ad
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p><strong>Examples:</strong></p>
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p><code>addmods link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
+This will add the modules in the NUSMods link to your schedule.</p>
+</li>
 <li>
 <p><code>addmods n/John link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
 This will add the modules in the NUSMods link to John&#8217;s schedule.</p>
 </li>
 <li>
 <p><code>addmods n/Bob link/https://nusmods.com/timetable/sem-1/share?CS2101=&amp;CS2103T=LEC:G05&amp;CS3230=LEC:1,TUT:08&amp;CS3243=TUT:07,LEC:1&amp;GEQ1000=TUT:D17</code><br>
-This will add the modules in teh NUSMods link to Bob&#8217;s schedule.</p>
+This will add the modules in the NUSMods link to Bob&#8217;s schedule.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Step-By-Step:</p>
+<p><strong>How do I add my team member John&#8217;s NUSMods timetable to TimeBook?</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add an NUSMods timetable easily by typing <code>addmods</code> into the command box and follow the format as shown above, then press <b class="button">Enter</b> to execute it.</p>
+<p>Well that is simple, add John&#8217;s NUSMods timetable by first typing <code>addmods n/John link/</code> into the command box, then copy and paste his NUSMods link. Finally, press <b class="button">Enter</b> to execute it.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/nusmods/addmods1.PNG" alt="addmods1">
@@ -1080,7 +1090,7 @@ This will add the modules in teh NUSMods link to Bob&#8217;s schedule.</p>
 </div>
 </li>
 <li>
-<p>If you manage to successfully add all the modules and their respective classes into the person&#8217;s schedule, you will see the person&#8217;s schedule appearing with the newly added timeslots:</p>
+<p>If the command succeeds, you will see John&#8217;s schedule update with the newly added timeslots from his NUSMods timetable:</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/nusmods/addmods2.PNG" alt="addmods2">
@@ -1769,14 +1779,18 @@ The green blocks still represent the common free time slots for the entire group
 <p>Want to know more information about an NUS module? Use <code>showmod</code> to quickly open up the NUSMods page for a specific module on your browser!</p>
 </div>
 <div class="paragraph">
-<p>Format:</p>
+<p>Format: <code>showmod m/MODULE_CODE</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>showmod m/MODULE_CODE</code></p>
+<p><span class="image"><img src="images/icons/warning.png" alt="warning"></span>: This command requires internet connection.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -3183,4 +3197,4 @@ e.g. <code>popup g/CS2103T i/2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:33:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:51:47 UTC</div></div></div></body></html>

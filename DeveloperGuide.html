@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team TimeBook</code>      Since: <code>Aug 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -17,7 +17,8 @@
 <li><a href="#Design-Logic">2.3. Logic component</a></li>
 <li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Design-API">2.6. Api component</a></li>
+<li><a href="#Design-Commons">2.7. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">3. Implementation</a>
@@ -66,6 +67,9 @@
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<div class="paragraph">
+<p>The <strong><em>Architecture Diagram</em></strong> given below explains the high-level design of the App:</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -73,7 +77,7 @@
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+<p>Given below is a quick overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -113,7 +117,7 @@ The following class plays an important role at the architecture level:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The rest of the App consists of four components.</p>
+<p>The rest of the App consists of five components.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -129,10 +133,13 @@ The following class plays an important role at the architecture level:</p>
 <li>
 <p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
 </li>
+<li>
+<p><a href="#Design-API"><strong><code>Api</code></strong></a>: Make queries to external APIs, handles caching of API results to hard disk, and passes API data to other components.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Each of the four components</p>
+<p>Each of the five components</p>
 </div>
 <div class="ulist">
 <ul>
@@ -155,13 +162,13 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>addmod m/CS3230 cl/LEC:01</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>addmod m/CS3230 cl/LEC:01</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -200,7 +207,10 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
-<div id="fig-LogicClassDiagram" class="imageblock">
+<div id="fig-LogicClassDiagram" class="paragraph">
+<p>The <em>Class Diagram</em> below shows the structure of the logic component:</p>
+</div>
+<div class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
@@ -213,7 +223,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>TimeBookParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
@@ -238,26 +248,17 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<div class="paragraph">
+<p>The following diagram provides a high-level overview of the Model component:</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/model/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 7. High-level structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -271,29 +272,54 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores a <code>TimeBook</code> object which contains data related to persons, groups and the mappings between them.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>stores a <code>ScheduleManager</code> object which contains data related to stateful UI.</p>
 </li>
 <li>
-<p>does not depend on any of the other three components.</p>
+<p>stores a <code>NusModsData</code> object which gets data related to NUSMods modules from the Api component and transforms them to be used by other components.</p>
+</li>
+<li>
+<p>stores a <code>GmapsModelManager</code> object which gets data related to Google Maps from the Api component and transforms them to be used by other components.</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>The following diagram provides a more detailed look into the <code>TimeBook</code> sub-component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/model/TimeBookClassDiagram.png" alt="TimeBookClassDiagram">
+</div>
+<div class="title">Figure 8. Structure of TimeBook sub-component</div>
+</div>
+<div class="paragraph">
+<p>The following diagram provides a more detailed look into the <code>ScheduleManager</code> sub-component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/model/ScheduleManagerClassDiagram.png" alt="ScheduleManagerClassDiagram">
+</div>
+<div class="title">Figure 9. Structure of ScheduleManager sub-component</div>
+</div>
+<div class="paragraph">
+<p>The following diagram provides a more detailed look into the <code>NusModsData</code> sub-component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/model/NusModsDataClassDiagram.png" alt="NusModsDataClassDiagram">
+</div>
+<div class="title">Figure 10. Structure of NusModsData sub-component</div>
+</div>
+<div class="paragraph">
+<p>The following diagram provides a more detailed look into the <code>Gmaps</code> sub-component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/model/GmapsModelManagerClassDiagram.png" alt="GmapsModelManagerClassDiagram">
+</div>
+<div class="title">Figure 11. Structure of Gmaps sub-component</div>
 </div>
 </div>
 <div class="sect2">
@@ -302,7 +328,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 12. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -322,7 +348,44 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-API"><a class="link" href="#Design-API">2.6. Api component</a></h3>
+<div class="paragraph">
+<p>The following diagram explains the design of the API component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/api/ApiComponentClassDiagram.png" alt="ApiComponentClassDiagram">
+</div>
+<div class="title">Figure 13. Expected structure of API Component in <code>v2.0</code>.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Currently there is no <code>Api</code> interface or <code>ApiManager</code> to manage the external interactions with other components. Other components are directly accessing static methods in the <code>xxxApi</code> classes and <code>Cache</code> class for accessing API data. We intend to refactor the component to make it more OOP as shown in the figure above in <code>v2.0</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>Api</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>handles queries to external APIs such as Google Maps and NUSMods.</p>
+</li>
+<li>
+<p>handles caching of API results for limited connectivity support.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.7. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
@@ -1474,128 +1537,129 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <div class="sect3">
 <h4 id="implementation-5"><a class="link" href="#implementation-5">3.9.1. Implementation</a></h4>
 <div class="paragraph">
-<p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code>) to their TimeBook schedules.</p>
+<p>This feature allows users to add their NUSMods timetable (using the <code>AddNusModsCommand</code> or <code>AddNusModCommand</code>) to their TimeBook schedules.</p>
 </div>
 <div class="paragraph">
-<p>The <code>AddNusModsCommand</code> can be executed by the user through the CLI with the following syntax <code>addmods n/NAME link/NUSMODS_SHARE_LINK</code>. The share link contains semester number, module codes and lesson numbers, which are used for creating and adding events to the person&#8217;s schedule.</p>
+<p>The <code>AddNusModsCommand</code> can be executed by the user through the CLI with the following syntax <code>addmods n/NAME link/NUSMODS_SHARE_LINK</code>. The share link contains semester number, module codes, class types and class numbers, which are used for creating and adding events to the person&#8217;s schedule.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows what happens when <code>AddNusModsCommand</code> is executed:</p>
+<p>The <code>AddNusModCommand</code> can be executed by the user through the CLI with the following syntax <code>addmod n/NAME m/MODULE_CODE cl/CLASS_TYPE_1:CLASS_NUMBER_1,CLASS_TYPE_2:CLASS_NUMBER_2,&#8230;&#8203;</code>. This allows the user to add individual modules but requires the user to manually specify the class type and class numbers.</p>
+</div>
+<div class="paragraph">
+<p>Since the <code>AddNusModsCommand</code> is less complex than <code>AddNusModsCommand</code> as it only adds 1 module at a time and does not require URL validation and parsing, we will walk through the implementation of the latter instead. The following sequence diagram shows what happens when <code>AddNusModsCommand</code> is executed:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/nusmods/AddNusModsSequenceDiagram.png" alt="AddNusModsSequenceDiagram">
 </div>
+<div class="title">Figure 14. Sequence diagram of executing the AddNusModsCommand</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>addmods n/NAME link/https//nusmods.com/&#8230;&#8203;</code></p>
+<p>User enters <code>addmods n/NAME link/https//nusmods.com/&#8230;&#8203;</code>. The command string will be passed to <code>LogicManager</code> which calls <code>TimeBookParser</code> for parsing into an <code>AddNusModsCommand</code> object.</p>
 </li>
 <li>
-<p>The name string will be parsed into a <code>Name</code> object. The argument string for link will be parsed in <code>AddNusModsCommandParser</code> into a <code>NusModsShareLink</code>, containing the <code>SemesterNo</code>, <code>ModuleCodes</code> and <code>LessonNos</code>. Both the <code>Name</code> and <code>NusModsShareLink</code> objects will then be passed into the <code>AddNusModsCommand</code> constructor.</p>
+<p>The <code>TimeBookParser</code> delegates the parsing to <code>AddNusModsCommandParser</code>. The name parameter will be parsed into a <code>Name</code> object, while the link parameter will be passed <code>NusModsShareLink#parseLink</code>, which validates and parses the link to create an <code>NusModsShareLink</code> object containing the <code>SemesterNo</code>, each module&#8217;s <code>ModuleCode</code>, and their corresponding lessons' <code>LessonType</code> and <code>LessonNo</code>. The <code>AddNusModsCommandParser</code> then creates an <code>AddNusModsCommand</code>, which takes in the <code>Name</code> and <code>NusModsShareLink</code> objects, and passes the command back to <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The <code>AddNusModsCommand#execute</code> is then called by the <code>LogicManager</code>.</p>
-</li>
-<li>
-<p>In the <code>AddNusModsCommand#execute</code> method,</p>
+<p>The <code>AddNusModsCommand#execute</code> is then called by the <code>LogicManager</code>. In the <code>AddNusModsCommand#execute</code> method,</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><code>model#findPerson</code> is called to find the <code>Person</code> with the provided name.</p>
+<p><code>AddNusModsCommand#getPerson</code> is called to get from the model the <code>Person</code> whose schedule will be added with the modules.</p>
 </li>
 <li>
-<p>Iterate through the <code>ModuleCodes</code>,</p>
+<p><code>AddNusModsCommand#mapModulesToEvents</code> is then called to map each module to an event. Each <code>Module</code>-<code>LessonType</code>-<code>LessonNo</code> entry in the <code>NusModsShareLink</code> is iterated through and the following is executed,</p>
 <div class="olist lowerroman">
 <ol class="lowerroman" type="i">
 <li>
 <p>Call <code>model#findModule</code> to get the <code>Module</code> with the given module code.</p>
 </li>
 <li>
-<p>Pass the module and selected lesson numbers in the link into <code>ModuleEventMappingUtil#mapModuleToEvent</code> to generate an <code>Event</code> based on the module. The lesson numbers are used to generate the <code>Timeslots</code> for the event.</p>
+<p>Pass the <code>Module</code> and pairs of <code>LessonType</code>-<code>LessonNo</code> to <code>ModuleEventMappingUtil#mapModuleToEvent</code> to generate an <code>Event</code> based on the module and lesson type-number pair. One <code>Module</code> is mapped to one <code>Event</code>, and each <code>Lesson</code> in the module is used to generate multiple <code>Timeslots</code> for an event.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Iterate through all the events to add,</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Call <code>person#addEvent</code> to add the event to the person&#8217;s schedule.</p>
-</li>
-</ol>
-</div>
+<p>The created events will then be iterated through and executed with <code>person#addEvent</code> to add the events to the person&#8217;s schedule.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Return command result and display feedback to user.</p>
+<p>The command result is returned to <code>LogicManager</code> and feedback is displayed to user.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows the <code>Module</code> class and its associated classes. The structure follows closely to the data retrieved from NUSMods API with some changes to suit the needs of our application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nusmods/ModuleClassDiagram.png" alt="ModuleClassDiagram">
+</div>
+<div class="title">Figure 15. Class diagram of <code>Module</code> and associated classes</div>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows the <code>Event</code> class and its associated classes relevant in the context of this feature.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/nusmods/EventClassDiagram.png" alt="EventClassDiagram" width="75%">
+</div>
+<div class="title">Figure 16. Class diagram of <code>Event</code> and associated classes</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.9.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-ease-of-executing-command-as-user"><a class="link" href="#aspect-ease-of-executing-command-as-user">Aspect: Ease of executing command as user.</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Entering NUSMods share link</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User can easily get the NUSMods share link of his/her existing NUSMods timetable and copy/paste the link into the command.</p>
-</li>
-<li>
-<p>Cons: Less flexibility if user wants to add only some modules (has to adjust timetable on NUSMods or modify the link itself)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Entering modules individually</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: More flexibility in specifying modules to add.</p>
-</li>
-<li>
-<p>Cons: Tedious as user has to specify the semester, module codes and lesson numbers in the command.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 3:</strong> Importing the downloaded iCalendar file from NUSMods</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Opens up the possibility of importing generic iCalendar files.</p>
-</li>
-<li>
-<p>Cons: User is unlikely to be able to get the iCalendar files of his/her group members (due to tediousness and privacy reasons).</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Ease of use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Allow user to add modules individually</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easier to implement.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tedious for user, as user has to specify the module code, lesson types and lesson numbers in the command.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Allow user to add modules via NUSMods share link <strong>(current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User can easily get the NUSMods share link of his/her existing NUSMods timetable and copy/paste the link into the command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Require implementation of complex URL validation and parsing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3. Allow user to import the downloaded iCalendar file from NUSMods</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens up the possibility of importing generic iCalendar files.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Harder to implement, need to deal with file IO and .ics file format parsing. Also, user is unlikely to get the iCalendar files of his/her group members (due to tediousness)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">We chose to implement choice 2 as it is the most user-friendly one. The bonus is that choice 1 has been implemented as well as it is easy to adapt what we have already implemented for choice 2 to make choice 1 work.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="external-apis"><a class="link" href="#external-apis">3.10. External APIs</a></h3>
 <div class="paragraph">
-<p>The application requires data from the <a href="https://api.nusmods.com/v2/">NUSMods API</a> for the <a href="#add-nusmods-to-schedule">Add NUSMods To Schedule</a> feature and data from the <a href="https://developers.google.com/maps/documentation">Google Maps API</a> for the <a href="#Implementation-ClosestLocation">Closest Common Location</a> feature. The following subsections describe the implementation of various aspects with regards to working with external APIs:</p>
+<p>The application requires data from the <a href="https://api.nusmods.com/v2/">NUSMods API</a> for the <a href="#add-nusmods-to-schedule">Add NUSMods To Schedule</a> feature and data from the <a href="https://developers.google.com/maps/documentation">Google Maps API</a> for the <a href="#Implementation-ClosestLocation">Closest Common Location</a> feature. The following subsections describe the implementation of the <a href="#Design-API">Api component</a>:</p>
 </div>
 <div class="sect3">
 <h4 id="apis"><a class="link" href="#apis">3.10.1. APIs</a></h4>
 <div class="paragraph">
-<p>We have implemented a <code>websocket</code> component to contain the logic of interfacing with external APIs.</p>
+<p>We have implemented an <code>Api</code> component to contain the logic of interfacing with external APIs, the architecture diagram of this component can be seen in <a href="#Design-API">Design &#8594; Api component</a>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>websocket.NusModsApi</code> class contains methods for querying different endpoints of the NUSMods API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
@@ -1603,22 +1667,32 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <div class="paragraph">
 <p>The <code>websocket.GmapsApi</code> class contains methods for querying different endpoints of the Google Maps API and parsing the query results into <code>JSONObject</code> or <code>JSONArray</code> objects.</p>
 </div>
+<div class="paragraph">
+<p>The <code>websocket.Cache</code> class handles the saving and loading of cached API results in the resources folder.</p>
+</div>
+<div class="paragraph">
+<p>The <code>websocket.util</code> folder contains various utility classes for querying external APIs.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="caching-api-results"><a class="link" href="#caching-api-results">3.10.2. Caching API Results</a></h4>
 <div class="paragraph">
-<p>To support limited connectivity in our application, the results of all API queries are preprocessed and saved into the resources directory. The following activity diagram shows how the caching feature works when external data is required for the execution of a certain command:</p>
+<p>To support limited connectivity in our application, the results of all API queries are preprocessed and saved into the resources directory. This is managed by the <code>Cache</code> class. The following activity diagram shows how the caching feature works when external data is required for the execution of a certain command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/gmaps/ApiDiagram.png" alt="ApiDiagram">
+<img src="images/gmaps/ApiDiagram.png" alt="ApiDiagram" width="40%">
 </div>
+<div class="title">Figure 17. Activity diagram showing decision flow for <code>loadXXX</code> methods</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="preprocessing-nusmods-api"><a class="link" href="#preprocessing-nusmods-api">3.10.3. Preprocessing NUSMods API</a></h4>
 <div class="paragraph">
-<p>The key information that we require for each NUS module is the timetable information. Unfortunately, there is no available endpoint which provides the timetable information of all modules at once - there is only an endpoint which provides the timetable information of one module per query. Thus, we developed a small program in <code>logic.internal.nusmods.ImportMods</code>, which can be run prior to the main application itself, to query the timetable info for every module and build a list of modules data containing the timetable information.</p>
+<p>We preprocess the data collected from NUSMods API so that we can cache the data for offline usage and perform some early computation steps (e.g. validation, parsing) to reduce the computation cost during actual use in the application.</p>
+</div>
+<div class="paragraph">
+<p>Notably, the key information that we require for each NUS module is the timetable information. However, there is no available API endpoint which provides the timetable information of all modules at once. Rather, there is only an endpoint which provides the timetable information of one module per query. Thus, we developed a small program in <code>logic.internal.nusmods.ImportMods</code>, which is executed prior to the main application itself, to query the timetable info for every module and save the data in the resources folder.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1627,55 +1701,41 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 </div>
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.10.5. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-limited-connectivity-support"><a class="link" href="#aspect-limited-connectivity-support">Aspect: Limited Connectivity Support</a></h5>
-<div class="paragraph">
-<p>Current choice: we chose a combination of alternatives 1 and 2 to achieve robust limited connectivity support for our external API data.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Preprocessing API</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Can achieve complete offline support, also saves the issue of handling API keys.</p>
-</li>
-<li>
-<p>Cons: Have to run preprocessing programs from time to time to update data files, e.g. for modules in new academic year or new locations else features will not work.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Caching Query Results</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Achieves limited connectivity support (call once and save result, then use saved result for future calls). Also, needs less work to support future data/API changes.</p>
-</li>
-<li>
-<p>Cons: Not so useful in cases where a large number of queries is required to be preprocessed first, e.g. getting locations data from Google Maps API to generate <code>LocationGraph</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 3:</strong> Direct API queries</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement, minimal work to support future data/API changes.</p>
-</li>
-<li>
-<p>Cons: No limited connectivity support.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Limited Connectivity Support</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Preprocessing API results and storing it in resources folder.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Can achieve complete offline support, also avoids the issue of providing API keys in production <strong>(current choice</strong>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have to run the preprocessing programs in <code>logic.internal</code> from time to time to update data files, e.g. for modules in new academic year or new locations else features will not work.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Caching Query Results</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Achieves limited connectivity support (call once and save result, then use saved result for future calls). Also, needs less work to support future data/API changes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not so useful in cases where a large number of queries is required to be preprocessed first in order to handle a single user command, e.g. finding common location requires building a <code>LocationGraph</code> after getting the locations data from Google Maps.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3. Direct API queries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement, minimal work to support future data/API changes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No limited connectivity support.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock">The choice of implementation was progressive - it was initially choice 3 for prototyping, then enhanced to choice 2, and finally adapted to choice 1. Choice 1 suits our needs the best as it can achieve complete offline support and avoid handling API keys in production. Additionally, the cons of choice 1 is manageable. However, a mix of choice 1 and 2 will be required moving forward if we intend to support non-NUS locations or multiple academic semesters.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -2044,6 +2104,10 @@ at most 10 x 10 matrix. Construct the n x n matrix by calling google maps Distan
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
+<dt class="hdlist1"><a id="api"></a> API</dt>
+<dd>
+<p>Application Programming Interface</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -2194,4 +2258,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:33:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:51:47 UTC</div></div></div></body></html>

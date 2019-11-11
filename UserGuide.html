@@ -1491,7 +1491,7 @@ and specify the name of the group you wish to edit with the <code>ed/</code> pre
 and specify the person&#8217;s name and the group&#8217;s name!</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>addtogroup n/PERSON_NAME g/GROUP_NAME role/ROLE</code></p>
+<p>Format: <code>addtogroup n/PERSON_NAME g/GROUP_NAME [role/ROLE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -2474,13 +2474,35 @@ the command. We hope with this feature you will have a seamless and pleasant exp
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">8. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong>Navigation</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>List/Show All Persons</strong> : <code>list</code></p>
+<p><strong>Return to Home page</strong> : <code>home</code></p>
 </li>
 <li>
-<p><strong>Add Person</strong> <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203; [c/NUS_MOD_LINK]</code><br>
+<p><strong>Switch tabs</strong> : <code>switch-tab</code></p>
+</li>
+<li>
+<p><strong>Viewing help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Exiting the program</strong> : <code>exit</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Person Management</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Edit your details</strong> : <code>edituser</code></p>
+</li>
+<li>
+<p><strong>Add Person</strong> <code>addperson n/NAME [p/PHONE] [em/EMAIL] [a/ADDRESS] [r/REMARK] [tag/TAG]&#8230;&#8203;</code><br>
 e.g. <code>addperson n/James Ho p/22224444 em/jamesho@example.com a/123, Clementi Rd, 1234665 r/Always helpful tag/friend tag/colleague</code></p>
 </li>
 <li>
@@ -2488,17 +2510,20 @@ e.g. <code>addperson n/James Ho p/22224444 em/jamesho@example.com a/123, Clement
 e.g. <code>editperson ed/James Lee em/jameslee@example.com</code></p>
 </li>
 <li>
-<p><strong>Delete Person</strong> : <code>delete n/NAME</code><br>
+<p><strong>Delete Person</strong> : <code>deleteperson n/NAME</code><br>
 e.g. <code>deleteperson n/Benedict</code></p>
 </li>
 <li>
-<p><strong>Find Person</strong> : <code>findperson n/NAME</code><br>
-e.g. <code>findperson n/James Jake</code></p>
+<p><strong>Show Person</strong> : <code>show n/NAME</code><br>
+e.g. <code>show n/James Jake</code></p>
 </li>
-<li>
-<p><strong>Add Event to Person&#8217;s Schedule</strong> : <code>addevent n/NAME e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br>
-e.g. <code>addevent n/John e/Math Lecture t/26092019:1300-26092019:1400-LT25</code></p>
-</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Schedule Management</strong></p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Add Module to Person&#8217;s Schedule</strong> : <code>addmod n/NAME m/MODULE_CODE class/CLASS_NUMBERS(comma-separated) [ay/ACADEMIC_YEAR] [s/SEMESTER]</code><br>
 e.g. <code>addmod n/John m/CS2103T class/G01,T5 ay/2019/2020 s/1</code></p>
@@ -2512,36 +2537,58 @@ e.g. <code>addmods n/John l/https://nusmods.com/timetable/sem-1/share?CS2101=&am
 e.g. <code>showmod m/CS3230 ay/2019/2020 s/2</code></p>
 </li>
 <li>
-<p><strong>Show Person Details and Schedule</strong> : <code>show n/NAME</code><br>
-e.g. <code>show n/James Lee</code></p>
+<p><strong>Add Event to Person&#8217;s Schedule</strong> : <code>addevent n/NAME e/EVENT_NAME t/DATETIME&#8230;&#8203;</code><br>
+e.g. <code>addevent n/John e/Math Lecture t/26092019-1300-1400</code></p>
 </li>
 <li>
-<p><strong>Add Group</strong> <code>addgroup g/GROUP_NAME [r/GROUP_REMARK]</code><br>
-e.g. <code>addgroup g/CS2103 r/Project Group</code></p>
+<p><strong>Delete Event</strong> : <code>deleteevent [n/NAME] e/EVENT_NAME</code><br>
+e.g. <code>deleteevent n/Bobby e/CS2105</code></p>
 </li>
 <li>
-<p><strong>Add Person to Group</strong> : <code>addtogroup n/NAME g/GROUP_NAME</code><br>
-e.g. <code>addtogroup n/John g/CS2103</code></p>
+<p><strong>Generate Schedule</strong> : <code>schedule n/NAME&#8230;&#8203;</code><br>
+e.g. <code>schedule n/Bobby n/Charlie</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Group Management</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add Group</strong> <code>addgroup g/GROUP_NAME [d/GROUP_DESCRIPTION] [role/USER_ROLE]</code><br>
+e.g. <code>addgroup g/CS2103 d/A CS2103 project group role/Leader</code></p>
 </li>
 <li>
-<p><strong>Edit Group</strong> <code>editgroup ed/GROUP_NAME [g/GROUP_NAME] [r/GROUP_REMARK]</code><br>
-e.g. <code>editgroup ed/CS2103 g/CS3203 r/Project Discussion Group</code></p>
+<p><strong>Add Person to Group</strong> : <code>addtogroup n/PERSON_NAME g/GROUP_NAME [role/ROLE]</code><br>
+e.g. <code>addtogroup n/Denise g/CS3203 role/Manager</code></p>
+</li>
+<li>
+<p><strong>Edit Group</strong> <code>editgroup ed/GROUP [g/GROUP_NAME] [d/GROUP_DESCRIPTION] [role/USER_ROLE]</code><br>
+e.g. <code>editgroup ed/CS2103 g/CS3203 d/A CS3203 project group role/Member</code></p>
 </li>
 <li>
 <p><strong>Delete Group</strong> : <code>deletegroup g/GROUP_NAME</code><br>
 e.g. <code>deletegroup g/CS2103</code></p>
 </li>
 <li>
-<p><strong>Find Group</strong> : <code>findgroup g/GROUP_NAME</code><br>
-e.g. <code>findgroup g/CS2103</code></p>
-</li>
-<li>
 <p><strong>Show Group Details and Schedule</strong> : <code>show g/GROUP_NAME</code><br>
-e.g. <code>show g/CS2030 T2</code></p>
+e.g. <code>show g/CS2030</code></p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Advanced Features</strong></p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Export Visual Representation</strong> : <code>export-vr [n/NAME]… [g/GROUP_NAME]… o/SAVE_LOCATION</code><br>
 e.g. <code>export-vr g/TimeBook o/timetable.jpg</code></p>
+</li>
+<li>
+<p><strong>Select Time slot</strong> : <code>select n/NAME [week/WEEK_NUMBER] i/ID</code><br>
+e.g. <code>select n/Bobby i/1</code></p>
 </li>
 <li>
 <p><strong>Closest Location</strong> : <code>closestlocation l/LOCATIONA LOCATIONB &#8230;&#8203;</code><br>
@@ -2550,15 +2597,6 @@ e.g. <code>closestlocation l/LT16 LT15 AS5</code></p>
 <li>
 <p><strong>Select Free Time Slot</strong> : <code>selectfreetime [week/WEEK_NUMBER] i/FREETIMESLOTID</code><br>
 e.g. <code>selectfreetime i/1</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
@@ -3242,4 +3280,4 @@ e.g. <code>selectfreetime i/1</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:51:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:03:42 UTC</div></div></div></body></html>

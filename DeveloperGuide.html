@@ -1511,42 +1511,35 @@ closest common location.</p>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.5. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-limited-connectivity-support"><a class="link" href="#aspect-limited-connectivity-support">Aspect: Limited Connectivity Support</a></h5>
-<div class="paragraph">
-<p>Current choice: we chose alternative 2 as we have limited Google Maps API calls and to reduce the time and space complexity
-of the application.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Get the distance of the location directly from the NUSMods.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Simplify the code base as we can directly call Google Maps API after calling NUSMods API.</p>
-</li>
-<li>
-<p>Cons: Bad time complexity as there would be quadratically more data to process. Prone to error as Google Maps might
-identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Sanitize the Locations on NUSMods API according to their buildings(ie <code>AS6-0114</code>&#8594;`AS6`)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Save time and space complexity as the number of venues will decrease by a factor of 10.</p>
-</li>
-<li>
-<p>Cons: Increase in complexity of the code base as an additional step of processing will be required.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<h5 id="aspect-location"><a class="link" href="#aspect-location">Aspect: Location</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aspect:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">How to process the location.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Get the distance of the location directly from the NUSMods.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Simplify the code base as we can directly call Google Maps API after calling NUSMods API.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Bad time complexity as there would be quadratically more data to process. Prone to error as Google Maps might
+identify <code>AS6-0114</code> but not <code>AS6-0223</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Sanitize the Locations on NUSMods API according to their buildings(ie AS6-0114&#8594;AS6) <strong>(Current choice)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Save time and space complexity as the number of venues will decrease by a factor of 10.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Increase in complexity of the code base as an additional step of processing will be required.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -2333,4 +2326,4 @@ Expected: No lessons will be added to John&#8217;s schedule. Error message shows
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 16:40:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 16:51:15 UTC</div></div></div></body></html>
